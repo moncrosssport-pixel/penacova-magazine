@@ -14,6 +14,7 @@ pnpm dev          # localhost:3000
 
 Home is at `localhost:3000/ko`; `/` redirects there.
 Studio is at `localhost:3000/studio` (added in Task 7).
+Sanity defaults are built in for the public project settings; `.env.local` can override them.
 
 ## Stack
 

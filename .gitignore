@@ -47,3 +47,8 @@ next-env.d.ts
 # IDE
 .vscode/
 .idea/
+
+# Tooling state (oh-my-claudecode, claude-code, superpowers)
+.omc/
+.claude/
+.superpowers/

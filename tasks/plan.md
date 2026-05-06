@@ -35,6 +35,8 @@ Completed:
 - Category index pages are implemented at `/[locale]/[category]` for the seven
   magazine pillars.
 - Article detail pages use the shared `/[locale]/[category]/[slug]` route.
+- Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
+  and article JSON-LD wiring are implemented.
 
 Not completed:
 
@@ -166,11 +168,28 @@ Acceptance:
 Status: complete locally and pushed. Production positive-render verification
 still requires a seeded Sanity article.
 
+### Slice 8: SEO Foundation
+
+Add metadata and crawler surfaces for the current public routes.
+
+Acceptance:
+
+- Home, category, and article routes generate titles and descriptions.
+- Category/article routes generate canonical and hreflang alternate links.
+- Article route supports Open Graph image metadata from `seo.ogImage` or
+  `heroImage`.
+- Article route emits JSON-LD when a document exists.
+- `/robots.txt` and `/sitemap.xml` return 200.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Production verification follows after push/deploy.
+
 ## Later Phases
 
 After Phase 1:
 
 - Phase 2: homepage refinement, article visual rhythm, responsive polish.
 - Phase 3: locale switcher and translation workflow.
-- Phase 4: SEO automation, sitemap, hreflang, OG, JSON-LD, analytics.
+- Phase 4: SEO polish, launch indexing policy, analytics.
 - Phase 5: content inventory, custom domain, launch checklist.

@@ -4,6 +4,7 @@ import {
   articleBySlugQuery,
   articlesByCategoryParams,
   articlesByCategoryQuery,
+  sitemapArticlesQuery,
 } from './queries';
 
 describe('articleBySlugQuery', () => {
@@ -29,6 +30,7 @@ describe('articleBySlugQuery', () => {
       'body',
       'publishedAt',
       'moodVariant',
+      'seo',
       'authors[]->',
       'featuredProducts[]->',
       'relatedRiders[]->',
@@ -82,5 +84,18 @@ describe('articlesByCategoryParams', () => {
     expect(articlesByCategoryParams('heritage')).toEqual({
       category: 'heritage',
     });
+  });
+});
+
+describe('sitemapArticlesQuery', () => {
+  it('selects published article route fields for sitemap generation', () => {
+    const query = sitemapArticlesQuery();
+
+    expect(query).toContain('_type == "article"');
+    expect(query).toContain('defined(slug.current)');
+    expect(query).toContain('defined(category)');
+    expect(query).toContain('publishedAt <= now()');
+    expect(query).toContain('"slug": slug.current');
+    expect(query).toContain('_updatedAt');
   });
 });

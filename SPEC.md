@@ -43,6 +43,8 @@ The repository currently contains the foundation:
 - Sanity read client and article queries
 - Category index route at `/[locale]/[category]`
 - Shared article detail route at `/[locale]/[category]/[slug]`
+- Basic SEO metadata, hreflang alternates, sitemap, robots, Open Graph, and
+  article JSON-LD wiring
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The prepared Sanity seed still needs

@@ -20,6 +20,7 @@ export function articleBySlugQuery(): string {
       publishedAt,
       moodVariant,
       issueNumber,
+      seo,
       cta,
       "authors": authors[]->{
         _id,
@@ -83,4 +84,23 @@ export function articlesByCategoryQuery(): string {
 
 export function articlesByCategoryParams(category: ArticleCategory) {
   return { category };
+}
+
+export function sitemapArticlesQuery(): string {
+  return `
+    *[
+      _type == "article" &&
+      defined(slug.current) &&
+      defined(category) &&
+      defined(publishedAt) &&
+      publishedAt <= now() &&
+      !(_id in path("drafts.**"))
+    ]{
+      _id,
+      "slug": slug.current,
+      category,
+      publishedAt,
+      _updatedAt
+    }
+  `;
 }

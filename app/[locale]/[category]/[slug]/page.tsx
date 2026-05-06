@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,6 +19,8 @@ import {
 } from '@/lib/magazine/format';
 import { sanityClient, urlFor } from '@/lib/sanity/client';
 import { articleBySlugParams, articleBySlugQuery } from '@/lib/sanity/queries';
+import { absoluteUrl, createLocalizedMetadata } from '@/lib/seo/metadata';
+import { SITE_NAME } from '@/lib/site';
 
 type ArticlePageProps = {
   params: {
@@ -44,6 +47,11 @@ type ArticleDoc = {
   publishedAt?: string;
   moodVariant?: 'editorial' | 'feature';
   issueNumber?: number;
+  seo?: {
+    title?: Partial<Record<Locale, string>>;
+    description?: Partial<Record<Locale, string>>;
+    ogImage?: SanityImage;
+  };
   cta?: {
     label?: Partial<Record<Locale, string>>;
     urlKR?: string;
@@ -56,6 +64,39 @@ type ArticleDoc = {
     role?: string;
   }[];
 };
+
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+  if (!isLocale(params.locale) || !isArticleCategory(params.category)) {
+    return {};
+  }
+
+  const article = await sanityClient.fetch<ArticleDoc | null>(
+    articleBySlugQuery(),
+    articleBySlugParams(params.slug, params.category),
+    { next: { revalidate: 60 } },
+  );
+
+  if (!article) {
+    return {};
+  }
+
+  const imageSource = article.seo?.ogImage?.asset?._ref
+    ? article.seo.ogImage
+    : article.heroImage;
+  const image = imageSource?.asset?._ref
+    ? urlFor(imageSource).width(1200).height(630).fit('crop').url()
+    : null;
+
+  return createLocalizedMetadata({
+    locale: params.locale,
+    pathSegments: [params.category, article.slug],
+    title: article.seo?.title ?? article.title,
+    description: article.seo?.description ?? article.excerpt,
+    fallbackTitle: SITE_NAME,
+    type: 'article',
+    image,
+  });
+}
 
 const unavailableCopy: Record<Locale, string> = {
   ko: '아직 기사 본문이 준비되지 않았습니다.',
@@ -171,9 +212,63 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
       </article>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            createArticleJsonLd({
+              article,
+              categoryLabel: meta.label,
+              locale,
+              path: `/${locale}/${category}/${article.slug}`,
+              image: heroImageUrl,
+            }),
+          ),
+        }}
+      />
+
       <MagazineFooter />
     </main>
   );
+}
+
+function createArticleJsonLd({
+  article,
+  categoryLabel,
+  locale,
+  path,
+  image,
+}: {
+  article: ArticleDoc;
+  categoryLabel: string;
+  locale: Locale;
+  path: string;
+  image: string | null;
+}) {
+  const title = pickLocalized(article.seo?.title ?? article.title, locale) || SITE_NAME;
+  const description = pickLocalized(article.seo?.description ?? article.excerpt, locale);
+  const authors = article.authors
+    ?.map((author) => pickLocalized(author.name, locale))
+    .filter(Boolean)
+    .map((name) => ({ '@type': 'Person', name }));
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description || undefined,
+    image: image ? [image] : undefined,
+    datePublished: article.publishedAt,
+    dateModified: article.publishedAt,
+    articleSection: categoryLabel,
+    inLanguage: locale === 'jp' ? 'ja-JP' : locale === 'en' ? 'en-US' : 'ko-KR',
+    mainEntityOfPage: absoluteUrl(path),
+    author: authors?.length ? authors : { '@type': 'Organization', name: SITE_NAME },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+    },
+  };
 }
 
 function getCtaHref(cta: ArticleDoc['cta'], locale: Locale) {

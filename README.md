@@ -22,6 +22,8 @@ Category indexes are available at routes such as `localhost:3000/ko/editorial`.
 Article detail pages are available at routes such as
 `localhost:3000/ko/editorial/quiet-morning` after content is published.
 Studio is at `localhost:3000/studio` (added in Task 7).
+SEO utility routes are available at `localhost:3000/sitemap.xml` and
+`localhost:3000/robots.txt`.
 Sanity defaults are built in for the public project settings; `.env.local` can override them.
 
 Seed the Phase 1 article and glossary after Sanity CLI login:

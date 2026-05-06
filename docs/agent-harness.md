@@ -34,6 +34,8 @@ Local routes:
 - `http://localhost:3000/ko`
 - `http://localhost:3000/ko/editorial`
 - `http://localhost:3000/ko/editorial/quiet-morning` after content seed
+- `http://localhost:3000/sitemap.xml`
+- `http://localhost:3000/robots.txt`
 - `http://localhost:3000/studio`
 
 Production routes:
@@ -58,6 +60,8 @@ Current known state:
 - Category indexes render at `/[locale]/[category]`.
 - Shared article detail pages render at `/[locale]/[category]/[slug]` after
   content exists.
+- SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
+  place.
 - The Phase 1 seed payload exists, but applying it requires Sanity CLI login.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
@@ -98,6 +102,7 @@ For each task:
 | Sanity schema | `pnpm build`, Studio sidebar check |
 | Sanity query/client | Unit test plus `pnpm build` |
 | Article page | `pnpm test`, `pnpm build`, local missing-article 404 or seeded article URL |
+| SEO metadata | `pnpm test`, `pnpm build`, check page head, `/robots.txt`, `/sitemap.xml` |
 | Visual design | Design system review, `pnpm test`, `pnpm build`, browser check |
 | Vercel/deploy | Production or preview URL check |
 | Docs only | Link/file review, `git diff --check` |

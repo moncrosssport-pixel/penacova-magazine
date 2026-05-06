@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArticleTeaser } from '@/components/magazine/ArticleTeaser';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
@@ -14,6 +15,7 @@ import {
   articlesByCategoryParams,
   articlesByCategoryQuery,
 } from '@/lib/sanity/queries';
+import { createLocalizedMetadata } from '@/lib/seo/metadata';
 
 type CategoryPageProps = {
   params: {
@@ -21,6 +23,22 @@ type CategoryPageProps = {
     category: string;
   };
 };
+
+export function generateMetadata({ params }: CategoryPageProps): Metadata {
+  if (!isLocale(params.locale) || !isArticleCategory(params.category)) {
+    return {};
+  }
+
+  const meta = getCategoryMeta(params.category);
+
+  return createLocalizedMetadata({
+    locale: params.locale,
+    pathSegments: [params.category],
+    title: meta.title,
+    description: meta.dek,
+    fallbackTitle: meta.label,
+  });
+}
 
 type SanityImage = {
   asset?: {

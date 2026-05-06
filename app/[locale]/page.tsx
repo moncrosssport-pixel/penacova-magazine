@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -5,12 +6,21 @@ import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { StoryCard } from '@/components/magazine/StoryCard';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
+import { createHomeMetadata } from '@/lib/seo/metadata';
 
 type LocaleHomePageProps = {
   params: {
     locale: string;
   };
 };
+
+export function generateMetadata({ params }: LocaleHomePageProps): Metadata {
+  if (!isLocale(params.locale)) {
+    return {};
+  }
+
+  return createHomeMetadata(params.locale);
+}
 
 const copy: Record<Locale, {
   issue: string;

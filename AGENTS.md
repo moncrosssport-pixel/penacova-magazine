@@ -81,13 +81,14 @@ Implemented:
 - `/[locale]/[category]` category index route for the seven magazine pillars
 - `/[locale]/[category]/[slug]` shared article detail route for the seven
   magazine pillars
+- Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
+  and article JSON-LD wiring
 
 Not yet implemented:
 
 - Applying the prepared Sanity seed requires a logged-in Sanity CLI session
 - End-to-end verification with a real published article
 - Locale switcher UI
-- SEO automation
 - Launch content
 - Custom domain
 

@@ -17,6 +17,7 @@
 - [x] Replace the temporary locale home shell with a design-system-based magazine homepage shell.
 - [x] Build category index pages.
 - [x] Build shared article detail pages for all magazine categories.
+- [x] Add SEO metadata, sitemap, hreflang, OG images, and JSON-LD wiring.
 
 ## Next
 
@@ -47,7 +48,6 @@
 - [ ] Build look book pages.
 - [ ] Add locale switcher.
 - [ ] Add translation status handling.
-- [ ] Add SEO metadata, sitemap, hreflang, OG images, and JSON-LD.
 - [ ] Add analytics events for reading depth and outbound Cafe24 CTAs.
 - [ ] Add newsletter/follow embed.
 - [ ] Add custom domain `magazine.penacova.co.kr`.

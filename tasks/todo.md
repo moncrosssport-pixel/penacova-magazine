@@ -1,0 +1,54 @@
+# Todo
+
+## Completed
+
+- [x] Initialize Next.js 14 App Router project.
+- [x] Configure Tailwind, TypeScript, ESLint, and pnpm scripts.
+- [x] Configure Vitest and locale helper tests.
+- [x] Add locale constants for `ko`, `en`, and `jp`.
+- [x] Add middleware redirect from `/` to `/ko`.
+- [x] Connect GitHub repository at `moncrosssport-pixel/penacova-magazine`.
+- [x] Connect Vercel production deployment.
+- [x] Embed Sanity Studio at `/studio`.
+- [x] Add Sanity public defaults for project `6pelmu7l`.
+- [x] Add minimal `/[locale]` home shell so production is not a public 404.
+- [x] Add repo-local agent harness and final magazine form documentation.
+
+## Next
+
+- [ ] Create `sanity/helpers/localizedField.ts` or equivalent helper module.
+- [ ] Create `sanity/schemas/glossary.ts`.
+- [ ] Create `sanity/schemas/person.ts`.
+- [ ] Create `sanity/schemas/collection.ts`.
+- [ ] Create `sanity/schemas/product.ts`.
+- [ ] Create `sanity/schemas/rider.ts`.
+- [ ] Create `sanity/schemas/look.ts`.
+- [ ] Create `sanity/schemas/article.ts`.
+- [ ] Register all schemas in `sanity/schema.ts`.
+- [ ] Verify Studio sidebar shows all document types.
+- [ ] Add `@sanity/client`, `@portabletext/react`, and `@sanity/image-url` when
+      needed by the article route.
+- [ ] Create `lib/sanity/client.ts`.
+- [ ] Create `lib/sanity/queries.ts`.
+- [ ] Add query unit tests.
+- [ ] Create `/[locale]/editorial/[slug]` route.
+- [ ] Seed one Korean editorial article in Sanity Studio.
+- [ ] Verify the seeded article locally.
+- [ ] Verify the seeded article on Vercel.
+
+## Launch Backlog
+
+- [ ] Replace the temporary locale home shell with the editorial homepage.
+- [ ] Build category index pages.
+- [ ] Build rider detail pages.
+- [ ] Build look book pages.
+- [ ] Build guide/news/heritage/stories templates.
+- [ ] Add locale switcher.
+- [ ] Add translation status handling.
+- [ ] Add SEO metadata, sitemap, hreflang, OG images, and JSON-LD.
+- [ ] Add analytics events for reading depth and outbound Cafe24 CTAs.
+- [ ] Add newsletter/follow embed.
+- [ ] Add custom domain `magazine.penacova.co.kr`.
+- [ ] Prepare 12 Korean launch stories.
+- [ ] Prepare 5 rider profiles.
+- [ ] Prepare 30 to 50 glossary entries.

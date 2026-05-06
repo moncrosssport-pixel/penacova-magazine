@@ -2,8 +2,11 @@
 
 `magazine.penacova.co.kr` — Vogue-style editorial magazine for Penacova equestrian apparel.
 
-- Spec: `../docs/superpowers/specs/2026-04-29-penacova-magazine-design.md`
-- Phase 1 plan: `../docs/superpowers/plans/2026-04-29-penacova-magazine-phase1-foundation.md`
+- Final product form: `docs/final-magazine-form.md`
+- Agent handoff harness: `AGENTS.md`
+- Current implementation spec: `SPEC.md`
+- Current task plan: `tasks/plan.md`
+- Current task checklist: `tasks/todo.md`
 
 ## Develop
 
@@ -19,6 +22,17 @@ Sanity defaults are built in for the public project settings; `.env.local` can o
 ## Stack
 
 Next.js 14 · Sanity v3 · Tailwind CSS · Vitest · Vercel
+
+## Project facts
+
+- GitHub: `moncrosssport-pixel/penacova-magazine`
+- Production: `https://penacova-magazine.vercel.app`
+- Sanity project ID: `6pelmu7l`
+- Sanity dataset: `production`
+- Intended custom domain: `magazine.penacova.co.kr`
+
+The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not use an
+`etehofk` Vercel scope for this project.
 
 ## TODO before production launch
 

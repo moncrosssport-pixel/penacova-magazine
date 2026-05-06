@@ -1,0 +1,113 @@
+# Agent Handoff Harness
+
+Use this file when continuing the project from GitHub with a new agent.
+
+## Mission
+
+Continue building Penacova Magazine toward a production-ready editorial site.
+The immediate goal is to finish Phase 1: Sanity schemas, a read client, article
+querying, and one rendered editorial article route.
+
+## Required Reading Order
+
+1. `AGENTS.md`
+2. `README.md`
+3. `SPEC.md`
+4. `docs/final-magazine-form.md`
+5. `tasks/plan.md`
+6. `tasks/todo.md`
+
+## Environment
+
+```bash
+pnpm install
+pnpm test
+pnpm build
+pnpm dev
+```
+
+Local routes:
+
+- `http://localhost:3000/`
+- `http://localhost:3000/ko`
+- `http://localhost:3000/studio`
+
+Production routes:
+
+- `https://penacova-magazine.vercel.app/`
+- `https://penacova-magazine.vercel.app/ko`
+- `https://penacova-magazine.vercel.app/studio`
+
+## Known Good State
+
+As of the harness creation:
+
+- `main` points at `moncrosssport-pixel/penacova-magazine`.
+- `/` redirects to `/ko`.
+- `/ko` renders a minimal placeholder home.
+- `/studio` loads the embedded Sanity Studio shell.
+- `sanity/schema.ts` intentionally contains an empty schema list.
+- `pnpm test` and `pnpm build` pass.
+
+## Known Traps
+
+- The repo is not owned by an `etehofk` GitHub/Vercel account. Use
+  `moncrosssport-pixel`.
+- Do not recreate a local `.vercel` link under the wrong account.
+- Avoid unpinned Sanity upgrades. Sanity 5 / `next-sanity` 12 are not safe for
+  the current Next 14 + React 18 baseline.
+- `/studio` must not be redirected through locale middleware.
+- Public Sanity values can be defaults, but never expose write tokens.
+- The old planning document outside this repo may contain optimistic checklist
+  language. Treat this repo's `tasks/todo.md` as the active state.
+
+## Work Loop
+
+For each task:
+
+1. Read the relevant source files.
+2. Update `tasks/todo.md` if the task status changes.
+3. Make the smallest useful change.
+4. Run the narrowest verification.
+5. Run `pnpm test`.
+6. Run `pnpm build` if the change affects runtime, routing, CMS config, or
+   dependencies.
+7. Review `git diff`.
+8. Commit with a clear message.
+9. Push when the work is meant to be available to the next agent.
+
+## Verification Matrix
+
+| Change type | Required verification |
+| --- | --- |
+| i18n helper | `pnpm test` |
+| Middleware/routing | `pnpm test`, `pnpm build`, local route check |
+| Sanity schema | `pnpm build`, Studio sidebar check |
+| Sanity query/client | Unit test plus `pnpm build` |
+| Article page | `pnpm test`, `pnpm build`, local article URL |
+| Vercel/deploy | Production or preview URL check |
+| Docs only | Link/file review, `git diff --check` |
+
+## Commit Style
+
+Use conventional, focused commits:
+
+- `docs: add agent handoff harness`
+- `feat(cms): add localized field helpers`
+- `feat(cms): add Article schema`
+- `feat(sanity): add article query`
+- `feat(frontend): render editorial article`
+- `fix(routing): ...`
+
+## Manual External Steps
+
+Some steps require the project owner or dashboard access:
+
+- Sanity login and CORS origin management.
+- Vercel account selection.
+- Custom domain setup.
+- DNS changes for `magazine.penacova.co.kr`.
+- Entering launch content in Studio.
+
+When blocked by dashboard access, leave the code ready, document the exact
+manual action, and keep the repo buildable.

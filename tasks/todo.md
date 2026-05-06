@@ -18,6 +18,15 @@
 - [x] Build category index pages.
 - [x] Build shared article detail pages for all magazine categories.
 - [x] Add SEO metadata, sitemap, hreflang, OG images, and JSON-LD wiring.
+- [x] Add path-preserving locale switcher links.
+
+## Progress Estimate
+
+- Phase 1 technical foundation: about 88% complete.
+- Final public launch: about 38% complete.
+- Main blockers: authenticated Sanity seed, real article verification, launch
+  content, translation workflow, rider/look-specific surfaces, analytics,
+  newsletter/follow capture, and custom domain setup.
 
 ## Next
 
@@ -46,7 +55,6 @@
 
 - [ ] Build rider detail pages.
 - [ ] Build look book pages.
-- [ ] Add locale switcher.
 - [ ] Add translation status handling.
 - [ ] Add analytics events for reading depth and outbound Cafe24 CTAs.
 - [ ] Add newsletter/follow embed.

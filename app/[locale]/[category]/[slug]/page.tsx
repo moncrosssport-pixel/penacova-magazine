@@ -143,7 +143,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main className="min-h-screen bg-paper text-ink">
-      <MagazineMasthead locale={locale} />
+      <MagazineMasthead locale={locale} pathSegments={[category, article.slug]} />
 
       <article>
         {heroImageUrl ? (

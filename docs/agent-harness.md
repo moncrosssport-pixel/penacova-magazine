@@ -62,6 +62,7 @@ Current known state:
   content exists.
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
+- Masthead locale links preserve the current category or article path.
 - The Phase 1 seed payload exists, but applying it requires Sanity CLI login.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.

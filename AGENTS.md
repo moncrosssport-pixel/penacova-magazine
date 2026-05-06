@@ -83,12 +83,12 @@ Implemented:
   magazine pillars
 - Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
   and article JSON-LD wiring
+- Path-preserving locale switcher links in the magazine masthead
 
 Not yet implemented:
 
 - Applying the prepared Sanity seed requires a logged-in Sanity CLI session
 - End-to-end verification with a real published article
-- Locale switcher UI
 - Launch content
 - Custom domain
 

@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
-import { LOCALES, type Locale } from '@/lib/i18n/locales';
+import type { Locale } from '@/lib/i18n/locales';
+import {
+  languageAlternates,
+  localePath,
+} from '@/lib/i18n/routes';
 import type { LocalizedCopy } from '@/lib/magazine/categories';
 import { pickLocalized } from '@/lib/magazine/format';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site';
+
+export { languageAlternates, localePath } from '@/lib/i18n/routes';
 
 type MetadataInput = {
   locale: Locale;
@@ -20,12 +26,6 @@ const openGraphLocale: Record<Locale, string> = {
   jp: 'ja_JP',
 };
 
-const hrefLang: Record<Locale, string> = {
-  ko: 'ko-KR',
-  en: 'en-US',
-  jp: 'ja-JP',
-};
-
 const homeTitle: Record<Locale, string> = {
   ko: SITE_NAME,
   en: SITE_NAME,
@@ -40,20 +40,6 @@ const homeDescription: Record<Locale, string> = {
 
 export function absoluteUrl(path = '/') {
   return new URL(path, SITE_URL).toString();
-}
-
-export function localePath(locale: Locale, pathSegments: string[] = []) {
-  const suffix = pathSegments.length ? `/${pathSegments.map(encodeURIComponent).join('/')}` : '';
-  return `/${locale}${suffix}`;
-}
-
-export function languageAlternates(pathSegments: string[] = []) {
-  return {
-    ...Object.fromEntries(
-      LOCALES.map((locale) => [hrefLang[locale], localePath(locale, pathSegments)]),
-    ),
-    'x-default': localePath('ko', pathSegments),
-  };
 }
 
 export function createPageMetadata({

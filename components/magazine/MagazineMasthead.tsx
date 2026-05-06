@@ -1,9 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { LOCALES, type Locale } from '@/lib/i18n/locales';
+import { localePath } from '@/lib/i18n/routes';
 import { MAGAZINE_CATEGORIES } from '@/lib/magazine/categories';
 
-export function MagazineMasthead({ locale }: { locale: Locale }) {
+type MagazineMastheadProps = {
+  locale: Locale;
+  pathSegments?: string[];
+};
+
+export function MagazineMasthead({
+  locale,
+  pathSegments = [],
+}: MagazineMastheadProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-ink bg-paper">
       <div className="flex items-center justify-between border-b border-hairline px-4 py-2 font-mono text-[10px] uppercase tracking-[0.1em] text-muted sm:px-8 sm:text-[11px]">
@@ -16,7 +25,7 @@ export function MagazineMasthead({ locale }: { locale: Locale }) {
           {LOCALES.map((item, index) => (
             <span key={item} className="flex items-center gap-2">
               <Link
-                href={`/${item}`}
+                href={localePath(item, pathSegments)}
                 aria-current={item === locale ? 'page' : undefined}
                 className={`font-ui text-[11px] font-semibold uppercase tracking-[0.2em] no-underline ${
                   item === locale ? 'border-b border-ink text-ink' : 'text-muted'

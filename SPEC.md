@@ -45,12 +45,18 @@ The repository currently contains the foundation:
 - Shared article detail route at `/[locale]/[category]/[slug]`
 - Basic SEO metadata, hreflang alternates, sitemap, robots, Open Graph, and
   article JSON-LD wiring
+- Path-preserving locale switcher links in the masthead
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The prepared Sanity seed still needs
 an authenticated Sanity session before the real article route can be verified
 end to end, and later category-specific detail templates still need launch
 content.
+
+Approximate current progress:
+
+- Phase 1 technical foundation: 88% complete.
+- Final public launch: 38% complete.
 
 ## Phase 1 Target
 

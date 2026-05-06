@@ -37,6 +37,16 @@ Completed:
 - Article detail pages use the shared `/[locale]/[category]/[slug]` route.
 - Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
   and article JSON-LD wiring are implemented.
+- The masthead locale switcher preserves the current category or article path.
+
+## Progress Snapshot
+
+- Phase 1 technical foundation is roughly 88% complete. The code foundation is
+  largely in place; the remaining Phase 1 blocker is authenticated Sanity
+  content seeding plus real article verification locally and on production.
+- Final public launch is roughly 38% complete. The site still needs launch
+  content, translation workflow polish, rider/look-specific page depth,
+  analytics, newsletter/follow capture, custom domain setup, and final QA.
 
 Not completed:
 
@@ -180,6 +190,21 @@ Acceptance:
   `heroImage`.
 - Article route emits JSON-LD when a document exists.
 - `/robots.txt` and `/sitemap.xml` return 200.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Production verification follows after push/deploy.
+
+### Slice 9: Path-Preserving Locale Switcher
+
+Add reusable i18n route helpers and wire the magazine masthead locale links so
+category and article routes keep their current path when switching locale.
+
+Acceptance:
+
+- `/en/editorial` links to `/ko/editorial`, `/en/editorial`, and `/jp/editorial`.
+- Article detail pages preserve `[category]/[slug]` across supported locales.
+- Logo/home navigation still points to the locale home.
 - `pnpm test` passes.
 - `pnpm build` passes.
 

@@ -81,7 +81,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <main className="min-h-screen bg-paper text-ink">
-      <MagazineMasthead locale={locale} />
+      <MagazineMasthead locale={locale} pathSegments={[category]} />
 
       <header className="border-b border-hairline">
         <div className="mx-auto max-w-content px-6 py-14 sm:px-10 lg:px-14 lg:py-20">

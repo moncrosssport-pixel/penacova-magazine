@@ -26,10 +26,12 @@ Completed:
 - Vercel production URL is live.
 - Repo-local design system is available and documented.
 - Locale home uses the first design-system-based magazine shell.
+- Sanity localized field helpers are implemented.
+- Sanity document schemas are registered for Article, Collection, Glossary,
+  Look, Person, Product, and Rider.
 
 Not completed:
 
-- Sanity schemas.
 - Sanity read client.
 - GROQ queries.
 - Article page rendering.
@@ -56,6 +58,8 @@ Acceptance:
 - Korean fields are required where appropriate.
 - `pnpm build` passes.
 
+Status: complete.
+
 ### Slice 2: Core Sanity Schemas
 
 Create and register:
@@ -73,6 +77,9 @@ Acceptance:
 - `sanity/schema.ts` imports and exports all document types.
 - Studio sidebar shows the document types.
 - `pnpm build` passes.
+
+Status: complete by schema registration and build. Manual sidebar/content-entry
+verification still requires a logged-in Studio session.
 
 ### Slice 3: Sanity Read Client And Queries
 

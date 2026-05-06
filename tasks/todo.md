@@ -18,16 +18,16 @@
 
 ## Next
 
-- [ ] Create `sanity/helpers/localizedField.ts` or equivalent helper module.
-- [ ] Create `sanity/schemas/glossary.ts`.
-- [ ] Create `sanity/schemas/person.ts`.
-- [ ] Create `sanity/schemas/collection.ts`.
-- [ ] Create `sanity/schemas/product.ts`.
-- [ ] Create `sanity/schemas/rider.ts`.
-- [ ] Create `sanity/schemas/look.ts`.
-- [ ] Create `sanity/schemas/article.ts`.
-- [ ] Register all schemas in `sanity/schema.ts`.
-- [ ] Verify Studio sidebar shows all document types.
+- [x] Create `sanity/helpers/localizedField.ts` or equivalent helper module.
+- [x] Create `sanity/schemas/glossary.ts`.
+- [x] Create `sanity/schemas/person.ts`.
+- [x] Create `sanity/schemas/collection.ts`.
+- [x] Create `sanity/schemas/product.ts`.
+- [x] Create `sanity/schemas/rider.ts`.
+- [x] Create `sanity/schemas/look.ts`.
+- [x] Create `sanity/schemas/article.ts`.
+- [x] Register all schemas in `sanity/schema.ts`.
+- [x] Verify Studio schema compiles with all document types.
 - [ ] Add `@sanity/client`, `@portabletext/react`, and `@sanity/image-url` when
       needed by the article route.
 - [ ] Create `lib/sanity/client.ts`.

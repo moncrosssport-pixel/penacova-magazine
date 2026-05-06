@@ -1,5 +1,18 @@
 import type { SchemaTypeDefinition } from 'sanity';
+import { article } from './schemas/article';
+import { collection } from './schemas/collection';
+import { glossary } from './schemas/glossary';
+import { look } from './schemas/look';
+import { person } from './schemas/person';
+import { product } from './schemas/product';
+import { rider } from './schemas/rider';
 
 export const schemaTypes: SchemaTypeDefinition[] = [
-  // Schemas added in subsequent tasks
+  article,
+  collection,
+  glossary,
+  look,
+  person,
+  product,
+  rider,
 ];

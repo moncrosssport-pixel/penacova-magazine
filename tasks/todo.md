@@ -28,12 +28,12 @@
 - [x] Create `sanity/schemas/article.ts`.
 - [x] Register all schemas in `sanity/schema.ts`.
 - [x] Verify Studio schema compiles with all document types.
-- [ ] Add `@sanity/client`, `@portabletext/react`, and `@sanity/image-url` when
+- [x] Add `@sanity/client`, `@portabletext/react`, and `@sanity/image-url` when
       needed by the article route.
-- [ ] Create `lib/sanity/client.ts`.
-- [ ] Create `lib/sanity/queries.ts`.
-- [ ] Add query unit tests.
-- [ ] Create `/[locale]/editorial/[slug]` route.
+- [x] Create `lib/sanity/client.ts`.
+- [x] Create `lib/sanity/queries.ts`.
+- [x] Add query unit tests.
+- [x] Create `/[locale]/editorial/[slug]` route.
 - [ ] Seed one Korean editorial article in Sanity Studio.
 - [ ] Verify the seeded article locally.
 - [ ] Verify the seeded article on Vercel.

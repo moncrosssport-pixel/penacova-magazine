@@ -29,14 +29,13 @@ Completed:
 - Sanity localized field helpers are implemented.
 - Sanity document schemas are registered for Article, Collection, Glossary,
   Look, Person, Product, and Rider.
+- Sanity read client, article GROQ query, query tests, and the Editorial article
+  route are implemented.
 
 Not completed:
 
-- Sanity read client.
-- GROQ queries.
-- Article page rendering.
 - Studio content seed.
-- End-to-end article verification.
+- End-to-end article verification with a real published article.
 
 ## Design Baseline
 
@@ -95,6 +94,8 @@ Acceptance:
 - `pnpm test` passes.
 - `pnpm build` passes.
 
+Status: complete.
+
 ### Slice 4: Editorial Article Route
 
 Add:
@@ -110,6 +111,9 @@ Acceptance:
 - Missing article returns 404.
 - `pnpm test` passes.
 - `pnpm build` passes.
+
+Status: route implemented and missing-article 404 is expected until content is
+seeded in Studio.
 
 ### Slice 5: End-To-End Vercel Verification
 

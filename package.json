@@ -12,6 +12,9 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "@portabletext/react": "3.2.4",
+    "@sanity/client": "7.22.0",
+    "@sanity/image-url": "1.2.0",
     "@sanity/vision": "^3.99.0",
     "next": "14.2.35",
     "next-sanity": "^9.12.3",

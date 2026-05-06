@@ -97,4 +97,40 @@ a:hover {
     font-style: italic;
     line-height: 1.5;
   }
+
+  .article-prose p {
+    color: var(--ink);
+    font-family: var(--font-serif-editorial);
+    font-size: 1.125rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-prose p:first-of-type::first-letter {
+    color: var(--penacova-red);
+    float: left;
+    font-family: var(--font-display);
+    font-size: 5.4em;
+    font-weight: 700;
+    line-height: 0.9;
+    margin: 0.05em 0.08em 0 -0.04em;
+  }
+
+  .article-prose blockquote {
+    border-bottom: 1px solid var(--ink);
+    border-top: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.25;
+    margin: 3rem 0;
+    padding: 2rem 0;
+  }
+
+  .article-prose img {
+    display: block;
+    margin: 3rem 0;
+    width: 100%;
+  }
 }

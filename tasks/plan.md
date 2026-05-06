@@ -32,6 +32,8 @@ Completed:
 - Sanity read client, article GROQ query, query tests, and the Editorial article
   route are implemented.
 - Phase 1 seed payload and seed command are prepared.
+- Category index pages are implemented at `/[locale]/[category]` for the seven
+  magazine pillars.
 
 Not completed:
 
@@ -131,11 +133,26 @@ Acceptance:
 - Latest `main` deployment works on `https://penacova-magazine.vercel.app`.
 - Any required dashboard/manual steps are documented.
 
+### Slice 6: Category Index Pages
+
+Add `/[locale]/[category]` pages backed by Sanity article lists and linked from
+the masthead/home category rails.
+
+Acceptance:
+
+- Valid categories render a 200 page, including an editorial empty state when no
+  published content exists.
+- Invalid categories return 404.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Vercel verification follows after push/deploy.
+
 ## Later Phases
 
 After Phase 1:
 
-- Phase 2: homepage, category pages, visual design, responsive polish.
+- Phase 2: homepage refinement, article visual rhythm, responsive polish.
 - Phase 3: locale switcher and translation workflow.
 - Phase 4: SEO automation, sitemap, hreflang, OG, JSON-LD, analytics.
 - Phase 5: content inventory, custom domain, launch checklist.

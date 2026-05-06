@@ -1,16 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { LOCALES, type Locale } from '@/lib/i18n/locales';
-
-const categories = [
-  { id: 'editorial', label: 'Editorial' },
-  { id: 'riders', label: 'Riders' },
-  { id: 'look', label: 'Look' },
-  { id: 'heritage', label: 'Heritage' },
-  { id: 'guide', label: 'Guide' },
-  { id: 'news', label: 'News' },
-  { id: 'stories', label: 'Stories' },
-];
+import { MAGAZINE_CATEGORIES } from '@/lib/magazine/categories';
 
 export function MagazineMasthead({ locale }: { locale: Locale }) {
   return (
@@ -63,10 +54,10 @@ export function MagazineMasthead({ locale }: { locale: Locale }) {
           Search
         </a>
         <nav className="flex gap-5 overflow-x-auto whitespace-nowrap font-ui text-[11px] uppercase tracking-[0.22em] sm:justify-center sm:gap-8">
-          {categories.map((category) => (
-            <a key={category.id} href={`#${category.id}`} className="no-underline">
+          {MAGAZINE_CATEGORIES.map((category) => (
+            <Link key={category.id} href={`/${locale}/${category.id}`} className="no-underline">
               {category.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <a

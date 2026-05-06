@@ -15,6 +15,7 @@
 - [x] Add repo-local agent harness and final magazine form documentation.
 - [x] Add repo-local Penacova Magazine design system as the official visual source.
 - [x] Replace the temporary locale home shell with a design-system-based magazine homepage shell.
+- [x] Build category index pages.
 
 ## Next
 
@@ -41,7 +42,6 @@
 
 ## Launch Backlog
 
-- [ ] Build category index pages.
 - [ ] Build rider detail pages.
 - [ ] Build look book pages.
 - [ ] Build guide/news/heritage/stories templates.

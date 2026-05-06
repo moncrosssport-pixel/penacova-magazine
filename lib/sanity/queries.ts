@@ -1,15 +1,15 @@
-export type ArticleCategory =
-  | 'editorial'
-  | 'riders'
-  | 'look'
-  | 'heritage'
-  | 'guide'
-  | 'news'
-  | 'stories';
+import type { ArticleCategory } from '@/lib/magazine/categories';
 
 export function articleBySlugQuery(): string {
   return `
-    *[_type == "article" && slug.current == $slug && category == $category][0]{
+    *[
+      _type == "article" &&
+      slug.current == $slug &&
+      category == $category &&
+      defined(publishedAt) &&
+      publishedAt <= now() &&
+      !(_id in path("drafts.**"))
+    ][0]{
       _id,
       title,
       excerpt,
@@ -50,4 +50,37 @@ export function articleBySlugQuery(): string {
 
 export function articleBySlugParams(slug: string, category: ArticleCategory) {
   return { slug, category };
+}
+
+export function articlesByCategoryQuery(): string {
+  return `
+    *[
+      _type == "article" &&
+      category == $category &&
+      defined(slug.current) &&
+      defined(publishedAt) &&
+      publishedAt <= now() &&
+      !(_id in path("drafts.**"))
+    ] | order(publishedAt desc, _createdAt desc)[0...24]{
+      _id,
+      title,
+      excerpt,
+      "slug": slug.current,
+      category,
+      heroImage,
+      publishedAt,
+      moodVariant,
+      issueNumber,
+      "authors": authors[]->{
+        _id,
+        name,
+        role,
+        portrait
+      }
+    }
+  `;
+}
+
+export function articlesByCategoryParams(category: ArticleCategory) {
+  return { category };
 }

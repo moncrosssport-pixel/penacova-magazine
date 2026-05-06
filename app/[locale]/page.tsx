@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
@@ -136,10 +137,10 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
       <section className="border-y border-hairline bg-tonal/60">
         <div className="mx-auto grid max-w-content divide-y divide-hairline px-6 sm:px-10 lg:px-14">
           {rails.map(([id, title, dek]) => (
-            <a
+            <Link
               id={id}
               key={id}
-              href={`#${id}`}
+              href={`/${params.locale}/${id}`}
               className="grid gap-3 py-8 no-underline md:grid-cols-[220px_1fr_auto] md:items-center"
             >
               <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.24em] text-penacova">
@@ -151,7 +152,7 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
               <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
                 Read
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </section>

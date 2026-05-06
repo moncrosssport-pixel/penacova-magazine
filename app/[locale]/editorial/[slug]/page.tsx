@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
+import { formatByline, formatDate, pickLocalized, type LocalizedBlocks } from '@/lib/magazine/format';
 import { sanityClient, urlFor } from '@/lib/sanity/client';
 import { articleBySlugParams, articleBySlugQuery } from '@/lib/sanity/queries';
 
@@ -14,9 +15,6 @@ type EditorialArticlePageProps = {
   };
 };
 
-type LocalizedString = Partial<Record<Locale, string>>;
-type LocalizedBlocks = Partial<Record<Locale, unknown[]>>;
-
 type SanityImage = {
   asset?: {
     _ref?: string;
@@ -25,8 +23,8 @@ type SanityImage = {
 
 type ArticleDoc = {
   _id: string;
-  title?: LocalizedString;
-  excerpt?: LocalizedString;
+  title?: Partial<Record<Locale, string>>;
+  excerpt?: Partial<Record<Locale, string>>;
   slug: string;
   category: string;
   heroImage?: SanityImage;
@@ -35,14 +33,14 @@ type ArticleDoc = {
   moodVariant?: 'editorial' | 'feature';
   issueNumber?: number;
   cta?: {
-    label?: LocalizedString;
+    label?: Partial<Record<Locale, string>>;
     urlKR?: string;
     urlJP?: string;
     urlEN?: string;
   };
   authors?: {
     _id: string;
-    name?: LocalizedString;
+    name?: Partial<Record<Locale, string>>;
     role?: string;
   }[];
 };
@@ -136,46 +134,6 @@ export default async function EditorialArticlePage({
       <MagazineFooter />
     </main>
   );
-}
-
-function pickLocalized(value: LocalizedString | undefined, locale: Locale) {
-  return value?.[locale] ?? value?.ko ?? '';
-}
-
-function formatByline(authors: ArticleDoc['authors'], locale: Locale) {
-  if (!authors?.length) {
-    return null;
-  }
-
-  const names = authors
-    .map((author) => pickLocalized(author.name, locale))
-    .filter(Boolean);
-
-  return names.length ? `BY ${names.join(', ')}` : null;
-}
-
-function formatDate(value: string, locale: Locale) {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return null;
-  }
-
-  if (locale === 'en') {
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(date);
-  }
-
-  return new Intl.DateTimeFormat(locale === 'jp' ? 'ja-JP' : 'ko-KR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  })
-    .format(date)
-    .replace(/\.\s?/g, '.')
-    .replace(/\.$/, '');
 }
 
 function getCtaHref(cta: ArticleDoc['cta'], locale: Locale) {

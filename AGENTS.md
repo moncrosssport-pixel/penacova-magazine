@@ -75,13 +75,16 @@ Implemented:
 - Minimal `/[locale]` home shell
 - Embedded Sanity Studio at `/studio`
 - Sanity public defaults in `sanity/env.ts`
+- Sanity schemas for Article, Collection, Glossary, Look, Person, Product, and
+  Rider
+- Sanity read client and GROQ queries
+- `/[locale]/editorial/[slug]` article route
+- `/[locale]/[category]` category index route for the seven magazine pillars
 
 Not yet implemented:
 
-- Sanity schemas
-- Sanity read client and GROQ queries
-- Article rendering route
-- Category index pages
+- Applying the prepared Sanity seed requires a logged-in Sanity CLI session
+- End-to-end verification with a real published article
 - Locale switcher UI
 - SEO automation
 - Launch content

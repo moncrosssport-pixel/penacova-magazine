@@ -163,7 +163,8 @@ Acceptance:
 - `pnpm test` passes.
 - `pnpm build` passes.
 
-Status: complete locally. Vercel verification follows after push/deploy.
+Status: complete locally and pushed. Production positive-render verification
+still requires a seeded Sanity article.
 
 ## Later Phases
 

@@ -50,7 +50,8 @@ Completed:
 
 Not completed:
 
-- Applying the Studio/Content Lake seed requires Sanity CLI login.
+- Applying the Studio/Content Lake seed requires either Sanity CLI login as a
+  project owner/member or a write token in `SANITY_AUTH_TOKEN`.
 - End-to-end article verification with a real published article.
 
 ## Design Baseline
@@ -130,6 +131,10 @@ Acceptance:
 
 Status: route implemented for all seven article categories. Missing-article
 404 is expected until content is seeded in Studio.
+
+Seed note: `pnpm run seed:sanity` now uses `scripts/seed-sanity.mjs` and expects
+`SANITY_AUTH_TOKEN`, `SANITY_API_TOKEN`, or `SANITY_WRITE_TOKEN`. The old CLI
+path is preserved as `pnpm run seed:sanity:cli`.
 
 ### Slice 5: End-To-End Vercel Verification
 

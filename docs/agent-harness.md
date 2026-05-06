@@ -28,6 +28,14 @@ pnpm build
 pnpm dev
 ```
 
+Seed the prepared Phase 1 content after a project owner creates a Sanity write
+token:
+
+```powershell
+$env:SANITY_AUTH_TOKEN="<token>"
+pnpm run seed:sanity
+```
+
 Local routes:
 
 - `http://localhost:3000/`
@@ -63,7 +71,8 @@ Current known state:
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
 - Masthead locale links preserve the current category or article path.
-- The Phase 1 seed payload exists, but applying it requires Sanity CLI login.
+- The Phase 1 seed payload exists, but applying it requires a Sanity project
+  owner/member login or a write token in `SANITY_AUTH_TOKEN`.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 
@@ -124,6 +133,7 @@ Use conventional, focused commits:
 Some steps require the project owner or dashboard access:
 
 - Sanity login and CORS origin management.
+- Sanity write token creation if the local CLI account is not a project member.
 - Vercel account selection.
 - Custom domain setup.
 - DNS changes for `magazine.penacova.co.kr`.

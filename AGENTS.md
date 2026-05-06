@@ -59,6 +59,8 @@ The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not assume any
 - Keep at least a minimal `/[locale]/page.tsx` whenever `/` redirects to `/ko`.
 - Public Sanity settings may have safe defaults in code. Do not put write tokens
   or private credentials in client-side `NEXT_PUBLIC_*` variables.
+- Sanity seed/import scripts may use `SANITY_AUTH_TOKEN`, `SANITY_API_TOKEN`, or
+  `SANITY_WRITE_TOKEN`. Never commit a real token.
 - Cafe24 integration is link-only for now. Do not add cart, checkout, or Cafe24
   API coupling unless a new spec asks for it.
 - For visual work, use `Penacova Magazine Design System/` as the official
@@ -87,7 +89,8 @@ Implemented:
 
 Not yet implemented:
 
-- Applying the prepared Sanity seed requires a logged-in Sanity CLI session
+- Applying the prepared Sanity seed requires either a Sanity CLI session for the
+  project owner/member or a write token in `SANITY_AUTH_TOKEN`
 - End-to-end verification with a real published article
 - Launch content
 - Custom domain

@@ -19,14 +19,15 @@
 - [x] Build shared article detail pages for all magazine categories.
 - [x] Add SEO metadata, sitemap, hreflang, OG images, and JSON-LD wiring.
 - [x] Add path-preserving locale switcher links.
+- [x] Add token-based Sanity seed harness.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 88% complete.
 - Final public launch: about 38% complete.
-- Main blockers: authenticated Sanity seed, real article verification, launch
-  content, translation workflow, rider/look-specific surfaces, analytics,
-  newsletter/follow capture, and custom domain setup.
+- Main blockers: Sanity project owner/member login or write token, real article
+  verification, launch content, translation workflow, rider/look-specific
+  surfaces, analytics, newsletter/follow capture, and custom domain setup.
 
 ## Next
 

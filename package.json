@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed:sanity": "sanity documents create sanity/seed/phase1-seed.json --replace",
+    "seed:sanity": "node scripts/seed-sanity.mjs",
+    "seed:sanity:cli": "sanity documents create sanity/seed/phase1-seed.json --replace",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui"

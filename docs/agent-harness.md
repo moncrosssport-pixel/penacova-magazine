@@ -14,8 +14,10 @@ querying, and one rendered editorial article route.
 2. `README.md`
 3. `SPEC.md`
 4. `docs/final-magazine-form.md`
-5. `tasks/plan.md`
-6. `tasks/todo.md`
+5. `Penacova Magazine Design System/README.md`
+6. `Penacova Magazine Design System/SKILL.md`
+7. `tasks/plan.md`
+8. `tasks/todo.md`
 
 ## Environment
 
@@ -47,6 +49,7 @@ As of the harness creation:
 - `/ko` renders a minimal placeholder home.
 - `/studio` loads the embedded Sanity Studio shell.
 - `sanity/schema.ts` intentionally contains an empty schema list.
+- `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 
 ## Known Traps
@@ -85,6 +88,7 @@ For each task:
 | Sanity schema | `pnpm build`, Studio sidebar check |
 | Sanity query/client | Unit test plus `pnpm build` |
 | Article page | `pnpm test`, `pnpm build`, local article URL |
+| Visual design | Design system review, `pnpm test`, `pnpm build`, browser check |
 | Vercel/deploy | Production or preview URL check |
 | Docs only | Link/file review, `git diff --check` |
 

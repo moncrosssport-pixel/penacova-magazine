@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Footer</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  body { padding: 0; }
+  .card { padding: 0; gap: 0; }
+  footer { background: var(--ink); color: var(--paper); padding: 32px 28px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 24px; }
+  .col h5 { font-family: var(--font-sans); font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-300); margin-bottom: 10px; }
+  .col a { display: block; font-family: var(--font-sans); font-size: 13px; color: var(--paper); text-decoration: none; padding: 3px 0; }
+  .brand { display: flex; flex-direction: column; gap: 12px; }
+  .brand img { height: 24px; }
+  .tag { font-family: var(--font-display); font-style: italic; font-size: 14px; color: var(--gray-300); max-width: 220px; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <footer>
+      <div class="col brand">
+        <img src="../assets/logo-horizontal-white.png" alt="" />
+        <p class="tag">An editorial home for equestrian stories.</p>
+      </div>
+      <div class="col"><h5>Magazine</h5><a>Editorial</a><a>Riders</a><a>Look</a><a>Heritage</a></div>
+      <div class="col"><h5>Shop</h5><a>penacova.co.kr →</a><a>penacova.jp →</a></div>
+      <div class="col"><h5>Brand</h5><a>About</a><a>Subscribe</a><a>Contact</a></div>
+    </footer>
+  </div>
+</body>
+</html>

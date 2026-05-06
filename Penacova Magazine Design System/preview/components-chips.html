@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Category labels</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip { font-family: var(--font-sans); font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--ink); color: var(--ink); }
+  .chip--accent { color: var(--penacova-red); border-color: var(--penacova-red); }
+  .chip--filled { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .chip--ribbon { background: var(--penacova-red); color: var(--paper); border-color: var(--penacova-red); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--gray-500); letter-spacing: 0.04em; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Category labels &amp; chips</span>
+    <div class="row">
+      <span class="chip">Editorial</span>
+      <span class="chip">Riders</span>
+      <span class="chip">Look</span>
+      <span class="chip">Heritage</span>
+      <span class="chip">Guide</span>
+      <span class="chip">News</span>
+      <span class="chip">Stories</span>
+    </div>
+    <div class="meta">Default — outline ink</div>
+    <div class="row">
+      <span class="chip chip--accent">New</span>
+      <span class="chip chip--filled">Issue №03</span>
+      <span class="chip chip--ribbon">SS26</span>
+    </div>
+    <div class="meta">Variants — accent outline · filled ink · red ribbon (rare)</div>
+  </div>
+</body>
+</html>

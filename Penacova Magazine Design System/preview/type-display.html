@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Display type</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .stack { display: flex; flex-direction: column; gap: 14px; }
+  .specimen { font-family: var(--font-display); color: var(--ink); line-height: 1.02; letter-spacing: -0.015em; font-weight: 700; }
+  .l1 { font-size: 64px; }
+  .l2 { font-size: 40px; font-weight: 600; }
+  .l3 { font-size: 28px; font-weight: 500; }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--gray-500); letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Display · Playfair Display</span>
+    <div class="stack">
+      <div>
+        <div class="specimen l1">Vogue-clean editorial</div>
+        <div class="meta">Playfair Display · 700 · 64 / 1.02 · -0.015em</div>
+      </div>
+      <div>
+        <div class="specimen l2">승마의 장면을 기록하는 매거진</div>
+        <div class="meta">Playfair + Noto Serif KR · 600 · 40 / 1.15</div>
+      </div>
+      <div>
+        <div class="specimen l3" style="font-style:italic;">Riders · Editorial · Heritage</div>
+        <div class="meta">Italic 500 · 28 / 1.15</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Paper & ink</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .stack { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid var(--gray-200); }
+  .chip { aspect-ratio: 1 / 1.05; display: flex; flex-direction: column; justify-content: flex-end; padding: 10px; font-family: var(--font-mono); font-size: 10px; line-height: 1.4; }
+  .chip b { font-weight: 600; letter-spacing: 0.06em; font-family: var(--font-sans); font-size: 10px; text-transform: uppercase; }
+  .c-paper { background: var(--paper); color: var(--ink); }
+  .c-pure  { background: var(--paper-pure); color: var(--ink); }
+  .c-100   { background: var(--gray-100); color: var(--ink); }
+  .c-200   { background: var(--gray-200); color: var(--ink); }
+  .c-500   { background: var(--gray-500); color: #fff; }
+  .c-700   { background: var(--gray-700); color: #fff; }
+  .c-ink   { background: var(--ink); color: var(--paper); }
+  .row2 { display: grid; grid-template-columns: repeat(7, 1fr); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Paper · Neutrals · Ink</span>
+    <div class="row2">
+      <div class="chip c-paper"><b>Paper</b>#FAFAF7</div>
+      <div class="chip c-pure"><b>Pure</b>#FFFFFF</div>
+      <div class="chip c-100"><b>Gray 100</b>#EFEDE6</div>
+      <div class="chip c-200"><b>Gray 200</b>#DEDBD2</div>
+      <div class="chip c-500"><b>Gray 500</b>#777777</div>
+      <div class="chip c-700"><b>Gray 700</b>#4A4A4A</div>
+      <div class="chip c-ink"><b>Ink</b>#0A0A0A</div>
+    </div>
+  </div>
+</body>
+</html>

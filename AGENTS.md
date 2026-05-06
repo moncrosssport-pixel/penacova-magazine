@@ -10,9 +10,11 @@ Before changing code, read these files in order:
 1. `README.md`
 2. `SPEC.md`
 3. `docs/final-magazine-form.md`
-4. `docs/agent-harness.md`
-5. `tasks/plan.md`
-6. `tasks/todo.md`
+4. `Penacova Magazine Design System/README.md`
+5. `Penacova Magazine Design System/SKILL.md`
+6. `docs/agent-harness.md`
+7. `tasks/plan.md`
+8. `tasks/todo.md`
 
 Then run:
 
@@ -37,6 +39,7 @@ pnpm build
 - Sanity Studio route: `/studio`
 - Locale routes: `/ko`, `/en`, `/jp`
 - Default locale: `ko`
+- Design system: `Penacova Magazine Design System/`
 
 The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not assume any
 `etehofk` Vercel scope for deployment.
@@ -58,6 +61,9 @@ The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not assume any
   or private credentials in client-side `NEXT_PUBLIC_*` variables.
 - Cafe24 integration is link-only for now. Do not add cart, checkout, or Cafe24
   API coupling unless a new spec asks for it.
+- For visual work, use `Penacova Magazine Design System/` as the official
+  source. Copy design values into production code; do not ship the prototype
+  JSX files directly.
 
 ## Current Implementation State
 

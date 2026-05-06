@@ -13,6 +13,8 @@
 - [x] Add Sanity public defaults for project `6pelmu7l`.
 - [x] Add minimal `/[locale]` home shell so production is not a public 404.
 - [x] Add repo-local agent harness and final magazine form documentation.
+- [x] Add repo-local Penacova Magazine design system as the official visual source.
+- [x] Replace the temporary locale home shell with a design-system-based magazine homepage shell.
 
 ## Next
 
@@ -38,7 +40,6 @@
 
 ## Launch Backlog
 
-- [ ] Replace the temporary locale home shell with the editorial homepage.
 - [ ] Build category index pages.
 - [ ] Build rider detail pages.
 - [ ] Build look book pages.

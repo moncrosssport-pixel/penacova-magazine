@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Buttons & links</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  .stack { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .btn { font-family: var(--font-sans); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px 22px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: all 0.2s cubic-bezier(0.2,0,0,1); }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn--solid { background: var(--ink); color: var(--paper); }
+  .btn--solid:hover { opacity: 0.6; }
+  .text-cta { font-family: var(--font-sans); font-weight: 600; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+  .link-accent { font-family: var(--font-serif); font-style: italic; font-size: 16px; color: var(--penacova-red); text-decoration: underline; text-underline-offset: 0.2em; }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--gray-500); letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Buttons &amp; links</span>
+    <div class="grid">
+      <div class="stack">
+        <button class="btn">Subscribe</button>
+        <span class="meta">Outline · default</span>
+        <button class="btn btn--solid">Open Studio</button>
+        <span class="meta">Solid ink · primary action only</span>
+      </div>
+      <div class="stack">
+        <a class="text-cta" href="#">Read the issue →</a>
+        <span class="meta">Text CTA · article-end</span>
+        <a class="link-accent" href="#">penacova.co.kr</a>
+        <span class="meta">Inline link · accent · italic serif</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

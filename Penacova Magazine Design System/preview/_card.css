@@ -1,0 +1,33 @@
+/* preview/_card.css — shared by every design-system preview card */
+@import url('../colors_and_type.css');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  width: 700px;
+  min-width: 700px;
+  overflow: hidden;
+}
+
+.card {
+  width: 700px;
+  padding: 28px 32px;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row--wrap { flex-wrap: wrap; }
+.col { display: flex; flex-direction: column; gap: 6px; }
+.muted { color: var(--gray-500); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-500); font-weight: 600; }

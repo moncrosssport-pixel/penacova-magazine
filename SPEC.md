@@ -16,6 +16,7 @@ checkout flows.
 The detailed final product brief lives in:
 
 - `docs/final-magazine-form.md`
+- `Penacova Magazine Design System/README.md`
 
 Agent operating instructions live in:
 
@@ -36,6 +37,8 @@ The repository currently contains the foundation:
 - Minimal locale home shell
 - Sanity Studio embedded at `/studio`
 - Sanity public defaults for project `6pelmu7l`
+- Repo-local Penacova Magazine design system
+- Design-system-based locale homepage shell
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The CMS schemas, content queries, and

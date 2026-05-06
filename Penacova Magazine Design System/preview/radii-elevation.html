@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Radii & elevation</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: end; }
+  .swatch { aspect-ratio: 1.4 / 1; background: var(--paper-pure); border: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; color: var(--gray-500); }
+  .r0 { border-radius: 0; }
+  .r1 { border-radius: 2px; }
+  .pill { border-radius: 999px; aspect-ratio: 3 / 1; }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--gray-500); margin-top: 8px; text-align: center; letter-spacing: 0.04em; }
+  .note { font-family: var(--font-serif); font-style: italic; font-size: 12px; color: var(--ink-mute); line-height: 1.5; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Radii &amp; elevation — flat by default</span>
+    <div class="row">
+      <div>
+        <div class="swatch r0">0px</div>
+        <div class="meta">--radius-0 · default</div>
+      </div>
+      <div>
+        <div class="swatch r1">2px</div>
+        <div class="meta">--radius-1 · form inputs</div>
+      </div>
+      <div>
+        <div class="swatch pill" style="aspect-ratio: 3/1; align-self:center;">PILL</div>
+        <div class="meta">--radius-pill · chips only</div>
+      </div>
+      <div>
+        <div class="swatch r0" style="box-shadow: 0 1px 0 rgba(10,10,10,0.06);">sticky</div>
+        <div class="meta">--shadow-sticky · sole shadow</div>
+      </div>
+    </div>
+    <p class="note">No drop shadows on cards. Separation comes from hairlines and whitespace. Images carry zero corner radius — that's an editorial rule.</p>
+  </div>
+</body>
+</html>

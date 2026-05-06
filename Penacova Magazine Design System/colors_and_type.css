@@ -1,0 +1,314 @@
+/* ==========================================================================
+   Penacova Magazine — Colors & Type
+   "Vogue-clean" editorial system. Penacova Red is an accent, never a block.
+   ========================================================================== */
+
+/* ---------- Webfonts (Google Fonts substitutes) ----------
+   Penacova Magazine spec calls for:
+     - Masthead/headline serif: Cormorant Garamond / Playfair Display
+     - Korean body: Noto Serif KR or Pretendard
+     - UI/navigation: Inter / Pretendard
+   No proprietary font files were provided, so we use Google Fonts.
+   FLAG: confirm with brand whether a licensed display serif (e.g. Didot,
+   Domaine, GT Super) should replace Playfair before any production use.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+:root {
+  /* ====================================================================
+     COLOR SYSTEM
+     The brand sits on warm off-white paper with black ink and one red
+     accent. Neutrals do most of the work; red is for category labels,
+     mastheads, and the occasional underline — never large fills.
+     ==================================================================== */
+
+  /* Brand */
+  --penacova-red:        #E62021;   /* C11 M95 Y92 / R230 G32 B33 — primary accent */
+  --penacova-red-deep:   #B81519;   /* hover / pressed accent */
+  --penacova-red-soft:   #FBE6E6;   /* tinted backgrounds for ribbon/labels only */
+
+  /* Paper & ink */
+  --paper:               #FAFAF7;   /* page background — warm off-white */
+  --paper-pure:          #FFFFFF;   /* pure white, used for image cards */
+  --ink:                 #0A0A0A;   /* body text & headlines */
+  --ink-soft:            #1F1F1F;   /* secondary headlines */
+  --ink-mute:            #4A4A4A;   /* dek / captions */
+
+  /* Neutrals */
+  --gray-900:            #0A0A0A;
+  --gray-700:            #4A4A4A;
+  --gray-500:            #777777;   /* muted utility text */
+  --gray-300:            #B8B5AC;
+  --gray-200:            #DEDBD2;   /* hairline rule */
+  --gray-100:            #EFEDE6;   /* tonal section background */
+  --gray-50:             #F4F2EB;
+
+  /* Semantic foreground */
+  --fg-1:                var(--ink);          /* primary text */
+  --fg-2:                var(--ink-mute);     /* dek / lead text */
+  --fg-3:                var(--gray-500);     /* metadata / utility */
+  --fg-accent:           var(--penacova-red);
+  --fg-on-dark:          var(--paper);
+
+  /* Semantic background */
+  --bg-1:                var(--paper);        /* page */
+  --bg-2:                var(--gray-100);     /* section / tonal block */
+  --bg-3:                var(--gray-200);
+  --bg-inverse:          var(--ink);          /* dark hero / footer */
+  --bg-image-card:       var(--paper-pure);
+
+  /* Hairlines & borders */
+  --rule:                var(--gray-200);     /* default 1px hairline */
+  --rule-strong:         var(--ink);          /* masthead/footer rule */
+  --rule-soft:           rgba(10,10,10,0.08);
+
+  /* ====================================================================
+     TYPOGRAPHY
+     A high-contrast editorial serif for display, a humanist sans for
+     UI/navigation, and a Korean-aware serif/sans pairing for body.
+     ==================================================================== */
+
+  --font-display:        'Playfair Display', 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
+  --font-display-alt:    'Cormorant Garamond', 'Playfair Display', 'Noto Serif KR', Georgia, serif;
+  --font-serif:          'Noto Serif KR', 'Playfair Display', Georgia, serif;
+  --font-sans:           'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:           'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale (modular, editorial — slightly compressed at small sizes) */
+  --fs-12:    0.75rem;   /* 12 — utility/label */
+  --fs-13:    0.8125rem;
+  --fs-14:    0.875rem;  /* 14 — UI body */
+  --fs-15:    0.9375rem;
+  --fs-16:    1rem;      /* 16 — base */
+  --fs-18:    1.125rem;  /* 18 — lead */
+  --fs-20:    1.25rem;
+  --fs-24:    1.5rem;
+  --fs-28:    1.75rem;
+  --fs-32:    2rem;      /* 32 — h3 */
+  --fs-40:    2.5rem;    /* 40 — h2 */
+  --fs-48:    3rem;
+  --fs-56:    3.5rem;
+  --fs-72:    4.5rem;    /* 72 — masthead small */
+  --fs-96:    6rem;      /* 96 — masthead */
+  --fs-128:   8rem;      /* 128 — hero display */
+
+  /* Line heights */
+  --lh-tight:    1.02;   /* display */
+  --lh-snug:     1.15;
+  --lh-normal:   1.45;
+  --lh-loose:    1.7;    /* long-form body */
+
+  /* Tracking — magazines love loose tracking on small caps */
+  --tr-tight:    -0.02em;
+  --tr-display:  -0.015em;
+  --tr-normal:    0em;
+  --tr-wide:      0.08em;
+  --tr-wider:     0.18em;   /* kicker */
+  --tr-widest:    0.28em;   /* masthead caps */
+
+  /* ====================================================================
+     SPACING (8pt-ish base, but with editorial 4 / 6 micro steps)
+     ==================================================================== */
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    24px;
+  --space-6:    32px;
+  --space-7:    48px;
+  --space-8:    64px;
+  --space-9:    96px;
+  --space-10:   128px;
+
+  /* ====================================================================
+     RADIUS, ELEVATION, MOTION
+     The system is deliberately FLAT — no rounded buttons, no drop shadows
+     on cards. Images have NO corner radius; that's an editorial rule.
+     ==================================================================== */
+  --radius-0:   0px;        /* default — cards, images, buttons */
+  --radius-1:   2px;        /* small UI controls only */
+  --radius-pill: 999px;     /* pill labels (rare) */
+
+  --shadow-0:   none;
+  --shadow-sticky: 0 1px 0 rgba(10,10,10,0.06);  /* sticky nav only */
+  --shadow-modal:  0 24px 60px rgba(10,10,10,0.18);
+
+  --ease-standard: cubic-bezier(0.2, 0.0, 0.0, 1.0);
+  --ease-emph:     cubic-bezier(0.2, 0.0, 0.0, 1.2);
+  --dur-fast:      120ms;
+  --dur-base:      200ms;
+  --dur-slow:      400ms;
+  --dur-image:     700ms;   /* image fade-ins on scroll */
+
+  /* ====================================================================
+     LAYOUT
+     ==================================================================== */
+  --content-max:    1280px;     /* outer container */
+  --reading-max:    680px;      /* article body column */
+  --gutter:         24px;
+  --gutter-lg:      48px;
+}
+
+/* ============================================================
+   Semantic element styles — drop-in defaults for prose pages.
+   ============================================================ */
+
+html, body {
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display / headline ----------------------------------------- */
+.h-masthead {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(48px, 9vw, var(--fs-128));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-display);
+  color: var(--ink);
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(40px, 5.6vw, var(--fs-72));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-display);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-40);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-display);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-28);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  color: var(--ink);
+}
+
+h4, .h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-18);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+
+/* Editorial: kicker / label ---------------------------------- */
+.kicker, .eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-widest);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+
+.kicker--ink {
+  color: var(--ink);
+}
+
+/* Body / dek / lead ------------------------------------------ */
+p, .body {
+  font-family: var(--font-serif);
+  font-size: var(--fs-18);
+  line-height: var(--lh-loose);
+  color: var(--fg-1);
+}
+
+.dek, .lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-20);
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+.caption {
+  font-family: var(--font-sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-wide);
+  color: var(--fg-3);
+  text-transform: uppercase;
+}
+
+.byline {
+  font-family: var(--font-sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-wider);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Drop cap — used on editorial articles only */
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 5.6em;
+  line-height: 0.9;
+  float: left;
+  margin: 0.05em 0.08em 0 -0.04em;
+  color: var(--ink);
+}
+
+/* Pull quote */
+.pullquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-32);
+  line-height: 1.25;
+  color: var(--ink);
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: var(--space-6) 0;
+  margin: var(--space-7) 0;
+  text-wrap: pretty;
+}
+
+/* Mono / code (rare — used in editorial issue numbers) */
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  letter-spacing: 0;
+}
+
+/* Hairline rule */
+hr, .rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: var(--space-6) 0;
+}
+.rule--ink { border-top-color: var(--rule-strong); }
+
+/* Links — editorial style: underline always, no color change */
+a, .link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+a:hover { opacity: 0.6; }
+
+.link--accent { color: var(--fg-accent); }
+.link--quiet  { text-decoration: none; }
+.link--quiet:hover { text-decoration: underline; }

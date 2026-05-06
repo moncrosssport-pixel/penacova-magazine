@@ -80,6 +80,10 @@ The visual model is "Vogue-clean":
 - No large red UI blocks.
 - No ecommerce grid as the primary experience.
 
+The official implementation reference is `Penacova Magazine Design System/`.
+Use its `README.md`, `colors_and_type.css`, assets, and `ui_kits/magazine/`
+prototype components before inventing new visual patterns.
+
 Suggested palette:
 
 | Role | Color |

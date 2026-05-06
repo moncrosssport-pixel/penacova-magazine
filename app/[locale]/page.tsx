@@ -1,5 +1,8 @@
-import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { MagazineFooter } from '@/components/magazine/MagazineFooter';
+import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
+import { StoryCard } from '@/components/magazine/StoryCard';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
 
 type LocaleHomePageProps = {
@@ -9,38 +12,74 @@ type LocaleHomePageProps = {
 };
 
 const copy: Record<Locale, {
-  kicker: string;
+  issue: string;
+  leadKicker: string;
   title: string;
   dek: string;
-  primary: string;
-  secondary: string;
-  notes: string[];
+  byline: string;
+  editorTitle: string;
+  newsletterTitle: string;
+  newsletterDek: string;
 }> = {
   ko: {
-    kicker: 'PENACOVA MAGAZINE',
-    title: '승마의 장면을 기록하는 매거진',
-    dek: '라이더, 마방, 제품, 헤리티지를 하나의 에디토리얼 흐름으로 엮습니다.',
-    primary: '스튜디오 열기',
-    secondary: '첫 기사 준비 중',
-    notes: ['Riders', 'Editorial', 'Guide'],
+    issue: 'ISSUE No. 03',
+    leadKicker: 'EDITORIAL · SS26',
+    title: '초원 위의 침묵, 지원의 아침',
+    dek: '새벽의 마방, 손끝의 가죽, 그리고 라이더가 말 위에 오르기 전의 고요를 기록합니다.',
+    byline: 'BY 편집부 — 사진 준비 중',
+    editorTitle: 'Editor’s Selection',
+    newsletterTitle: '다음 이슈를 받아보세요.',
+    newsletterDek: '월 1회, 페나코바 매거진의 새 글과 시즌 노트를 조용히 전합니다.',
   },
   en: {
-    kicker: 'PENACOVA MAGAZINE',
-    title: 'An editorial home for equestrian stories',
-    dek: 'Riders, stables, product craft, and heritage gathered into one magazine.',
-    primary: 'Open Studio',
-    secondary: 'First story in progress',
-    notes: ['Riders', 'Editorial', 'Guide'],
+    issue: 'ISSUE No. 03',
+    leadKicker: 'EDITORIAL · SS26',
+    title: 'The quiet before the morning ride',
+    dek: 'A stable at dawn, the weight of leather in hand, and the minutes before a rider mounts.',
+    byline: 'BY Editorial Desk — Photography in progress',
+    editorTitle: 'Editor’s Selection',
+    newsletterTitle: 'Receive the next issue.',
+    newsletterDek: 'A quiet monthly note from Penacova Magazine.',
   },
   jp: {
-    kicker: 'PENACOVA MAGAZINE',
-    title: '乗馬の物語を記録するマガジン',
-    dek: 'ライダー、厩舎、製品、ヘリテージをひとつの編集体験にまとめます。',
-    primary: 'Studio',
-    secondary: '最初の記事を準備中',
-    notes: ['Riders', 'Editorial', 'Guide'],
+    issue: 'ISSUE No. 03',
+    leadKicker: 'EDITORIAL · SS26',
+    title: '朝の騎乗前にある静けさ',
+    dek: '夜明けの馬房、手に残る革の感触、ライダーが馬上へ向かう前の数分を記録します。',
+    byline: 'BY 編集部 — 写真準備中',
+    editorTitle: 'Editor’s Selection',
+    newsletterTitle: '次の号を受け取る',
+    newsletterDek: 'Penacova Magazineから月に一度、静かな編集ノートをお届けします。',
   },
 };
+
+const selections = [
+  {
+    kicker: 'RIDER INTERVIEW',
+    title: '말의 리듬을 먼저 듣는 사람',
+    byline: 'BY 김지원',
+    ratio: 'portrait' as const,
+  },
+  {
+    kicker: 'LOOK BOOK',
+    title: 'SS26, 움직임을 위한 재단',
+    byline: 'STYLE NOTES',
+    ratio: 'portrait' as const,
+  },
+  {
+    kicker: 'HERITAGE',
+    title: '작은 자수 하나가 완성되는 시간',
+    byline: 'CRAFT JOURNAL',
+    ratio: 'portrait' as const,
+  },
+];
+
+const rails = [
+  ['editorial', 'Editorial', '마방의 빛을 따라 완성한 화보와 포토 에세이'],
+  ['riders', 'Riders', '국가대표, 코치, 클럽 라이더의 장면과 목소리'],
+  ['look', 'Look', '시즌 컬렉션과 라이딩을 위한 스타일 노트'],
+  ['guide', 'Guide', '소재, 사이즈, 관리법을 차분하게 정리한 가이드'],
+] as const;
 
 export default function LocaleHomePage({ params }: LocaleHomePageProps) {
   if (!isLocale(params.locale)) {
@@ -50,42 +89,85 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
   const content = copy[params.locale];
 
   return (
-    <main className="min-h-screen bg-stone-50 text-neutral-950">
-      <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-between px-6 py-8 sm:px-10 lg:px-14">
-        <header className="flex items-center justify-between border-b border-neutral-900 pb-4 text-xs font-semibold uppercase tracking-[0.24em]">
-          <span>{content.kicker}</span>
-          <span>{params.locale}</span>
-        </header>
+    <main className="min-h-screen bg-paper text-ink">
+      <MagazineMasthead locale={params.locale} />
 
-        <div className="grid gap-10 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-          <div>
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-red-800">
-              {content.secondary}
-            </p>
-            <h1 className="max-w-4xl text-5xl font-semibold leading-none sm:text-7xl lg:text-8xl">
+      <section id="editorial" className="border-b border-hairline">
+        <div className="mx-auto max-w-content">
+          <div className="flex aspect-[16/9] min-h-[280px] items-center justify-center bg-tonal sm:min-h-[420px]">
+            <Image
+              src="/brand/logo-mark.png"
+              alt=""
+              width={180}
+              height={180}
+              className="h-28 w-28 object-contain opacity-20 sm:h-40 sm:w-40"
+              priority
+            />
+          </div>
+          <div className="max-w-4xl px-6 py-10 sm:px-10 lg:px-14 lg:py-16">
+            <p className="kicker">{content.leadKicker}</p>
+            <h1 className="mt-5 font-display text-5xl font-semibold leading-none tracking-[-0.015em] text-ink text-balance sm:text-7xl lg:text-8xl">
               {content.title}
             </h1>
-          </div>
-
-          <div className="border-l border-neutral-900 pl-6">
-            <p className="max-w-md text-lg leading-8 text-neutral-700">{content.dek}</p>
-            <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold uppercase tracking-[0.18em]">
-              {content.notes.map((note) => (
-                <span key={note} className="border border-neutral-900 px-3 py-2">
-                  {note}
-                </span>
-              ))}
-            </div>
+            <p className="dek mt-6 max-w-2xl">{content.dek}</p>
+            <p className="mt-6 font-ui text-[11px] font-semibold uppercase tracking-[0.22em] text-muted">
+              {content.byline}
+            </p>
           </div>
         </div>
-
-        <footer className="flex flex-col gap-4 border-t border-neutral-900 pt-5 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/studio" className="font-semibold uppercase tracking-[0.2em] underline underline-offset-4">
-            {content.primary}
-          </Link>
-          <span className="text-neutral-600">magazine.penacova.co.kr</span>
-        </footer>
       </section>
+
+      <section className="mx-auto max-w-content px-6 py-14 sm:px-10 lg:px-14 lg:py-20">
+        <div className="mb-8 flex items-end justify-between border-b border-ink pb-4">
+          <div>
+            <p className="kicker">{content.issue}</p>
+            <h2 className="mt-2 font-display text-4xl font-semibold tracking-[-0.015em]">
+              {content.editorTitle}
+            </h2>
+          </div>
+        </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {selections.map((story) => (
+            <StoryCard key={story.title} {...story} />
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-hairline bg-tonal/60">
+        <div className="mx-auto grid max-w-content divide-y divide-hairline px-6 sm:px-10 lg:px-14">
+          {rails.map(([id, title, dek]) => (
+            <a
+              id={id}
+              key={id}
+              href={`#${id}`}
+              className="grid gap-3 py-8 no-underline md:grid-cols-[220px_1fr_auto] md:items-center"
+            >
+              <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.24em] text-penacova">
+                {title}
+              </span>
+              <span className="font-display text-2xl font-semibold tracking-[-0.01em] text-ink">
+                {dek}
+              </span>
+              <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
+                Read
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="newsletter" className="mx-auto max-w-reading px-6 py-16 text-center sm:px-10 lg:py-24">
+        <p className="kicker">Subscribe</p>
+        <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.015em] text-balance">
+          {content.newsletterTitle}
+        </h2>
+        <p className="dek mx-auto mt-5 max-w-xl">{content.newsletterDek}</p>
+        <p className="mt-8 font-ui text-[11px] font-semibold uppercase tracking-[0.22em] text-muted">
+          magazine.penacova.co.kr
+        </p>
+      </section>
+
+      <MagazineFooter />
     </main>
   );
 }

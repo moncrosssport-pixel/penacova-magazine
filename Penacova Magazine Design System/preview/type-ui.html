@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>UI type</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .stack { display: flex; flex-direction: column; gap: 14px; }
+  .kicker { font-family: var(--font-sans); font-weight: 600; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--penacova-red); }
+  .nav { font-family: var(--font-sans); font-weight: 500; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); }
+  .byline { font-family: var(--font-sans); font-weight: 600; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-500); }
+  .ui { font-family: var(--font-sans); font-size: 14px; color: var(--ink); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--gray-500); letter-spacing: 0.06em; }
+  .row { display: flex; gap: 28px; align-items: baseline; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">UI · Pretendard / Inter</span>
+    <div class="stack">
+      <div>
+        <div class="kicker">RIDER INTERVIEW</div>
+        <div class="meta">Kicker · 600 · 12 · 0.28em · accent</div>
+      </div>
+      <div>
+        <div class="row">
+          <span class="nav">Editorial</span>
+          <span class="nav">Riders</span>
+          <span class="nav">Look</span>
+          <span class="nav">Heritage</span>
+          <span class="nav">Guide</span>
+        </div>
+        <div class="meta">Nav · 500 · 13 · 0.18em</div>
+      </div>
+      <div>
+        <div class="byline">BY 김지원 — 사진 박세진</div>
+        <div class="meta">Byline · 600 · 11 · 0.2em · gray-500</div>
+      </div>
+      <div>
+        <div class="ui">Subscribe · Search · About · KO · EN · JP</div>
+        <div class="meta">UI body · 400 · 14 · 0em · ink</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

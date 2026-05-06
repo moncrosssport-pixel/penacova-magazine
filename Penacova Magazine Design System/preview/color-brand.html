@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Brand color</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .swatch-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 12px; }
+  .swatch { aspect-ratio: 16 / 10; display: flex; align-items: flex-end; padding: 12px; color: #fff; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; }
+  .swatch--red    { background: var(--penacova-red); }
+  .swatch--deep   { background: var(--penacova-red-deep); }
+  .swatch--soft   { background: var(--penacova-red-soft); color: var(--ink); }
+  .meta { display: flex; flex-direction: column; gap: 2px; line-height: 1.3; }
+  .meta b { font-weight: 600; letter-spacing: 0.08em; }
+  .note { font-family: var(--font-serif); font-size: 13px; color: var(--ink-mute); font-style: italic; line-height: 1.5; max-width: 540px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Penacova Red — accent only, never a block</span>
+    <div class="swatch-row">
+      <div class="swatch swatch--red">
+        <div class="meta"><b>PENACOVA RED</b><span>#E62021</span><span>R230 G32 B33</span><span>C11 M95 Y92</span></div>
+      </div>
+      <div class="swatch swatch--deep">
+        <div class="meta"><b>RED DEEP</b><span>#B81519</span><span>hover / pressed</span></div>
+      </div>
+      <div class="swatch swatch--soft">
+        <div class="meta"><b>RED SOFT</b><span>#FBE6E6</span><span>tiny ribbons only</span></div>
+      </div>
+    </div>
+    <p class="note">Used on the logo, kickers, single-line accents, and the occasional ribbon. Avoid filling buttons, sidebars, or large blocks with red.</p>
+  </div>
+</body>
+</html>

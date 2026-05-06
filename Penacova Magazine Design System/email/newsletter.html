@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Penacova Magazine — Newsletter</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; background: #d9d6cd; padding: 40px 16px; font-family: var(--font-sans); }
+  .frame { max-width: 640px; margin: 0 auto; background: var(--paper); border: 1px solid var(--gray-200); }
+  .preheader { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-500); padding: 14px 32px; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; }
+  .masthead { padding: 36px 32px 24px; text-align: center; border-bottom: 1px solid var(--ink); }
+  .masthead img { height: 36px; display: block; margin: 0 auto 10px; }
+  .masthead .tag { font-family: var(--font-display); font-style: italic; font-size: 14px; color: var(--ink-mute); margin: 0; }
+
+  .lead { padding: 0; }
+  .lead .img {
+    aspect-ratio: 4 / 3;
+    background: var(--paper-pure); border-bottom: 1px solid var(--gray-200);
+    background-image:
+      linear-gradient(to top right, transparent calc(50% - 0.5px), rgba(10,10,10,0.06) 50%, transparent calc(50% + 0.5px)),
+      linear-gradient(to top left,  transparent calc(50% - 0.5px), rgba(10,10,10,0.06) 50%, transparent calc(50% + 0.5px));
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--gray-500); text-transform: uppercase;
+  }
+  .lead .copy { padding: 32px; }
+  .lead .kicker { font-family: var(--font-sans); font-weight: 600; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--penacova-red); }
+  .lead h1 { font-family: var(--font-display); font-weight: 700; font-size: 44px; line-height: 1.05; letter-spacing: -0.015em; margin: 14px 0 12px; color: var(--ink); text-wrap: balance; }
+  .lead p { font-family: var(--font-serif); font-style: italic; font-size: 17px; line-height: 1.5; color: var(--ink-mute); margin: 0 0 20px; }
+  .lead .cta { font-family: var(--font-sans); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 3px; }
+
+  .section-title { padding: 32px 32px 12px; border-top: 1px solid var(--gray-200); }
+  .section-title span { font-family: var(--font-sans); font-weight: 600; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); }
+
+  .item { display: grid; grid-template-columns: 140px 1fr; gap: 18px; padding: 18px 32px; border-top: 1px solid var(--gray-200); }
+  .item .thumb {
+    aspect-ratio: 4 / 5;
+    background: var(--paper-pure); border: 1px solid var(--gray-200);
+    background-image:
+      linear-gradient(to top right, transparent calc(50% - 0.5px), rgba(10,10,10,0.06) 50%, transparent calc(50% + 0.5px)),
+      linear-gradient(to top left,  transparent calc(50% - 0.5px), rgba(10,10,10,0.06) 50%, transparent calc(50% + 0.5px));
+  }
+  .item .body { display: flex; flex-direction: column; gap: 6px; padding-top: 4px; }
+  .item .k { font-family: var(--font-sans); font-weight: 600; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--penacova-red); }
+  .item h3 { font-family: var(--font-display); font-weight: 600; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; margin: 0; color: var(--ink); }
+  .item .by { font-family: var(--font-sans); font-weight: 600; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-500); margin-top: auto; }
+
+  .quote-block { padding: 40px 32px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 32px 0 0; }
+  .quote-block blockquote { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 26px; line-height: 1.2; margin: 0 0 18px; color: var(--ink); text-wrap: pretty; }
+  .quote-block cite { font-family: var(--font-sans); font-style: normal; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-500); }
+
+  .footer { background: var(--ink); color: var(--paper); padding: 32px; text-align: center; }
+  .footer img { height: 22px; opacity: 0.9; margin-bottom: 14px; }
+  .footer p { font-family: var(--font-display); font-style: italic; font-size: 13px; color: rgba(250,250,247,0.7); margin: 0 0 18px; }
+  .footer .links { display: flex; justify-content: center; gap: 20px; font-family: var(--font-sans); font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(250,250,247,0.85); }
+  .footer .legal { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(250,250,247,0.18); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: rgba(250,250,247,0.5); }
+  .footer a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="frame" data-screen-label="Newsletter">
+  <div class="preheader">
+    <span>ISSUE №03 · 2026.05.06</span>
+    <span>웹에서 보기 →</span>
+  </div>
+
+  <header class="masthead">
+    <img src="../assets/logo-horizontal.png" alt="Penacova Magazine" />
+    <p class="tag">승마, 그리고 그 주변의 풍경</p>
+  </header>
+
+  <article class="lead">
+    <div class="img">640 × 480 · LEAD</div>
+    <div class="copy">
+      <span class="kicker">EDITORIAL · SS26</span>
+      <h1>초원 위의 침묵, 지원의 아침</h1>
+      <p>새벽 다섯 시, 안성의 마방에서 시작되는 라이더의 하루. 가죽과 면, 그리고 한 잔의 커피.</p>
+      <a class="cta" href="#">기사 읽기 →</a>
+    </div>
+  </article>
+
+  <div class="section-title"><span>이번 호의 다른 이야기</span></div>
+
+  <div class="item">
+    <div class="thumb"></div>
+    <div class="body">
+      <span class="k">RIDER INTERVIEW</span>
+      <h3>Park J. — twenty-six minutes</h3>
+      <span class="by">BY ANNA RHEE</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="thumb"></div>
+    <div class="body">
+      <span class="k">HERITAGE</span>
+      <h3>성수동 작업실의 실 한 줄</h3>
+      <span class="by">BY 김지원</span>
+    </div>
+  </div>
+  <div class="item">
+    <div class="thumb"></div>
+    <div class="body">
+      <span class="k">LOOK BOOK · SS26</span>
+      <h3>Quiet Field — 스물네 점의 룩</h3>
+      <span class="by">BY KIM J.</span>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <blockquote>“좋은 안장은 라이더의 무게가 아니라 자세를 기억한다.”</blockquote>
+    <cite>— PARK J., COACH · YONGIN EQUESTRIAN CLUB</cite>
+  </div>
+
+  <footer class="footer">
+    <img src="../assets/logo-horizontal-white.png" alt="Penacova" />
+    <p>An editorial home for equestrian stories.</p>
+    <div class="links">
+      <a>MAGAZINE</a><a>PENACOVA.CO.KR →</a><a>PENACOVA.JP →</a>
+    </div>
+    <div class="legal">© 2026 PENACOVA · 페나코바 · 구독 해지 · 웹에서 보기</div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Masthead</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  body { padding: 0; }
+  .card { padding: 0; gap: 0; }
+  .masthead { background: var(--paper); border-bottom: 1px solid var(--ink); padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .ms-left, .ms-right { flex: 1; display: flex; gap: 18px; align-items: center; font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); }
+  .ms-right { justify-content: flex-end; }
+  .ms-logo { flex: 0; }
+  .ms-logo img { height: 22px; }
+  .lang { display: flex; gap: 8px; color: var(--gray-500); }
+  .lang b { color: var(--ink); font-weight: 600; }
+  .nav-row { background: var(--paper); padding: 12px 28px; display: flex; gap: 28px; justify-content: center; font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--gray-200); }
+  .meta { padding: 12px 28px 20px; font-family: var(--font-mono); font-size: 10px; color: var(--gray-500); letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <header class="masthead">
+      <div class="ms-left"><span>Search</span><span>Subscribe</span></div>
+      <a class="ms-logo"><img src="../assets/logo-horizontal.png" alt="Penacova" /></a>
+      <div class="ms-right">
+        <span class="lang"><b>KO</b><span>EN</span><span>JP</span></span>
+      </div>
+    </header>
+    <nav class="nav-row">
+      <span>Editorial</span><span>Riders</span><span>Look</span><span>Heritage</span><span>Guide</span><span>News</span><span>Stories</span>
+    </nav>
+    <div class="meta">Masthead · ink rule below · sticky after 64px scroll</div>
+  </div>
+</body>
+</html>

@@ -4,6 +4,7 @@
 
 - Final product form: `docs/final-magazine-form.md`
 - Agent handoff harness: `AGENTS.md`
+- Design system: `Penacova Magazine Design System/README.md`
 - Current implementation spec: `SPEC.md`
 - Current task plan: `tasks/plan.md`
 - Current task checklist: `tasks/todo.md`
@@ -18,6 +19,18 @@ pnpm dev          # localhost:3000
 Home is at `localhost:3000/ko`; `/` redirects there.
 Studio is at `localhost:3000/studio` (added in Task 7).
 Sanity defaults are built in for the public project settings; `.env.local` can override them.
+
+## Design system
+
+The official visual source is `Penacova Magazine Design System/`.
+
+- `colors_and_type.css` contains the canonical color/type tokens.
+- `assets/` contains logo and favicon sources.
+- `ui_kits/magazine/` contains prototype components for the magazine homepage,
+  article page, footer, newsletter, and story cards.
+
+Production code should adapt those references into Next.js/TypeScript rather
+than copy prototype JSX directly.
 
 ## Stack
 

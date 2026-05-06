@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Semantic colors</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 13px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--gray-200); }
+  th { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-500); font-weight: 600; }
+  td.token { font-family: var(--font-mono); font-size: 12px; color: var(--ink); }
+  td.value { font-family: var(--font-mono); font-size: 12px; color: var(--gray-500); }
+  td.dot { width: 28px; }
+  .dot span { display: block; width: 22px; height: 22px; border: 1px solid var(--rule-soft); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Semantic tokens</span>
+    <table>
+      <tr><th></th><th>Token</th><th>Maps to</th><th>Use</th></tr>
+      <tr><td class="dot"><span style="background:var(--ink)"></span></td><td class="token">--fg-1</td><td class="value">#0A0A0A</td><td>Primary text</td></tr>
+      <tr><td class="dot"><span style="background:var(--ink-mute)"></span></td><td class="token">--fg-2</td><td class="value">#4A4A4A</td><td>Dek / lead</td></tr>
+      <tr><td class="dot"><span style="background:var(--gray-500)"></span></td><td class="token">--fg-3</td><td class="value">#777777</td><td>Metadata, byline</td></tr>
+      <tr><td class="dot"><span style="background:var(--penacova-red)"></span></td><td class="token">--fg-accent</td><td class="value">#E62021</td><td>Kicker, links</td></tr>
+      <tr><td class="dot"><span style="background:var(--paper); border:1px solid var(--gray-200)"></span></td><td class="token">--bg-1</td><td class="value">#FAFAF7</td><td>Page</td></tr>
+      <tr><td class="dot"><span style="background:var(--gray-100)"></span></td><td class="token">--bg-2</td><td class="value">#EFEDE6</td><td>Tonal section</td></tr>
+      <tr><td class="dot"><span style="background:var(--ink)"></span></td><td class="token">--bg-inverse</td><td class="value">#0A0A0A</td><td>Footer, dark hero</td></tr>
+      <tr><td class="dot"><span style="background:var(--gray-200)"></span></td><td class="token">--rule</td><td class="value">#DEDBD2</td><td>1px hairline</td></tr>
+    </table>
+  </div>
+</body>
+</html>

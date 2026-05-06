@@ -24,6 +24,8 @@ Completed:
 - Embedded Sanity Studio route at `/studio`.
 - Sanity public defaults for `projectId=6pelmu7l`, `dataset=production`.
 - Vercel production URL is live.
+- Repo-local design system is available and documented.
+- Locale home uses the first design-system-based magazine shell.
 
 Not completed:
 
@@ -33,6 +35,13 @@ Not completed:
 - Article page rendering.
 - Studio content seed.
 - End-to-end article verification.
+
+## Design Baseline
+
+Use `Penacova Magazine Design System/` as the official visual source for Phase 2
+and all visible page work. Production components should be written as typed
+Next.js/React components, while the design system's prototype JSX remains a
+reference.
 
 ## Next Work Sequence
 

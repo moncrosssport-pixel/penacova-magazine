@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Spacing scale</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .scale { display: flex; flex-direction: column; gap: 6px; }
+  .row { display: grid; grid-template-columns: 60px 70px 1fr; align-items: center; gap: 14px; font-family: var(--font-mono); font-size: 11px; color: var(--ink); }
+  .bar { height: 14px; background: var(--ink); }
+  .tag { color: var(--gray-500); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Spacing — 8pt with editorial micro-steps</span>
+    <div class="scale">
+      <div class="row"><span>--space-1</span><span class="tag">4px</span><div class="bar" style="width:4px"></div></div>
+      <div class="row"><span>--space-2</span><span class="tag">8px</span><div class="bar" style="width:8px"></div></div>
+      <div class="row"><span>--space-3</span><span class="tag">12px</span><div class="bar" style="width:12px"></div></div>
+      <div class="row"><span>--space-4</span><span class="tag">16px</span><div class="bar" style="width:16px"></div></div>
+      <div class="row"><span>--space-5</span><span class="tag">24px</span><div class="bar" style="width:24px"></div></div>
+      <div class="row"><span>--space-6</span><span class="tag">32px</span><div class="bar" style="width:32px"></div></div>
+      <div class="row"><span>--space-7</span><span class="tag">48px</span><div class="bar" style="width:48px"></div></div>
+      <div class="row"><span>--space-8</span><span class="tag">64px</span><div class="bar" style="width:64px"></div></div>
+      <div class="row"><span>--space-9</span><span class="tag">96px</span><div class="bar" style="width:96px"></div></div>
+      <div class="row"><span>--space-10</span><span class="tag">128px</span><div class="bar" style="width:128px"></div></div>
+    </div>
+  </div>
+</body>
+</html>

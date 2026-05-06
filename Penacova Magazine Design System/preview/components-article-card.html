@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Article card</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card-art { display: flex; flex-direction: column; gap: 10px; }
+  .img { aspect-ratio: 4 / 5; background: linear-gradient(135deg, #c9b8a3 0%, #6a4a36 100%); position: relative; }
+  .img--alt { background: linear-gradient(135deg, #2a2a28 0%, #5a4a3a 100%); }
+  .kicker { font-family: var(--font-sans); font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--penacova-red); }
+  .ttl { font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink); }
+  .byline { font-family: var(--font-sans); font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-500); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Article card — image · kicker · title · byline</span>
+    <div class="grid">
+      <div class="card-art">
+        <div class="img"></div>
+        <span class="kicker">RIDER INTERVIEW</span>
+        <h3 class="ttl">초원 위의 침묵, 지원의 아침</h3>
+        <span class="byline">BY 박세진</span>
+      </div>
+      <div class="card-art">
+        <div class="img img--alt"></div>
+        <span class="kicker">HERITAGE</span>
+        <h3 class="ttl">Threadwork from the workshop in Seongsu</h3>
+        <span class="byline">BY ANNA RHEE</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

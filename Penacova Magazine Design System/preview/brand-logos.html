@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Logos</title>
+<link rel="stylesheet" href="_card.css" />
+<style>
+  .row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 14px; }
+  .tile { aspect-ratio: 1.6 / 1; display: flex; align-items: center; justify-content: center; padding: 18px; }
+  .tile--paper { background: var(--paper); border: 1px solid var(--gray-200); }
+  .tile--ink { background: var(--ink); }
+  .tile img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--gray-500); letter-spacing: 0.06em; margin-top: 6px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="label">Logo lockups</span>
+    <div class="row">
+      <div>
+        <div class="tile tile--paper"><img src="../assets/logo-mark.png" alt="" /></div>
+        <div class="meta">Mark · red on paper</div>
+      </div>
+      <div>
+        <div class="tile tile--paper"><img src="../assets/logo-horizontal.png" alt="" /></div>
+        <div class="meta">Horizontal lockup · red on paper</div>
+      </div>
+      <div>
+        <div class="tile tile--ink"><img src="../assets/logo-mark-white.png" alt="" /></div>
+        <div class="meta">Mark · white knockout</div>
+      </div>
+      <div>
+        <div class="tile tile--ink"><img src="../assets/logo-horizontal-white.png" alt="" /></div>
+        <div class="meta">Horizontal · white knockout</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Penacova Magazine</title>
+<link rel="icon" href="../../assets/logo-favicon.png" />
+<link rel="stylesheet" href="../../colors_and_type.css" />
+<style>
+  body { background: var(--paper); margin: 0; }
+  #app { min-height: 100vh; }
+</style>
+</head>
+<body>
+  <div id="app" data-screen-label="Penacova Magazine"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="image-slot.js"></script>
+
+  <script type="text/babel" src="ImageSlot.jsx"></script>
+  <script type="text/babel" src="Masthead.jsx"></script>
+  <script type="text/babel" src="LeadStory.jsx"></script>
+  <script type="text/babel" src="ArticleCard.jsx"></script>
+  <script type="text/babel" src="EditorRail.jsx"></script>
+  <script type="text/babel" src="CategoryRail.jsx"></script>
+  <script type="text/babel" src="ArticlePage.jsx"></script>
+  <script type="text/babel" src="LookGrid.jsx"></script>
+  <script type="text/babel" src="Newsletter.jsx"></script>
+  <script type="text/babel" src="Footer.jsx"></script>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    // ---------- Sample editorial inventory ---------------------------
+    const ARTICLES = {
+      editor: [
+        { id: 'e1', kicker: 'EDITORIAL · SS26',  title: '안성 마방의 새벽',                 byline: 'BY 박세진' },
+        { id: 'e2', kicker: 'RIDER INTERVIEW',   title: 'Park J. — twenty-six minutes',   byline: 'BY ANNA RHEE' },
+        { id: 'e3', kicker: 'HERITAGE',          title: '성수동 작업실의 실 한 줄',           byline: 'BY 김지원' },
+      ],
+      riders: [
+        { id: 'r1', kicker: 'RIDERS', title: 'Coach Min, Yongin Club',          byline: 'BY 박세진' },
+        { id: 'r2', kicker: 'RIDERS', title: '17세, 첫 시즌',                     byline: 'BY ANNA RHEE' },
+        { id: 'r3', kicker: 'RIDERS', title: 'Hanae Sato — Tokyo to Anseong',    byline: 'BY 김지원' },
+        { id: 'r4', kicker: 'RIDERS', title: '아버지와 아들의 트랙',                byline: 'BY 박세진' },
+      ],
+      heritage: [
+        { id: 'h1', kicker: 'HERITAGE', title: '바늘 한 땀의 무게',               byline: 'BY 김지원' },
+        { id: 'h2', kicker: 'HERITAGE', title: 'The leather room',             byline: 'BY ANNA RHEE' },
+        { id: 'h3', kicker: 'HERITAGE', title: '브랜드의 시작, 1998',             byline: 'BY 박세진' },
+        { id: 'h4', kicker: 'HERITAGE', title: '말과 사람 사이',                   byline: 'BY 김지원' },
+      ],
+    };
+
+    const LOOKS = [
+      { id: 'l1',  name: 'Field jacket, ivory'   },
+      { id: 'l2',  name: 'Riding breech, navy'   },
+      { id: 'l3',  name: 'Linen shirt, cream'    },
+      { id: 'l4',  name: 'Suede gloves, oak'     },
+      { id: 'l5',  name: 'Wool blazer, black'    },
+      { id: 'l6',  name: 'Boot, brown leather'   },
+    ];
+
+    function App() {
+      const [view, setView] = useState({ name: 'home' });
+      const [locale, setLocale] = useState('ko');
+
+      const goHome = () => setView({ name: 'home' });
+      const openArticle = (a) => { setView({ name: 'article', article: a }); window.scrollTo(0,0); };
+      const onNav = (id) => {
+        if (id === 'home') return goHome();
+        if (id === 'look') return setView({ name: 'look' });
+        setView({ name: 'category', id });
+        window.scrollTo(0,0);
+      };
+
+      return (
+        <div>
+          <Masthead
+            locale={locale}
+            onLocaleChange={setLocale}
+            onNav={onNav}
+            active={view.name === 'category' ? view.id : (view.name === 'look' ? 'look' : null)}
+          />
+
+          {view.name === 'home' && (
+            <main data-screen-label="01 Home">
+              <LeadStory onOpen={()=>openArticle(ARTICLES.editor[0])} />
+              <EditorRail articles={ARTICLES.editor} onOpen={openArticle} />
+              <CategoryRail kicker="RIDER INTERVIEW" title="Riders, this season" articles={ARTICLES.riders} onOpen={openArticle} />
+              <CategoryRail kicker="HERITAGE" title="From the workshop" articles={ARTICLES.heritage} onOpen={openArticle} />
+              <Newsletter />
+              <Footer />
+            </main>
+          )}
+
+          {view.name === 'article' && (
+            <main data-screen-label="02 Article">
+              <ArticlePage article={view.article} onBack={goHome} />
+              <Footer />
+            </main>
+          )}
+
+          {view.name === 'look' && (
+            <main data-screen-label="03 Look book">
+              <LookGrid looks={LOOKS} onOpen={(l)=>openArticle({ kicker:'LOOK BOOK', title: l.name, byline: 'BY KIM J.' })} />
+              <Newsletter />
+              <Footer />
+            </main>
+          )}
+
+          {view.name === 'category' && (
+            <main data-screen-label={`04 ${view.id}`}>
+              <section style={{padding: '96px 56px', borderBottom: '1px solid var(--gray-200)'}}>
+                <div style={{textAlign:'center', maxWidth:720, margin:'0 auto 64px'}}>
+                  <span style={{display:'block', fontFamily:'var(--font-sans)', fontWeight:600, fontSize:12, letterSpacing:'0.28em', textTransform:'uppercase', color:'var(--penacova-red)', marginBottom:18}}>{view.id.toUpperCase()}</span>
+                  <h1 style={{fontFamily:'var(--font-display)', fontWeight:600, fontSize:64, lineHeight:1.05, letterSpacing:'-0.02em', color:'var(--ink)', margin:0}}>
+                    {view.id === 'riders' ? 'Rider Interviews' : view.id === 'heritage' ? 'Heritage' : view.id.charAt(0).toUpperCase()+view.id.slice(1)}
+                  </h1>
+                </div>
+                <div style={{display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap: 40, maxWidth: 1200, margin:'0 auto'}}>
+                  {(ARTICLES[view.id] || ARTICLES.editor).map(a => (
+                    <ArticleCard key={a.id} article={a} onOpen={openArticle} size="md" />
+                  ))}
+                  {[1,2,3].map(i => (
+                    <ArticleCard key={`ph-${i}`} article={{kicker: view.id.toUpperCase(), title:'기사 제목 자리', byline:'BY —'}} onOpen={()=>{}} size="md" />
+                  ))}
+                </div>
+              </section>
+              <Footer />
+            </main>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+  </script>
+</body>
+</html>

@@ -34,6 +34,7 @@
 - [x] Create `lib/sanity/queries.ts`.
 - [x] Add query unit tests.
 - [x] Create `/[locale]/editorial/[slug]` route.
+- [x] Prepare Phase 1 Sanity seed payload and command.
 - [ ] Seed one Korean editorial article in Sanity Studio.
 - [ ] Verify the seeded article locally.
 - [ ] Verify the seeded article on Vercel.

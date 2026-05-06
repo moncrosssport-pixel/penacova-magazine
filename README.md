@@ -8,6 +8,7 @@
 - Current implementation spec: `SPEC.md`
 - Current task plan: `tasks/plan.md`
 - Current task checklist: `tasks/todo.md`
+- Seed content: `docs/seed-content.md`
 
 ## Develop
 
@@ -19,6 +20,12 @@ pnpm dev          # localhost:3000
 Home is at `localhost:3000/ko`; `/` redirects there.
 Studio is at `localhost:3000/studio` (added in Task 7).
 Sanity defaults are built in for the public project settings; `.env.local` can override them.
+
+Seed the Phase 1 article and glossary after Sanity CLI login:
+
+```bash
+pnpm run seed:sanity
+```
 
 ## Design system
 

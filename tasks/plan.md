@@ -31,10 +31,11 @@ Completed:
   Look, Person, Product, and Rider.
 - Sanity read client, article GROQ query, query tests, and the Editorial article
   route are implemented.
+- Phase 1 seed payload and seed command are prepared.
 
 Not completed:
 
-- Studio content seed.
+- Applying the Studio/Content Lake seed requires Sanity CLI login.
 - End-to-end article verification with a real published article.
 
 ## Design Baseline

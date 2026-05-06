@@ -78,8 +78,9 @@ Implemented:
 - Sanity schemas for Article, Collection, Glossary, Look, Person, Product, and
   Rider
 - Sanity read client and GROQ queries
-- `/[locale]/editorial/[slug]` article route
 - `/[locale]/[category]` category index route for the seven magazine pillars
+- `/[locale]/[category]/[slug]` shared article detail route for the seven
+  magazine pillars
 
 Not yet implemented:
 

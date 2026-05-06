@@ -16,6 +16,7 @@
 - [x] Add repo-local Penacova Magazine design system as the official visual source.
 - [x] Replace the temporary locale home shell with a design-system-based magazine homepage shell.
 - [x] Build category index pages.
+- [x] Build shared article detail pages for all magazine categories.
 
 ## Next
 
@@ -44,7 +45,6 @@
 
 - [ ] Build rider detail pages.
 - [ ] Build look book pages.
-- [ ] Build guide/news/heritage/stories templates.
 - [ ] Add locale switcher.
 - [ ] Add translation status handling.
 - [ ] Add SEO metadata, sitemap, hreflang, OG images, and JSON-LD.

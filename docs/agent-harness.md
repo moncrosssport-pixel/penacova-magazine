@@ -32,23 +32,33 @@ Local routes:
 
 - `http://localhost:3000/`
 - `http://localhost:3000/ko`
+- `http://localhost:3000/ko/editorial`
+- `http://localhost:3000/ko/editorial/quiet-morning` after content seed
 - `http://localhost:3000/studio`
 
 Production routes:
 
 - `https://penacova-magazine.vercel.app/`
 - `https://penacova-magazine.vercel.app/ko`
+- `https://penacova-magazine.vercel.app/ko/editorial`
+- `https://penacova-magazine.vercel.app/ko/editorial/quiet-morning` after
+  content seed
 - `https://penacova-magazine.vercel.app/studio`
 
 ## Known Good State
 
-As of the harness creation:
+Current known state:
 
 - `main` points at `moncrosssport-pixel/penacova-magazine`.
 - `/` redirects to `/ko`.
-- `/ko` renders a minimal placeholder home.
+- `/ko` renders the first design-system-based magazine home.
 - `/studio` loads the embedded Sanity Studio shell.
-- `sanity/schema.ts` intentionally contains an empty schema list.
+- Sanity schemas are registered for Article, Collection, Glossary, Look, Person,
+  Product, and Rider.
+- Category indexes render at `/[locale]/[category]`.
+- Shared article detail pages render at `/[locale]/[category]/[slug]` after
+  content exists.
+- The Phase 1 seed payload exists, but applying it requires Sanity CLI login.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 
@@ -87,7 +97,7 @@ For each task:
 | Middleware/routing | `pnpm test`, `pnpm build`, local route check |
 | Sanity schema | `pnpm build`, Studio sidebar check |
 | Sanity query/client | Unit test plus `pnpm build` |
-| Article page | `pnpm test`, `pnpm build`, local article URL |
+| Article page | `pnpm test`, `pnpm build`, local missing-article 404 or seeded article URL |
 | Visual design | Design system review, `pnpm test`, `pnpm build`, browser check |
 | Vercel/deploy | Production or preview URL check |
 | Docs only | Link/file review, `git diff --check` |

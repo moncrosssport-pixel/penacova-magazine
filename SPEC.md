@@ -41,8 +41,8 @@ The repository currently contains the foundation:
 - Design-system-based locale homepage shell
 - Sanity schemas for the Phase 1 content model
 - Sanity read client and article queries
-- Editorial article detail route at `/[locale]/editorial/[slug]`
 - Category index route at `/[locale]/[category]`
+- Shared article detail route at `/[locale]/[category]/[slug]`
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The prepared Sanity seed still needs

@@ -34,6 +34,7 @@ Completed:
 - Phase 1 seed payload and seed command are prepared.
 - Category index pages are implemented at `/[locale]/[category]` for the seven
   magazine pillars.
+- Article detail pages use the shared `/[locale]/[category]/[slug]` route.
 
 Not completed:
 
@@ -99,11 +100,11 @@ Acceptance:
 
 Status: complete.
 
-### Slice 4: Editorial Article Route
+### Slice 4: Shared Article Route
 
 Add:
 
-- `app/[locale]/editorial/[slug]/page.tsx`
+- `app/[locale]/[category]/[slug]/page.tsx`
 - Portable Text rendering.
 - Sanity image URL handling.
 - `notFound()` behavior for invalid locale or missing article.
@@ -115,8 +116,8 @@ Acceptance:
 - `pnpm test` passes.
 - `pnpm build` passes.
 
-Status: route implemented and missing-article 404 is expected until content is
-seeded in Studio.
+Status: route implemented for all seven article categories. Missing-article
+404 is expected until content is seeded in Studio.
 
 ### Slice 5: End-To-End Vercel Verification
 
@@ -147,6 +148,22 @@ Acceptance:
 - `pnpm build` passes.
 
 Status: complete locally and verified on Vercel production.
+
+### Slice 7: Shared Category Article Detail Pages
+
+Move the detail article template from an editorial-only static segment to the
+shared category route.
+
+Acceptance:
+
+- `/[locale]/[category]/[slug]` compiles for valid categories.
+- Invalid categories return 404.
+- Missing articles return 404.
+- Non-Korean locales do not silently render Korean body copy as translated text.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Vercel verification follows after push/deploy.
 
 ## Later Phases
 

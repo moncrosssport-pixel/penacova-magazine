@@ -146,7 +146,7 @@ Acceptance:
 - `pnpm test` passes.
 - `pnpm build` passes.
 
-Status: complete locally. Vercel verification follows after push/deploy.
+Status: complete locally and verified on Vercel production.
 
 ## Later Phases
 

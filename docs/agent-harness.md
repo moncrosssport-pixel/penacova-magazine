@@ -71,8 +71,8 @@ Current known state:
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
 - Masthead locale links preserve the current category or article path.
-- The Phase 1 seed payload exists, but applying it requires a Sanity project
-  owner/member login or a write token in `SANITY_AUTH_TOKEN`.
+- The Phase 1 seed payload is applied. `quiet-morning` renders at
+  `/ko/editorial/quiet-morning` locally and on production.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 
@@ -85,6 +85,8 @@ Current known state:
   the current Next 14 + React 18 baseline.
 - `/studio` must not be redirected through locale middleware.
 - Public Sanity values can be defaults, but never expose write tokens.
+- Public Sanity seed document IDs should not contain dots. Dot IDs are private
+  to authenticated queries and do not appear through the public read API.
 - The old planning document outside this repo may contain optimistic checklist
   language. Treat this repo's `tasks/todo.md` as the active state.
 

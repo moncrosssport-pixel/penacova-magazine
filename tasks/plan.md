@@ -31,7 +31,7 @@ Completed:
   Look, Person, Product, and Rider.
 - Sanity read client, article GROQ query, query tests, and the Editorial article
   route are implemented.
-- Phase 1 seed payload and seed command are prepared.
+- Phase 1 seed payload and seed command are prepared and applied.
 - Category index pages are implemented at `/[locale]/[category]` for the seven
   magazine pillars.
 - Article detail pages use the shared `/[locale]/[category]/[slug]` route.
@@ -41,18 +41,17 @@ Completed:
 
 ## Progress Snapshot
 
-- Phase 1 technical foundation is roughly 88% complete. The code foundation is
-  largely in place; the remaining Phase 1 blocker is authenticated Sanity
-  content seeding plus real article verification locally and on production.
-- Final public launch is roughly 38% complete. The site still needs launch
+- Phase 1 technical foundation is roughly 96% complete. The remaining Phase 1
+  polish is to upload a real hero image for the seed article and visually check
+  Studio editing.
+- Final public launch is roughly 40% complete. The site still needs launch
   content, translation workflow polish, rider/look-specific page depth,
   analytics, newsletter/follow capture, custom domain setup, and final QA.
 
 Not completed:
 
-- Applying the Studio/Content Lake seed requires either Sanity CLI login as a
-  project owner/member or a write token in `SANITY_AUTH_TOKEN`.
-- End-to-end article verification with a real published article.
+- Uploading a real hero image for the seed editorial article.
+- Manual Studio editing/sidebar verification.
 
 ## Design Baseline
 
@@ -129,12 +128,15 @@ Acceptance:
 - `pnpm test` passes.
 - `pnpm build` passes.
 
-Status: route implemented for all seven article categories. Missing-article
-404 is expected until content is seeded in Studio.
+Status: route implemented for all seven article categories. The seeded
+`quiet-morning` article renders locally and on production.
 
 Seed note: `pnpm run seed:sanity` now uses `scripts/seed-sanity.mjs` and expects
 `SANITY_AUTH_TOKEN`, `SANITY_API_TOKEN`, or `SANITY_WRITE_TOKEN`. The old CLI
 path is preserved as `pnpm run seed:sanity:cli`.
+
+Sanity ID note: public documents must use public-readable IDs such as
+`article-quiet-morning`, not private dot IDs such as `article.quiet-morning`.
 
 ### Slice 5: End-To-End Vercel Verification
 
@@ -150,6 +152,9 @@ Acceptance:
 
 - Latest `main` deployment works on `https://penacova-magazine.vercel.app`.
 - Any required dashboard/manual steps are documented.
+
+Status: seeded article verified locally and on production at
+`/ko/editorial/quiet-morning`. A real hero image is still needed before launch.
 
 ### Slice 6: Category Index Pages
 

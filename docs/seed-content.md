@@ -7,8 +7,8 @@ without inventing new content.
 
 `sanity/seed/phase1-seed.json` creates:
 
-- `person.editorial-desk`
-- `article.quiet-morning`
+- `person-editorial-desk`
+- `article-quiet-morning`
 - 5 glossary terms:
   - Penacova
   - 편자 / horseshoe / 蹄鉄
@@ -21,20 +21,28 @@ need to be uploaded through Studio or an authenticated asset API flow. The
 frontend route has a tonal fallback so the page can still verify the full text
 rendering path. Before public launch, upload a real hero image in Studio.
 
+Do not use dots in public seed document IDs. Dot IDs such as
+`article.quiet-morning` are treated as private documents by Sanity and will not
+appear to the unauthenticated public read client used by the production site.
+
 ## Apply The Seed
 
-The CLI must be logged into the Sanity account that owns project `6pelmu7l`.
+Preferred path: create a Sanity project token with write access, then keep it
+only in the current shell session:
 
-```bash
-pnpm exec sanity login
+```powershell
+$env:SANITY_AUTH_TOKEN="<token>"
 pnpm run seed:sanity
 ```
 
-If you want a browser URL without auto-opening the browser:
+Do not commit real Sanity tokens.
+
+Alternative path: log the CLI into the Sanity account that owns project
+`6pelmu7l`, then use the legacy CLI import script:
 
 ```bash
 pnpm exec sanity login --no-open
-pnpm run seed:sanity
+pnpm run seed:sanity:cli
 ```
 
 ## Verify

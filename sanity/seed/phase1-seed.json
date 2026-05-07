@@ -1,6 +1,6 @@
 [
   {
-    "_id": "person.editorial-desk",
+    "_id": "person-editorial-desk",
     "_type": "person",
     "name": {
       "ko": "편집부",
@@ -15,7 +15,7 @@
     }
   },
   {
-    "_id": "article.quiet-morning",
+    "_id": "article-quiet-morning",
     "_type": "article",
     "title": {
       "ko": "초원 위의 침묵, 지원의 아침",
@@ -99,7 +99,7 @@
       {
         "_key": "author-editorial-desk",
         "_type": "reference",
-        "_ref": "person.editorial-desk"
+        "_ref": "person-editorial-desk"
       }
     ],
     "translationStatus": {
@@ -117,7 +117,7 @@
     }
   },
   {
-    "_id": "glossary.penacova",
+    "_id": "glossary-penacova",
     "_type": "glossary",
     "koTerm": "Penacova",
     "enTerm": "Penacova",
@@ -126,7 +126,7 @@
     "notes": "Brand name. Never translate."
   },
   {
-    "_id": "glossary.horseshoe",
+    "_id": "glossary-horseshoe",
     "_type": "glossary",
     "koTerm": "편자",
     "enTerm": "horseshoe",
@@ -134,7 +134,7 @@
     "scope": "equestrian"
   },
   {
-    "_id": "glossary.whip",
+    "_id": "glossary-whip",
     "_type": "glossary",
     "koTerm": "채찍",
     "enTerm": "whip",
@@ -142,7 +142,7 @@
     "scope": "equestrian"
   },
   {
-    "_id": "glossary.stable",
+    "_id": "glossary-stable",
     "_type": "glossary",
     "koTerm": "마방",
     "enTerm": "stable",
@@ -150,7 +150,7 @@
     "scope": "equestrian"
   },
   {
-    "_id": "glossary.rider",
+    "_id": "glossary-rider",
     "_type": "glossary",
     "koTerm": "라이더",
     "enTerm": "rider",

@@ -26,11 +26,17 @@ SEO utility routes are available at `localhost:3000/sitemap.xml` and
 `localhost:3000/robots.txt`.
 Sanity defaults are built in for the public project settings; `.env.local` can override them.
 
-Seed the Phase 1 article and glossary after Sanity CLI login:
+Seed the Phase 1 article and glossary after either Sanity CLI login as a
+project member or a project write token:
 
-```bash
+```powershell
+$env:SANITY_AUTH_TOKEN="<token>"
 pnpm run seed:sanity
 ```
+
+Do not commit real Sanity tokens. The legacy CLI import command remains
+available as `pnpm run seed:sanity:cli` when the local Sanity CLI account is a
+member of project `6pelmu7l`.
 
 ## Design system
 

@@ -23,11 +23,11 @@
 
 ## Progress Estimate
 
-- Phase 1 technical foundation: about 88% complete.
-- Final public launch: about 38% complete.
-- Main blockers: Sanity project owner/member login or write token, real article
-  verification, launch content, translation workflow, rider/look-specific
-  surfaces, analytics, newsletter/follow capture, and custom domain setup.
+- Phase 1 technical foundation: about 96% complete.
+- Final public launch: about 40% complete.
+- Main blockers: real hero image upload for the seed article, launch content,
+  translation workflow, rider/look-specific surfaces, analytics,
+  newsletter/follow capture, and custom domain setup.
 
 ## Next
 
@@ -48,9 +48,9 @@
 - [x] Add query unit tests.
 - [x] Create `/[locale]/editorial/[slug]` route.
 - [x] Prepare Phase 1 Sanity seed payload and command.
-- [ ] Seed one Korean editorial article in Sanity Studio.
-- [ ] Verify the seeded article locally.
-- [ ] Verify the seeded article on Vercel.
+- [x] Seed one Korean editorial article in Sanity.
+- [x] Verify the seeded article locally.
+- [x] Verify the seeded article on Vercel.
 
 ## Launch Backlog
 

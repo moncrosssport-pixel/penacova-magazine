@@ -1,6 +1,11 @@
 import type { MetadataRoute } from 'next';
 import { LOCALES } from '@/lib/i18n/locales';
-import { MAGAZINE_CATEGORIES, isArticleCategory } from '@/lib/magazine/categories';
+import {
+  MAGAZINE_CATEGORIES,
+  type ArticleCategory,
+  getArticlePathSegments,
+  isArticleCategory,
+} from '@/lib/magazine/categories';
 import { sanityClient } from '@/lib/sanity/client';
 import { sitemapArticlesQuery, sitemapRidersQuery } from '@/lib/sanity/queries';
 import { absoluteUrl, localePath } from '@/lib/seo/metadata';
@@ -43,11 +48,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { next: { revalidate } },
   );
   const articleRoutes = articles
-    .filter((article) => isArticleCategory(article.category))
+    .filter(
+      (article): article is SitemapArticle & { category: ArticleCategory } =>
+        isArticleCategory(article.category),
+    )
     .flatMap((article) =>
       LOCALES.map((locale) =>
         createEntry(
-          localePath(locale, [article.category, article.slug]),
+          localePath(locale, getArticlePathSegments(article.category, article.slug)),
           article._updatedAt ?? article.publishedAt ?? now,
           'weekly',
           0.8,

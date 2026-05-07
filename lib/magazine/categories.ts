@@ -165,3 +165,17 @@ export function isArticleCategory(value: unknown): value is ArticleCategory {
 export function getCategoryMeta(categoryId: ArticleCategory) {
   return MAGAZINE_CATEGORIES.find((category) => category.id === categoryId)!;
 }
+
+export function getArticlePathSegments(category: ArticleCategory, slug: string) {
+  return category === 'riders'
+    ? ['riders', 'interviews', slug]
+    : [category, slug];
+}
+
+export function getArticleHref(
+  locale: Locale,
+  category: ArticleCategory,
+  slug: string,
+) {
+  return `/${locale}/${getArticlePathSegments(category, slug).join('/')}`;
+}

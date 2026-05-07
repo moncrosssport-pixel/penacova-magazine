@@ -42,13 +42,15 @@ Completed:
   show Korean original content until translations are reviewed or manual.
 - Rider detail pages render at `/[locale]/riders/[slug]` with profile facts,
   linked interviews, optional favorite products, and Person JSON-LD.
+- Studio has a no-code publishing structure, category-specific templates, and a
+  documented editorial publishing harness for managers.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 42% complete. The site still needs launch
+- Final public launch is roughly 45% complete. The site still needs launch
   content, translation workflow polish, rider/look-specific page depth,
   analytics, newsletter/follow capture, custom domain setup, and final QA.
 
@@ -252,6 +254,26 @@ Acceptance:
 - Missing rider slugs return 404.
 - Linked rider interviews use article teaser cards.
 - Rider routes are included in `/sitemap.xml`.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Production verification follows after push/deploy.
+
+### Slice 12: No-Code Publishing Harness
+
+Make the CMS publishing flow clear enough that a non-developer can publish by
+choosing a Studio template and filling fields.
+
+Acceptance:
+
+- Studio has a publishing-oriented desk structure instead of a raw document
+  type list.
+- Article templates prefill category and translation defaults.
+- Article and Rider schema descriptions explain the public route and required
+  editorial fields.
+- Rider Interview Article details avoid Rider Profile route collisions.
+- `docs/editorial-publishing-harness.md` is the source of truth for manager
+  publishing.
 - `pnpm test` passes.
 - `pnpm build` passes.
 

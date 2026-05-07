@@ -3,6 +3,7 @@
 `magazine.penacova.co.kr` — Vogue-style editorial magazine for Penacova equestrian apparel.
 
 - Final product form: `docs/final-magazine-form.md`
+- Editorial publishing harness: `docs/editorial-publishing-harness.md`
 - Agent handoff harness: `AGENTS.md`
 - Design system: `Penacova Magazine Design System/README.md`
 - Current implementation spec: `SPEC.md`
@@ -21,6 +22,9 @@ Home is at `localhost:3000/ko`; `/` redirects there.
 Category indexes are available at routes such as `localhost:3000/ko/editorial`.
 Article detail pages are available at routes such as
 `localhost:3000/ko/editorial/quiet-morning` after content is published.
+Rider interview article pages use
+`localhost:3000/ko/riders/interviews/[slug]`; rider profile pages use
+`localhost:3000/ko/riders/[slug]`.
 Studio is at `localhost:3000/studio` (added in Task 7).
 SEO utility routes are available at `localhost:3000/sitemap.xml` and
 `localhost:3000/robots.txt`.

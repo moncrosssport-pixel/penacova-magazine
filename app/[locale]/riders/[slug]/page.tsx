@@ -5,7 +5,7 @@ import { ArticleTeaser } from '@/components/magazine/ArticleTeaser';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
-import type { ArticleCategory } from '@/lib/magazine/categories';
+import { getArticleHref, type ArticleCategory } from '@/lib/magazine/categories';
 import {
   formatByline,
   formatDate,
@@ -218,7 +218,7 @@ export default async function RiderPage({ params }: RiderPageProps) {
                 return (
                   <ArticleTeaser
                     key={interview._id}
-                    href={`/${locale}/${interview.category}/${interview.slug}`}
+                    href={getArticleHref(locale, interview.category, interview.slug)}
                     kicker={articleKicker('Rider Interview', locale, interview.translationStatus)}
                     title={pickLocalized(interview.title, interviewLocale) || 'Untitled'}
                     excerpt={pickLocalized(interview.excerpt, interviewLocale)}

@@ -10,11 +10,12 @@ Before changing code, read these files in order:
 1. `README.md`
 2. `SPEC.md`
 3. `docs/final-magazine-form.md`
-4. `Penacova Magazine Design System/README.md`
-5. `Penacova Magazine Design System/SKILL.md`
-6. `docs/agent-harness.md`
-7. `tasks/plan.md`
-8. `tasks/todo.md`
+4. `docs/editorial-publishing-harness.md`
+5. `Penacova Magazine Design System/README.md`
+6. `Penacova Magazine Design System/SKILL.md`
+7. `docs/agent-harness.md`
+8. `tasks/plan.md`
+9. `tasks/todo.md`
 
 Then run:
 
@@ -86,6 +87,7 @@ Implemented:
 - Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
   and article JSON-LD wiring
 - Path-preserving locale switcher links in the magazine masthead
+- No-code publishing harness for Sanity editors
 
 Not yet implemented:
 

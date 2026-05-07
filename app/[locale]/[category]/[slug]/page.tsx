@@ -7,6 +7,8 @@ import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
 import {
+  getArticleHref,
+  getArticlePathSegments,
   getCategoryMeta,
   isArticleCategory,
   type ArticleCategory,
@@ -108,7 +110,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   return createLocalizedMetadata({
     locale: params.locale,
-    pathSegments: [params.category, article.slug],
+    pathSegments: getArticlePathSegments(article.category, article.slug),
     title: title ? { [params.locale]: title } : undefined,
     description: description ? { [params.locale]: description } : undefined,
     fallbackTitle: SITE_NAME,
@@ -149,13 +151,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const date = formatDate(article.publishedAt, contentLocale);
   const ctaLabel = pickLocalized(article.cta?.label, contentLocale);
   const ctaHref = getCtaHref(article.cta, contentLocale);
+  const articlePathSegments = getArticlePathSegments(category, article.slug);
+  const articleHref = getArticleHref(locale, category, article.slug);
+  const koreanArticleHref = getArticleHref('ko', category, article.slug);
   const heroImageUrl = article.heroImage?.asset?._ref
     ? urlFor(article.heroImage).width(1800).height(860).fit('crop').url()
     : null;
 
   return (
     <main className="min-h-screen bg-paper text-ink">
-      <MagazineMasthead locale={locale} pathSegments={[category, article.slug]} />
+      <MagazineMasthead locale={locale} pathSegments={articlePathSegments} />
 
       <article>
         {heroImageUrl ? (
@@ -193,7 +198,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {translationNoticeCopy[locale]}
               </p>
               <Link
-                href={`/ko/${category}/${article.slug}`}
+                href={koreanArticleHref}
                 className="mt-4 inline-block font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-penacova no-underline"
               >
                 {koreanOriginalLinkCopy[locale]} -&gt;
@@ -232,7 +237,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               article,
               categoryLabel: meta.label,
               locale: contentLocale,
-              path: `/${locale}/${category}/${article.slug}`,
+              path: articleHref,
               image: heroImageUrl,
             }),
           ),

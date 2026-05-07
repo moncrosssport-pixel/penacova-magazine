@@ -25,18 +25,24 @@ export const article = defineType({
   name: 'article',
   title: 'Article',
   type: 'document',
+  description:
+    'No-code magazine story. Choose a category, generate a slug, add Korean source content, then publish.',
   fields: [
     localizedField('title', 'Title'),
     defineField({
       name: 'slug',
       title: 'Slug',
+      description:
+        'Click Generate from the Korean title. This becomes the public URL slug.',
       type: 'slug',
       options: { source: 'title.ko', maxLength: 96 },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
-      title: 'Category',
+      title: 'Category / public section',
+      description:
+        'Controls where the story appears. Rider interview articles publish under /riders/interviews/[slug]; rider profiles use Rider documents.',
       type: 'string',
       options: {
         list: articleCategories,
@@ -48,6 +54,8 @@ export const article = defineType({
     defineField({
       name: 'heroImage',
       title: 'Hero image',
+      description:
+        'Required before publishing. Use editorial photography with hotspot/focal point set.',
       type: 'image',
       options: { hotspot: true },
       validation: (Rule) => Rule.required(),
@@ -61,12 +69,16 @@ export const article = defineType({
     defineField({
       name: 'publishedAt',
       title: 'Published at',
+      description:
+        'Set the public publish date. Future dates are for scheduled editorial planning.',
       type: 'datetime',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'moodVariant',
       title: 'Mood variant',
+      description:
+        'Editorial is more photo-led. Feature is better for guides, news, and interviews.',
       type: 'string',
       options: {
         list: [
@@ -99,6 +111,8 @@ export const article = defineType({
     defineField({
       name: 'translationStatus',
       title: 'Translation status',
+      description:
+        'Only Reviewed or Manual shows EN/JP as finished translations. Otherwise EN/JP routes show the Korean original notice.',
       type: 'object',
       fields: [
         defineField({
@@ -120,6 +134,8 @@ export const article = defineType({
     defineField({
       name: 'seo',
       title: 'SEO',
+      description:
+        'Optional search/social overrides. Leave blank to reuse the article title, excerpt, and hero image.',
       type: 'object',
       fields: [
         localizedField('title', 'SEO title', 'string', { required: false }),
@@ -137,6 +153,8 @@ export const article = defineType({
     defineField({
       name: 'cta',
       title: 'End CTA',
+      description:
+        'Optional quiet text CTA to Cafe24 or a collection page. Do not use this as an in-site cart.',
       type: 'object',
       fields: [
         localizedField('label', 'Label', 'string', { required: false }),
@@ -149,8 +167,24 @@ export const article = defineType({
   preview: {
     select: {
       title: 'title.ko',
-      subtitle: 'category',
+      category: 'category',
+      slug: 'slug.current',
       media: 'heroImage',
+    },
+    prepare({ title, category, slug, media }) {
+      const path = slug
+        ? category === 'riders'
+          ? `/ko/riders/interviews/${slug}`
+          : category
+            ? `/ko/${category}/${slug}`
+            : 'Choose category before publishing'
+        : 'Generate slug before publishing';
+
+      return {
+        title: title || 'Untitled article',
+        subtitle: path,
+        media,
+      };
     },
   },
 });

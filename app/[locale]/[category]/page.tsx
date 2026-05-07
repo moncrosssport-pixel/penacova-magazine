@@ -5,6 +5,7 @@ import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
 import {
+  getArticleHref,
   getCategoryMeta,
   isArticleCategory,
   type ArticleCategory,
@@ -108,7 +109,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <section className="mx-auto max-w-content px-6 py-12 sm:px-10 lg:px-14 lg:py-16">
         {lead ? (
           <ArticleTeaser
-            href={`/${locale}/${lead.category}/${lead.slug}`}
+            href={getArticleHref(locale, lead.category, lead.slug)}
             kicker={articleKicker(meta.label, locale, lead.translationStatus)}
             title={pickLocalized(lead.title, leadLocale) || 'Untitled'}
             excerpt={pickLocalized(lead.excerpt, leadLocale)}
@@ -138,7 +139,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               return (
                 <ArticleTeaser
                   key={article._id}
-                  href={`/${locale}/${article.category}/${article.slug}`}
+                  href={getArticleHref(locale, article.category, article.slug)}
                   kicker={articleKicker(meta.label, locale, article.translationStatus)}
                   title={pickLocalized(article.title, articleLocale) || 'Untitled'}
                   excerpt={pickLocalized(article.excerpt, articleLocale)}

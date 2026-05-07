@@ -14,10 +14,11 @@ querying, and one rendered editorial article route.
 2. `README.md`
 3. `SPEC.md`
 4. `docs/final-magazine-form.md`
-5. `Penacova Magazine Design System/README.md`
-6. `Penacova Magazine Design System/SKILL.md`
-7. `tasks/plan.md`
-8. `tasks/todo.md`
+5. `docs/editorial-publishing-harness.md`
+6. `Penacova Magazine Design System/README.md`
+7. `Penacova Magazine Design System/SKILL.md`
+8. `tasks/plan.md`
+9. `tasks/todo.md`
 
 ## Environment
 
@@ -42,6 +43,10 @@ Local routes:
 - `http://localhost:3000/ko`
 - `http://localhost:3000/ko/editorial`
 - `http://localhost:3000/ko/editorial/quiet-morning` after content seed
+- `http://localhost:3000/ko/riders/interviews/[slug]` for rider interview
+  articles
+- `http://localhost:3000/ko/riders/jiwon-kim` for rider profiles after content
+  seed
 - `http://localhost:3000/sitemap.xml`
 - `http://localhost:3000/robots.txt`
 - `http://localhost:3000/studio`
@@ -53,6 +58,10 @@ Production routes:
 - `https://penacova-magazine.vercel.app/ko/editorial`
 - `https://penacova-magazine.vercel.app/ko/editorial/quiet-morning` after
   content seed
+- `https://penacova-magazine.vercel.app/ko/riders/interviews/[slug]` for rider
+  interview articles
+- `https://penacova-magazine.vercel.app/ko/riders/jiwon-kim` for rider profiles
+  after content seed
 - `https://penacova-magazine.vercel.app/studio`
 
 ## Known Good State
@@ -68,8 +77,12 @@ Current known state:
 - Category indexes render at `/[locale]/[category]`.
 - Shared article detail pages render at `/[locale]/[category]/[slug]` after
   content exists.
+- Rider interview articles render at `/[locale]/riders/interviews/[slug]` to
+  avoid colliding with rider profile slugs.
 - Rider detail pages render at `/[locale]/riders/[slug]`; this static route
   takes precedence over the shared article detail route.
+- Studio uses a no-code publishing structure, category-specific article
+  templates, and preview subtitles that show public URLs.
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
 - Masthead locale links preserve the current category or article path.
@@ -92,6 +105,9 @@ Current known state:
 - Public Sanity values can be defaults, but never expose write tokens.
 - Public Sanity seed document IDs should not contain dots. Dot IDs are private
   to authenticated queries and do not appear through the public read API.
+- Do not hand-build article detail links; use `getArticleHref()` or
+  `getArticlePathSegments()` so Rider Interview articles keep the
+  `/riders/interviews/[slug]` route.
 - The old planning document outside this repo may contain optimistic checklist
   language. Treat this repo's `tasks/todo.md` as the active state.
 

@@ -34,6 +34,7 @@ The public site is locale-scoped:
 /ko/editorial/[slug]
 /ko/riders
 /ko/riders/[slug]
+/ko/riders/interviews/[slug]
 /ko/look
 /ko/look/[season]
 /ko/heritage
@@ -52,12 +53,17 @@ The public site is locale-scoped:
 The same structure should exist for `/en` and `/jp` when translated content is
 available.
 
+Rider profiles are separate Rider documents at `/[locale]/riders/[slug]`.
+Rider interview articles are Article documents at
+`/[locale]/riders/interviews/[slug]` so editors can publish both without URL
+collisions.
+
 ## Content Pillars
 
 | Pillar | Route | Purpose |
 | --- | --- | --- |
 | Editorial | `/[locale]/editorial` | Fashion editorials and photo essays around stables, riders, fields, and collections. |
-| Rider Interview | `/[locale]/riders` | Interviews with athletes, coaches, club riders, and notable Penacova wearers. |
+| Rider Interview | `/[locale]/riders` and `/[locale]/riders/interviews/[slug]` | Interviews with athletes, coaches, club riders, and notable Penacova wearers. |
 | Look Book | `/[locale]/look` | Seasonal collection presentation with looks and styling notes. |
 | Heritage | `/[locale]/heritage` | Brand craft, material, design, embroidery, workshop, and origin stories. |
 | Guide | `/[locale]/guide` | Sizing, care, riding apparel guidance, beginner explainers, and product education. |

@@ -22,11 +22,12 @@
 - [x] Add token-based Sanity seed harness.
 - [x] Add translation status handling for article pages and teasers.
 - [x] Build rider detail pages.
+- [x] Add no-code editorial publishing harness.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 97% complete.
-- Final public launch: about 42% complete.
+- Final public launch: about 45% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, rider/look-specific surfaces, analytics,
   newsletter/follow capture, and custom domain setup.
@@ -57,6 +58,7 @@
 ## Launch Backlog
 
 - [ ] Build look book pages.
+- [ ] Visually verify the no-code Studio publishing menu in a logged-in browser.
 - [ ] Add analytics events for reading depth and outbound Cafe24 CTAs.
 - [ ] Add newsletter/follow embed.
 - [ ] Add custom domain `magazine.penacova.co.kr`.

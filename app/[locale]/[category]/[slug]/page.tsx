@@ -17,6 +17,12 @@ import {
   pickLocalized,
   type LocalizedBlocks,
 } from '@/lib/magazine/format';
+import {
+  bodyLocaleFor,
+  koreanOriginalLinkCopy,
+  translationNoticeCopy,
+  type TranslationStatusMap,
+} from '@/lib/magazine/translation';
 import { sanityClient, urlFor } from '@/lib/sanity/client';
 import { articleBySlugParams, articleBySlugQuery } from '@/lib/sanity/queries';
 import { absoluteUrl, createLocalizedMetadata } from '@/lib/seo/metadata';
@@ -47,6 +53,7 @@ type ArticleDoc = {
   publishedAt?: string;
   moodVariant?: 'editorial' | 'feature';
   issueNumber?: number;
+  translationStatus?: TranslationStatusMap;
   seo?: {
     title?: Partial<Record<Locale, string>>;
     description?: Partial<Record<Locale, string>>;
@@ -87,28 +94,28 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     ? urlFor(imageSource).width(1200).height(630).fit('crop').url()
     : null;
 
+  const localizedBody = article.body?.[params.locale];
+  const contentLocale = bodyLocaleFor(
+    params.locale,
+    article.translationStatus,
+    Boolean(localizedBody?.length),
+  );
+  const title = pickLocalized(article.seo?.title ?? article.title, contentLocale);
+  const description = pickLocalized(
+    article.seo?.description ?? article.excerpt,
+    contentLocale,
+  );
+
   return createLocalizedMetadata({
     locale: params.locale,
     pathSegments: [params.category, article.slug],
-    title: article.seo?.title ?? article.title,
-    description: article.seo?.description ?? article.excerpt,
+    title: title ? { [params.locale]: title } : undefined,
+    description: description ? { [params.locale]: description } : undefined,
     fallbackTitle: SITE_NAME,
     type: 'article',
     image,
   });
 }
-
-const unavailableCopy: Record<Locale, string> = {
-  ko: '아직 기사 본문이 준비되지 않았습니다.',
-  en: 'The English version is not available yet.',
-  jp: '日本語版はまだ公開されていません。',
-};
-
-const koreanLinkCopy: Record<Locale, string> = {
-  ko: '한국어로 읽기',
-  en: 'Read the Korean original',
-  jp: '韓国語の原文を読む',
-};
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   if (!isLocale(params.locale) || !isArticleCategory(params.category)) {
@@ -128,15 +135,20 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound();
   }
 
-  const title = pickLocalized(article.title, locale);
-  const excerpt = pickLocalized(article.excerpt, locale);
   const localizedBody = article.body?.[locale];
-  const body = localizedBody ?? (locale === 'ko' ? article.body?.ko : undefined);
-  const showTranslationNotice = locale !== 'ko' && !localizedBody && Boolean(article.body?.ko);
-  const byline = formatByline(article.authors, locale);
-  const date = formatDate(article.publishedAt, locale);
-  const ctaLabel = pickLocalized(article.cta?.label, locale);
-  const ctaHref = getCtaHref(article.cta, locale);
+  const contentLocale = bodyLocaleFor(
+    locale,
+    article.translationStatus,
+    Boolean(localizedBody?.length),
+  );
+  const title = pickLocalized(article.title, contentLocale);
+  const excerpt = pickLocalized(article.excerpt, contentLocale);
+  const body = article.body?.[contentLocale];
+  const showTranslationNotice = contentLocale !== locale;
+  const byline = formatByline(article.authors, contentLocale);
+  const date = formatDate(article.publishedAt, contentLocale);
+  const ctaLabel = pickLocalized(article.cta?.label, contentLocale);
+  const ctaHref = getCtaHref(article.cta, contentLocale);
   const heroImageUrl = article.heroImage?.asset?._ref
     ? urlFor(article.heroImage).width(1800).height(860).fit('crop').url()
     : null;
@@ -178,13 +190,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           {showTranslationNotice ? (
             <div className="mb-10 border-y border-hairline py-6">
               <p className="font-serif-editorial text-lg leading-relaxed text-ink-mute">
-                {unavailableCopy[locale]}
+                {translationNoticeCopy[locale]}
               </p>
               <Link
                 href={`/ko/${category}/${article.slug}`}
                 className="mt-4 inline-block font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-penacova no-underline"
               >
-                {koreanLinkCopy[locale]} -&gt;
+                {koreanOriginalLinkCopy[locale]} -&gt;
               </Link>
             </div>
           ) : null}
@@ -195,7 +207,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
           ) : showTranslationNotice ? null : (
             <p className="font-serif-editorial text-lg leading-loose text-ink-mute">
-              {unavailableCopy[locale]}
+              {translationNoticeCopy[locale]}
             </p>
           )}
 
@@ -219,7 +231,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             createArticleJsonLd({
               article,
               categoryLabel: meta.label,
-              locale,
+              locale: contentLocale,
               path: `/${locale}/${category}/${article.slug}`,
               image: heroImageUrl,
             }),

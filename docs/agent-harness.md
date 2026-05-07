@@ -71,6 +71,8 @@ Current known state:
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
 - Masthead locale links preserve the current category or article path.
+- EN/JP article pages and category teasers respect `translationStatus`; they
+  show Korean-original content until translations are reviewed or manual.
 - The Phase 1 seed payload is applied. `quiet-morning` renders at
   `/ko/editorial/quiet-morning` locally and on production.
 - `Penacova Magazine Design System/` is the official visual source.

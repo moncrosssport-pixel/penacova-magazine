@@ -20,11 +20,12 @@
 - [x] Add SEO metadata, sitemap, hreflang, OG images, and JSON-LD wiring.
 - [x] Add path-preserving locale switcher links.
 - [x] Add token-based Sanity seed harness.
+- [x] Add translation status handling for article pages and teasers.
 
 ## Progress Estimate
 
-- Phase 1 technical foundation: about 96% complete.
-- Final public launch: about 40% complete.
+- Phase 1 technical foundation: about 97% complete.
+- Final public launch: about 41% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, rider/look-specific surfaces, analytics,
   newsletter/follow capture, and custom domain setup.
@@ -56,7 +57,6 @@
 
 - [ ] Build rider detail pages.
 - [ ] Build look book pages.
-- [ ] Add translation status handling.
 - [ ] Add analytics events for reading depth and outbound Cafe24 CTAs.
 - [ ] Add newsletter/follow embed.
 - [ ] Add custom domain `magazine.penacova.co.kr`.

@@ -9,7 +9,16 @@ import {
   isArticleCategory,
   type ArticleCategory,
 } from '@/lib/magazine/categories';
-import { formatByline, formatDate, pickLocalized, type LocalizedBlocks } from '@/lib/magazine/format';
+import {
+  formatByline,
+  formatDate,
+  pickLocalized,
+} from '@/lib/magazine/format';
+import {
+  koreanOriginalLabel,
+  teaserLocaleFor,
+  type TranslationStatusMap,
+} from '@/lib/magazine/translation';
 import { sanityClient, urlFor } from '@/lib/sanity/client';
 import {
   articlesByCategoryParams,
@@ -53,10 +62,10 @@ type CategoryArticle = {
   slug: string;
   category: ArticleCategory;
   heroImage?: SanityImage;
-  body?: LocalizedBlocks;
   publishedAt?: string;
   moodVariant?: 'editorial' | 'feature';
   issueNumber?: number;
+  translationStatus?: TranslationStatusMap;
   authors?: {
     _id: string;
     name?: Partial<Record<Locale, string>>;
@@ -78,6 +87,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     { next: { revalidate: 60 } },
   );
   const [lead, ...rest] = articles;
+  const leadLocale = lead
+    ? teaserLocaleFor(locale, lead.translationStatus)
+    : locale;
 
   return (
     <main className="min-h-screen bg-paper text-ink">
@@ -97,11 +109,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         {lead ? (
           <ArticleTeaser
             href={`/${locale}/${lead.category}/${lead.slug}`}
-            kicker={meta.label}
-            title={pickLocalized(lead.title, locale) || 'Untitled'}
-            excerpt={pickLocalized(lead.excerpt, locale)}
-            byline={formatByline(lead.authors, locale)}
-            date={formatDate(lead.publishedAt, locale)}
+            kicker={articleKicker(meta.label, locale, lead.translationStatus)}
+            title={pickLocalized(lead.title, leadLocale) || 'Untitled'}
+            excerpt={pickLocalized(lead.excerpt, leadLocale)}
+            byline={formatByline(lead.authors, leadLocale)}
+            date={formatDate(lead.publishedAt, leadLocale)}
             imageUrl={getImageUrl(lead.heroImage, true)}
             priority
             lead
@@ -120,19 +132,23 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
         {rest.length ? (
           <div className="mt-10 grid gap-10 md:grid-cols-3">
-            {rest.map((article, index) => (
-              <ArticleTeaser
-                key={article._id}
-                href={`/${locale}/${article.category}/${article.slug}`}
-                kicker={meta.label}
-                title={pickLocalized(article.title, locale) || 'Untitled'}
-                excerpt={pickLocalized(article.excerpt, locale)}
-                byline={formatByline(article.authors, locale)}
-                date={formatDate(article.publishedAt, locale)}
-                imageUrl={getImageUrl(article.heroImage, false)}
-                priority={index < 2}
-              />
-            ))}
+            {rest.map((article, index) => {
+              const articleLocale = teaserLocaleFor(locale, article.translationStatus);
+
+              return (
+                <ArticleTeaser
+                  key={article._id}
+                  href={`/${locale}/${article.category}/${article.slug}`}
+                  kicker={articleKicker(meta.label, locale, article.translationStatus)}
+                  title={pickLocalized(article.title, articleLocale) || 'Untitled'}
+                  excerpt={pickLocalized(article.excerpt, articleLocale)}
+                  byline={formatByline(article.authors, articleLocale)}
+                  date={formatDate(article.publishedAt, articleLocale)}
+                  imageUrl={getImageUrl(article.heroImage, false)}
+                  priority={index < 2}
+                />
+              );
+            })}
           </div>
         ) : null}
       </section>
@@ -150,4 +166,14 @@ function getImageUrl(image: SanityImage | undefined, lead: boolean) {
   return lead
     ? urlFor(image).width(1600).height(1000).fit('crop').url()
     : urlFor(image).width(900).height(1125).fit('crop').url();
+}
+
+function articleKicker(
+  label: string,
+  locale: Locale,
+  statuses: TranslationStatusMap | undefined,
+) {
+  return teaserLocaleFor(locale, statuses) === locale
+    ? label
+    : `${label} / ${koreanOriginalLabel[locale]}`;
 }

@@ -20,6 +20,7 @@ export function articleBySlugQuery(): string {
       publishedAt,
       moodVariant,
       issueNumber,
+      translationStatus,
       seo,
       cta,
       "authors": authors[]->{
@@ -72,6 +73,7 @@ export function articlesByCategoryQuery(): string {
       publishedAt,
       moodVariant,
       issueNumber,
+      translationStatus,
       "authors": authors[]->{
         _id,
         name,

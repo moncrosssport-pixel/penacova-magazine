@@ -30,6 +30,7 @@ describe('articleBySlugQuery', () => {
       'body',
       'publishedAt',
       'moodVariant',
+      'translationStatus',
       'seo',
       'authors[]->',
       'featuredProducts[]->',
@@ -72,6 +73,7 @@ describe('articlesByCategoryQuery', () => {
       'heroImage',
       'publishedAt',
       'moodVariant',
+      'translationStatus',
       'authors[]->',
     ]) {
       expect(query).toContain(field);

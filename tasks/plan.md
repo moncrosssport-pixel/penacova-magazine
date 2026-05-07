@@ -38,13 +38,15 @@ Completed:
 - Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
   and article JSON-LD wiring are implemented.
 - The masthead locale switcher preserves the current category or article path.
+- Article pages and category teasers respect `translationStatus`; EN/JP routes
+  show Korean original content until translations are reviewed or manual.
 
 ## Progress Snapshot
 
-- Phase 1 technical foundation is roughly 96% complete. The remaining Phase 1
+- Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 40% complete. The site still needs launch
+- Final public launch is roughly 41% complete. The site still needs launch
   content, translation workflow polish, rider/look-specific page depth,
   analytics, newsletter/follow capture, custom domain setup, and final QA.
 
@@ -215,6 +217,22 @@ Acceptance:
 - `/en/editorial` links to `/ko/editorial`, `/en/editorial`, and `/jp/editorial`.
 - Article detail pages preserve `[category]/[slug]` across supported locales.
 - Logo/home navigation still points to the locale home.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Production verification follows after push/deploy.
+
+### Slice 10: Translation Status Handling
+
+Wire Sanity `translationStatus` into article rendering so non-Korean routes do
+not silently present unreviewed translated fields as finished translations.
+
+Acceptance:
+
+- `reviewed` and `manual` translations can render in the requested locale.
+- `not-started` and `auto-draft` EN/JP routes show Korean original content plus
+  a translation notice.
+- Category teasers mark Korean-original stories on EN/JP category pages.
 - `pnpm test` passes.
 - `pnpm build` passes.
 

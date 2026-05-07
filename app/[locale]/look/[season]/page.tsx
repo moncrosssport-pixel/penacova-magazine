@@ -124,7 +124,12 @@ export default async function LookBookPage({ params }: LookBookPageProps) {
     <main className="min-h-screen bg-paper text-ink">
       <MagazineMasthead locale={locale} pathSegments={['look', collection.slug]} />
 
-      <article>
+      <article
+        data-analytics-surface="lookbook"
+        data-analytics-locale={locale}
+        data-analytics-category="look"
+        data-analytics-slug={collection.slug}
+      >
         <header className="border-b border-hairline">
           <div className="mx-auto grid max-w-content gap-10 px-6 py-12 sm:px-10 lg:grid-cols-[1.08fr_0.92fr] lg:px-14 lg:py-16">
             <div className="relative flex aspect-[5/4] items-center justify-center overflow-hidden bg-tonal">
@@ -163,6 +168,12 @@ export default async function LookBookPage({ params }: LookBookPageProps) {
               {collectionHref ? (
                 <a
                   href={collectionHref}
+                  data-analytics-event="outbound_cafe24"
+                  data-analytics-label="collection_cta"
+                  data-analytics-locale={locale}
+                  data-analytics-category="look"
+                  data-analytics-slug={collection.slug}
+                  data-analytics-href={collectionHref}
                   className="mt-8 inline-block font-ui text-xs font-semibold uppercase tracking-[0.18em] text-penacova"
                 >
                   View collection at Cafe24 -&gt;
@@ -298,7 +309,16 @@ function ProductLink({
   }
 
   return (
-    <a href={href} className="text-penacova">
+    <a
+      href={href}
+      data-analytics-event="outbound_cafe24"
+      data-analytics-label="lookbook_product"
+      data-analytics-locale={locale}
+      data-analytics-category="look"
+      data-analytics-slug={product.slug ?? product._id}
+      data-analytics-href={href}
+      className="text-penacova"
+    >
       {name} -&gt;
     </a>
   );

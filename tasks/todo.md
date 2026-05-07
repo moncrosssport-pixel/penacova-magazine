@@ -24,14 +24,15 @@
 - [x] Build rider detail pages.
 - [x] Add no-code editorial publishing harness.
 - [x] Build collection look book pages.
+- [x] Add analytics events for reading depth and outbound Cafe24 CTAs.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 97% complete.
-- Final public launch: about 48% complete.
+- Final public launch: about 50% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
-  translation workflow, rider/look-specific surfaces, analytics,
-  newsletter/follow capture, and custom domain setup.
+  translation workflow, newsletter/follow capture, custom analytics provider
+  setup, and custom domain setup.
 
 ## Next
 
@@ -59,7 +60,6 @@
 ## Launch Backlog
 
 - [ ] Visually verify the no-code Studio publishing menu in a logged-in browser.
-- [ ] Add analytics events for reading depth and outbound Cafe24 CTAs.
 - [ ] Add newsletter/follow embed.
 - [ ] Add custom domain `magazine.penacova.co.kr`.
 - [ ] Prepare 12 Korean launch stories.

@@ -27,6 +27,10 @@ export function MagazineMasthead({
               <Link
                 href={localePath(item, pathSegments)}
                 aria-current={item === locale ? 'page' : undefined}
+                data-analytics-event="locale_switch"
+                data-analytics-label={`${locale}:${item}`}
+                data-analytics-locale={item}
+                data-analytics-href={localePath(item, pathSegments)}
                 className={`font-ui text-[11px] font-semibold uppercase tracking-[0.2em] no-underline ${
                   item === locale ? 'border-b border-ink text-ink' : 'text-muted'
                 }`}
@@ -64,7 +68,16 @@ export function MagazineMasthead({
         </a>
         <nav className="flex gap-5 overflow-x-auto whitespace-nowrap font-ui text-[11px] uppercase tracking-[0.22em] sm:justify-center sm:gap-8">
           {MAGAZINE_CATEGORIES.map((category) => (
-            <Link key={category.id} href={`/${locale}/${category.id}`} className="no-underline">
+            <Link
+              key={category.id}
+              href={`/${locale}/${category.id}`}
+              data-analytics-event="category_nav"
+              data-analytics-label={category.label}
+              data-analytics-locale={locale}
+              data-analytics-category={category.id}
+              data-analytics-href={`/${locale}/${category.id}`}
+              className="no-underline"
+            >
               {category.label}
             </Link>
           ))}

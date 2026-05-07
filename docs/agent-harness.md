@@ -92,6 +92,10 @@ Current known state:
   `https://penacova-magazine.vercel.app` with credentials for Studio editing.
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
+- Analytics events are provider-neutral: they queue in
+  `window.penacovaAnalyticsQueue` and forward to `gtag` when GA4 is added.
+  Current events cover reading depth, locale/category navigation, and outbound
+  Cafe24 CTAs.
 - Masthead locale links preserve the current category or article path.
 - EN/JP article pages and category teasers respect `translationStatus`; they
   show Korean-original content until translations are reviewed or manual.
@@ -145,6 +149,7 @@ For each task:
 | Sanity query/client | Unit test plus `pnpm build` |
 | Article page | `pnpm test`, `pnpm build`, local missing-article 404 or seeded article URL |
 | SEO metadata | `pnpm test`, `pnpm build`, check page head, `/robots.txt`, `/sitemap.xml` |
+| Analytics instrumentation | `pnpm test`, `pnpm build`, check rendered page data attributes |
 | Visual design | Design system review, `pnpm test`, `pnpm build`, browser check |
 | Vercel/deploy | Production or preview URL check |
 | Docs only | Link/file review, `git diff --check` |

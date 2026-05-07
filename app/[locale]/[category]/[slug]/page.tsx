@@ -162,7 +162,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     <main className="min-h-screen bg-paper text-ink">
       <MagazineMasthead locale={locale} pathSegments={articlePathSegments} />
 
-      <article>
+      <article
+        data-analytics-surface="article"
+        data-analytics-locale={locale}
+        data-analytics-category={category}
+        data-analytics-slug={article.slug}
+      >
         {heroImageUrl ? (
           <div className="relative aspect-[21/10] w-full">
             <Image
@@ -220,6 +225,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <div className="mt-14 border-t border-hairline pt-8">
               <a
                 href={ctaHref}
+                data-analytics-event="outbound_cafe24"
+                data-analytics-label="article_cta"
+                data-analytics-locale={locale}
+                data-analytics-category={category}
+                data-analytics-slug={article.slug}
+                data-analytics-href={ctaHref}
                 className="font-ui text-xs font-semibold uppercase tracking-[0.18em] text-penacova"
               >
                 {ctaLabel} -&gt;

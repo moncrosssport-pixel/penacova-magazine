@@ -46,15 +46,17 @@ Completed:
   documented editorial publishing harness for managers.
 - Collection look book pages render at `/[locale]/look/[season]` with seeded
   SS26 looks and product links.
+- Provider-neutral analytics events are wired for reading depth, locale/category
+  navigation, and outbound Cafe24 CTA clicks.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 48% complete. The site still needs launch
-  content, translation workflow polish, rider/look-specific page depth,
-  analytics, newsletter/follow capture, custom domain setup, and final QA.
+- Final public launch is roughly 50% complete. The site still needs launch
+  content, translation workflow polish, newsletter/follow capture, custom
+  analytics provider setup, custom domain setup, and final QA.
 
 Not completed:
 
@@ -297,11 +299,29 @@ Acceptance:
 
 Status: complete locally. Production verification follows after push/deploy.
 
+### Slice 14: Analytics Event Foundation
+
+Add a provider-neutral analytics harness so the magazine can capture editorial
+behavior before GA4 or another provider is configured.
+
+Acceptance:
+
+- Reading depth emits stable events for article and look book surfaces.
+- Locale switcher and category navigation links carry stable event metadata.
+- Article CTAs, collection CTAs, and look book product links emit outbound
+  Cafe24 click events.
+- Events queue in `window.penacovaAnalyticsQueue` and forward to `gtag` if GA4
+  is present.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Production verification follows after push/deploy.
+
 ## Later Phases
 
 After Phase 1:
 
 - Phase 2: homepage refinement, article visual rhythm, responsive polish.
 - Phase 3: locale switcher and translation workflow.
-- Phase 4: SEO polish, launch indexing policy, analytics.
+- Phase 4: SEO polish, launch indexing policy, analytics provider setup.
 - Phase 5: content inventory, custom domain, launch checklist.

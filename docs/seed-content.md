@@ -8,6 +8,7 @@ without inventing new content.
 `sanity/seed/phase1-seed.json` creates:
 
 - `person-editorial-desk`
+- `rider-jiwon-kim`
 - `article-quiet-morning`
 - 5 glossary terms:
   - Penacova

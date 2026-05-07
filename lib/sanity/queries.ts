@@ -88,6 +88,57 @@ export function articlesByCategoryParams(category: ArticleCategory) {
   return { category };
 }
 
+export function riderBySlugQuery(): string {
+  return `
+    *[
+      _type == "rider" &&
+      slug.current == $slug &&
+      !(_id in path("drafts.**"))
+    ][0]{
+      _id,
+      name,
+      romanizedName,
+      "slug": slug.current,
+      portrait,
+      discipline,
+      careerYears,
+      club,
+      titles,
+      "favoriteProducts": favoriteProducts[]->{
+        _id,
+        name,
+        "slug": slug.current,
+        image,
+        priceKR,
+        priceJP,
+        cafe24UrlKR,
+        cafe24UrlJP,
+        color
+      },
+      "interviews": interviews[]->{
+        _id,
+        title,
+        excerpt,
+        "slug": slug.current,
+        category,
+        heroImage,
+        publishedAt,
+        moodVariant,
+        translationStatus,
+        "authors": authors[]->{
+          _id,
+          name,
+          role
+        }
+      }
+    }
+  `;
+}
+
+export function riderBySlugParams(slug: string) {
+  return { slug };
+}
+
 export function sitemapArticlesQuery(): string {
   return `
     *[
@@ -102,6 +153,20 @@ export function sitemapArticlesQuery(): string {
       "slug": slug.current,
       category,
       publishedAt,
+      _updatedAt
+    }
+  `;
+}
+
+export function sitemapRidersQuery(): string {
+  return `
+    *[
+      _type == "rider" &&
+      defined(slug.current) &&
+      !(_id in path("drafts.**"))
+    ]{
+      _id,
+      "slug": slug.current,
       _updatedAt
     }
   `;

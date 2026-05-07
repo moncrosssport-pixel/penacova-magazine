@@ -4,7 +4,10 @@ import {
   articleBySlugQuery,
   articlesByCategoryParams,
   articlesByCategoryQuery,
+  riderBySlugParams,
+  riderBySlugQuery,
   sitemapArticlesQuery,
+  sitemapRidersQuery,
 } from './queries';
 
 describe('articleBySlugQuery', () => {
@@ -89,6 +92,44 @@ describe('articlesByCategoryParams', () => {
   });
 });
 
+describe('riderBySlugQuery', () => {
+  it('filters rider documents by slug', () => {
+    const query = riderBySlugQuery();
+
+    expect(query).toContain('_type == "rider"');
+    expect(query).toContain('slug.current == $slug');
+    expect(query).toContain('!(_id in path("drafts.**"))');
+  });
+
+  it('projects rider profile fields and linked content', () => {
+    const query = riderBySlugQuery();
+
+    for (const field of [
+      'name',
+      'romanizedName',
+      '"slug": slug.current',
+      'portrait',
+      'discipline',
+      'careerYears',
+      'club',
+      'titles',
+      'favoriteProducts[]->',
+      'interviews[]->',
+      'translationStatus',
+    ]) {
+      expect(query).toContain(field);
+    }
+  });
+});
+
+describe('riderBySlugParams', () => {
+  it('returns the expected rider slug param', () => {
+    expect(riderBySlugParams('jiwon-kim')).toEqual({
+      slug: 'jiwon-kim',
+    });
+  });
+});
+
 describe('sitemapArticlesQuery', () => {
   it('selects published article route fields for sitemap generation', () => {
     const query = sitemapArticlesQuery();
@@ -97,6 +138,17 @@ describe('sitemapArticlesQuery', () => {
     expect(query).toContain('defined(slug.current)');
     expect(query).toContain('defined(category)');
     expect(query).toContain('publishedAt <= now()');
+    expect(query).toContain('"slug": slug.current');
+    expect(query).toContain('_updatedAt');
+  });
+});
+
+describe('sitemapRidersQuery', () => {
+  it('selects rider route fields for sitemap generation', () => {
+    const query = sitemapRidersQuery();
+
+    expect(query).toContain('_type == "rider"');
+    expect(query).toContain('defined(slug.current)');
     expect(query).toContain('"slug": slug.current');
     expect(query).toContain('_updatedAt');
   });

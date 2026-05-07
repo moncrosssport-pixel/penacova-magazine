@@ -68,13 +68,16 @@ Current known state:
 - Category indexes render at `/[locale]/[category]`.
 - Shared article detail pages render at `/[locale]/[category]/[slug]` after
   content exists.
+- Rider detail pages render at `/[locale]/riders/[slug]`; this static route
+  takes precedence over the shared article detail route.
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
 - Masthead locale links preserve the current category or article path.
 - EN/JP article pages and category teasers respect `translationStatus`; they
   show Korean-original content until translations are reviewed or manual.
 - The Phase 1 seed payload is applied. `quiet-morning` renders at
-  `/ko/editorial/quiet-morning` locally and on production.
+  `/ko/editorial/quiet-morning`, and `jiwon-kim` renders at
+  `/ko/riders/jiwon-kim` after deployment.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 

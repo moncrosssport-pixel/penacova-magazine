@@ -40,13 +40,15 @@ Completed:
 - The masthead locale switcher preserves the current category or article path.
 - Article pages and category teasers respect `translationStatus`; EN/JP routes
   show Korean original content until translations are reviewed or manual.
+- Rider detail pages render at `/[locale]/riders/[slug]` with profile facts,
+  linked interviews, optional favorite products, and Person JSON-LD.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 41% complete. The site still needs launch
+- Final public launch is roughly 42% complete. The site still needs launch
   content, translation workflow polish, rider/look-specific page depth,
   analytics, newsletter/follow capture, custom domain setup, and final QA.
 
@@ -233,6 +235,23 @@ Acceptance:
 - `not-started` and `auto-draft` EN/JP routes show Korean original content plus
   a translation notice.
 - Category teasers mark Korean-original stories on EN/JP category pages.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Production verification follows after push/deploy.
+
+### Slice 11: Rider Detail Pages
+
+Add a static rider profile route that wins over the shared article detail route
+for `/[locale]/riders/[slug]`.
+
+Acceptance:
+
+- A seeded rider renders at `/ko/riders/jiwon-kim`.
+- EN/JP rider routes render with localized profile names where available.
+- Missing rider slugs return 404.
+- Linked rider interviews use article teaser cards.
+- Rider routes are included in `/sitemap.xml`.
 - `pnpm test` passes.
 - `pnpm build` passes.
 

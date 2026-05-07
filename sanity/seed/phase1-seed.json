@@ -15,6 +15,39 @@
     }
   },
   {
+    "_id": "rider-jiwon-kim",
+    "_type": "rider",
+    "name": {
+      "ko": "김지원",
+      "en": "Jiwon Kim",
+      "jp": "キム・ジウォン"
+    },
+    "romanizedName": "Jiwon Kim",
+    "slug": {
+      "_type": "slug",
+      "current": "jiwon-kim"
+    },
+    "discipline": "dressage",
+    "careerYears": 12,
+    "club": "Penacova Riding Club",
+    "titles": [
+      {
+        "_key": "jiwon-title-ss26",
+        "_type": "localizedTitle",
+        "ko": "SS26 캠페인 라이더",
+        "en": "SS26 campaign rider",
+        "jp": "SS26キャンペーンライダー"
+      }
+    ],
+    "interviews": [
+      {
+        "_key": "jiwon-interview-quiet-morning",
+        "_type": "reference",
+        "_ref": "article-quiet-morning"
+      }
+    ]
+  },
+  {
     "_id": "article-quiet-morning",
     "_type": "article",
     "title": {

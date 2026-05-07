@@ -84,6 +84,9 @@ Implemented:
 - `/[locale]/[category]` category index route for the seven magazine pillars
 - `/[locale]/[category]/[slug]` shared article detail route for the seven
   magazine pillars
+- `/[locale]/look/[season]` collection look book route
+- `/[locale]/riders/[slug]` rider profile route
+- `/[locale]/riders/interviews/[slug]` rider interview article route
 - Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
   and article JSON-LD wiring
 - Path-preserving locale switcher links in the magazine masthead
@@ -91,9 +94,6 @@ Implemented:
 
 Not yet implemented:
 
-- Applying the prepared Sanity seed requires either a Sanity CLI session for the
-  project owner/member or a write token in `SANITY_AUTH_TOKEN`
-- End-to-end verification with a real published article
 - Launch content
 - Custom domain
 

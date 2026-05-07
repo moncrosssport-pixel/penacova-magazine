@@ -47,6 +47,8 @@ Local routes:
   articles
 - `http://localhost:3000/ko/riders/jiwon-kim` for rider profiles after content
   seed
+- `http://localhost:3000/ko/look/ss26` for collection look books after content
+  seed
 - `http://localhost:3000/sitemap.xml`
 - `http://localhost:3000/robots.txt`
 - `http://localhost:3000/studio`
@@ -61,6 +63,8 @@ Production routes:
 - `https://penacova-magazine.vercel.app/ko/riders/interviews/[slug]` for rider
   interview articles
 - `https://penacova-magazine.vercel.app/ko/riders/jiwon-kim` for rider profiles
+  after content seed
+- `https://penacova-magazine.vercel.app/ko/look/ss26` for collection look books
   after content seed
 - `https://penacova-magazine.vercel.app/studio`
 
@@ -81,8 +85,11 @@ Current known state:
   avoid colliding with rider profile slugs.
 - Rider detail pages render at `/[locale]/riders/[slug]`; this static route
   takes precedence over the shared article detail route.
+- Collection look book pages render at `/[locale]/look/[season]`.
 - Studio uses a no-code publishing structure, category-specific article
   templates, and preview subtitles that show public URLs.
+- Sanity CORS allows `http://localhost:3000` and
+  `https://penacova-magazine.vercel.app` with credentials for Studio editing.
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
   place.
 - Masthead locale links preserve the current category or article path.
@@ -108,6 +115,8 @@ Current known state:
 - Do not hand-build article detail links; use `getArticleHref()` or
   `getArticlePathSegments()` so Rider Interview articles keep the
   `/riders/interviews/[slug]` route.
+- Sitemap Sanity fetches use `cache: 'no-store'` so newly seeded collections
+  are not hidden by a stale local build cache.
 - The old planning document outside this repo may contain optimistic checklist
   language. Treat this repo's `tasks/todo.md` as the active state.
 

@@ -139,6 +139,62 @@ export function riderBySlugParams(slug: string) {
   return { slug };
 }
 
+export function collectionBySlugQuery(): string {
+  return `
+    *[
+      _type == "collection" &&
+      slug.current == $slug &&
+      !(_id in path("drafts.**"))
+    ][0]{
+      _id,
+      season,
+      title,
+      "slug": slug.current,
+      heroImage,
+      cafe24CollectionUrlKR,
+      cafe24CollectionUrlJP,
+      "looks": looks[]->{
+        _id,
+        number,
+        name,
+        image,
+        "products": products[]->{
+          _id,
+          name,
+          "slug": slug.current,
+          image,
+          priceKR,
+          priceJP,
+          cafe24UrlKR,
+          cafe24UrlJP,
+          color
+        },
+        "rider": rider->{
+          _id,
+          name,
+          romanizedName,
+          "slug": slug.current
+        }
+      },
+      "products": products[]->{
+        _id,
+        name,
+        "slug": slug.current,
+        image,
+        priceKR,
+        priceJP,
+        cafe24UrlKR,
+        cafe24UrlJP,
+        color
+      }
+    }
+  `;
+}
+
+export function collectionBySlugParams(slug: string) {
+  return { slug };
+}
+
 export function sitemapArticlesQuery(): string {
   return `
     *[
@@ -153,6 +209,20 @@ export function sitemapArticlesQuery(): string {
       "slug": slug.current,
       category,
       publishedAt,
+      _updatedAt
+    }
+  `;
+}
+
+export function sitemapCollectionsQuery(): string {
+  return `
+    *[
+      _type == "collection" &&
+      defined(slug.current) &&
+      !(_id in path("drafts.**"))
+    ]{
+      _id,
+      "slug": slug.current,
       _updatedAt
     }
   `;

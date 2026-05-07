@@ -5,6 +5,8 @@ export const look = defineType({
   name: 'look',
   title: 'Look',
   type: 'document',
+  description:
+    'Single look inside a seasonal collection. Link products and an optional rider for the public look book page.',
   fields: [
     defineField({
       name: 'number',
@@ -36,6 +38,8 @@ export const look = defineType({
     defineField({
       name: 'collection',
       title: 'Collection',
+      description:
+        'Choose the Collection this look belongs to so editors can manage the look from either side.',
       type: 'reference',
       to: [{ type: 'collection' }],
     }),
@@ -44,7 +48,15 @@ export const look = defineType({
     select: {
       title: 'number',
       subtitle: 'name.ko',
+      collection: 'collection.season',
       media: 'image',
+    },
+    prepare({ title, subtitle, collection, media }) {
+      return {
+        title: title || 'Untitled look',
+        subtitle: [collection, subtitle].filter(Boolean).join(' - '),
+        media,
+      };
     },
   },
 });

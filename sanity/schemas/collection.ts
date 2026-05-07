@@ -5,6 +5,8 @@ export const collection = defineType({
   name: 'collection',
   title: 'Collection',
   type: 'document',
+  description:
+    'No-code seasonal look book. Publishes at /[locale]/look/[slug] after looks are linked.',
   fields: [
     defineField({
       name: 'season',
@@ -13,10 +15,21 @@ export const collection = defineType({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      description:
+        'Click Generate from the season. Example: SS26 becomes /ko/look/ss26.',
+      type: 'slug',
+      options: { source: 'season', maxLength: 64 },
+      validation: (Rule) => Rule.required(),
+    }),
     localizedField('title', 'Title'),
     defineField({
       name: 'heroImage',
       title: 'Hero image',
+      description:
+        'Recommended before launch. Without a hero image, the page uses a quiet tonal fallback.',
       type: 'image',
       options: { hotspot: true },
     }),
@@ -47,7 +60,15 @@ export const collection = defineType({
     select: {
       title: 'season',
       subtitle: 'title.ko',
+      slug: 'slug.current',
       media: 'heroImage',
+    },
+    prepare({ title, subtitle, slug, media }) {
+      return {
+        title: title || 'Untitled collection',
+        subtitle: slug ? `/ko/look/${slug} - ${subtitle || 'No Korean title'}` : 'Generate slug before publishing',
+        media,
+      };
     },
   },
 });

@@ -248,6 +248,7 @@ Collection fields:
 
 ```text
 season
+slug
 title
 looks
 products

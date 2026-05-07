@@ -9,6 +9,11 @@ without inventing new content.
 
 - `person-editorial-desk`
 - `rider-jiwon-kim`
+- `collection-ss26`
+- `look-ss26-01`
+- `look-ss26-02`
+- `product-ss26-dawn-jacket`
+- `product-ss26-field-shirt`
 - `article-quiet-morning`
 - 5 glossary terms:
   - Penacova

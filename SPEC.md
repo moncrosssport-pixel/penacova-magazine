@@ -45,12 +45,13 @@ The repository currently contains the foundation:
 - Shared article detail route at `/[locale]/[category]/[slug]`
 - Rider detail route at `/[locale]/riders/[slug]`
 - Rider interview article route at `/[locale]/riders/interviews/[slug]`
+- Collection look book route at `/[locale]/look/[season]`
 - Basic SEO metadata, hreflang alternates, sitemap, robots, Open Graph, and
   article JSON-LD wiring
 - Path-preserving locale switcher links in the masthead
 - Translation status handling for EN/JP article pages and category teasers
-- Seeded Phase 1 editorial article, one rider profile, and glossary content in
-  Sanity
+- Seeded Phase 1 editorial article, one rider profile, one collection look
+  book, and glossary content in Sanity
 - No-code editorial publishing harness for Studio managers and future agents
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
@@ -61,7 +62,7 @@ Later category-specific detail templates still need launch content.
 Approximate current progress:
 
 - Phase 1 technical foundation: 97% complete.
-- Final public launch: 45% complete.
+- Final public launch: 48% complete.
 
 ## Phase 1 Target
 

@@ -58,9 +58,14 @@ Rider Profile 문서는 Article이 아니다.
 | Document type | Public route |
 | --- | --- |
 | Rider | `/ko/riders/[slug]` |
+| Collection | `/ko/look/[slug]` |
 
 이 분리는 중요하다. `riders` 섹션에는 인터뷰 기사와 라이더 프로필이 함께
 존재하지만, 상세 URL은 서로 충돌하면 안 된다.
+
+Look Book Story는 Article 문서이고, Collection은 시즌 룩북 문서다. 관리자가
+시즌 전체 룩북을 만들 때는 Collection, 개별 룩 이미지는 Look, 착장 상품은
+Product를 사용한다.
 
 ## Five-Minute Article Checklist
 
@@ -106,6 +111,24 @@ Rider Profile 게시 최소 필드:
 - club
 - titles / accolades
 - interviews
+
+Collection 게시 최소 필드:
+
+- season
+- slug
+- Korean title
+
+Look 게시 최소 필드:
+
+- number
+- Korean name
+- collection reference
+
+론칭 전 Look 권장 필드:
+
+- image
+- products
+- rider
 
 ## Translation Rule
 
@@ -159,6 +182,12 @@ Rider Profile은 다음 경로다.
 https://penacova-magazine.vercel.app/ko/riders/[slug]
 ```
 
+Collection은 다음 경로다.
+
+```text
+https://penacova-magazine.vercel.app/ko/look/[slug]
+```
+
 ## Troubleshooting
 
 404가 뜨는 경우:
@@ -169,6 +198,8 @@ https://penacova-magazine.vercel.app/ko/riders/[slug]
 - Rider Interview 기사는 `/riders/[slug]`가 아니라
   `/riders/interviews/[slug]`로 확인한다.
 - Rider Profile은 Article이 아니라 Rider 문서로 만들었는지 확인한다.
+- 시즌 룩북은 Article이 아니라 Collection 문서로 만들었는지 확인한다.
+- Collection에 slug가 있는지 확인한다.
 
 EN/JP에서 한국어 원문 안내가 뜨는 경우:
 
@@ -193,6 +224,7 @@ URL을 바꾸고 싶은 경우:
 - 관리자가 카테고리 선택만으로 게시할 수 있는 구조를 유지한다.
 - `riders` Article 상세는 `/[locale]/riders/interviews/[slug]`로 유지한다.
 - Rider Profile 상세는 `/[locale]/riders/[slug]`로 유지한다.
+- Collection 상세는 `/[locale]/look/[slug]`로 유지한다.
 - Studio 구조는 문서 타입 나열보다 게시 흐름을 우선한다.
 - 필수 게시 규칙은 Sanity schema description, validation, preview, templates,
   docs에 같이 반영한다.

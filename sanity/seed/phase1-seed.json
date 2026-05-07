@@ -48,6 +48,136 @@
     ]
   },
   {
+    "_id": "product-ss26-dawn-jacket",
+    "_type": "product",
+    "name": {
+      "ko": "SS26 던 재킷",
+      "en": "SS26 Dawn Jacket",
+      "jp": "SS26ドーンジャケット"
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "ss26-dawn-jacket"
+    },
+    "color": "Soft Ivory",
+    "collection": {
+      "_type": "reference",
+      "_ref": "collection-ss26"
+    },
+    "cafe24UrlKR": "https://www.penacova.co.kr/?utm_source=penacova_magazine&utm_medium=lookbook&utm_campaign=ss26",
+    "cafe24UrlJP": "https://penacova.jp/?utm_source=penacova_magazine&utm_medium=lookbook&utm_campaign=ss26"
+  },
+  {
+    "_id": "product-ss26-field-shirt",
+    "_type": "product",
+    "name": {
+      "ko": "SS26 필드 셔츠",
+      "en": "SS26 Field Shirt",
+      "jp": "SS26フィールドシャツ"
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "ss26-field-shirt"
+    },
+    "color": "Stable White",
+    "collection": {
+      "_type": "reference",
+      "_ref": "collection-ss26"
+    },
+    "cafe24UrlKR": "https://www.penacova.co.kr/?utm_source=penacova_magazine&utm_medium=lookbook&utm_campaign=ss26",
+    "cafe24UrlJP": "https://penacova.jp/?utm_source=penacova_magazine&utm_medium=lookbook&utm_campaign=ss26"
+  },
+  {
+    "_id": "look-ss26-01",
+    "_type": "look",
+    "number": "No 01",
+    "name": {
+      "ko": "새벽 훈련 전",
+      "en": "Before morning training",
+      "jp": "朝のトレーニング前"
+    },
+    "products": [
+      {
+        "_key": "look-ss26-01-product-jacket",
+        "_type": "reference",
+        "_ref": "product-ss26-dawn-jacket"
+      }
+    ],
+    "rider": {
+      "_type": "reference",
+      "_ref": "rider-jiwon-kim"
+    },
+    "collection": {
+      "_type": "reference",
+      "_ref": "collection-ss26"
+    }
+  },
+  {
+    "_id": "look-ss26-02",
+    "_type": "look",
+    "number": "No 02",
+    "name": {
+      "ko": "마장 가장자리",
+      "en": "At the edge of the arena",
+      "jp": "馬場の端で"
+    },
+    "products": [
+      {
+        "_key": "look-ss26-02-product-shirt",
+        "_type": "reference",
+        "_ref": "product-ss26-field-shirt"
+      }
+    ],
+    "rider": {
+      "_type": "reference",
+      "_ref": "rider-jiwon-kim"
+    },
+    "collection": {
+      "_type": "reference",
+      "_ref": "collection-ss26"
+    }
+  },
+  {
+    "_id": "collection-ss26",
+    "_type": "collection",
+    "season": "SS26",
+    "slug": {
+      "_type": "slug",
+      "current": "ss26"
+    },
+    "title": {
+      "ko": "새벽의 실루엣",
+      "en": "Silhouettes at dawn",
+      "jp": "夜明けのシルエット"
+    },
+    "looks": [
+      {
+        "_key": "collection-ss26-look-01",
+        "_type": "reference",
+        "_ref": "look-ss26-01"
+      },
+      {
+        "_key": "collection-ss26-look-02",
+        "_type": "reference",
+        "_ref": "look-ss26-02"
+      }
+    ],
+    "products": [
+      {
+        "_key": "collection-ss26-product-jacket",
+        "_type": "reference",
+        "_ref": "product-ss26-dawn-jacket"
+      },
+      {
+        "_key": "collection-ss26-product-shirt",
+        "_type": "reference",
+        "_ref": "product-ss26-field-shirt"
+      }
+    ],
+    "cafe24CollectionUrlKR": "https://www.penacova.co.kr/?utm_source=penacova_magazine&utm_medium=lookbook&utm_campaign=ss26",
+    "cafe24CollectionUrlJP": "https://penacova.jp/?utm_source=penacova_magazine&utm_medium=lookbook&utm_campaign=ss26"
+  },
+  {
     "_id": "article-quiet-morning",
     "_type": "article",
     "title": {

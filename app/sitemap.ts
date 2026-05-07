@@ -7,12 +7,17 @@ import {
   isArticleCategory,
 } from '@/lib/magazine/categories';
 import { sanityClient } from '@/lib/sanity/client';
-import { sitemapArticlesQuery, sitemapRidersQuery } from '@/lib/sanity/queries';
+import {
+  sitemapArticlesQuery,
+  sitemapCollectionsQuery,
+  sitemapRidersQuery,
+} from '@/lib/sanity/queries';
 import { absoluteUrl, localePath } from '@/lib/seo/metadata';
 
 export const revalidate = 300;
 
 const sitemapClient = sanityClient.withConfig({ useCdn: false });
+const sitemapFetchOptions = { cache: 'no-store' } as const;
 
 type SitemapArticle = {
   _id: string;
@@ -23,6 +28,12 @@ type SitemapArticle = {
 };
 
 type SitemapRider = {
+  _id: string;
+  slug: string;
+  _updatedAt?: string;
+};
+
+type SitemapCollection = {
   _id: string;
   slug: string;
   _updatedAt?: string;
@@ -40,12 +51,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await sitemapClient.fetch<SitemapArticle[]>(
     sitemapArticlesQuery(),
     {},
-    { next: { revalidate } },
+    sitemapFetchOptions,
   );
   const riders = await sitemapClient.fetch<SitemapRider[]>(
     sitemapRidersQuery(),
     {},
-    { next: { revalidate } },
+    sitemapFetchOptions,
+  );
+  const collections = await sitemapClient.fetch<SitemapCollection[]>(
+    sitemapCollectionsQuery(),
+    {},
+    sitemapFetchOptions,
   );
   const articleRoutes = articles
     .filter(
@@ -72,8 +88,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ),
     ),
   );
+  const collectionRoutes = collections.flatMap((collection) =>
+    LOCALES.map((locale) =>
+      createEntry(
+        localePath(locale, ['look', collection.slug]),
+        collection._updatedAt ?? now,
+        'weekly',
+        0.7,
+      ),
+    ),
+  );
 
-  return [...staticRoutes, ...articleRoutes, ...riderRoutes];
+  return [...staticRoutes, ...articleRoutes, ...riderRoutes, ...collectionRoutes];
 }
 
 function createEntry(

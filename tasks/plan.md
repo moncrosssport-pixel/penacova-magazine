@@ -44,13 +44,15 @@ Completed:
   linked interviews, optional favorite products, and Person JSON-LD.
 - Studio has a no-code publishing structure, category-specific templates, and a
   documented editorial publishing harness for managers.
+- Collection look book pages render at `/[locale]/look/[season]` with seeded
+  SS26 looks and product links.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 45% complete. The site still needs launch
+- Final public launch is roughly 48% complete. The site still needs launch
   content, translation workflow polish, rider/look-specific page depth,
   analytics, newsletter/follow capture, custom domain setup, and final QA.
 
@@ -274,6 +276,22 @@ Acceptance:
 - Rider Interview Article details avoid Rider Profile route collisions.
 - `docs/editorial-publishing-harness.md` is the source of truth for manager
   publishing.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Production verification follows after push/deploy.
+
+### Slice 13: Collection Look Book Pages
+
+Add a no-code Collection route for seasonal look books.
+
+Acceptance:
+
+- Collection documents have a URL slug.
+- A seeded collection renders at `/ko/look/ss26`.
+- Missing collection slugs return 404.
+- Linked Look, Product, and Rider references render without requiring code.
+- Collection routes are included in `/sitemap.xml`.
 - `pnpm test` passes.
 - `pnpm build` passes.
 

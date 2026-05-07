@@ -25,6 +25,8 @@ Article detail pages are available at routes such as
 Rider interview article pages use
 `localhost:3000/ko/riders/interviews/[slug]`; rider profile pages use
 `localhost:3000/ko/riders/[slug]`.
+Collection look book pages are available at routes such as
+`localhost:3000/ko/look/ss26` after collection content is published.
 Studio is at `localhost:3000/studio` (added in Task 7).
 SEO utility routes are available at `localhost:3000/sitemap.xml` and
 `localhost:3000/robots.txt`.

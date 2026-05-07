@@ -46,7 +46,9 @@ export const schemaTemplates: Template[] = [
     id: 'collection-season',
     title: 'Collection / Season',
     schemaType: 'collection',
-    value: {},
+    value: {
+      season: 'SS26',
+    },
   },
   {
     id: 'look-item',

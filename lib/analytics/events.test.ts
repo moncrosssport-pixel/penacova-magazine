@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   createMagazineAnalyticsEvent,
+  isMagazineAnalyticsEventName,
   readDepthEventNameForSurface,
 } from './events';
 
@@ -38,5 +39,13 @@ describe('readDepthEventNameForSurface', () => {
     expect(readDepthEventNameForSurface('lookbook')).toBe('lookbook_read_depth');
     expect(readDepthEventNameForSurface('home')).toBeNull();
     expect(readDepthEventNameForSurface(null)).toBeNull();
+  });
+});
+
+describe('isMagazineAnalyticsEventName', () => {
+  it('recognizes newsletter and follow events', () => {
+    expect(isMagazineAnalyticsEventName('newsletter_submit')).toBe(true);
+    expect(isMagazineAnalyticsEventName('follow_link_click')).toBe(true);
+    expect(isMagazineAnalyticsEventName('unknown')).toBe(false);
   });
 });

@@ -254,7 +254,7 @@ export default async function RiderPage({ params }: RiderPageProps) {
         }}
       />
 
-      <MagazineFooter />
+      <MagazineFooter locale={locale} />
     </main>
   );
 }

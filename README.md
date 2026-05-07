@@ -27,10 +27,14 @@ Rider interview article pages use
 `localhost:3000/ko/riders/[slug]`.
 Collection look book pages are available at routes such as
 `localhost:3000/ko/look/ss26` after collection content is published.
+Subscribe/follow capture is available at `localhost:3000/ko/subscribe` and in
+the homepage newsletter section.
 Studio is at `localhost:3000/studio` (added in Task 7).
 SEO utility routes are available at `localhost:3000/sitemap.xml` and
 `localhost:3000/robots.txt`.
 Sanity defaults are built in for the public project settings; `.env.local` can override them.
+Site-level newsletter/follow settings are managed by the singleton Sanity
+document `site-settings`.
 
 Seed the Phase 1 article and glossary after either Sanity CLI login as a
 project member or a project write token:

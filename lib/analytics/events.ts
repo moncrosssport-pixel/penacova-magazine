@@ -2,6 +2,7 @@ export const MAGAZINE_ANALYTICS_EVENTS = [
   'locale_switch',
   'category_nav',
   'outbound_cafe24',
+  'follow_link_click',
   'article_read_depth',
   'lookbook_read_depth',
   'newsletter_submit',

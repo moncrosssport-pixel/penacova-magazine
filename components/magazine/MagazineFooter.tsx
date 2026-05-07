@@ -1,8 +1,18 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { type Locale } from '@/lib/i18n/locales';
 
-const magazineLinks = ['Editorial', 'Riders', 'Look', 'Heritage', 'Guide', 'News', 'Stories'];
+const magazineLinks = [
+  ['Editorial', 'editorial'],
+  ['Riders', 'riders'],
+  ['Look', 'look'],
+  ['Heritage', 'heritage'],
+  ['Guide', 'guide'],
+  ['News', 'news'],
+  ['Stories', 'stories'],
+] as const;
 
-export function MagazineFooter() {
+export function MagazineFooter({ locale = 'ko' }: { locale?: Locale }) {
   return (
     <footer className="bg-ink px-6 py-12 text-paper sm:px-10 lg:px-14 lg:py-16">
       <div className="mx-auto grid max-w-content gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
@@ -20,9 +30,28 @@ export function MagazineFooter() {
           </p>
         </div>
 
-        <FooterColumn title="Magazine" items={magazineLinks} />
-        <FooterColumn title="Shop" items={['penacova.co.kr ->', 'penacova.jp ->']} />
-        <FooterColumn title="Brand" items={['About', 'Subscribe', 'Press', 'Contact']} />
+        <FooterColumn
+          title="Magazine"
+          items={magazineLinks.map(([label, path]) => ({
+            label,
+            href: `/${locale}/${path}`,
+          }))}
+        />
+        <FooterColumn
+          title="Shop"
+          items={[
+            { label: 'penacova.co.kr ->', href: 'https://www.penacova.co.kr/' },
+            { label: 'penacova.jp ->', href: 'https://penacova.jp/' },
+          ]}
+        />
+        <FooterColumn
+          title="Brand"
+          items={[
+            { label: 'Subscribe', href: `/${locale}/subscribe` },
+            { label: 'Press', href: `/${locale}/news` },
+            { label: 'Contact', href: 'https://www.penacova.co.kr/' },
+          ]}
+        />
       </div>
 
       <div className="mx-auto flex max-w-content flex-col gap-3 pt-6 font-mono text-[11px] uppercase tracking-[0.08em] text-paper/50 sm:flex-row sm:items-center sm:justify-between">
@@ -34,7 +63,13 @@ export function MagazineFooter() {
   );
 }
 
-function FooterColumn({ title, items }: { title: string; items: string[] }) {
+function FooterColumn({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; href: string }[];
+}) {
   return (
     <div>
       <h2 className="mb-4 font-ui text-[11px] font-semibold uppercase tracking-[0.22em] text-paper/50">
@@ -42,11 +77,37 @@ function FooterColumn({ title, items }: { title: string; items: string[] }) {
       </h2>
       <div className="flex flex-col gap-2 font-ui text-sm">
         {items.map((item) => (
-          <span key={item} className="text-paper">
-            {item}
-          </span>
+          <FooterLink key={`${item.label}-${item.href}`} item={item} />
         ))}
       </div>
     </div>
+  );
+}
+
+function FooterLink({ item }: { item: { label: string; href: string } }) {
+  const isExternal = item.href.startsWith('http');
+  const isCafe24 =
+    item.href.includes('penacova.co.kr') || item.href.includes('penacova.jp');
+
+  if (isExternal) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noreferrer"
+        data-analytics-event={isCafe24 ? 'outbound_cafe24' : undefined}
+        data-analytics-label={`footer_${item.label}`}
+        data-analytics-href={item.href}
+        className="text-paper no-underline"
+      >
+        {item.label}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={item.href} className="text-paper no-underline">
+      {item.label}
+    </Link>
   );
 }

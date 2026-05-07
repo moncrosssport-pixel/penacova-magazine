@@ -320,4 +320,37 @@
     "jpTerm": "ライダー",
     "scope": "equestrian"
   }
+,
+  {
+    "_id": "site-settings",
+    "_type": "siteSettings",
+    "title": {
+      "ko": "Receive the next issue.",
+      "en": "Receive the next issue.",
+      "jp": "Receive the next issue."
+    },
+    "description": {
+      "ko": "A quiet monthly note from Penacova Magazine.",
+      "en": "A quiet monthly note from Penacova Magazine.",
+      "jp": "A quiet monthly note from Penacova Magazine."
+    },
+    "consentCopy": {
+      "ko": "One email per month. No shop account is required.",
+      "en": "One email per month. No shop account is required.",
+      "jp": "One email per month. No shop account is required."
+    },
+    "newsletterEmailFieldName": "EMAIL",
+    "followLinks": [
+      {
+        "_key": "penacova-kr",
+        "label": "Penacova Korea",
+        "url": "https://www.penacova.co.kr/?utm_source=penacova_magazine&utm_medium=follow&utm_campaign=newsletter"
+      },
+      {
+        "_key": "penacova-jp",
+        "label": "Penacova Japan",
+        "url": "https://penacova.jp/?utm_source=penacova_magazine&utm_medium=follow&utm_campaign=newsletter"
+      }
+    ]
+  }
 ]

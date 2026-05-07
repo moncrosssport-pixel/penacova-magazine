@@ -55,6 +55,7 @@ The repository currently contains the foundation:
 - No-code editorial publishing harness for Studio managers and future agents
 - Provider-neutral analytics event foundation for reading depth, locale/category
   navigation, and outbound Cafe24 CTA clicks
+- No-code newsletter/follow settings and `/[locale]/subscribe` capture surface
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The seeded editorial article renders
@@ -64,7 +65,7 @@ Later category-specific detail templates still need launch content.
 Approximate current progress:
 
 - Phase 1 technical foundation: 97% complete.
-- Final public launch: 50% complete.
+- Final public launch: 52% complete.
 
 ## Phase 1 Target
 

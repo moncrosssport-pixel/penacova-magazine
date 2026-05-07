@@ -79,18 +79,20 @@ Implemented:
 - Embedded Sanity Studio at `/studio`
 - Sanity public defaults in `sanity/env.ts`
 - Sanity schemas for Article, Collection, Glossary, Look, Person, Product, and
-  Rider
+  Rider, plus the Site Settings singleton
 - Sanity read client and GROQ queries
 - `/[locale]/[category]` category index route for the seven magazine pillars
 - `/[locale]/[category]/[slug]` shared article detail route for the seven
   magazine pillars
 - `/[locale]/look/[season]` collection look book route
+- `/[locale]/subscribe` newsletter/follow capture route
 - `/[locale]/riders/[slug]` rider profile route
 - `/[locale]/riders/interviews/[slug]` rider interview article route
 - Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
   and article JSON-LD wiring
 - Path-preserving locale switcher links in the magazine masthead
 - No-code publishing harness for Sanity editors
+- Provider-neutral analytics events and no-code newsletter/follow settings
 
 Not yet implemented:
 

@@ -255,7 +255,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         }}
       />
 
-      <MagazineFooter />
+      <MagazineFooter locale={locale} />
     </main>
   );
 }

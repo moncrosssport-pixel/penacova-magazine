@@ -183,6 +183,7 @@ The CMS should eventually register these document types:
 - `collection`
 - `glossary`
 - `person`
+- `siteSettings`
 
 Article fields:
 
@@ -273,6 +274,18 @@ name
 role
 portrait
 bio
+```
+
+Site settings fields:
+
+```text
+title                    localized newsletter title
+description              localized newsletter description
+consentCopy              localized consent/frequency copy
+newsletterFormAction     external provider form action URL
+newsletterEmailFieldName provider email field name, default EMAIL
+newsletterProviderName   internal provider label
+followLinks              label + URL links for brand follow surfaces
 ```
 
 ## Localization Model

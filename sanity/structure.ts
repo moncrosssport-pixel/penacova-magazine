@@ -39,6 +39,15 @@ export const publishingStructure: StructureResolver = (S) =>
             ]),
         ),
       S.divider(),
+      S.listItem()
+        .title('Site Settings')
+        .child(
+          S.document()
+            .schemaType('siteSettings')
+            .documentId('site-settings')
+            .title('Site Settings'),
+        ),
+      S.divider(),
       S.documentTypeListItem('rider').title('Rider Profiles'),
       S.listItem()
         .title('Look Book Setup')

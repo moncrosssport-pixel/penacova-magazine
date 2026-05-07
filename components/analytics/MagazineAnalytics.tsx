@@ -58,6 +58,31 @@ export function MagazineAnalytics() {
   }, []);
 
   useEffect(() => {
+    function handleSubmit(event: SubmitEvent) {
+      const target = event.target;
+
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const element = target.closest<HTMLElement>('[data-analytics-event]');
+      const eventName = element?.dataset.analyticsEvent;
+
+      if (!element || !isMagazineAnalyticsEventName(eventName)) {
+        return;
+      }
+
+      trackMagazineEvent(eventName, payloadFromElement(element));
+    }
+
+    document.addEventListener('submit', handleSubmit);
+
+    return () => {
+      document.removeEventListener('submit', handleSubmit);
+    };
+  }, []);
+
+  useEffect(() => {
     const surface = document.querySelector<HTMLElement>(
       '[data-analytics-surface]',
     );

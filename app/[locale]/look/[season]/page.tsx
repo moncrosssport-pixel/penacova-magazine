@@ -216,7 +216,7 @@ export default async function LookBookPage({ params }: LookBookPageProps) {
         }}
       />
 
-      <MagazineFooter />
+      <MagazineFooter locale={locale} />
     </main>
   );
 }

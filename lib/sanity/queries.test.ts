@@ -11,6 +11,7 @@ import {
   sitemapArticlesQuery,
   sitemapCollectionsQuery,
   sitemapRidersQuery,
+  siteSettingsQuery,
 } from './queries';
 
 describe('articleBySlugQuery', () => {
@@ -201,5 +202,17 @@ describe('sitemapRidersQuery', () => {
     expect(query).toContain('defined(slug.current)');
     expect(query).toContain('"slug": slug.current');
     expect(query).toContain('_updatedAt');
+  });
+});
+
+describe('siteSettingsQuery', () => {
+  it('selects the singleton newsletter and follow settings', () => {
+    const query = siteSettingsQuery();
+
+    expect(query).toContain('_type == "siteSettings"');
+    expect(query).toContain('_id == "site-settings"');
+    expect(query).toContain('newsletterFormAction');
+    expect(query).toContain('newsletterEmailFieldName');
+    expect(query).toContain('followLinks');
   });
 });

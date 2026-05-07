@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
+import { MagazineNewsletter } from '@/components/magazine/MagazineNewsletter';
 import { StoryCard } from '@/components/magazine/StoryCard';
 import { isLocale, type Locale } from '@/lib/i18n/locales';
 import { createHomeMetadata } from '@/lib/seo/metadata';
@@ -167,18 +168,9 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
         </div>
       </section>
 
-      <section id="newsletter" className="mx-auto max-w-reading px-6 py-16 text-center sm:px-10 lg:py-24">
-        <p className="kicker">Subscribe</p>
-        <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.015em] text-balance">
-          {content.newsletterTitle}
-        </h2>
-        <p className="dek mx-auto mt-5 max-w-xl">{content.newsletterDek}</p>
-        <p className="mt-8 font-ui text-[11px] font-semibold uppercase tracking-[0.22em] text-muted">
-          magazine.penacova.co.kr
-        </p>
-      </section>
+      <MagazineNewsletter locale={params.locale} />
 
-      <MagazineFooter />
+      <MagazineFooter locale={params.locale} />
     </main>
   );
 }

@@ -154,7 +154,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ) : null}
       </section>
 
-      <MagazineFooter />
+      <MagazineFooter locale={locale} />
     </main>
   );
 }

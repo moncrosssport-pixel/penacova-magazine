@@ -48,15 +48,17 @@ Completed:
   SS26 looks and product links.
 - Provider-neutral analytics events are wired for reading depth, locale/category
   navigation, and outbound Cafe24 CTA clicks.
+- No-code newsletter/follow settings render the homepage newsletter section and
+  `/[locale]/subscribe` route.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 50% complete. The site still needs launch
-  content, translation workflow polish, newsletter/follow capture, custom
-  analytics provider setup, custom domain setup, and final QA.
+- Final public launch is roughly 52% complete. The site still needs launch
+  content, translation workflow polish, real newsletter provider connection,
+  custom analytics provider setup, custom domain setup, and final QA.
 
 Not completed:
 
@@ -316,6 +318,27 @@ Acceptance:
 - `pnpm build` passes.
 
 Status: complete locally. Production verification follows after push/deploy.
+
+### Slice 15: Newsletter / Follow Embed
+
+Add a no-code newsletter and follow surface without coupling the magazine to a
+specific email provider.
+
+Acceptance:
+
+- Studio has a singleton `Site Settings` document for newsletter copy, provider
+  form action, email field name, provider label, and follow links.
+- The homepage newsletter section renders from the settings with safe fallbacks.
+- `/[locale]/subscribe` renders the same capture surface.
+- The footer Subscribe link points to the locale subscribe route.
+- Follow links emit `follow_link_click`; newsletter forms emit
+  `newsletter_submit` when a provider action is configured.
+- Seed content includes the `site-settings` document.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally and seeded in Sanity. Production verification follows
+after push/deploy.
 
 ## Later Phases
 

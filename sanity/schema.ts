@@ -6,6 +6,7 @@ import { look } from './schemas/look';
 import { person } from './schemas/person';
 import { product } from './schemas/product';
 import { rider } from './schemas/rider';
+import { siteSettings } from './schemas/siteSettings';
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   article,
@@ -15,4 +16,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   person,
   product,
   rider,
+  siteSettings,
 ];

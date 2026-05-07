@@ -15,6 +15,7 @@ without inventing new content.
 - `product-ss26-dawn-jacket`
 - `product-ss26-field-shirt`
 - `article-quiet-morning`
+- `site-settings`
 - 5 glossary terms:
   - Penacova
   - 편자 / horseshoe / 蹄鉄
@@ -63,7 +64,9 @@ pnpm build
 Then check:
 
 - `http://localhost:3000/ko/editorial/quiet-morning`
+- `http://localhost:3000/ko/subscribe`
 - `https://penacova-magazine.vercel.app/ko/editorial/quiet-morning`
+- `https://penacova-magazine.vercel.app/ko/subscribe`
 
 The Vercel route can take a short time to refresh because the article page uses
 revalidation.

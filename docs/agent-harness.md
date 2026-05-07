@@ -49,6 +49,7 @@ Local routes:
   seed
 - `http://localhost:3000/ko/look/ss26` for collection look books after content
   seed
+- `http://localhost:3000/ko/subscribe`
 - `http://localhost:3000/sitemap.xml`
 - `http://localhost:3000/robots.txt`
 - `http://localhost:3000/studio`
@@ -66,6 +67,7 @@ Production routes:
   after content seed
 - `https://penacova-magazine.vercel.app/ko/look/ss26` for collection look books
   after content seed
+- `https://penacova-magazine.vercel.app/ko/subscribe`
 - `https://penacova-magazine.vercel.app/studio`
 
 ## Known Good State
@@ -96,6 +98,9 @@ Current known state:
   `window.penacovaAnalyticsQueue` and forward to `gtag` when GA4 is added.
   Current events cover reading depth, locale/category navigation, and outbound
   Cafe24 CTAs.
+- Newsletter/follow capture is provider-neutral: Studio has a singleton
+  `site-settings` document, the homepage renders its newsletter section, and
+  `/[locale]/subscribe` provides a standalone capture route.
 - Masthead locale links preserve the current category or article path.
 - EN/JP article pages and category teasers respect `translationStatus`; they
   show Korean-original content until translations are reviewed or manual.
@@ -150,6 +155,7 @@ For each task:
 | Article page | `pnpm test`, `pnpm build`, local missing-article 404 or seeded article URL |
 | SEO metadata | `pnpm test`, `pnpm build`, check page head, `/robots.txt`, `/sitemap.xml` |
 | Analytics instrumentation | `pnpm test`, `pnpm build`, check rendered page data attributes |
+| Newsletter/follow surface | `pnpm test`, `pnpm build`, check `/[locale]/subscribe` and homepage `#newsletter` |
 | Visual design | Design system review, `pnpm test`, `pnpm build`, browser check |
 | Vercel/deploy | Production or preview URL check |
 | Docs only | Link/file review, `git diff --check` |

@@ -229,3 +229,23 @@ URL을 바꾸고 싶은 경우:
 - 필수 게시 규칙은 Sanity schema description, validation, preview, templates,
   docs에 같이 반영한다.
 - 관리자가 수동으로 URL을 조합해야 하는 기능은 미완성으로 본다.
+## Newsletter / Follow Settings
+
+Newsletter and follow capture is managed without code in Studio:
+
+1. Open `/studio`.
+2. Open `Site Settings`.
+3. Edit the newsletter title, description, consent copy, and follow links.
+4. When an email provider is chosen, paste its HTTPS form action URL into
+   `Newsletter form action URL`.
+5. Set `Email input field name` to the provider value. Use `EMAIL` unless the
+   provider says otherwise.
+6. Publish the settings document.
+
+Public routes:
+
+- Homepage section: `/ko#newsletter`
+- Standalone route: `/ko/subscribe`
+
+If the provider URL is blank, the public site still shows the newsletter copy
+and follow links. No developer is needed to turn on the email form later.

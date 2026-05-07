@@ -43,6 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const staticRoutes = LOCALES.flatMap((locale) => [
     createEntry(localePath(locale), now, 'daily', 0.9),
+    createEntry(localePath(locale, ['subscribe']), now, 'monthly', 0.5),
     ...MAGAZINE_CATEGORIES.map((category) =>
       createEntry(localePath(locale, [category.id]), now, 'daily', 0.7),
     ),

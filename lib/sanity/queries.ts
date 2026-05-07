@@ -241,3 +241,24 @@ export function sitemapRidersQuery(): string {
     }
   `;
 }
+
+export function siteSettingsQuery(): string {
+  return `
+    *[
+      _type == "siteSettings" &&
+      _id == "site-settings" &&
+      !(_id in path("drafts.**"))
+    ][0]{
+      title,
+      description,
+      consentCopy,
+      newsletterFormAction,
+      newsletterEmailFieldName,
+      newsletterProviderName,
+      followLinks[]{
+        label,
+        url
+      }
+    }
+  `;
+}

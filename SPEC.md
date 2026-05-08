@@ -63,6 +63,8 @@ The repository currently contains the foundation:
 - 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Direct editor writing guide for self-serve article drafting and publishing
 - Custom domain runbook with current DNS state and correct Vercel scope
+- Production launch readiness checker for content, DNS, newsletter/follow, and
+  public route checks
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The seeded editorial article renders
@@ -72,7 +74,7 @@ Later category-specific detail templates still need launch content.
 Approximate current progress:
 
 - Phase 1 technical foundation: 97% complete.
-- Final public launch: 59% complete.
+- Final public launch: 60% complete.
 
 ## Phase 1 Target
 

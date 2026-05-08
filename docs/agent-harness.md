@@ -120,6 +120,10 @@ Current known state:
 - Editor writing guidance lives in `docs/editor-writing-guide.md`.
 - Custom domain setup guidance lives in `docs/custom-domain-runbook.md`; DNS
   currently points `magazine.penacova.co.kr` to `penacova.co.kr`, not Vercel.
+- Production launch blockers can be checked with `pnpm check:launch`.
+  This command intentionally exits non-zero while launch blockers remain.
+  Latest check reports 0/12 complete articles, 1/5 rider profiles, 50 glossary
+  terms needing Japanese review, and the custom domain not yet on Vercel DNS.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 

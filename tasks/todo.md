@@ -31,11 +31,12 @@
 - [x] Import 50 glossary starter terms into production Sanity.
 - [x] Add direct editor writing guide for self-serve article drafting.
 - [x] Prepare custom domain runbook and verify current DNS state.
+- [x] Add production launch readiness checker.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 97% complete.
-- Final public launch: about 59% complete.
+- Final public launch: about 60% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, real newsletter provider connection, custom analytics
   provider setup, and custom domain setup.

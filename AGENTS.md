@@ -32,6 +32,14 @@ For implementation work that affects runtime behavior, also run:
 pnpm build
 ```
 
+For launch QA work, also run:
+
+```bash
+pnpm check:launch
+```
+
+This command intentionally exits non-zero until launch blockers are cleared.
+
 ## Current Project Facts
 
 - GitHub repository: `moncrosssport-pixel/penacova-magazine`
@@ -100,6 +108,7 @@ Implemented:
 - 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Direct editor writing guide for self-serve article drafting
 - Custom domain runbook with current DNS state and correct Vercel scope
+- Production launch readiness checker at `pnpm check:launch`
 
 Not yet implemented:
 

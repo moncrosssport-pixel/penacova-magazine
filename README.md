@@ -19,6 +19,7 @@
 ```bash
 pnpm install
 pnpm dev          # localhost:3000
+pnpm check:launch # production launch readiness check
 ```
 
 Home is at `localhost:3000/ko`; `/` redirects there.
@@ -102,3 +103,4 @@ The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not use an
 - [ ] DNS: replace the current `magazine -> penacova.co.kr` CNAME with
       `magazine -> cname.vercel-dns.com`
 - [ ] Sanity: add `https://magazine.penacova.co.kr` as an allowed CORS origin
+- [ ] Run `pnpm check:launch` and clear all blockers

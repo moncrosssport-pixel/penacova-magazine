@@ -60,13 +60,14 @@ Completed:
   publishing.
 - Custom domain setup has a runbook with current DNS evidence and the correct
   Vercel account boundary.
+- Production launch readiness can be checked with `pnpm check:launch`.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 59% complete. The site still needs launch
+- Final public launch is roughly 60% complete. The site still needs launch
   content written/published in Studio, translation workflow polish, real
   newsletter provider connection, custom analytics provider setup, custom domain
   setup, and final QA.
@@ -446,6 +447,28 @@ Acceptance:
 
 Status: complete locally. Actual Vercel/DNS changes still require the
 `moncrosssport-pixels-projects` account and DNS provider access.
+
+### Slice 21: Launch Readiness Checker
+
+Add an agent-friendly production checklist command that reports launch blockers
+after editors publish content.
+
+Acceptance:
+
+- `pnpm check:launch` queries Sanity for complete published articles, rider
+  profiles, glossary review state, Launch Desk cards, and newsletter/follow
+  settings.
+- The command checks production `/ko`, `/sitemap.xml`, and the custom domain
+  CNAME.
+- The command prints `[READY]` only when blockers are clear; otherwise it prints
+  `[BLOCKED]`, facts, missing categories, blockers, and warnings.
+- Unit tests cover blocked and ready summary states plus report formatting.
+- Docs link the command from README, AGENTS, agent handoff, editor guide, and
+  domain runbook.
+
+Status: complete locally. Current production check reports `[BLOCKED]` with 0/12
+complete articles, 1/5 rider profiles, 50 glossary terms needing Japanese
+review, and the custom domain still pointing to `penacova.co.kr`.
 
 ## Later Phases
 

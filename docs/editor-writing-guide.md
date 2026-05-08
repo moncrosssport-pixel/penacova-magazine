@@ -179,6 +179,28 @@ Rider Interview만 예외:
 https://penacova-magazine.vercel.app/ko/riders/interviews/[slug]
 ```
 
+## Launch Readiness Check
+
+글을 몇 개 게시한 뒤 에이전트에게 다음 명령을 실행하게 하면 현재 막힌
+부분을 한 번에 확인할 수 있다.
+
+```powershell
+pnpm check:launch
+```
+
+이 명령은 다음을 확인한다.
+
+- 카테고리별 공개 글이 있는지
+- hero image, Korean title, Korean excerpt, Korean body가 있는지
+- Rider Profile 수가 충분한지
+- Launch Desk 카드가 있는지
+- Glossary JP 검수가 남아 있는지
+- Newsletter/follow 설정이 있는지
+- production `/ko`와 `/sitemap.xml`이 열리는지
+- `magazine.penacova.co.kr`이 Vercel CNAME으로 연결됐는지
+
+`[BLOCKED]`가 나오면 아래 `Blockers` 항목부터 처리한다.
+
 ## First Story Order
 
 론칭용으로는 이 순서가 가장 안전하다.

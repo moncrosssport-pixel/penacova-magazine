@@ -137,6 +137,19 @@ Expected:
 - `/studio` loads the Studio shell after login.
 - `/sitemap.xml` still works.
 
+Full launch check:
+
+```powershell
+pnpm check:launch
+```
+
+Expected when the domain and content are ready:
+
+```text
+Penacova Magazine Launch Readiness
+[READY]
+```
+
 ## Do Not Change
 
 - Do not move the project to an `etehofk` Vercel scope.

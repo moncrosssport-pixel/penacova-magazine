@@ -9,8 +9,10 @@
     "lint": "next lint",
     "seed:sanity": "node scripts/seed-sanity.mjs",
     "seed:launch-briefs": "node scripts/seed-sanity.mjs sanity/seed/launch-briefs.json",
+    "seed:glossary": "node scripts/seed-sanity.mjs sanity/seed/glossary-starter.json",
     "seed:sanity:cli": "sanity documents create sanity/seed/phase1-seed.json --replace",
     "seed:launch-briefs:cli": "sanity documents create sanity/seed/launch-briefs.json --replace",
+    "seed:glossary:cli": "sanity documents create sanity/seed/glossary-starter.json --replace",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui"

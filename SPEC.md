@@ -60,6 +60,7 @@ The repository currently contains the foundation:
 - Launch content inventory for first stories, rider profiles, and glossary terms
 - Launch Desk seed payload for 12 story briefs, 5 rider profile briefs, and one
   glossary batch brief
+- 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The seeded editorial article renders
@@ -69,7 +70,7 @@ Later category-specific detail templates still need launch content.
 Approximate current progress:
 
 - Phase 1 technical foundation: 97% complete.
-- Final public launch: 57% complete.
+- Final public launch: 58% complete.
 
 ## Phase 1 Target
 

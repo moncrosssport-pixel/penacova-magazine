@@ -1,0 +1,502 @@
+[
+  {
+    "_id": "glossary-equestrian-riding",
+    "_type": "glossary",
+    "koTerm": "승마",
+    "enTerm": "equestrian riding",
+    "reviewStatus": "jp-review-needed",
+    "scope": "equestrian",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "General activity term."
+  },
+  {
+    "_id": "glossary-riding-arena",
+    "_type": "glossary",
+    "koTerm": "마장",
+    "enTerm": "riding arena",
+    "reviewStatus": "jp-review-needed",
+    "scope": "equestrian",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Use for arena or training ground."
+  },
+  {
+    "_id": "glossary-stable",
+    "_type": "glossary",
+    "koTerm": "마방",
+    "enTerm": "stable",
+    "reviewStatus": "jp-review-needed",
+    "scope": "equestrian",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Stable or horse housing area."
+  },
+  {
+    "_id": "glossary-saddle",
+    "_type": "glossary",
+    "koTerm": "안장",
+    "enTerm": "saddle",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Core tack term."
+  },
+  {
+    "_id": "glossary-bridle",
+    "_type": "glossary",
+    "koTerm": "굴레",
+    "enTerm": "bridle",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Headgear including bit/reins."
+  },
+  {
+    "_id": "glossary-reins",
+    "_type": "glossary",
+    "koTerm": "고삐",
+    "enTerm": "reins",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Rider hand connection."
+  },
+  {
+    "_id": "glossary-bit",
+    "_type": "glossary",
+    "koTerm": "재갈",
+    "enTerm": "bit",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Mouthpiece."
+  },
+  {
+    "_id": "glossary-stirrup",
+    "_type": "glossary",
+    "koTerm": "등자",
+    "enTerm": "stirrup",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Foot support."
+  },
+  {
+    "_id": "glossary-stirrup-leather",
+    "_type": "glossary",
+    "koTerm": "등자끈",
+    "enTerm": "stirrup leather",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Stirrup strap."
+  },
+  {
+    "_id": "glossary-girth",
+    "_type": "glossary",
+    "koTerm": "복대",
+    "enTerm": "girth",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Saddle securing strap."
+  },
+  {
+    "_id": "glossary-saddle-pad",
+    "_type": "glossary",
+    "koTerm": "안장 패드",
+    "enTerm": "saddle pad",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Pad under saddle."
+  },
+  {
+    "_id": "glossary-riding-crop",
+    "_type": "glossary",
+    "koTerm": "채찍",
+    "enTerm": "riding crop",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Use carefully in brand copy."
+  },
+  {
+    "_id": "glossary-spur",
+    "_type": "glossary",
+    "koTerm": "박차",
+    "enTerm": "spur",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Use only where accurate."
+  },
+  {
+    "_id": "glossary-riding-helmet",
+    "_type": "glossary",
+    "koTerm": "헬멧",
+    "enTerm": "riding helmet",
+    "reviewStatus": "jp-review-needed",
+    "scope": "apparel",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Safety gear."
+  },
+  {
+    "_id": "glossary-riding-gloves",
+    "_type": "glossary",
+    "koTerm": "장갑",
+    "enTerm": "riding gloves",
+    "reviewStatus": "jp-review-needed",
+    "scope": "apparel",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Apparel/accessory."
+  },
+  {
+    "_id": "glossary-riding-boots",
+    "_type": "glossary",
+    "koTerm": "승마 부츠",
+    "enTerm": "riding boots",
+    "reviewStatus": "jp-review-needed",
+    "scope": "apparel",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Footwear."
+  },
+  {
+    "_id": "glossary-chaps",
+    "_type": "glossary",
+    "koTerm": "챕스",
+    "enTerm": "chaps",
+    "reviewStatus": "jp-review-needed",
+    "scope": "apparel",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Lower-leg riding gear."
+  },
+  {
+    "_id": "glossary-jacket",
+    "_type": "glossary",
+    "koTerm": "재킷",
+    "enTerm": "jacket",
+    "reviewStatus": "jp-review-needed",
+    "scope": "apparel",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Apparel term."
+  },
+  {
+    "_id": "glossary-breeches",
+    "_type": "glossary",
+    "koTerm": "브리치",
+    "enTerm": "breeches",
+    "reviewStatus": "jp-review-needed",
+    "scope": "apparel",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Riding pants."
+  },
+  {
+    "_id": "glossary-shirt",
+    "_type": "glossary",
+    "koTerm": "셔츠",
+    "enTerm": "shirt",
+    "reviewStatus": "jp-review-needed",
+    "scope": "apparel",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Apparel term."
+  },
+  {
+    "_id": "glossary-horse-boots",
+    "_type": "glossary",
+    "koTerm": "보호대",
+    "enTerm": "horse boots",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Horse leg protection, not human boots."
+  },
+  {
+    "_id": "glossary-horse-blanket",
+    "_type": "glossary",
+    "koTerm": "마의",
+    "enTerm": "horse blanket",
+    "reviewStatus": "jp-review-needed",
+    "scope": "tack",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Horse covering."
+  },
+  {
+    "_id": "glossary-warm-up",
+    "_type": "glossary",
+    "koTerm": "워밍업",
+    "enTerm": "warm-up",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Pre-ride preparation."
+  },
+  {
+    "_id": "glossary-walk",
+    "_type": "glossary",
+    "koTerm": "평보",
+    "enTerm": "walk",
+    "reviewStatus": "jp-review-needed",
+    "scope": "gait",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Four-beat gait."
+  },
+  {
+    "_id": "glossary-trot",
+    "_type": "glossary",
+    "koTerm": "속보",
+    "enTerm": "trot",
+    "reviewStatus": "jp-review-needed",
+    "scope": "gait",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Two-beat gait."
+  },
+  {
+    "_id": "glossary-canter",
+    "_type": "glossary",
+    "koTerm": "구보",
+    "enTerm": "canter",
+    "reviewStatus": "jp-review-needed",
+    "scope": "gait",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Three-beat gait."
+  },
+  {
+    "_id": "glossary-sitting-trot",
+    "_type": "glossary",
+    "koTerm": "좌속보",
+    "enTerm": "sitting trot",
+    "reviewStatus": "jp-review-needed",
+    "scope": "gait",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Dressage/training term."
+  },
+  {
+    "_id": "glossary-rising-trot",
+    "_type": "glossary",
+    "koTerm": "경속보",
+    "enTerm": "rising trot",
+    "reviewStatus": "jp-review-needed",
+    "scope": "gait",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Posting trot."
+  },
+  {
+    "_id": "glossary-half-halt",
+    "_type": "glossary",
+    "koTerm": "반정지",
+    "enTerm": "half-halt",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Translation must stay consistent."
+  },
+  {
+    "_id": "glossary-circle-work",
+    "_type": "glossary",
+    "koTerm": "원형 운동",
+    "enTerm": "circle work",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Training pattern."
+  },
+  {
+    "_id": "glossary-diagonal",
+    "_type": "glossary",
+    "koTerm": "대각선",
+    "enTerm": "diagonal",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Arena/riding line."
+  },
+  {
+    "_id": "glossary-rhythm",
+    "_type": "glossary",
+    "koTerm": "리듬",
+    "enTerm": "rhythm",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Dressage principle."
+  },
+  {
+    "_id": "glossary-balance",
+    "_type": "glossary",
+    "koTerm": "균형",
+    "enTerm": "balance",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Rider/horse balance."
+  },
+  {
+    "_id": "glossary-contact",
+    "_type": "glossary",
+    "koTerm": "접촉",
+    "enTerm": "contact",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Rein connection."
+  },
+  {
+    "_id": "glossary-impulsion",
+    "_type": "glossary",
+    "koTerm": "추진",
+    "enTerm": "impulsion",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Dressage principle."
+  },
+  {
+    "_id": "glossary-collection-training",
+    "_type": "glossary",
+    "koTerm": "수축",
+    "enTerm": "collection",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Do not confuse with fashion collection."
+  },
+  {
+    "_id": "glossary-extension",
+    "_type": "glossary",
+    "koTerm": "신장",
+    "enTerm": "extension",
+    "reviewStatus": "jp-review-needed",
+    "scope": "training",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Extended movement."
+  },
+  {
+    "_id": "glossary-dressage",
+    "_type": "glossary",
+    "koTerm": "드레사지",
+    "enTerm": "dressage",
+    "reviewStatus": "jp-review-needed",
+    "scope": "discipline",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Discipline."
+  },
+  {
+    "_id": "glossary-show-jumping",
+    "_type": "glossary",
+    "koTerm": "장애물",
+    "enTerm": "show jumping",
+    "reviewStatus": "jp-review-needed",
+    "scope": "discipline",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Use context to avoid obstacle-only meaning."
+  },
+  {
+    "_id": "glossary-cross-country",
+    "_type": "glossary",
+    "koTerm": "크로스컨트리",
+    "enTerm": "cross-country",
+    "reviewStatus": "jp-review-needed",
+    "scope": "discipline",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Eventing discipline."
+  },
+  {
+    "_id": "glossary-eventing",
+    "_type": "glossary",
+    "koTerm": "종합마술",
+    "enTerm": "eventing",
+    "reviewStatus": "jp-review-needed",
+    "scope": "discipline",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Three-phase discipline."
+  },
+  {
+    "_id": "glossary-horse-care",
+    "_type": "glossary",
+    "koTerm": "마필 관리",
+    "enTerm": "horse care",
+    "reviewStatus": "jp-review-needed",
+    "scope": "horse-care",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "General care."
+  },
+  {
+    "_id": "glossary-grooming",
+    "_type": "glossary",
+    "koTerm": "그루밍",
+    "enTerm": "grooming",
+    "reviewStatus": "jp-review-needed",
+    "scope": "horse-care",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Horse grooming."
+  },
+  {
+    "_id": "glossary-horseshoe",
+    "_type": "glossary",
+    "koTerm": "편자",
+    "enTerm": "horseshoe",
+    "reviewStatus": "jp-review-needed",
+    "scope": "horse-care",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Existing seed term should match."
+  },
+  {
+    "_id": "glossary-hoof",
+    "_type": "glossary",
+    "koTerm": "말굽",
+    "enTerm": "hoof",
+    "reviewStatus": "jp-review-needed",
+    "scope": "horse-care",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Hoof, not horseshoe."
+  },
+  {
+    "_id": "glossary-competition",
+    "_type": "glossary",
+    "koTerm": "대회",
+    "enTerm": "competition",
+    "reviewStatus": "jp-review-needed",
+    "scope": "competition",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "General competition term."
+  },
+  {
+    "_id": "glossary-start-list",
+    "_type": "glossary",
+    "koTerm": "출전표",
+    "enTerm": "start list",
+    "reviewStatus": "jp-review-needed",
+    "scope": "competition",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Competition document."
+  },
+  {
+    "_id": "glossary-competition-arena",
+    "_type": "glossary",
+    "koTerm": "경기장",
+    "enTerm": "competition arena",
+    "reviewStatus": "jp-review-needed",
+    "scope": "competition",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Event venue/arena."
+  },
+  {
+    "_id": "glossary-dressage-test",
+    "_type": "glossary",
+    "koTerm": "마장마술",
+    "enTerm": "dressage test",
+    "reviewStatus": "jp-review-needed",
+    "scope": "competition",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "When referring to the test, use carefully."
+  },
+  {
+    "_id": "glossary-course-walk",
+    "_type": "glossary",
+    "koTerm": "코스 워크",
+    "enTerm": "course walk",
+    "reviewStatus": "jp-review-needed",
+    "scope": "competition",
+    "sourceBrief": { "_type": "reference", "_ref": "launch-brief-glossary-starter-set" },
+    "notes": "Show jumping/eventing course inspection."
+  }
+]

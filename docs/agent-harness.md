@@ -113,6 +113,8 @@ Current known state:
   `docs/launch-content-inventory.md`.
 - Studio Launch Desk planning cards are seeded in production Sanity. CLI
   verification returned 18 `launchBrief` documents.
+- Glossary starter terms are seeded in production Sanity. CLI verification
+  returned 50 `glossary` documents with `reviewStatus=jp-review-needed`.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 

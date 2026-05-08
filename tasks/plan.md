@@ -54,13 +54,15 @@ Completed:
   50 glossary starter terms.
 - Launch Desk planning cards can track those story, rider, and glossary launch
   tasks inside Studio before final public documents are published.
+- Glossary starter terms are seeded into Studio with Japanese review explicitly
+  tracked before terms are marked ready.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 57% complete. The site still needs launch
+- Final public launch is roughly 58% complete. The site still needs launch
   content written/published in Studio, translation workflow polish, real
   newsletter provider connection, custom analytics provider setup, custom domain
   setup, and final QA.
@@ -383,6 +385,26 @@ Acceptance:
 
 Status: complete and seeded in production Sanity. CLI verification returned 18
 `launchBrief` documents.
+
+### Slice 18: Glossary Starter Import
+
+Move the 50 glossary terms from the launch inventory into Studio while keeping
+Japanese review explicit.
+
+Acceptance:
+
+- `glossary` documents include `reviewStatus` so editors can distinguish
+  internal Korean/English guidance from fully approved multilingual terms.
+- Studio exposes glossary review filters for terms needing Japanese review and
+  ready terms.
+- `sanity/seed/glossary-starter.json` contains 50 terms from the launch content
+  inventory and links them to the glossary Launch Brief.
+- `pnpm run seed:glossary` and `pnpm run seed:glossary:cli` are available.
+- Tests verify the seed payload count, required Korean/English terms, blank
+  Japanese terms, and supported scopes.
+
+Status: complete and seeded in production Sanity. CLI verification returned 50
+`glossary` documents with `reviewStatus=jp-review-needed`.
 
 ## Later Phases
 

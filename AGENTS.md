@@ -95,6 +95,7 @@ Implemented:
 - Provider-neutral analytics events and no-code newsletter/follow settings
 - Launch Desk planning cards for the first story, rider profile, and glossary
   publishing batch
+- 50 glossary starter terms seeded in Studio with Japanese review still needed
 
 Not yet implemented:
 

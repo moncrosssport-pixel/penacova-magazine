@@ -54,10 +54,18 @@ $env:SANITY_AUTH_TOKEN="<token>"
 pnpm run seed:launch-briefs
 ```
 
+Seed the first 50 glossary terms for Studio review:
+
+```powershell
+$env:SANITY_AUTH_TOKEN="<token>"
+pnpm run seed:glossary
+```
+
 Do not commit real Sanity tokens. The legacy CLI import command remains
 available as `pnpm run seed:sanity:cli` when the local Sanity CLI account is a
 member of project `6pelmu7l`. The matching CLI command for Launch Desk cards is
-`pnpm run seed:launch-briefs:cli`.
+`pnpm run seed:launch-briefs:cli`; for the glossary starter set use
+`pnpm run seed:glossary:cli`.
 
 ## Design system
 

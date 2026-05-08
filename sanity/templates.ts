@@ -102,6 +102,8 @@ export const schemaTemplates: Template[] = [
     id: 'glossary-term',
     title: 'Glossary Term',
     schemaType: 'glossary',
-    value: {},
+    value: {
+      reviewStatus: 'needs-review',
+    },
   },
 ];

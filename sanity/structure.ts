@@ -132,7 +132,28 @@ export const publishingStructure: StructureResolver = (S) =>
             .title('Editorial Support')
             .items([
               S.documentTypeListItem('person').title('Authors / Editors'),
-              S.documentTypeListItem('glossary').title('Glossary Terms'),
+              S.documentTypeListItem('glossary').title('All Glossary Terms'),
+              S.divider(),
+              S.listItem()
+                .title('Glossary Needs JP Review')
+                .child(
+                  S.documentList()
+                    .title('Glossary Needs JP Review')
+                    .schemaType('glossary')
+                    .filter(
+                      '_type == "glossary" && reviewStatus == "jp-review-needed"',
+                    )
+                    .defaultOrdering([{ field: 'koTerm', direction: 'asc' }]),
+                ),
+              S.listItem()
+                .title('Glossary Ready')
+                .child(
+                  S.documentList()
+                    .title('Glossary Ready')
+                    .schemaType('glossary')
+                    .filter('_type == "glossary" && reviewStatus == "ready"')
+                    .defaultOrdering([{ field: 'koTerm', direction: 'asc' }]),
+                ),
             ]),
         ),
     ]);

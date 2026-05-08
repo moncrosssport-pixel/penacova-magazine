@@ -13,6 +13,14 @@ $env:SANITY_AUTH_TOKEN="<token>"
 pnpm run seed:launch-briefs
 ```
 
+The glossary starter terms from this file are also available as
+`sanity/seed/glossary-starter.json`:
+
+```powershell
+$env:SANITY_AUTH_TOKEN="<token>"
+pnpm run seed:glossary
+```
+
 ## Publishing Rule
 
 - Korean is the source language.

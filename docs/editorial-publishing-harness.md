@@ -278,3 +278,28 @@ Public routes:
 
 If the provider URL is blank, the public site still shows the newsletter copy
 and follow links. No developer is needed to turn on the email form later.
+
+## Glossary Review Flow
+
+Glossary terms are managed in Studio under:
+
+```text
+Editorial Support -> All Glossary Terms
+Editorial Support -> Glossary Needs JP Review
+Editorial Support -> Glossary Ready
+```
+
+The first 50 starter terms are already seeded from
+`sanity/seed/glossary-starter.json`.
+
+Review status rules:
+
+- `Needs review`: term was created but not checked.
+- `Korean / English reviewed`: Korean and English are checked, Japanese is not.
+- `Japanese review needed`: Korean and English are usable; Japanese must stay
+  blank until a reviewer confirms it.
+- `Ready`: Korean, English, and Japanese terms are all approved.
+
+For launch, editors can use the Korean and English terms immediately as internal
+copy guidance. Do not fill `Japanese term` by machine translation and mark
+`Ready` only after a Japanese reviewer has checked the term.

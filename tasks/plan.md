@@ -61,13 +61,16 @@ Completed:
 - Custom domain setup has a runbook with current DNS evidence and the correct
   Vercel account boundary.
 - Production launch readiness can be checked with `pnpm check:launch`.
+- Vercel CLI is linked to `moncrosssport-pixels-projects/penacova-magazine`.
+- The custom domain is added in Vercel and allowed in Sanity CORS; Cafe24 DNS
+  still needs to point `magazine` to `76.76.21.21`.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 60% complete. The site still needs launch
+- Final public launch is roughly 61% complete. The site still needs launch
   content written/published in Studio, translation workflow polish, real
   newsletter provider connection, custom analytics provider setup, custom domain
   setup, and final QA.
@@ -438,15 +441,19 @@ Acceptance:
 
 - Current DNS for `magazine.penacova.co.kr` is verified.
 - `docs/custom-domain-runbook.md` documents the correct Vercel project, current
-  DNS state, desired CNAME, dashboard steps, Sanity CORS follow-up, and
+  DNS state, Vercel-required A record, dashboard steps, Sanity CORS state, and
   verification commands.
-- The runbook warns not to use the current local Vercel CLI account because it
-  lists only the wrong `etehofk1-ops-projects` scope.
-- The actual custom domain backlog remains open until Vercel and DNS are changed
-  in the correct account.
+- The runbook records that the local Vercel CLI is now linked to
+  `moncrosssport-pixels-projects/penacova-magazine`.
+- The custom domain backlog remains open until Cafe24 DNS points
+  `magazine.penacova.co.kr` to Vercel.
 
-Status: complete locally. Actual Vercel/DNS changes still require the
-`moncrosssport-pixels-projects` account and DNS provider access.
+Status: partially complete. Vercel CLI was re-authenticated to the correct
+`moncrosssport-pixels-projects` account, `.vercel/project.json` now links to
+`penacova-magazine`, `magazine.penacova.co.kr` was added to the Vercel project,
+and Sanity CORS includes `https://magazine.penacova.co.kr`. Cafe24 DNS still
+needs to replace the current `magazine -> penacova.co.kr` CNAME with
+`A magazine -> 76.76.21.21`.
 
 ### Slice 21: Launch Readiness Checker
 
@@ -459,7 +466,7 @@ Acceptance:
   profiles, glossary review state, Launch Desk cards, and newsletter/follow
   settings.
 - The command checks production `/ko`, `/sitemap.xml`, and the custom domain
-  CNAME.
+  Vercel DNS target.
 - The command prints `[READY]` only when blockers are clear; otherwise it prints
   `[BLOCKED]`, facts, missing categories, blockers, and warnings.
 - Unit tests cover blocked and ready summary states plus report formatting.
@@ -468,7 +475,7 @@ Acceptance:
 
 Status: complete locally. Current production check reports `[BLOCKED]` with 0/12
 complete articles, 1/5 rider profiles, 50 glossary terms needing Japanese
-review, and the custom domain still pointing to `penacova.co.kr`.
+review, and the custom domain DNS still pointing to `penacova.co.kr`.
 
 ## Later Phases
 

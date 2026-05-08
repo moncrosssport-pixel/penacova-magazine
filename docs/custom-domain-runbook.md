@@ -20,7 +20,7 @@ https://penacova-magazine.vercel.app
 
 ## Current DNS State
 
-Checked from this workspace on 2026-05-08.
+Checked from this workspace on 2026-05-08 after the domain was added to Vercel.
 
 ```text
 magazine.penacova.co.kr CNAME penacova.co.kr
@@ -32,18 +32,21 @@ penacova.co.kr A 183.111.139.230
 
 This means the magazine subdomain is not pointing at Vercel yet.
 
-The desired Vercel DNS record is:
+Vercel now has `magazine.penacova.co.kr` added to the
+`moncrosssport-pixels-projects/penacova-magazine` project.
+
+Vercel's required DNS record is:
 
 ```text
-magazine.penacova.co.kr CNAME cname.vercel-dns.com
+A magazine.penacova.co.kr 76.76.21.21
 ```
 
 If the DNS admin screen asks for host/name and value:
 
 ```text
-Type: CNAME
+Type: A
 Host: magazine
-Value: cname.vercel-dns.com
+Value: 76.76.21.21
 TTL: Auto or 300
 ```
 
@@ -52,19 +55,14 @@ the DNS provider does not allow duplicate records.
 
 ## Important Account Rule
 
-Do not use the local Vercel CLI unless it is authenticated to the correct
-Moncrosssport account.
-
-The local CLI currently lists only:
+The local Vercel CLI has been re-authenticated and linked to the correct
+project:
 
 ```text
-etehofk1-ops-projects
+moncrosssport-pixels-projects/penacova-magazine
 ```
 
-That is not the correct Vercel scope for this project.
-
-Use the Vercel dashboard in the `moncrosssport-pixels-projects` scope instead,
-or re-login the CLI to the correct account before running domain commands.
+Do not relink this repository to an `etehofk` Vercel scope.
 
 ## Dashboard Steps
 
@@ -75,23 +73,18 @@ https://vercel.com/moncrosssport-pixels-projects/penacova-magazine
 ```
 
 2. Go to `Domains`.
-3. Add:
+3. Confirm `magazine.penacova.co.kr` exists on the project.
+4. Vercel should show the DNS record it expects:
 
 ```text
-magazine.penacova.co.kr
-```
-
-4. Vercel will show the DNS record it expects. It should be:
-
-```text
-CNAME cname.vercel-dns.com
+A magazine.penacova.co.kr 76.76.21.21
 ```
 
 5. Open the DNS provider for `penacova.co.kr`.
-6. Replace the current `magazine` CNAME target with:
+6. Replace the current `magazine` CNAME with:
 
 ```text
-cname.vercel-dns.com
+A magazine 76.76.21.21
 ```
 
 7. Wait for DNS propagation.
@@ -99,29 +92,33 @@ cname.vercel-dns.com
 
 ## Sanity CORS
 
-After the custom domain works, add this origin in Sanity Manage for project
-`6pelmu7l`:
+This origin has already been added in Sanity Manage for project `6pelmu7l`:
 
 ```text
 https://magazine.penacova.co.kr
 ```
 
-Use the same setting area where the current Vercel production origin is allowed.
-This protects Studio/browser access if the custom domain becomes the primary
-editing or preview surface later.
+Current CORS origins:
+
+```text
+http://localhost:3000
+https://penacova-magazine.vercel.app
+https://magazine.penacova.co.kr
+http://localhost:3333
+```
 
 ## Verification
 
 DNS should return:
 
 ```powershell
-Resolve-DnsName magazine.penacova.co.kr -Type CNAME
+Resolve-DnsName magazine.penacova.co.kr -Type A
 ```
 
 Expected:
 
 ```text
-NameHost : cname.vercel-dns.com
+IPAddress : 76.76.21.21
 ```
 
 Public site check:

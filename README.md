@@ -99,8 +99,8 @@ The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not use an
 
 ## TODO before production launch
 
-- [ ] Vercel: add `magazine.penacova.co.kr` as a custom domain on the project
+- [x] Vercel: add `magazine.penacova.co.kr` as a custom domain on the project
 - [ ] DNS: replace the current `magazine -> penacova.co.kr` CNAME with
-      `magazine -> cname.vercel-dns.com`
-- [ ] Sanity: add `https://magazine.penacova.co.kr` as an allowed CORS origin
+      `A magazine -> 76.76.21.21`
+- [x] Sanity: add `https://magazine.penacova.co.kr` as an allowed CORS origin
 - [ ] Run `pnpm check:launch` and clear all blockers

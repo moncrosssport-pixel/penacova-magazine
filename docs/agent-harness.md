@@ -118,12 +118,15 @@ Current known state:
 - Glossary starter terms are seeded in production Sanity. CLI verification
   returned 50 `glossary` documents with `reviewStatus=jp-review-needed`.
 - Editor writing guidance lives in `docs/editor-writing-guide.md`.
-- Custom domain setup guidance lives in `docs/custom-domain-runbook.md`; DNS
-  currently points `magazine.penacova.co.kr` to `penacova.co.kr`, not Vercel.
+- Custom domain setup guidance lives in `docs/custom-domain-runbook.md`.
+  Vercel now has `magazine.penacova.co.kr` on the project and Sanity CORS
+  includes the custom domain. DNS still points `magazine.penacova.co.kr` to
+  `penacova.co.kr`; Cafe24 DNS must change it to `A magazine -> 76.76.21.21`.
 - Production launch blockers can be checked with `pnpm check:launch`.
   This command intentionally exits non-zero while launch blockers remain.
   Latest check reports 0/12 complete articles, 1/5 rider profiles, 50 glossary
-  terms needing Japanese review, and the custom domain not yet on Vercel DNS.
+  terms needing Japanese review, and the custom domain DNS still pointing to
+  `penacova.co.kr`.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 
@@ -131,7 +134,8 @@ Current known state:
 
 - The repo is not owned by an `etehofk` GitHub/Vercel account. Use
   `moncrosssport-pixel`.
-- Do not recreate a local `.vercel` link under the wrong account.
+- Do not recreate a local `.vercel` link under the wrong account. The current
+  link targets `moncrosssport-pixels-projects/penacova-magazine`.
 - Avoid unpinned Sanity upgrades. Sanity 5 / `next-sanity` 12 are not safe for
   the current Next 14 + React 18 baseline.
 - `/studio` must not be redirected through locale middleware.

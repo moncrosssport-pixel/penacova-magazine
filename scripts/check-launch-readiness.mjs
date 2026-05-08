@@ -1,5 +1,5 @@
 import { createClient } from '@sanity/client';
-import { resolveCname } from 'node:dns/promises';
+import { resolve4, resolveCname } from 'node:dns/promises';
 import { fileURLToPath } from 'node:url';
 
 const projectId =
@@ -20,6 +20,7 @@ const productionOrigin =
   'https://penacova-magazine.vercel.app';
 const customDomain = 'magazine.penacova.co.kr';
 const expectedDomainCname = 'cname.vercel-dns.com';
+const expectedDomainARecord = '76.76.21.21';
 
 export const launchCategories = [
   'editorial',
@@ -37,6 +38,14 @@ function pluralize(count, singular, plural = `${singular}s`) {
 
 function normalizeCname(value) {
   return value?.replace(/\.$/, '').toLowerCase() || '';
+}
+
+export function isVercelDomainReady(domain) {
+  return (
+    normalizeCname(domain.cname) === expectedDomainCname ||
+    domain.aRecords?.includes(expectedDomainARecord) ||
+    false
+  );
 }
 
 export function summarizeLaunchReadiness({
@@ -100,7 +109,7 @@ export function summarizeLaunchReadiness({
   }
 
   if (!domain.ready) {
-    blockers.push('Custom domain is not pointing at cname.vercel-dns.com.');
+    blockers.push('Custom domain is not pointing at Vercel DNS.');
   }
 
   return {
@@ -115,7 +124,9 @@ export function summarizeLaunchReadiness({
       `Glossary terms needing JP review: ${glossaryNeedsJapaneseReviewCount}`,
       `Launch Desk cards: ${launchBriefCount}`,
       `Newsletter/follow settings: ${newsletterReady ? 'present' : 'incomplete'}`,
-      `Custom domain CNAME: ${domain.cname || 'not found'}`,
+      `Custom domain DNS: ${
+        domain.cname || domain.aRecords?.join(', ') || 'not found'
+      }`,
     ],
   };
 }
@@ -181,23 +192,29 @@ async function fetchStatus(url) {
 }
 
 async function getDomainStatus(host) {
+  const domain = {
+    host,
+    cname: '',
+    aRecords: [],
+    ready: false,
+  };
+
   try {
     const records = await resolveCname(host);
-    const cname = normalizeCname(records[0]);
-
-    return {
-      host,
-      cname,
-      ready: cname === expectedDomainCname,
-    };
+    domain.cname = normalizeCname(records[0]);
   } catch (error) {
-    return {
-      host,
-      cname: '',
-      ready: false,
-      error: error instanceof Error ? error.message : String(error),
-    };
+    domain.cnameError = error instanceof Error ? error.message : String(error);
   }
+
+  try {
+    domain.aRecords = await resolve4(host);
+  } catch (error) {
+    domain.aRecordError = error instanceof Error ? error.message : String(error);
+  }
+
+  domain.ready = isVercelDomainReady(domain);
+
+  return domain;
 }
 
 async function collectLaunchReadinessInput() {

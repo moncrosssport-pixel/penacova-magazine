@@ -19,6 +19,8 @@ querying, and one rendered editorial article route.
 7. `Penacova Magazine Design System/SKILL.md`
 8. `tasks/plan.md`
 9. `tasks/todo.md`
+10. `docs/launch-content-inventory.md` when working on launch stories, rider
+    profiles, or glossary content
 
 ## Environment
 
@@ -107,6 +109,8 @@ Current known state:
 - The Phase 1 seed payload is applied. `quiet-morning` renders at
   `/ko/editorial/quiet-morning`, and `jiwon-kim` renders at
   `/ko/riders/jiwon-kim` after deployment.
+- Launch story, rider, and glossary briefs live in
+  `docs/launch-content-inventory.md`.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 

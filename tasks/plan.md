@@ -50,15 +50,18 @@ Completed:
   navigation, and outbound Cafe24 CTA clicks.
 - No-code newsletter/follow settings render the homepage newsletter section and
   `/[locale]/subscribe` route.
+- Launch content inventory covers 12 first stories, 5 rider profile slots, and
+  50 glossary starter terms.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 52% complete. The site still needs launch
-  content, translation workflow polish, real newsletter provider connection,
-  custom analytics provider setup, custom domain setup, and final QA.
+- Final public launch is roughly 54% complete. The site still needs launch
+  content written/published in Studio, translation workflow polish, real
+  newsletter provider connection, custom analytics provider setup, custom domain
+  setup, and final QA.
 
 Not completed:
 
@@ -339,6 +342,24 @@ Acceptance:
 
 Status: complete locally and seeded in Sanity. Production verification follows
 after push/deploy.
+
+### Slice 16: Launch Content Inventory
+
+Create the editorial inventory that tells Studio managers and future agents
+what to publish first.
+
+Acceptance:
+
+- `docs/launch-content-inventory.md` lists 12 story briefs with category, slug,
+  working title, required assets, and CTA intent.
+- The same document lists 5 rider profile slots without inventing unapproved
+  real rider identities.
+- The same document lists 50 glossary starter terms and review notes.
+- `tasks/todo.md` distinguishes inventory drafting from actual Studio
+  publishing.
+
+Status: complete locally. Actual article/rider/glossary publishing remains a
+launch-content task.
 
 ## Later Phases
 

@@ -4,6 +4,8 @@
 콘텐츠를 게시하기 위한 운영 원본이다. 새 에이전트는 CMS, 라우팅, 콘텐츠
 모델을 바꾸기 전에 이 문서를 먼저 확인해야 한다.
 
+실제 글을 직접 쓰는 방법은 `docs/editor-writing-guide.md`를 함께 본다.
+
 ## Core Principle
 
 관리자는 GitHub, Vercel, 터미널을 몰라도 게시할 수 있어야 한다.

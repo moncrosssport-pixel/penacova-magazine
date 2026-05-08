@@ -29,11 +29,13 @@
 - [x] Draft launch content inventory for 12 stories, 5 riders, and 50 glossary terms.
 - [x] Add Launch Desk planning cards for no-code Studio launch management.
 - [x] Import 50 glossary starter terms into production Sanity.
+- [x] Add direct editor writing guide for self-serve article drafting.
+- [x] Prepare custom domain runbook and verify current DNS state.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 97% complete.
-- Final public launch: about 58% complete.
+- Final public launch: about 59% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, real newsletter provider connection, custom analytics
   provider setup, and custom domain setup.

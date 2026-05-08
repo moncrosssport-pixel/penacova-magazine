@@ -15,11 +15,13 @@ querying, and one rendered editorial article route.
 3. `SPEC.md`
 4. `docs/final-magazine-form.md`
 5. `docs/editorial-publishing-harness.md`
-6. `Penacova Magazine Design System/README.md`
-7. `Penacova Magazine Design System/SKILL.md`
-8. `tasks/plan.md`
-9. `tasks/todo.md`
-10. `docs/launch-content-inventory.md` when working on launch stories, rider
+6. `docs/editor-writing-guide.md`
+7. `docs/custom-domain-runbook.md`
+8. `Penacova Magazine Design System/README.md`
+9. `Penacova Magazine Design System/SKILL.md`
+10. `tasks/plan.md`
+11. `tasks/todo.md`
+12. `docs/launch-content-inventory.md` when working on launch stories, rider
     profiles, or glossary content
 
 ## Environment
@@ -115,6 +117,9 @@ Current known state:
   verification returned 18 `launchBrief` documents.
 - Glossary starter terms are seeded in production Sanity. CLI verification
   returned 50 `glossary` documents with `reviewStatus=jp-review-needed`.
+- Editor writing guidance lives in `docs/editor-writing-guide.md`.
+- Custom domain setup guidance lives in `docs/custom-domain-runbook.md`; DNS
+  currently points `magazine.penacova.co.kr` to `penacova.co.kr`, not Vercel.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 

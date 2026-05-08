@@ -56,13 +56,17 @@ Completed:
   tasks inside Studio before final public documents are published.
 - Glossary starter terms are seeded into Studio with Japanese review explicitly
   tracked before terms are marked ready.
+- Editors have a direct writing guide for self-serve article drafting and
+  publishing.
+- Custom domain setup has a runbook with current DNS evidence and the correct
+  Vercel account boundary.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 58% complete. The site still needs launch
+- Final public launch is roughly 59% complete. The site still needs launch
   content written/published in Studio, translation workflow polish, real
   newsletter provider connection, custom analytics provider setup, custom domain
   setup, and final QA.
@@ -405,6 +409,43 @@ Acceptance:
 
 Status: complete and seeded in production Sanity. CLI verification returned 50
 `glossary` documents with `reviewStatus=jp-review-needed`.
+
+### Slice 19: Editor Writing Guide
+
+Give the non-developer editor a direct article writing guide that complements
+the Studio publishing harness.
+
+Acceptance:
+
+- `docs/editor-writing-guide.md` explains the one-page writing workflow from
+  Launch Desk to public URL verification.
+- The guide includes article skeleton, field-by-field instructions, category
+  tone, title patterns, body copy rules, image rules, CTA rules, and publish
+  checklist.
+- The guide explicitly keeps Korean as the source language and avoids
+  unapproved rider identities.
+- README, AGENTS, and handoff docs link to the guide.
+
+Status: complete locally.
+
+### Slice 20: Custom Domain Runbook
+
+Prepare the custom domain task so the correct account owner can complete it
+without guessing.
+
+Acceptance:
+
+- Current DNS for `magazine.penacova.co.kr` is verified.
+- `docs/custom-domain-runbook.md` documents the correct Vercel project, current
+  DNS state, desired CNAME, dashboard steps, Sanity CORS follow-up, and
+  verification commands.
+- The runbook warns not to use the current local Vercel CLI account because it
+  lists only the wrong `etehofk1-ops-projects` scope.
+- The actual custom domain backlog remains open until Vercel and DNS are changed
+  in the correct account.
+
+Status: complete locally. Actual Vercel/DNS changes still require the
+`moncrosssport-pixels-projects` account and DNS provider access.
 
 ## Later Phases
 

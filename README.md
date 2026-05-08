@@ -4,6 +4,8 @@
 
 - Final product form: `docs/final-magazine-form.md`
 - Editorial publishing harness: `docs/editorial-publishing-harness.md`
+- Editor writing guide: `docs/editor-writing-guide.md`
+- Custom domain runbook: `docs/custom-domain-runbook.md`
 - Agent handoff harness: `AGENTS.md`
 - Design system: `Penacova Magazine Design System/README.md`
 - Current implementation spec: `SPEC.md`
@@ -96,5 +98,7 @@ The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not use an
 
 ## TODO before production launch
 
-- [ ] DNS: point `magazine.penacova.co.kr` CNAME to `cname.vercel-dns.com`
 - [ ] Vercel: add `magazine.penacova.co.kr` as a custom domain on the project
+- [ ] DNS: replace the current `magazine -> penacova.co.kr` CNAME with
+      `magazine -> cname.vercel-dns.com`
+- [ ] Sanity: add `https://magazine.penacova.co.kr` as an allowed CORS origin

@@ -15,6 +15,71 @@ export const publishingStructure: StructureResolver = (S) =>
     .title('Penacova Publishing')
     .items([
       S.listItem()
+        .title('Launch Desk')
+        .child(
+          S.list()
+            .title('Launch Desk')
+            .items([
+              S.documentTypeListItem('launchBrief').title('All Launch Briefs'),
+              S.divider(),
+              S.listItem()
+                .title('Story Briefs')
+                .child(
+                  S.documentList()
+                    .title('Story Briefs')
+                    .schemaType('launchBrief')
+                    .filter('_type == "launchBrief" && briefType == "story"')
+                    .defaultOrdering([{ field: 'priority', direction: 'asc' }]),
+                ),
+              S.listItem()
+                .title('Rider Profile Briefs')
+                .child(
+                  S.documentList()
+                    .title('Rider Profile Briefs')
+                    .schemaType('launchBrief')
+                    .filter(
+                      '_type == "launchBrief" && briefType == "rider-profile"',
+                    )
+                    .defaultOrdering([{ field: 'priority', direction: 'asc' }]),
+                ),
+              S.listItem()
+                .title('Glossary Batch')
+                .child(
+                  S.documentList()
+                    .title('Glossary Batch')
+                    .schemaType('launchBrief')
+                    .filter(
+                      '_type == "launchBrief" && briefType == "glossary-batch"',
+                    )
+                    .defaultOrdering([{ field: 'priority', direction: 'asc' }]),
+                ),
+              S.divider(),
+              S.listItem()
+                .title('Needs Assets / Approval')
+                .child(
+                  S.documentList()
+                    .title('Needs Assets / Approval')
+                    .schemaType('launchBrief')
+                    .filter(
+                      '_type == "launchBrief" && (status == "assets-needed" || needsApproval == true)',
+                    )
+                    .defaultOrdering([{ field: 'priority', direction: 'asc' }]),
+                ),
+              S.listItem()
+                .title('Ready to Publish')
+                .child(
+                  S.documentList()
+                    .title('Ready to Publish')
+                    .schemaType('launchBrief')
+                    .filter(
+                      '_type == "launchBrief" && status == "ready-to-publish"',
+                    )
+                    .defaultOrdering([{ field: 'priority', direction: 'asc' }]),
+                ),
+            ]),
+        ),
+      S.divider(),
+      S.listItem()
         .title('Articles by Category')
         .child(
           S.list()

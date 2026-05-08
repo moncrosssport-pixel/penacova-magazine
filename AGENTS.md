@@ -78,8 +78,8 @@ Implemented:
 - Minimal `/[locale]` home shell
 - Embedded Sanity Studio at `/studio`
 - Sanity public defaults in `sanity/env.ts`
-- Sanity schemas for Article, Collection, Glossary, Look, Person, Product, and
-  Rider, plus the Site Settings singleton
+- Sanity schemas for Article, Collection, Glossary, Launch Brief, Look, Person,
+  Product, and Rider, plus the Site Settings singleton
 - Sanity read client and GROQ queries
 - `/[locale]/[category]` category index route for the seven magazine pillars
 - `/[locale]/[category]/[slug]` shared article detail route for the seven
@@ -93,6 +93,8 @@ Implemented:
 - Path-preserving locale switcher links in the magazine masthead
 - No-code publishing harness for Sanity editors
 - Provider-neutral analytics events and no-code newsletter/follow settings
+- Launch Desk planning cards for the first story, rider profile, and glossary
+  publishing batch
 
 Not yet implemented:
 

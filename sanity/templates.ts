@@ -24,6 +24,36 @@ function articleTemplate(
 }
 
 export const schemaTemplates: Template[] = [
+  {
+    id: 'launch-brief-story',
+    title: 'Launch Brief - Story',
+    schemaType: 'launchBrief',
+    value: {
+      briefType: 'story',
+      status: 'planned',
+      needsApproval: false,
+    },
+  },
+  {
+    id: 'launch-brief-rider-profile',
+    title: 'Launch Brief - Rider Profile',
+    schemaType: 'launchBrief',
+    value: {
+      briefType: 'rider-profile',
+      status: 'planned',
+      needsApproval: true,
+    },
+  },
+  {
+    id: 'launch-brief-glossary-batch',
+    title: 'Launch Brief - Glossary Batch',
+    schemaType: 'launchBrief',
+    value: {
+      briefType: 'glossary-batch',
+      status: 'planned',
+      needsApproval: false,
+    },
+  },
   articleTemplate(
     'article-editorial',
     'Article - Editorial',

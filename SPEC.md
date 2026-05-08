@@ -39,7 +39,8 @@ The repository currently contains the foundation:
 - Sanity public defaults for project `6pelmu7l`
 - Repo-local Penacova Magazine design system
 - Design-system-based locale homepage shell
-- Sanity schemas for the Phase 1 content model
+- Sanity schemas for the Phase 1 content model, including Launch Brief planning
+  cards
 - Sanity read client and article queries
 - Category index route at `/[locale]/[category]`
 - Shared article detail route at `/[locale]/[category]/[slug]`
@@ -57,6 +58,8 @@ The repository currently contains the foundation:
   navigation, and outbound Cafe24 CTA clicks
 - No-code newsletter/follow settings and `/[locale]/subscribe` capture surface
 - Launch content inventory for first stories, rider profiles, and glossary terms
+- Launch Desk seed payload for 12 story briefs, 5 rider profile briefs, and one
+  glossary batch brief
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The seeded editorial article renders
@@ -66,7 +69,7 @@ Later category-specific detail templates still need launch content.
 Approximate current progress:
 
 - Phase 1 technical foundation: 97% complete.
-- Final public launch: 54% complete.
+- Final public launch: 57% complete.
 
 ## Phase 1 Target
 

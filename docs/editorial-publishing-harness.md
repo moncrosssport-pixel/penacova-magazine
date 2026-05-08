@@ -34,10 +34,39 @@ Studio 왼쪽 메뉴는 게시 흐름 기준으로 구성한다.
 
 | Studio section | Purpose |
 | --- | --- |
+| Launch Desk | 론칭 기사, 라이더 프로필, 용어집 배치의 준비 상태 관리 |
 | Articles by Category | 매거진 기사 작성과 카테고리별 게시 |
 | Rider Profiles | 라이더 인물 프로필 작성 |
 | Look Book Setup | 시즌 컬렉션, 룩, 제품 참조 데이터 준비 |
 | Editorial Support | 작성자와 용어집 관리 |
+
+## Launch Desk
+
+Launch Desk는 실제 공개 문서가 아니라 게시 준비 카드다.
+
+관리자는 이곳에서 각 론칭 콘텐츠의 상태를 다음 순서로 옮긴다.
+
+```text
+Planned -> Needs assets -> Writing -> Review -> Ready to publish -> Published
+```
+
+Launch Brief 문서에는 다음을 적는다.
+
+- working title
+- planned slug
+- article category or profile/batch type
+- required assets
+- CTA intent
+- public route hint
+- approval notes
+- final Article, Rider, or Glossary references
+
+중요한 규칙:
+
+- Launch Brief를 Publish해도 공개 사이트에는 노출되지 않는다.
+- 실제 공개는 Article, Rider, Collection, Look, Product, Glossary 문서에서 한다.
+- 라이더 실명, 초상, 클럽, 대회 이력은 승인 전까지 Launch Brief에만 둔다.
+- 준비가 끝난 브리프만 `Ready to publish`로 바꾼다.
 
 ## Publishing Routes
 

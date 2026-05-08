@@ -80,8 +80,8 @@ Current known state:
 - `/` redirects to `/ko`.
 - `/ko` renders the first design-system-based magazine home.
 - `/studio` loads the embedded Sanity Studio shell.
-- Sanity schemas are registered for Article, Collection, Glossary, Look, Person,
-  Product, and Rider.
+- Sanity schemas are registered for Article, Collection, Glossary, Launch Brief,
+  Look, Person, Product, and Rider.
 - Category indexes render at `/[locale]/[category]`.
 - Shared article detail pages render at `/[locale]/[category]/[slug]` after
   content exists.
@@ -111,6 +111,8 @@ Current known state:
   `/ko/riders/jiwon-kim` after deployment.
 - Launch story, rider, and glossary briefs live in
   `docs/launch-content-inventory.md`.
+- Studio Launch Desk planning cards are seeded in production Sanity. CLI
+  verification returned 18 `launchBrief` documents.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 

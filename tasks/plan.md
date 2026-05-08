@@ -52,13 +52,15 @@ Completed:
   `/[locale]/subscribe` route.
 - Launch content inventory covers 12 first stories, 5 rider profile slots, and
   50 glossary starter terms.
+- Launch Desk planning cards can track those story, rider, and glossary launch
+  tasks inside Studio before final public documents are published.
 
 ## Progress Snapshot
 
 - Phase 1 technical foundation is roughly 97% complete. The remaining Phase 1
   polish is to upload a real hero image for the seed article and visually check
   Studio editing.
-- Final public launch is roughly 54% complete. The site still needs launch
+- Final public launch is roughly 57% complete. The site still needs launch
   content written/published in Studio, translation workflow polish, real
   newsletter provider connection, custom analytics provider setup, custom domain
   setup, and final QA.
@@ -360,6 +362,27 @@ Acceptance:
 
 Status: complete locally. Actual article/rider/glossary publishing remains a
 launch-content task.
+
+### Slice 17: Launch Desk Planning Cards
+
+Add a no-code Studio planning layer so the launch inventory can be tracked
+without publishing placeholder articles or inventing unapproved rider identities.
+
+Acceptance:
+
+- `launchBrief` is registered as a Sanity document type.
+- Studio structure exposes a `Launch Desk` with all briefs, story briefs, rider
+  profile briefs, glossary batch, asset/approval blockers, and ready-to-publish
+  filters.
+- `sanity/seed/launch-briefs.json` contains 18 planning documents: 12 stories,
+  5 rider profile slots, and 1 glossary batch.
+- `pnpm run seed:launch-briefs` can import those cards when a Sanity write token
+  is available.
+- Tests verify the seed payload shape and that placeholder rider slots do not
+  invent real identities.
+
+Status: complete and seeded in production Sanity. CLI verification returned 18
+`launchBrief` documents.
 
 ## Later Phases
 

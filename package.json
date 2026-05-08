@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "seed:sanity": "node scripts/seed-sanity.mjs",
+    "seed:launch-briefs": "node scripts/seed-sanity.mjs sanity/seed/launch-briefs.json",
     "seed:sanity:cli": "sanity documents create sanity/seed/phase1-seed.json --replace",
+    "seed:launch-briefs:cli": "sanity documents create sanity/seed/launch-briefs.json --replace",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui"

@@ -27,11 +27,12 @@
 - [x] Add analytics events for reading depth and outbound Cafe24 CTAs.
 - [x] Add newsletter/follow embed.
 - [x] Draft launch content inventory for 12 stories, 5 riders, and 50 glossary terms.
+- [x] Add Launch Desk planning cards for no-code Studio launch management.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 97% complete.
-- Final public launch: about 54% complete.
+- Final public launch: about 57% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, real newsletter provider connection, custom analytics
   provider setup, and custom domain setup.
@@ -62,6 +63,7 @@
 ## Launch Backlog
 
 - [ ] Visually verify the no-code Studio publishing menu in a logged-in browser.
+- [x] Seed Launch Desk planning cards into production Sanity.
 - [ ] Add custom domain `magazine.penacova.co.kr`.
 - [ ] Write and publish 12 Korean launch stories from the content inventory.
 - [ ] Create and publish 5 real rider profiles from approved names/assets.

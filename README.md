@@ -35,7 +35,8 @@ SEO utility routes are available at `localhost:3000/sitemap.xml` and
 `localhost:3000/robots.txt`.
 Sanity defaults are built in for the public project settings; `.env.local` can override them.
 Site-level newsletter/follow settings are managed by the singleton Sanity
-document `site-settings`.
+document `site-settings`. Launch story/rider/glossary planning cards are
+managed as `launchBrief` documents in Studio's Launch Desk.
 
 Seed the Phase 1 article and glossary after either Sanity CLI login as a
 project member or a project write token:
@@ -45,9 +46,18 @@ $env:SANITY_AUTH_TOKEN="<token>"
 pnpm run seed:sanity
 ```
 
+Seed the Launch Desk planning cards for the first 12 stories, 5 rider profile
+slots, and glossary batch:
+
+```powershell
+$env:SANITY_AUTH_TOKEN="<token>"
+pnpm run seed:launch-briefs
+```
+
 Do not commit real Sanity tokens. The legacy CLI import command remains
 available as `pnpm run seed:sanity:cli` when the local Sanity CLI account is a
-member of project `6pelmu7l`.
+member of project `6pelmu7l`. The matching CLI command for Launch Desk cards is
+`pnpm run seed:launch-briefs:cli`.
 
 ## Design system
 

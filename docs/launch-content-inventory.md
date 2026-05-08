@@ -5,6 +5,14 @@ It is not a substitute for finished articles, photography, or legal review.
 Use it as the Studio entry plan so editors and future agents do not invent
 categories, slugs, or publishing order from scratch.
 
+The matching no-code Studio planning payload lives at
+`sanity/seed/launch-briefs.json` and can be imported with:
+
+```powershell
+$env:SANITY_AUTH_TOKEN="<token>"
+pnpm run seed:launch-briefs
+```
+
 ## Publishing Rule
 
 - Korean is the source language.

@@ -37,6 +37,8 @@
 - [x] Add custom domain origin to Sanity CORS.
 - [x] Clarify that `magazine.penacova.co.kr` is an optional subdomain-only
       setup, not a Cafe24/root DNS migration.
+- [x] Add an automated Studio publishing manifest test so article templates,
+      category menus, and Launch Desk filters stay aligned.
 
 ## Progress Estimate
 
@@ -73,6 +75,7 @@
 ## Launch Backlog
 
 - [ ] Visually verify the no-code Studio publishing menu in a logged-in browser.
+- [x] Add code-level guardrails for the no-code Studio publishing menu.
 - [x] Seed Launch Desk planning cards into production Sanity.
 - [ ] Optional: if the branded magazine URL is needed, point only the
       `magazine` subdomain to Vercel with `A magazine -> 76.76.21.21`; do not

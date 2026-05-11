@@ -1,4 +1,5 @@
 import type { Template } from 'sanity';
+import { articlePublishingCategories } from './publishing';
 
 const defaultTranslationStatus = {
   en: 'not-started',
@@ -54,18 +55,14 @@ export const schemaTemplates: Template[] = [
       needsApproval: false,
     },
   },
-  articleTemplate(
-    'article-editorial',
-    'Article - Editorial',
-    'editorial',
-    'editorial',
+  ...articlePublishingCategories.map((item) =>
+    articleTemplate(
+      item.templateId,
+      item.templateTitle,
+      item.category,
+      item.moodVariant,
+    ),
   ),
-  articleTemplate('article-riders', 'Article - Rider Interview', 'riders'),
-  articleTemplate('article-look', 'Article - Look Book Story', 'look'),
-  articleTemplate('article-heritage', 'Article - Heritage', 'heritage'),
-  articleTemplate('article-guide', 'Article - Guide', 'guide'),
-  articleTemplate('article-news', 'Article - News', 'news'),
-  articleTemplate('article-stories', 'Article - Stories', 'stories'),
   {
     id: 'rider-profile',
     title: 'Rider Profile',

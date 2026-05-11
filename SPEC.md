@@ -54,6 +54,9 @@ The repository currently contains the foundation:
 - Seeded Phase 1 editorial article, one rider profile, one collection look
   book, and glossary content in Sanity
 - No-code editorial publishing harness for Studio managers and future agents
+- Typed Studio publishing manifest and tests that keep no-code article
+  templates, category menus, Launch Desk filters, and glossary review views
+  aligned with the public magazine structure
 - Provider-neutral analytics event foundation for reading depth, locale/category
   navigation, and outbound Cafe24 CTA clicks
 - No-code newsletter/follow settings and `/[locale]/subscribe` capture surface

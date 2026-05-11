@@ -44,6 +44,9 @@ Completed:
   linked interviews, optional favorite products, and Person JSON-LD.
 - Studio has a no-code publishing structure, category-specific templates, and a
   documented editorial publishing harness for managers.
+- Studio publishing menus, article templates, and Launch Desk filters now share
+  a typed manifest with tests so public categories cannot drift from the
+  no-code editor workflow unnoticed.
 - Collection look book pages render at `/[locale]/look/[season]` with seeded
   SS26 looks and product links.
 - Provider-neutral analytics events are wired for reading depth, locale/category
@@ -482,6 +485,22 @@ complete articles, 1/5 rider profiles, 50 glossary terms needing Japanese
 review. The magazine subdomain DNS still points to `penacova.co.kr`, but that
 is a warning unless `PENACOVA_REQUIRE_CUSTOM_DOMAIN=1` is set for a
 branded-domain launch.
+
+### Slice 22: Studio Publishing Guard
+
+Keep the no-code Studio publishing menu aligned with the public magazine
+categories and launch workflow.
+
+Acceptance:
+
+- `sanity/publishing.ts` is the single manifest for article category Studio
+  labels, article template IDs, Launch Desk filters, and glossary review views.
+- `sanity/structure.ts` and `sanity/templates.ts` read from that manifest
+  instead of maintaining duplicate category lists.
+- A unit test fails if the seven public magazine categories drift from Studio
+  article templates or Launch Desk filters.
+
+Status: complete locally.
 
 ## Later Phases
 

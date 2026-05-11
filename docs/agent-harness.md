@@ -94,6 +94,9 @@ Current known state:
 - Collection look book pages render at `/[locale]/look/[season]`.
 - Studio uses a no-code publishing structure, category-specific article
   templates, and preview subtitles that show public URLs.
+- Studio category menus, article templates, Launch Desk filters, and glossary
+  review views are generated from `sanity/publishing.ts`; keep that manifest
+  aligned with the public category model.
 - Sanity CORS allows `http://localhost:3000` and
   `https://penacova-magazine.vercel.app` with credentials for Studio editing.
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in
@@ -174,6 +177,7 @@ For each task:
 | i18n helper | `pnpm test` |
 | Middleware/routing | `pnpm test`, `pnpm build`, local route check |
 | Sanity schema | `pnpm build`, Studio sidebar check |
+| Studio publishing structure | `pnpm test lib/magazine/studioPublishing.test.ts`, `pnpm build` |
 | Sanity query/client | Unit test plus `pnpm build` |
 | Article page | `pnpm test`, `pnpm build`, local missing-article 404 or seeded article URL |
 | SEO metadata | `pnpm test`, `pnpm build`, check page head, `/robots.txt`, `/sitemap.xml` |

@@ -107,6 +107,8 @@ Implemented:
   and article JSON-LD wiring
 - Path-preserving locale switcher links in the magazine masthead
 - No-code publishing harness for Sanity editors
+- Typed Studio publishing manifest and tests for no-code category/template
+  alignment
 - Provider-neutral analytics events and no-code newsletter/follow settings
 - Launch Desk planning cards for the first story, rider profile, and glossary
   publishing batch

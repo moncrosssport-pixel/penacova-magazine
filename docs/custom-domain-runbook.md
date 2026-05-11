@@ -18,6 +18,14 @@ Current production fallback:
 https://penacova-magazine.vercel.app
 ```
 
+## Scope
+
+This is an optional magazine subdomain setup. It is not a Cafe24 migration.
+
+Use these steps only if `magazine.penacova.co.kr` should open the magazine.
+The root domain `penacova.co.kr`, the existing shop, Cafe24 hosting, and domain
+nameservers should stay exactly where they are.
+
 ## Current DNS State
 
 Checked from this workspace on 2026-05-08 after the domain was added to Vercel.
@@ -35,7 +43,8 @@ This means the magazine subdomain is not pointing at Vercel yet.
 Vercel now has `magazine.penacova.co.kr` added to the
 `moncrosssport-pixels-projects/penacova-magazine` project.
 
-Vercel's required DNS record is:
+If the optional magazine subdomain should use the brand URL, Vercel expects this
+single subdomain record:
 
 ```text
 A magazine.penacova.co.kr 76.76.21.21
@@ -81,14 +90,16 @@ A magazine.penacova.co.kr 76.76.21.21
 ```
 
 5. Open the DNS provider for `penacova.co.kr`.
-6. Replace the current `magazine` CNAME with:
+6. Only edit the `magazine` host record. Replace the current `magazine` CNAME
+   with:
 
 ```text
 A magazine 76.76.21.21
 ```
 
-7. Wait for DNS propagation.
-8. Return to Vercel and click `Refresh` or wait until the domain shows Valid.
+7. Do not change the root `@` record, shop records, or nameservers.
+8. Wait for DNS propagation.
+9. Return to Vercel and click `Refresh` or wait until the domain shows Valid.
 
 ## Sanity CORS
 
@@ -140,7 +151,15 @@ Full launch check:
 pnpm check:launch
 ```
 
-Expected when the domain and content are ready:
+By default this command treats the magazine subdomain as optional. To make the
+subdomain a required launch gate for a branded-domain launch, run:
+
+```powershell
+$env:PENACOVA_REQUIRE_CUSTOM_DOMAIN="1"
+pnpm check:launch
+```
+
+Expected when required content and the optional domain gate are ready:
 
 ```text
 Penacova Magazine Launch Readiness
@@ -150,6 +169,8 @@ Penacova Magazine Launch Readiness
 ## Do Not Change
 
 - Do not move the project to an `etehofk` Vercel scope.
+- Do not move Cafe24 DNS or the domain nameservers for this magazine task.
 - Do not point the root domain `penacova.co.kr` to Vercel for this task.
+- Do not change existing shop DNS records.
 - Do not add Cafe24 shop checkout or cart behavior to the magazine.
 - Do not commit Vercel tokens or DNS credentials.

@@ -118,15 +118,17 @@ Current known state:
 - Glossary starter terms are seeded in production Sanity. CLI verification
   returned 50 `glossary` documents with `reviewStatus=jp-review-needed`.
 - Editor writing guidance lives in `docs/editor-writing-guide.md`.
-- Custom domain setup guidance lives in `docs/custom-domain-runbook.md`.
+- Optional magazine subdomain setup guidance lives in `docs/custom-domain-runbook.md`.
   Vercel now has `magazine.penacova.co.kr` on the project and Sanity CORS
   includes the custom domain. DNS still points `magazine.penacova.co.kr` to
-  `penacova.co.kr`; Cafe24 DNS must change it to `A magazine -> 76.76.21.21`.
+  `penacova.co.kr`; changing it is optional and subdomain-only. Do not move
+  the root domain, shop DNS, Cafe24 hosting, or nameservers.
 - Production launch blockers can be checked with `pnpm check:launch`.
   This command intentionally exits non-zero while launch blockers remain.
   Latest check reports 0/12 complete articles, 1/5 rider profiles, 50 glossary
-  terms needing Japanese review, and the custom domain DNS still pointing to
-  `penacova.co.kr`.
+  terms needing Japanese review. The magazine subdomain DNS still points to
+  `penacova.co.kr`, but that is a warning unless a branded-domain launch sets
+  `PENACOVA_REQUIRE_CUSTOM_DOMAIN=1`.
 - `Penacova Magazine Design System/` is the official visual source.
 - `pnpm test` and `pnpm build` pass.
 
@@ -199,8 +201,9 @@ Some steps require the project owner or dashboard access:
 - Sanity login and CORS origin management.
 - Sanity write token creation if the local CLI account is not a project member.
 - Vercel account selection.
-- Custom domain setup.
-- DNS changes for `magazine.penacova.co.kr`.
+- Optional magazine subdomain setup for `magazine.penacova.co.kr`.
+- Optional subdomain-only DNS change for `magazine.penacova.co.kr`; do not
+  change root, shop, Cafe24 hosting, or nameservers.
 - Entering launch content in Studio.
 
 When blocked by dashboard access, leave the code ready, document the exact

@@ -62,11 +62,13 @@ The repository currently contains the foundation:
   glossary batch brief
 - 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Direct editor writing guide for self-serve article drafting and publishing
-- Custom domain runbook with current DNS state and correct Vercel scope
-- Production launch readiness checker for content, DNS, newsletter/follow, and
-  public route checks
-- Vercel CLI re-authenticated to `moncrosssport-pixels-projects`; custom domain
-  added to the project, with Cafe24 DNS update still pending
+- Optional magazine subdomain runbook with current DNS state and correct Vercel
+  scope
+- Production launch readiness checker for content, optional magazine subdomain,
+  newsletter/follow, and public route checks
+- Vercel CLI re-authenticated to `moncrosssport-pixels-projects`; optional
+  `magazine.penacova.co.kr` subdomain added to the project. Root, shop, Cafe24
+  hosting, and nameservers must not move for this magazine task.
 - Vercel production deployment at `https://penacova-magazine.vercel.app`
 
 The magazine is not content-complete yet. The seeded editorial article renders

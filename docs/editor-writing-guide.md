@@ -197,7 +197,7 @@ pnpm check:launch
 - Glossary JP 검수가 남아 있는지
 - Newsletter/follow 설정이 있는지
 - production `/ko`와 `/sitemap.xml`이 열리는지
-- `magazine.penacova.co.kr`이 Vercel CNAME으로 연결됐는지
+- 브랜드 매거진 주소를 쓰기로 한 경우에만 `magazine.penacova.co.kr` 서브도메인이 Vercel로 연결됐는지
 
 `[BLOCKED]`가 나오면 아래 `Blockers` 항목부터 처리한다.
 

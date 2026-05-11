@@ -48,8 +48,43 @@ describe('summarizeLaunchReadiness', () => {
     expect(summary.blockers).toContain(
       '5 article categories still have no published story.',
     );
+    expect(summary.blockers).not.toContain(
+      'Optional magazine subdomain is not pointing at Vercel DNS.',
+    );
+    expect(summary.warnings).toContain(
+      'Optional magazine subdomain is not pointing at Vercel DNS. Keep using https://penacova-magazine.vercel.app until the subdomain is connected.',
+    );
+  });
+
+  it('blocks launch on the magazine subdomain only when custom domain launch is required', () => {
+    const articleCountsByCategory = Object.fromEntries(
+      categories.map((category) => [category, 1]),
+    );
+
+    const summary = summarizeLaunchReadiness({
+      categories,
+      articleCountsByCategory,
+      completeArticleCount: 12,
+      riderProfileCount: 5,
+      glossaryReadyCount: 50,
+      glossaryNeedsJapaneseReviewCount: 0,
+      launchBriefCount: 18,
+      newsletterReady: true,
+      productionChecks: [
+        { label: 'Homepage', ok: true },
+        { label: 'Sitemap', ok: true },
+      ],
+      requireCustomDomain: true,
+      domain: {
+        host: 'magazine.penacova.co.kr',
+        cname: 'penacova.co.kr',
+        ready: false,
+      },
+    });
+
+    expect(summary.ready).toBe(false);
     expect(summary.blockers).toContain(
-      'Custom domain is not pointing at Vercel DNS.',
+      'Optional magazine subdomain is not pointing at Vercel DNS.',
     );
   });
 
@@ -121,7 +156,7 @@ describe('formatLaunchReadinessReport', () => {
       facts: [
         'Published complete articles: 6',
         'Rider profiles: 2',
-        'Custom domain CNAME: penacova.co.kr',
+        'Magazine subdomain DNS: penacova.co.kr',
       ],
     });
 

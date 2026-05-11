@@ -58,12 +58,14 @@ Completed:
   tracked before terms are marked ready.
 - Editors have a direct writing guide for self-serve article drafting and
   publishing.
-- Custom domain setup has a runbook with current DNS evidence and the correct
-  Vercel account boundary.
+- Optional magazine subdomain setup has a runbook with current DNS evidence and
+  the correct Vercel account boundary.
 - Production launch readiness can be checked with `pnpm check:launch`.
 - Vercel CLI is linked to `moncrosssport-pixels-projects/penacova-magazine`.
-- The custom domain is added in Vercel and allowed in Sanity CORS; Cafe24 DNS
-  still needs to point `magazine` to `76.76.21.21`.
+- The optional magazine subdomain is added in Vercel and allowed in Sanity
+  CORS. Only the `magazine` host record should change if a branded-domain
+  launch is required; root, shop, Cafe24 hosting, and nameservers must stay
+  untouched.
 
 ## Progress Snapshot
 
@@ -72,8 +74,8 @@ Completed:
   Studio editing.
 - Final public launch is roughly 61% complete. The site still needs launch
   content written/published in Studio, translation workflow polish, real
-  newsletter provider connection, custom analytics provider setup, custom domain
-  setup, and final QA.
+  newsletter provider connection, custom analytics provider setup, final QA,
+  and an optional branded magazine subdomain only if the brand URL is required.
 
 Not completed:
 
@@ -445,15 +447,17 @@ Acceptance:
   verification commands.
 - The runbook records that the local Vercel CLI is now linked to
   `moncrosssport-pixels-projects/penacova-magazine`.
-- The custom domain backlog remains open until Cafe24 DNS points
-  `magazine.penacova.co.kr` to Vercel.
+- The custom domain backlog remains optional and subdomain-only. If the brand
+  URL is required, only `magazine.penacova.co.kr` should point to Vercel.
 
 Status: partially complete. Vercel CLI was re-authenticated to the correct
 `moncrosssport-pixels-projects` account, `.vercel/project.json` now links to
 `penacova-magazine`, `magazine.penacova.co.kr` was added to the Vercel project,
-and Sanity CORS includes `https://magazine.penacova.co.kr`. Cafe24 DNS still
-needs to replace the current `magazine -> penacova.co.kr` CNAME with
-`A magazine -> 76.76.21.21`.
+and Sanity CORS includes `https://magazine.penacova.co.kr`. The remaining
+domain work is optional: if the branded magazine URL is required, replace only
+the current `magazine -> penacova.co.kr` CNAME with
+`A magazine -> 76.76.21.21`. Do not move root, shop, Cafe24 hosting, or
+nameservers.
 
 ### Slice 21: Launch Readiness Checker
 
@@ -465,8 +469,8 @@ Acceptance:
 - `pnpm check:launch` queries Sanity for complete published articles, rider
   profiles, glossary review state, Launch Desk cards, and newsletter/follow
   settings.
-- The command checks production `/ko`, `/sitemap.xml`, and the custom domain
-  Vercel DNS target.
+- The command checks production `/ko`, `/sitemap.xml`, and the optional
+  magazine subdomain DNS target.
 - The command prints `[READY]` only when blockers are clear; otherwise it prints
   `[BLOCKED]`, facts, missing categories, blockers, and warnings.
 - Unit tests cover blocked and ready summary states plus report formatting.
@@ -475,7 +479,9 @@ Acceptance:
 
 Status: complete locally. Current production check reports `[BLOCKED]` with 0/12
 complete articles, 1/5 rider profiles, 50 glossary terms needing Japanese
-review, and the custom domain DNS still pointing to `penacova.co.kr`.
+review. The magazine subdomain DNS still points to `penacova.co.kr`, but that
+is a warning unless `PENACOVA_REQUIRE_CUSTOM_DOMAIN=1` is set for a
+branded-domain launch.
 
 ## Later Phases
 
@@ -484,4 +490,4 @@ After Phase 1:
 - Phase 2: homepage refinement, article visual rhythm, responsive polish.
 - Phase 3: locale switcher and translation workflow.
 - Phase 4: SEO polish, launch indexing policy, analytics provider setup.
-- Phase 5: content inventory, custom domain, launch checklist.
+- Phase 5: content inventory, optional magazine subdomain, launch checklist.

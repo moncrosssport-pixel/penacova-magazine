@@ -348,7 +348,8 @@ Suggested first month rhythm:
 
 The magazine is ready for public launch when:
 
-- `magazine.penacova.co.kr` points to Vercel.
+- If a branded magazine URL is required, only `magazine.penacova.co.kr` points
+  to Vercel; root, shop, Cafe24 hosting, and nameservers stay unchanged.
 - `/ko`, `/en`, and `/jp` route correctly.
 - `/studio` is usable by editors.
 - At least 12 Korean launch stories are published or scheduled.

@@ -35,6 +35,8 @@
 - [x] Re-authenticate Vercel CLI to `moncrosssport-pixels-projects`.
 - [x] Add `magazine.penacova.co.kr` to the Vercel project.
 - [x] Add custom domain origin to Sanity CORS.
+- [x] Clarify that `magazine.penacova.co.kr` is an optional subdomain-only
+      setup, not a Cafe24/root DNS migration.
 
 ## Progress Estimate
 
@@ -42,7 +44,8 @@
 - Final public launch: about 61% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, real newsletter provider connection, custom analytics
-  provider setup, and custom domain setup.
+  provider setup, and final QA. The magazine subdomain is optional unless a
+  branded-domain launch is required.
 
 ## Next
 
@@ -71,7 +74,9 @@
 
 - [ ] Visually verify the no-code Studio publishing menu in a logged-in browser.
 - [x] Seed Launch Desk planning cards into production Sanity.
-- [ ] Update Cafe24 DNS: replace `magazine -> penacova.co.kr` with `A magazine -> 76.76.21.21`.
+- [ ] Optional: if the branded magazine URL is needed, point only the
+      `magazine` subdomain to Vercel with `A magazine -> 76.76.21.21`; do not
+      move root, shop, Cafe24 hosting, or nameservers.
 - [ ] Write and publish 12 Korean launch stories from the content inventory.
 - [ ] Create and publish 5 real rider profiles from approved names/assets.
 - [ ] Complete Japanese review for glossary starter terms and mark approved terms `Ready`.

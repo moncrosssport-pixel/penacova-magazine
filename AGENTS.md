@@ -39,12 +39,14 @@ pnpm check:launch
 ```
 
 This command intentionally exits non-zero until launch blockers are cleared.
+If the local Windows Node runtime reports a Sanity certificate verification
+error, rerun it with `NODE_OPTIONS=--use-system-ca`.
 
 ## Current Project Facts
 
 - GitHub repository: `moncrosssport-pixel/penacova-magazine`
 - Production URL: `https://penacova-magazine.vercel.app`
-- Intended custom domain: `magazine.penacova.co.kr`
+- Optional custom subdomain: `magazine.penacova.co.kr`
 - Sanity Project ID: `6pelmu7l`
 - Sanity dataset: `production`
 - Sanity Studio route: `/studio`
@@ -74,6 +76,9 @@ The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not assume any
   `SANITY_WRITE_TOKEN`. Never commit a real token.
 - Cafe24 integration is link-only for now. Do not add cart, checkout, or Cafe24
   API coupling unless a new spec asks for it.
+- Do not move Cafe24 hosting, the root domain, shop DNS, or nameservers for the
+  magazine. Only the optional `magazine` subdomain record may change if a
+  branded-domain launch is explicitly required.
 - For visual work, use `Penacova Magazine Design System/` as the official
   source. Copy design values into production code; do not ship the prototype
   JSX files directly.
@@ -113,7 +118,7 @@ Implemented:
 Not yet implemented:
 
 - Launch content
-- Custom domain
+- Optional custom subdomain connection
 
 ## Done Criteria
 

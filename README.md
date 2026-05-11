@@ -5,7 +5,7 @@
 - Final product form: `docs/final-magazine-form.md`
 - Editorial publishing harness: `docs/editorial-publishing-harness.md`
 - Editor writing guide: `docs/editor-writing-guide.md`
-- Custom domain runbook: `docs/custom-domain-runbook.md`
+- Optional magazine subdomain runbook: `docs/custom-domain-runbook.md`
 - Agent handoff harness: `AGENTS.md`
 - Design system: `Penacova Magazine Design System/README.md`
 - Current implementation spec: `SPEC.md`
@@ -21,6 +21,9 @@ pnpm install
 pnpm dev          # localhost:3000
 pnpm check:launch # production launch readiness check
 ```
+
+If local Windows Node reports a Sanity certificate verification error, rerun
+the launch check with `$env:NODE_OPTIONS='--use-system-ca'`.
 
 Home is at `localhost:3000/ko`; `/` redirects there.
 Category indexes are available at routes such as `localhost:3000/ko/editorial`.
@@ -92,7 +95,7 @@ Next.js 14 · Sanity v3 · Tailwind CSS · Vitest · Vercel
 - Production: `https://penacova-magazine.vercel.app`
 - Sanity project ID: `6pelmu7l`
 - Sanity dataset: `production`
-- Intended custom domain: `magazine.penacova.co.kr`
+- Optional custom subdomain: `magazine.penacova.co.kr`
 
 The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not use an
 `etehofk` Vercel scope for this project.
@@ -100,7 +103,8 @@ The correct GitHub/Vercel ownership is `moncrosssport-pixel`. Do not use an
 ## TODO before production launch
 
 - [x] Vercel: add `magazine.penacova.co.kr` as a custom domain on the project
-- [ ] DNS: replace the current `magazine -> penacova.co.kr` CNAME with
-      `A magazine -> 76.76.21.21`
+- [ ] Optional custom subdomain: only if `magazine.penacova.co.kr` should open
+      this magazine, change the `magazine` subdomain record to
+      `A magazine -> 76.76.21.21`. Do not move the root domain or shop DNS.
 - [x] Sanity: add `https://magazine.penacova.co.kr` as an allowed CORS origin
 - [ ] Run `pnpm check:launch` and clear all blockers

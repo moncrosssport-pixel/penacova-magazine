@@ -58,6 +58,7 @@ export function summarizeLaunchReadiness({
   launchBriefCount,
   newsletterReady,
   productionChecks,
+  requireCustomDomain = false,
   domain,
 }) {
   const missingCategories = categories.filter(
@@ -109,7 +110,15 @@ export function summarizeLaunchReadiness({
   }
 
   if (!domain.ready) {
-    blockers.push('Custom domain is not pointing at Vercel DNS.');
+    const domainMessage = 'Optional magazine subdomain is not pointing at Vercel DNS.';
+
+    if (requireCustomDomain) {
+      blockers.push(domainMessage);
+    } else {
+      warnings.push(
+        `${domainMessage} Keep using ${productionOrigin} until the subdomain is connected.`,
+      );
+    }
   }
 
   return {
@@ -124,7 +133,7 @@ export function summarizeLaunchReadiness({
       `Glossary terms needing JP review: ${glossaryNeedsJapaneseReviewCount}`,
       `Launch Desk cards: ${launchBriefCount}`,
       `Newsletter/follow settings: ${newsletterReady ? 'present' : 'incomplete'}`,
-      `Custom domain DNS: ${
+      `Magazine subdomain DNS: ${
         domain.cname || domain.aRecords?.join(', ') || 'not found'
       }`,
     ],
@@ -291,6 +300,7 @@ async function collectLaunchReadinessInput() {
       { label: 'Production homepage /ko', ...homepageCheck },
       { label: 'Production sitemap.xml', ...sitemapCheck },
     ],
+    requireCustomDomain: process.env.PENACOVA_REQUIRE_CUSTOM_DOMAIN === '1',
     domain,
   };
 }

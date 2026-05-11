@@ -4,6 +4,12 @@ This workbook turns the 12 Launch Desk story briefs into concrete Studio input
 checklists. It helps an editor create the first public stories without touching
 GitHub, Vercel, seed JSON, or code.
 
+Public route:
+
+```text
+https://penacova-magazine.vercel.app/ko/launch-workbook
+```
+
 Do not publish from this workbook alone. Publish only after the Studio Article
 has a real hero image, reviewed Korean source copy, category, slug, publish
 date, and any required identity or product approval.

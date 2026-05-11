@@ -123,6 +123,9 @@ Current known state:
   `docs/launch-content-inventory.md`.
 - Story-by-story Studio writing instructions for the first 12 stories live in
   `docs/launch-story-workbook.md`.
+- The public editor-facing workbook route is
+  `https://penacova-magazine.vercel.app/ko/launch-workbook` and is marked
+  noindex.
 - Studio Launch Desk planning cards are seeded in production Sanity. CLI
   verification returned 18 `launchBrief` documents.
 - Glossary starter terms are seeded in production Sanity. CLI verification

@@ -60,6 +60,8 @@ Completed:
 - Launch story workbook maps the 12 story briefs to exact Article fields,
   source brief references, routes, required assets, approvals, and writing
   angles.
+- A public noindex editor workbook route at `/[locale]/launch-workbook` renders
+  the same launch story handoff as a shareable site link.
 - Launch Desk planning cards can track those story, rider, and glossary launch
   tasks inside Studio before final public documents are published.
 - Glossary starter terms are seeded into Studio with Japanese review explicitly
@@ -538,6 +540,20 @@ Acceptance:
 - The workbook includes exact slugs, public routes, source brief IDs, required
   assets, approval notes, CTA intent, and body angle guidance.
 - A unit test fails if the workbook stops covering any seeded story brief.
+
+Status: complete locally.
+
+### Slice 25: Public Editor Workbook Route
+
+Expose the launch story workbook as a shareable noindex page so the project
+owner can open it from the deployed site.
+
+Acceptance:
+
+- `/[locale]/launch-workbook` renders the 12 launch story workbook entries.
+- The route uses the same `launchStoryWorkbooks` data covered by unit tests.
+- Metadata marks the page `noindex, nofollow`.
+- The page keeps the existing magazine masthead/footer shell.
 
 Status: complete locally.
 

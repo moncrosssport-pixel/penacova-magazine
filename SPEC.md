@@ -57,6 +57,8 @@ The repository currently contains the foundation:
 - Typed Studio publishing manifest and tests that keep no-code article
   templates, category menus, Launch Desk filters, and glossary review views
   aligned with the public magazine structure
+- Browser-verified local Studio shell reachability, with authenticated menu
+  verification documented as a Sanity member session task
 - Provider-neutral analytics event foundation for reading depth, locale/category
   navigation, and outbound Cafe24 CTA clicks
 - No-code newsletter/follow settings and `/[locale]/subscribe` capture surface

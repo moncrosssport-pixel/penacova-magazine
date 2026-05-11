@@ -17,11 +17,12 @@ querying, and one rendered editorial article route.
 5. `docs/editorial-publishing-harness.md`
 6. `docs/editor-writing-guide.md`
 7. `docs/custom-domain-runbook.md`
-8. `Penacova Magazine Design System/README.md`
-9. `Penacova Magazine Design System/SKILL.md`
-10. `tasks/plan.md`
-11. `tasks/todo.md`
-12. `docs/launch-content-inventory.md` when working on launch stories, rider
+8. `docs/studio-visual-verification.md`
+9. `Penacova Magazine Design System/README.md`
+10. `Penacova Magazine Design System/SKILL.md`
+11. `tasks/plan.md`
+12. `tasks/todo.md`
+13. `docs/launch-content-inventory.md` when working on launch stories, rider
     profiles, or glossary content
 
 ## Environment
@@ -97,6 +98,9 @@ Current known state:
 - Studio category menus, article templates, Launch Desk filters, and glossary
   review views are generated from `sanity/publishing.ts`; keep that manifest
   aligned with the public category model.
+- Local `/studio` visual shell verification is documented in
+  `docs/studio-visual-verification.md`; full menu verification needs an
+  authenticated Sanity member session.
 - Sanity CORS allows `http://localhost:3000` and
   `https://penacova-magazine.vercel.app` with credentials for Studio editing.
 - SEO metadata, sitemap, robots, Open Graph, and article JSON-LD wiring are in

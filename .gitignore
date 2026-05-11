@@ -52,5 +52,10 @@ next-env.d.ts
 .omc/
 .claude/
 .superpowers/
+.playwright-cli/
 
 .vercel
+
+# Local verification artifacts
+/tmp/
+/output/

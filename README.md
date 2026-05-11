@@ -6,6 +6,7 @@
 - Editorial publishing harness: `docs/editorial-publishing-harness.md`
 - Editor writing guide: `docs/editor-writing-guide.md`
 - Optional magazine subdomain runbook: `docs/custom-domain-runbook.md`
+- Studio visual verification: `docs/studio-visual-verification.md`
 - Agent handoff harness: `AGENTS.md`
 - Design system: `Penacova Magazine Design System/README.md`
 - Current implementation spec: `SPEC.md`

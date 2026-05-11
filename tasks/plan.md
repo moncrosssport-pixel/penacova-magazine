@@ -47,6 +47,8 @@ Completed:
 - Studio publishing menus, article templates, and Launch Desk filters now share
   a typed manifest with tests so public categories cannot drift from the
   no-code editor workflow unnoticed.
+- Local `/studio` browser verification reaches the Sanity login provider
+  screen; full menu verification remains manual until a Sanity member logs in.
 - Collection look book pages render at `/[locale]/look/[season]` with seeded
   SS26 looks and product links.
 - Provider-neutral analytics events are wired for reading depth, locale/category
@@ -83,7 +85,7 @@ Completed:
 Not completed:
 
 - Uploading a real hero image for the seed editorial article.
-- Manual Studio editing/sidebar verification.
+- Manual logged-in Studio editing/sidebar verification.
 
 ## Design Baseline
 
@@ -501,6 +503,23 @@ Acceptance:
   article templates or Launch Desk filters.
 
 Status: complete locally.
+
+### Slice 23: Studio Visual Shell Verification
+
+Verify that the embedded Studio route is reachable in a real browser and record
+the remaining authenticated-menu check.
+
+Acceptance:
+
+- `http://localhost:3000/studio` loads in a browser without locale redirect.
+- The Studio shell reaches the Sanity login provider screen for project
+  `6pelmu7l`.
+- `docs/studio-visual-verification.md` records the verified state and the
+  remaining logged-in menu checklist.
+- Local Playwright and dev-server artifacts are ignored by git.
+
+Status: complete locally. Full menu inspection still needs an authenticated
+Sanity member session.
 
 ## Later Phases
 

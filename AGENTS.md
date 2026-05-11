@@ -13,11 +13,12 @@ Before changing code, read these files in order:
 4. `docs/editorial-publishing-harness.md`
 5. `docs/editor-writing-guide.md`
 6. `docs/custom-domain-runbook.md`
-7. `Penacova Magazine Design System/README.md`
-8. `Penacova Magazine Design System/SKILL.md`
-9. `docs/agent-harness.md`
-10. `tasks/plan.md`
-11. `tasks/todo.md`
+7. `docs/studio-visual-verification.md`
+8. `Penacova Magazine Design System/README.md`
+9. `Penacova Magazine Design System/SKILL.md`
+10. `docs/agent-harness.md`
+11. `tasks/plan.md`
+12. `tasks/todo.md`
 
 Then run:
 
@@ -114,6 +115,8 @@ Implemented:
   publishing batch
 - 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Direct editor writing guide for self-serve article drafting
+- Local `/studio` visual shell verification documented; authenticated Studio
+  menu verification still requires a Sanity member browser session
 - Custom domain runbook with current DNS state and correct Vercel scope
 - Production launch readiness checker at `pnpm check:launch`
 

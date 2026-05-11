@@ -63,6 +63,8 @@ The repository currently contains the foundation:
   navigation, and outbound Cafe24 CTA clicks
 - No-code newsletter/follow settings and `/[locale]/subscribe` capture surface
 - Launch content inventory for first stories, rider profiles, and glossary terms
+- Launch story workbook for the first 12 stories, including exact source brief,
+  route, asset, approval, and Studio field guidance
 - Launch Desk seed payload for 12 story briefs, 5 rider profile briefs, and one
   glossary batch brief
 - 50 glossary starter terms seeded in Studio with Japanese review still needed

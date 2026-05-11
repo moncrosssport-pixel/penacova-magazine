@@ -57,6 +57,9 @@ Completed:
   `/[locale]/subscribe` route.
 - Launch content inventory covers 12 first stories, 5 rider profile slots, and
   50 glossary starter terms.
+- Launch story workbook maps the 12 story briefs to exact Article fields,
+  source brief references, routes, required assets, approvals, and writing
+  angles.
 - Launch Desk planning cards can track those story, rider, and glossary launch
   tasks inside Studio before final public documents are published.
 - Glossary starter terms are seeded into Studio with Japanese review explicitly
@@ -520,6 +523,23 @@ Acceptance:
 
 Status: complete locally. Full menu inspection still needs an authenticated
 Sanity member session.
+
+### Slice 24: Launch Story Workbook
+
+Make the first 12 launch stories directly writable in Studio without requiring
+an agent to invent routes, categories, slugs, or content angles.
+
+Acceptance:
+
+- Article documents can reference their originating Launch Desk card through
+  `sourceBrief`.
+- `docs/launch-story-workbook.md` covers every story brief from
+  `sanity/seed/launch-briefs.json`.
+- The workbook includes exact slugs, public routes, source brief IDs, required
+  assets, approval notes, CTA intent, and body angle guidance.
+- A unit test fails if the workbook stops covering any seeded story brief.
+
+Status: complete locally.
 
 ## Later Phases
 

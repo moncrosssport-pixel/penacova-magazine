@@ -50,6 +50,17 @@ export const article = defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'sourceBrief',
+      title: 'Source launch brief',
+      description:
+        'Optional but recommended for launch content. Link the Article back to the Launch Desk card so editors can track assets, approval, and final status without code.',
+      type: 'reference',
+      to: [{ type: 'launchBrief' }],
+      options: {
+        filter: 'briefType == "story"',
+      },
+    }),
     localizedField('excerpt', 'Excerpt', 'text'),
     defineField({
       name: 'heroImage',

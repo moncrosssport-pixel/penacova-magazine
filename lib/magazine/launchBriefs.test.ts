@@ -1,5 +1,16 @@
 import launchBriefSeed from '@/sanity/seed/launch-briefs.json';
+import { article } from '@/sanity/schemas/article';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+
+type SanityField = {
+  name?: string;
+  title?: string;
+  type?: string;
+  description?: string;
+  to?: Array<{ type: string }>;
+};
 
 describe('launch brief seed payload', () => {
   it('creates the planned launch desk without publishing articles', () => {
@@ -47,5 +58,36 @@ describe('launch brief seed payload', () => {
     expect(riderBriefs.slice(1).every((document) => document.needsApproval)).toBe(
       true,
     );
+  });
+
+  it('lets final articles reference their source Launch Desk brief', () => {
+    const sourceBriefField = (article.fields as SanityField[]).find(
+      (field) => field.name === 'sourceBrief',
+    );
+
+    expect(sourceBriefField).toMatchObject({
+      title: 'Source launch brief',
+      type: 'reference',
+      to: [{ type: 'launchBrief' }],
+    });
+    expect(sourceBriefField?.description).toContain('Launch Desk');
+  });
+
+  it('documents a writing worksheet for every launch story brief', () => {
+    const workbook = readFileSync(
+      join(process.cwd(), 'docs/launch-story-workbook.md'),
+      'utf8',
+    );
+    const storyBriefs = launchBriefSeed.filter(
+      (document) => document.briefType === 'story',
+    );
+
+    for (const brief of storyBriefs) {
+      expect(workbook).toContain(`\`${brief.slug.current}\``);
+      expect(workbook).toContain(brief.routeHint);
+    }
+
+    expect(workbook).toContain('Source launch brief');
+    expect(workbook).toContain('Do not publish from this workbook alone');
   });
 });

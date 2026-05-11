@@ -14,11 +14,12 @@ Before changing code, read these files in order:
 5. `docs/editor-writing-guide.md`
 6. `docs/custom-domain-runbook.md`
 7. `docs/studio-visual-verification.md`
-8. `Penacova Magazine Design System/README.md`
-9. `Penacova Magazine Design System/SKILL.md`
-10. `docs/agent-harness.md`
-11. `tasks/plan.md`
-12. `tasks/todo.md`
+8. `docs/launch-story-workbook.md`
+9. `Penacova Magazine Design System/README.md`
+10. `Penacova Magazine Design System/SKILL.md`
+11. `docs/agent-harness.md`
+12. `tasks/plan.md`
+13. `tasks/todo.md`
 
 Then run:
 
@@ -113,6 +114,8 @@ Implemented:
 - Provider-neutral analytics events and no-code newsletter/follow settings
 - Launch Desk planning cards for the first story, rider profile, and glossary
   publishing batch
+- Launch story workbook that maps the first 12 story briefs to Studio Article
+  fields, routes, assets, approvals, and writing angles
 - 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Direct editor writing guide for self-serve article drafting
 - Local `/studio` visual shell verification documented; authenticated Studio

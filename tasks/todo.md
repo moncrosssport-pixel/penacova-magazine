@@ -41,6 +41,8 @@
       category menus, and Launch Desk filters stay aligned.
 - [x] Verify local `/studio` shell reaches the Sanity login provider screen.
 - [x] Document the remaining authenticated Studio menu visual check.
+- [x] Add Launch Brief -> Article source reference for launch story tracking.
+- [x] Add launch story workbook for the first 12 Studio-authored articles.
 
 ## Progress Estimate
 

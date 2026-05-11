@@ -14,6 +14,7 @@
 - Current task checklist: `tasks/todo.md`
 - Seed content: `docs/seed-content.md`
 - Launch content inventory: `docs/launch-content-inventory.md`
+- Launch story workbook: `docs/launch-story-workbook.md`
 
 ## Develop
 

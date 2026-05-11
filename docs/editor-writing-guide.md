@@ -55,6 +55,7 @@ Closing
 
 | Studio field | What to write |
 | --- | --- |
+| `Source launch brief` | 원래 Launch Desk 카드를 연결한다. `docs/launch-story-workbook.md`에서 맞는 brief를 찾는다. |
 | `Title > Korean` | 공개 제목. 너무 길게 쓰지 않는다. |
 | `Slug` | Generate를 눌러 만든다. 공개 후 바꾸지 않는다. |
 | `Category / public section` | 공개 섹션이다. 브리프의 category와 맞춘다. |

@@ -18,11 +18,12 @@ querying, and one rendered editorial article route.
 6. `docs/editor-writing-guide.md`
 7. `docs/custom-domain-runbook.md`
 8. `docs/studio-visual-verification.md`
-9. `Penacova Magazine Design System/README.md`
-10. `Penacova Magazine Design System/SKILL.md`
-11. `tasks/plan.md`
-12. `tasks/todo.md`
-13. `docs/launch-content-inventory.md` when working on launch stories, rider
+9. `docs/launch-story-workbook.md`
+10. `Penacova Magazine Design System/README.md`
+11. `Penacova Magazine Design System/SKILL.md`
+12. `tasks/plan.md`
+13. `tasks/todo.md`
+14. `docs/launch-content-inventory.md` when working on launch stories, rider
     profiles, or glossary content
 
 ## Environment
@@ -120,6 +121,8 @@ Current known state:
   `/ko/riders/jiwon-kim` after deployment.
 - Launch story, rider, and glossary briefs live in
   `docs/launch-content-inventory.md`.
+- Story-by-story Studio writing instructions for the first 12 stories live in
+  `docs/launch-story-workbook.md`.
 - Studio Launch Desk planning cards are seeded in production Sanity. CLI
   verification returned 18 `launchBrief` documents.
 - Glossary starter terms are seeded in production Sanity. CLI verification
@@ -182,6 +185,7 @@ For each task:
 | Middleware/routing | `pnpm test`, `pnpm build`, local route check |
 | Sanity schema | `pnpm build`, Studio sidebar check |
 | Studio publishing structure | `pnpm test lib/magazine/studioPublishing.test.ts`, `pnpm build` |
+| Launch story workbook | `pnpm test lib/magazine/launchBriefs.test.ts` |
 | Sanity query/client | Unit test plus `pnpm build` |
 | Article page | `pnpm test`, `pnpm build`, local missing-article 404 or seeded article URL |
 | SEO metadata | `pnpm test`, `pnpm build`, check page head, `/robots.txt`, `/sitemap.xml` |

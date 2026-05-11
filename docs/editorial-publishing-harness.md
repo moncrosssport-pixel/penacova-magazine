@@ -5,6 +5,7 @@
 모델을 바꾸기 전에 이 문서를 먼저 확인해야 한다.
 
 실제 글을 직접 쓰는 방법은 `docs/editor-writing-guide.md`를 함께 본다.
+런칭 12개 기사별 입력 체크리스트는 `docs/launch-story-workbook.md`를 함께 본다.
 
 ## Core Principle
 

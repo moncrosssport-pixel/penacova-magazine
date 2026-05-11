@@ -13,6 +13,10 @@ $env:SANITY_AUTH_TOKEN="<token>"
 pnpm run seed:launch-briefs
 ```
 
+The story-by-story writing workbook lives at
+`docs/launch-story-workbook.md`. Use that file when turning Launch Desk cards
+into final Article documents.
+
 The glossary starter terms from this file are also available as
 `sanity/seed/glossary-starter.json`:
 

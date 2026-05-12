@@ -16,6 +16,7 @@
 - Launch content inventory: `docs/launch-content-inventory.md`
 - Launch story workbook: `docs/launch-story-workbook.md`
 - Public editor workbook route: `/ko/launch-workbook`
+- Public launch readiness route: `/ko/launch-readiness`
 
 ## Develop
 

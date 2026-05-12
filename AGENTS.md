@@ -117,6 +117,8 @@ Implemented:
 - Launch story workbook that maps the first 12 story briefs to Studio Article
   fields, routes, assets, approvals, and writing angles
 - Public editor workbook route at `/[locale]/launch-workbook`, marked noindex
+- Public editor launch readiness route at `/[locale]/launch-readiness`, marked
+  noindex
 - 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Direct editor writing guide for self-serve article drafting
 - Local `/studio` visual shell verification documented; authenticated Studio

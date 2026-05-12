@@ -66,6 +66,7 @@ The repository currently contains the foundation:
 - Launch story workbook for the first 12 stories, including exact source brief,
   route, asset, approval, and Studio field guidance
 - Public noindex editor workbook route at `/[locale]/launch-workbook`
+- Public noindex launch readiness route at `/[locale]/launch-readiness`
 - Launch Desk seed payload for 12 story briefs, 5 rider profile briefs, and one
   glossary batch brief
 - 50 glossary starter terms seeded in Studio with Japanese review still needed

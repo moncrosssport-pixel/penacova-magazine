@@ -557,6 +557,21 @@ Acceptance:
 
 Status: complete locally.
 
+### Slice 26: Public Launch Readiness Route
+
+Expose launch readiness blockers as a noindex manager page so non-technical
+owners can see what remains before launch.
+
+Acceptance:
+
+- `/[locale]/launch-readiness` renders live launch blockers, warnings, facts,
+  and missing categories.
+- The route reuses the same readiness summary logic as `pnpm check:launch`.
+- Metadata marks the page `noindex, nofollow`.
+- The page links to Studio and the launch story workbook.
+
+Status: complete locally.
+
 ## Later Phases
 
 After Phase 1:

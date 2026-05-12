@@ -44,6 +44,7 @@
 - [x] Add Launch Brief -> Article source reference for launch story tracking.
 - [x] Add launch story workbook for the first 12 Studio-authored articles.
 - [x] Add public noindex `/[locale]/launch-workbook` editor route.
+- [x] Add public noindex `/[locale]/launch-readiness` manager route.
 
 ## Progress Estimate
 

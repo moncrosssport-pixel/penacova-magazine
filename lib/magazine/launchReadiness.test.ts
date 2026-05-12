@@ -1,8 +1,9 @@
 import {
   formatLaunchReadinessReport,
+  getLaunchReadinessStatus,
   isVercelDomainReady,
   summarizeLaunchReadiness,
-} from '@/scripts/check-launch-readiness.mjs';
+} from './launchReadiness.mjs';
 import { describe, expect, it } from 'vitest';
 
 const categories = [
@@ -164,6 +165,27 @@ describe('formatLaunchReadinessReport', () => {
     expect(report).toContain('[BLOCKED]');
     expect(report).toContain('Missing categories: news');
     expect(report).toContain('50 glossary terms still need Japanese review.');
+  });
+});
+
+describe('getLaunchReadinessStatus', () => {
+  it('returns a page-facing blocked status with blocker count', () => {
+    const status = getLaunchReadinessStatus({
+      ready: false,
+      missingCategories: ['news'],
+      blockers: [
+        '1 article category still has no published story.',
+        'Launch story set has 6/12 complete articles.',
+      ],
+      warnings: [],
+      facts: [],
+    });
+
+    expect(status).toEqual({
+      label: 'Blocked',
+      tone: 'blocked',
+      description: '2 launch blockers need attention before public launch.',
+    });
   });
 });
 

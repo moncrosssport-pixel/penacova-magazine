@@ -2,26 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import type { Locale } from '@/lib/i18n/locales';
 
-type HomeVideoHeroCopy = {
-  issue: string;
-  leadKicker: string;
-  title: string;
-  dek: string;
-  byline: string;
-};
+const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
-type HomeVideoHeroProps = {
-  locale: Locale;
-  copy: HomeVideoHeroCopy;
-};
-
-export function HomeVideoHero({ locale, copy }: HomeVideoHeroProps) {
+export function HomeVideoHero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isEnded, setIsEnded] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [frameProgress, setFrameProgress] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -36,9 +24,13 @@ export function HomeVideoHero({ locale, copy }: HomeVideoHeroProps) {
       const isInView =
         rect.top < window.innerHeight * 0.72 && rect.bottom > 72;
       const shouldPlay = isInView && window.scrollY > 24 && !isEnded;
+      const progress = clamp(
+        (window.innerHeight * 0.12 - rect.top) / (window.innerHeight * 0.58),
+      );
+
+      setFrameProgress(progress);
 
       if (shouldPlay) {
-        setHasStarted(true);
         void video.play().catch(() => {
           video.pause();
         });
@@ -75,119 +67,91 @@ export function HomeVideoHero({ locale, copy }: HomeVideoHeroProps) {
     }
 
     setIsEnded(false);
-    setHasStarted(true);
     video.currentTime = 0;
     void video.play().catch(() => {
       video.pause();
     });
   };
 
+  const frameInsetY = (1 - frameProgress) * 7;
+  const frameInsetX = (1 - frameProgress) * 6;
+  const frameRadius = (1 - frameProgress) * 28;
+  const frameShadowOpacity = (1 - frameProgress) * 0.38;
+
   return (
     <section
       ref={sectionRef}
       data-masthead-hide-zone="true"
-      className="relative min-h-screen overflow-hidden border-b border-hairline bg-ink text-white"
-      aria-label={`${copy.title} hero film`}
+      className="relative h-[190vh] overflow-visible border-b border-hairline bg-ink text-white"
+      aria-label="Penacova hero film"
     >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover opacity-90"
-        src="/media/penacova_home_pinned_scroll.mp4"
-        poster="/media/penacova_home_pinned_scroll_poster.jpg"
-        muted
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,7,6,0.82),rgba(8,7,6,0.2)_42%,rgba(8,7,6,0.58))]" />
-
-      <Image
-        src="/media/penacova_home_video_endcard.jpg"
-        alt=""
-        fill
-        sizes="100vw"
-        className={`object-cover transition-opacity duration-700 ${
-          isEnded ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-        aria-hidden="true"
-      />
-
       <div
-        className={`relative z-10 flex min-h-screen flex-col justify-between px-6 py-8 transition-opacity duration-500 sm:px-10 lg:px-14 ${
-          isEnded ? 'opacity-0' : 'opacity-100'
-        }`}
+        className="sticky top-0 h-screen overflow-hidden bg-black"
       >
-        <div className="flex items-start justify-between gap-8">
-          <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-white/70">
-            {copy.issue}
-          </p>
-          <p className="max-w-[12rem] text-right font-ui text-[10px] font-semibold uppercase tracking-[0.24em] text-white/75 sm:max-w-xs">
-            Penacova Magazine
-          </p>
-        </div>
-
-        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_24rem]">
-          <div>
-            <p className="font-ui text-[11px] font-semibold uppercase tracking-[0.28em] text-white/75">
-              {copy.leadKicker}
-            </p>
-            <h1 className="mt-5 max-w-5xl font-display text-5xl font-semibold leading-none text-white text-balance sm:text-7xl lg:text-8xl">
-              {copy.title}
-            </h1>
-          </div>
-
-          <div className="max-w-md border-t border-white/45 pt-5">
-            <p className="font-serif-editorial text-xl italic leading-relaxed text-white/88 sm:text-2xl">
-              {copy.dek}
-            </p>
-            <p className="mt-6 font-ui text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70">
-              {copy.byline}
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between border-t border-white/30 pt-4">
-          <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.24em] text-white/62">
-            {locale.toUpperCase()}
-          </span>
-          <span className="h-px flex-1 bg-white/20" aria-hidden="true" />
-          <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.24em] text-white/62">
-            {hasStarted ? 'Now Playing' : 'Scroll To Play'}
-          </span>
-        </div>
-      </div>
-
-      {isEnded ? (
-        <button
-          type="button"
-          onClick={replay}
-          aria-label="Replay film"
-          className="absolute bottom-8 right-6 z-20 flex h-11 w-11 items-center justify-center border border-white/70 bg-black/25 text-white transition duration-200 hover:bg-black/45 sm:right-10 lg:right-14"
+        <div
+          data-testid="home-video-frame"
+          className="absolute overflow-hidden bg-black transition-[border-radius,box-shadow] duration-100 ease-out"
+          style={{
+            inset: `${frameInsetY}vh ${frameInsetX}vw`,
+            borderRadius: `${frameRadius}px`,
+            boxShadow: `0 28px 90px rgba(0, 0, 0, ${frameShadowOpacity})`,
+          }}
         >
-          <svg
-            width="19"
-            height="19"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/media/penacova_home_pinned_scroll.mp4"
+            poster="/media/penacova_home_pinned_scroll_poster.jpg"
+            muted
+            playsInline
+            preload="auto"
             aria-hidden="true"
+          />
+
+          <Image
+            src="/media/penacova_home_video_endcard.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-700 ${
+              isEnded ? 'opacity-100' : 'pointer-events-none opacity-0'
+            }`}
+            aria-hidden="true"
+          />
+        </div>
+
+        {isEnded ? (
+          <button
+            type="button"
+            onClick={replay}
+            aria-label="Replay film"
+            className="absolute bottom-6 right-5 z-20 flex h-10 w-10 items-center justify-center border border-white/70 bg-black/30 text-white transition duration-200 hover:bg-black/50 sm:bottom-8 sm:right-8"
           >
-            <path
-              d="M7.5 7.25H4.25V4"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M4.55 7.1A8.25 8.25 0 1 1 3.75 12"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
-      ) : null}
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M7.5 7.25H4.25V4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M4.55 7.1A8.25 8.25 0 1 1 3.75 12"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        ) : null}
+      </div>
     </section>
   );
 }

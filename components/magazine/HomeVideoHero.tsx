@@ -5,6 +5,11 @@ import Image from 'next/image';
 
 const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
 
+type FullscreenVideoElement = HTMLVideoElement & {
+  webkitEnterFullscreen?: () => void;
+  webkitRequestFullscreen?: () => Promise<void> | void;
+};
+
 export function HomeVideoHero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -21,22 +26,11 @@ export function HomeVideoHero() {
 
     const syncPlayback = () => {
       const rect = section.getBoundingClientRect();
-      const isInView =
-        rect.top < window.innerHeight * 0.72 && rect.bottom > 72;
-      const shouldPlay = isInView && window.scrollY > 24 && !isEnded;
       const progress = clamp(
         (window.innerHeight * 0.12 - rect.top) / (window.innerHeight * 0.58),
       );
 
       setFrameProgress(progress);
-
-      if (shouldPlay) {
-        void video.play().catch(() => {
-          video.pause();
-        });
-      } else if (!video.paused) {
-        video.pause();
-      }
     };
 
     const handleEnded = () => {
@@ -44,16 +38,28 @@ export function HomeVideoHero() {
       video.pause();
     };
 
-    video.pause();
+    const startPlayback = () => {
+      if (isEnded) {
+        return;
+      }
+
+      void video.play().catch(() => {
+        video.pause();
+      });
+    };
+
     video.addEventListener('ended', handleEnded);
     video.addEventListener('canplay', syncPlayback);
+    video.addEventListener('canplay', startPlayback);
     window.addEventListener('scroll', syncPlayback, { passive: true });
     window.addEventListener('resize', syncPlayback);
     syncPlayback();
+    startPlayback();
 
     return () => {
       video.removeEventListener('ended', handleEnded);
       video.removeEventListener('canplay', syncPlayback);
+      video.removeEventListener('canplay', startPlayback);
       window.removeEventListener('scroll', syncPlayback);
       window.removeEventListener('resize', syncPlayback);
     };
@@ -71,6 +77,28 @@ export function HomeVideoHero() {
     void video.play().catch(() => {
       video.pause();
     });
+  };
+
+  const openFullscreen = () => {
+    const video = videoRef.current as FullscreenVideoElement | null;
+
+    if (!video) {
+      return;
+    }
+
+    if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen();
+      return;
+    }
+
+    if (video.requestFullscreen) {
+      void video.requestFullscreen();
+      return;
+    }
+
+    if (video.webkitRequestFullscreen) {
+      void video.webkitRequestFullscreen();
+    }
   };
 
   const frameInsetY = (1 - frameProgress) * 7;
@@ -104,6 +132,7 @@ export function HomeVideoHero() {
             poster="/media/penacova_home_pinned_scroll_poster.jpg"
             muted
             playsInline
+            autoPlay
             preload="auto"
             aria-hidden="true"
           />
@@ -119,6 +148,51 @@ export function HomeVideoHero() {
             aria-hidden="true"
           />
         </div>
+
+        <button
+          type="button"
+          onClick={openFullscreen}
+          aria-label="Open film fullscreen"
+          className="absolute bottom-6 right-[4.25rem] z-20 flex h-10 w-10 items-center justify-center border border-white/70 bg-black/30 text-white transition duration-200 hover:bg-black/50 sm:bottom-8 sm:right-[5.25rem]"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M8.25 4.75H4.75V8.25"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15.75 4.75H19.25V8.25"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M8.25 19.25H4.75V15.75"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M15.75 19.25H19.25V15.75"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
 
         {isEnded ? (
           <button

@@ -46,6 +46,8 @@
 - [x] Add public noindex `/[locale]/launch-workbook` editor route.
 - [x] Add public noindex `/[locale]/launch-readiness` manager route.
 - [x] Add HyperFrames-backed pinned fullscreen film hero to the locale homepage.
+- [x] Add click-to-enter real fullscreen control for the homepage film.
+- [x] Start the homepage film autoplay on page entry.
 - [x] Compact the magazine masthead for the video-led homepage.
 - [x] Add homepage hero video and poster assets under `public/media/`.
 

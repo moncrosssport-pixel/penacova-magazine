@@ -577,17 +577,19 @@ Status: complete locally.
 ### Slice 27: Homepage Pinned Fullscreen Film Hero
 
 Add the Penacova HyperFrames promotional film as a homepage-first editorial
-surface that starts playing when the reader scrolls into the film section and
-expands like a browser fullscreen moment.
+surface that autoplays on page entry and expands like a browser fullscreen
+moment as the reader scrolls into the film section.
 
 Acceptance:
 
 - The homepage hero uses the rendered HyperFrames film from `public/media/`.
 - The video is not scrubbed by scroll position; it plays at normal speed when
-  the section enters view.
+  the page opens.
 - The film section has no visible text overlay.
 - The film frame pins during entry and expands from an inset cinema frame to a
   full-viewport frame.
+- A small inline SVG fullscreen control enters real browser fullscreen through
+  user click, with a WebKit video fullscreen fallback.
 - When the film ends, a chosen thumbnail remains fixed as an endcard.
 - A small inline SVG replay control restarts the film on demand.
 - The masthead is compact, hides while the film section is active, and

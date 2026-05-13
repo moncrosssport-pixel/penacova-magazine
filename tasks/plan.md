@@ -76,8 +76,8 @@ Completed:
   CORS. Only the `magazine` host record should change if a branded-domain
   launch is required; root, shop, Cafe24 hosting, and nameservers must stay
   untouched.
-- The locale homepage now opens with a HyperFrames-backed pinned fullscreen
-  film hero served from `public/media/penacova_home_pinned_scroll.mp4`.
+- The locale homepage now opens with a HyperFrames-backed autoplay film hero
+  served from `public/media/penacova_home_pinned_scroll.mp4`.
 
 ## Progress Snapshot
 
@@ -574,11 +574,10 @@ Acceptance:
 
 Status: complete locally.
 
-### Slice 27: Homepage Pinned Fullscreen Film Hero
+### Slice 27: Homepage Autoplay Film Hero
 
 Add the Penacova HyperFrames promotional film as a homepage-first editorial
-surface that autoplays on page entry and expands like a browser fullscreen
-moment as the reader scrolls into the film section.
+surface that autoplays on page entry and scrolls with the normal page flow.
 
 Acceptance:
 
@@ -586,8 +585,8 @@ Acceptance:
 - The video is not scrubbed by scroll position; it plays at normal speed when
   the page opens.
 - The film section has no visible text overlay.
-- The film frame pins during entry and expands from an inset cinema frame to a
-  full-viewport frame.
+- The film section does not pin or resize during scroll; the full-viewport
+  video block moves with the page as-is.
 - A small inline SVG fullscreen control enters real browser fullscreen through
   user click, with a WebKit video fullscreen fallback.
 - When the film ends, a chosen thumbnail remains fixed as an endcard.

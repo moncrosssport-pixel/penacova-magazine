@@ -3,35 +3,21 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
-const clamp = (value: number) => Math.min(Math.max(value, 0), 1);
-
 type FullscreenVideoElement = HTMLVideoElement & {
   webkitEnterFullscreen?: () => void;
   webkitRequestFullscreen?: () => Promise<void> | void;
 };
 
 export function HomeVideoHero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isEnded, setIsEnded] = useState(false);
-  const [frameProgress, setFrameProgress] = useState(0);
 
   useEffect(() => {
-    const section = sectionRef.current;
     const video = videoRef.current;
 
-    if (!section || !video) {
+    if (!video) {
       return;
     }
-
-    const syncPlayback = () => {
-      const rect = section.getBoundingClientRect();
-      const progress = clamp(
-        (window.innerHeight * 0.12 - rect.top) / (window.innerHeight * 0.58),
-      );
-
-      setFrameProgress(progress);
-    };
 
     const handleEnded = () => {
       setIsEnded(true);
@@ -49,19 +35,12 @@ export function HomeVideoHero() {
     };
 
     video.addEventListener('ended', handleEnded);
-    video.addEventListener('canplay', syncPlayback);
     video.addEventListener('canplay', startPlayback);
-    window.addEventListener('scroll', syncPlayback, { passive: true });
-    window.addEventListener('resize', syncPlayback);
-    syncPlayback();
     startPlayback();
 
     return () => {
       video.removeEventListener('ended', handleEnded);
-      video.removeEventListener('canplay', syncPlayback);
       video.removeEventListener('canplay', startPlayback);
-      window.removeEventListener('scroll', syncPlayback);
-      window.removeEventListener('resize', syncPlayback);
     };
   }, [isEnded]);
 
@@ -101,29 +80,16 @@ export function HomeVideoHero() {
     }
   };
 
-  const frameInsetY = (1 - frameProgress) * 7;
-  const frameInsetX = (1 - frameProgress) * 6;
-  const frameRadius = (1 - frameProgress) * 28;
-  const frameShadowOpacity = (1 - frameProgress) * 0.38;
-
   return (
     <section
-      ref={sectionRef}
       data-masthead-hide-zone="true"
-      className="relative h-[190vh] overflow-visible border-b border-hairline bg-ink text-white"
+      className="relative h-screen overflow-hidden border-b border-hairline bg-black text-white"
       aria-label="Penacova hero film"
     >
-      <div
-        className="sticky top-0 h-screen overflow-hidden bg-black"
-      >
+      <div className="absolute inset-0 overflow-hidden bg-black">
         <div
           data-testid="home-video-frame"
-          className="absolute overflow-hidden bg-black transition-[border-radius,box-shadow] duration-100 ease-out"
-          style={{
-            inset: `${frameInsetY}vh ${frameInsetX}vw`,
-            borderRadius: `${frameRadius}px`,
-            boxShadow: `0 28px 90px rgba(0, 0, 0, ${frameShadowOpacity})`,
-          }}
+          className="absolute inset-0 overflow-hidden bg-black"
         >
           <video
             ref={videoRef}

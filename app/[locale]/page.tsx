@@ -205,7 +205,7 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
 
   return (
     <main className="min-h-screen bg-paper text-ink">
-      <MagazineMasthead locale={params.locale} />
+      <MagazineMasthead locale={params.locale} hideOnScroll />
 
       <HomePinnedHero locale={params.locale} copy={content} />
 

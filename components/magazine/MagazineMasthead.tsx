@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LOCALES, type Locale } from '@/lib/i18n/locales';
@@ -7,14 +10,57 @@ import { MAGAZINE_CATEGORIES } from '@/lib/magazine/categories';
 type MagazineMastheadProps = {
   locale: Locale;
   pathSegments?: string[];
+  hideOnScroll?: boolean;
 };
 
 export function MagazineMasthead({
   locale,
   pathSegments = [],
+  hideOnScroll = false,
 }: MagazineMastheadProps) {
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    if (!hideOnScroll) {
+      setIsHidden(false);
+      return;
+    }
+
+    let frame = 0;
+
+    const sync = () => {
+      frame = 0;
+      setIsHidden(window.scrollY > 24);
+    };
+
+    const requestSync = () => {
+      if (frame) {
+        return;
+      }
+
+      frame = window.requestAnimationFrame(sync);
+    };
+
+    sync();
+    window.addEventListener('scroll', requestSync, { passive: true });
+    window.addEventListener('resize', requestSync);
+
+    return () => {
+      window.removeEventListener('scroll', requestSync);
+      window.removeEventListener('resize', requestSync);
+
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+    };
+  }, [hideOnScroll]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-ink bg-paper">
+    <header
+      className={`sticky top-0 z-50 border-b border-ink bg-paper transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] ${
+        isHidden ? 'pointer-events-none -translate-y-full' : 'translate-y-0'
+      }`}
+    >
       <div className="flex items-center justify-between border-b border-hairline px-4 py-2 font-mono text-[10px] uppercase tracking-[0.1em] text-muted sm:px-8 sm:text-[11px]">
         <div className="hidden items-center gap-2 sm:flex">
           <span>Issue No. 03</span>

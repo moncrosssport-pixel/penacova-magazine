@@ -30,7 +30,20 @@ export function MagazineMasthead({
 
     const sync = () => {
       frame = 0;
-      setIsHidden(window.scrollY > 24);
+      const hideZone = document.querySelector<HTMLElement>(
+        '[data-masthead-hide-zone="true"]',
+      );
+
+      if (!hideZone) {
+        setIsHidden(window.scrollY > 24);
+        return;
+      }
+
+      const rect = hideZone.getBoundingClientRect();
+      const isInsideHideZone =
+        rect.top < window.innerHeight * 0.72 && rect.bottom > 72;
+
+      setIsHidden(window.scrollY > 24 && isInsideHideZone);
     };
 
     const requestSync = () => {

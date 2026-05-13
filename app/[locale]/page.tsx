@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { HomePinnedHero } from '@/components/magazine/HomePinnedHero';
+import { HomeVideoHero } from '@/components/magazine/HomeVideoHero';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { MagazineNewsletter } from '@/components/magazine/MagazineNewsletter';
@@ -207,7 +207,7 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
     <main className="min-h-screen bg-paper text-ink">
       <MagazineMasthead locale={params.locale} hideOnScroll />
 
-      <HomePinnedHero locale={params.locale} copy={content} />
+      <HomeVideoHero locale={params.locale} copy={content} />
 
       <section className="mx-auto max-w-content px-6 py-14 sm:px-10 lg:px-14 lg:py-20">
         <div className="mb-8 flex items-end justify-between border-b border-ink pb-4">

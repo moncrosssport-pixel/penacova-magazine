@@ -76,7 +76,7 @@ Completed:
   CORS. Only the `magazine` host record should change if a branded-domain
   launch is required; root, shop, Cafe24 hosting, and nameservers must stay
   untouched.
-- The locale homepage now opens with a HyperFrames-backed pinned-scroll film
+- The locale homepage now opens with a HyperFrames-backed autoplay film
   hero served from `public/media/penacova_home_pinned_scroll.mp4`.
 
 ## Progress Snapshot
@@ -574,18 +574,20 @@ Acceptance:
 
 Status: complete locally.
 
-### Slice 27: Homepage Pinned Film Hero
+### Slice 27: Homepage Autoplay Film Hero
 
 Add the Penacova HyperFrames promotional film as a homepage-first editorial
-surface with scroll-scrubbed video and pinned copy motion.
+surface that starts playing when the reader scrolls into the film section.
 
 Acceptance:
 
 - The homepage hero uses the rendered HyperFrames film from `public/media/`.
-- The hero is pinned during the first scroll and scrubs the video by scroll
-  progress.
-- The visible headline, dek, and metadata scatter left/right as the user scrolls
-  into the film.
+- The video is not scrubbed by scroll position; it plays at normal speed when
+  the section enters view.
+- When the film ends, a chosen thumbnail remains fixed as an endcard.
+- A small inline SVG replay control restarts the film on demand.
+- The masthead hides while the film section is active and reappears after the
+  reader scrolls past the film.
 - Korean, English, and Japanese homepage hero copy is valid and no longer
   mojibake.
 - `pnpm test` passes.

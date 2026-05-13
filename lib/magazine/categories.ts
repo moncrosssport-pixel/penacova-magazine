@@ -29,14 +29,14 @@ export const MAGAZINE_CATEGORIES = [
       jp: 'Editorial',
     },
     dek: {
-      ko: '마방의 빛과 필드의 공기, 컬렉션이 만들어내는 조용한 장면들.',
+      ko: '마장, 라이더, 필드, 컬렉션을 중심으로 한 패션 에디토리얼과 포토 에세이.',
       en: 'Fashion editorials and photo essays shaped around stables, riders, fields, and collections.',
-      jp: '馬房、ライダー、フィールド、コレクションをめぐる静かなフォトエッセイ。',
+      jp: '厩舎、ライダー、フィールド、コレクションを軸にしたファッションエディトリアル。',
     },
     empty: {
       ko: '아직 공개된 에디토리얼이 없습니다.',
       en: 'No editorials are published here yet.',
-      jp: '公開されたエディトリアルはまだありません。',
+      jp: 'まだ公開されたエディトリアルはありません。',
     },
   },
   {
@@ -48,14 +48,14 @@ export const MAGAZINE_CATEGORIES = [
       jp: 'Riders',
     },
     dek: {
-      ko: '선수, 코치, 클럽 라이더가 말하는 훈련과 옷의 리듬.',
+      ko: '선수, 코치, 클럽 라이더, Penacova를 입는 사람들의 인터뷰.',
       en: 'Interviews with athletes, coaches, club riders, and notable Penacova wearers.',
-      jp: '選手、コーチ、クラブライダーの声で読むトレーニングと装い。',
+      jp: '選手、コーチ、クラブライダー、Penacovaをまとう人々のインタビュー。',
     },
     empty: {
-      ko: '아직 공개된 라이더 인터뷰가 없습니다.',
+      ko: '아직 공개된 라이더 스토리가 없습니다.',
       en: 'No rider stories are published here yet.',
-      jp: '公開されたライダーストーリーはまだありません。',
+      jp: 'まだ公開されたライダーストーリーはありません。',
     },
   },
   {
@@ -67,14 +67,14 @@ export const MAGAZINE_CATEGORIES = [
       jp: 'Look',
     },
     dek: {
-      ko: '시즌 컬렉션과 라이딩을 위한 스타일 노트.',
+      ko: '시즌 컬렉션, 룩, 스타일링 노트.',
       en: 'Seasonal collection presentations, looks, and styling notes.',
       jp: 'シーズンコレクション、ルック、スタイリングノート。',
     },
     empty: {
-      ko: '아직 공개된 룩북이 없습니다.',
+      ko: '아직 공개된 룩북 스토리가 없습니다.',
       en: 'No look book stories are published here yet.',
-      jp: '公開されたルックブックはまだありません。',
+      jp: 'まだ公開されたルックブックストーリーはありません。',
     },
   },
   {
@@ -86,14 +86,14 @@ export const MAGAZINE_CATEGORIES = [
       jp: 'Heritage',
     },
     dek: {
-      ko: '소재, 자수, 패턴, 작업실에서 완성되는 브랜드의 시간.',
+      ko: '소재, 자수, 공방, 브랜드의 배경에 있는 이야기.',
       en: 'Craft, material, embroidery, workshop, and origin stories.',
-      jp: '素材、刺繍、パターン、工房から生まれるブランドの記録。',
+      jp: '素材、刺繍、工房、ブランドの背景にある物語。',
     },
     empty: {
       ko: '아직 공개된 헤리티지 스토리가 없습니다.',
       en: 'No heritage stories are published here yet.',
-      jp: '公開されたヘリテージストーリーはまだありません。',
+      jp: 'まだ公開されたヘリテージストーリーはありません。',
     },
   },
   {
@@ -105,14 +105,14 @@ export const MAGAZINE_CATEGORIES = [
       jp: 'Guide',
     },
     dek: {
-      ko: '사이즈, 소재, 관리법, 초보 라이더를 위한 차분한 가이드.',
+      ko: '사이즈, 케어, 라이딩 의류 선택을 위한 차분한 가이드.',
       en: 'Sizing, care, riding apparel guidance, and beginner explainers.',
-      jp: 'サイズ、ケア、乗馬ウェア、ビギナーのためのガイド。',
+      jp: 'サイズ、手入れ、乗馬服の選び方を静かに案内するガイド。',
     },
     empty: {
       ko: '아직 공개된 가이드가 없습니다.',
       en: 'No guides are published here yet.',
-      jp: '公開されたガイドはまだありません。',
+      jp: 'まだ公開されたガイドはありません。',
     },
   },
   {
@@ -124,14 +124,14 @@ export const MAGAZINE_CATEGORIES = [
       jp: 'News',
     },
     dek: {
-      ko: '대회, 이벤트, 론칭, 협업, 스토어 소식.',
+      ko: '대회, 이벤트, 론칭, 협업, 스토어 업데이트.',
       en: 'Competitions, events, launches, collaborations, and store updates.',
-      jp: '大会、イベント、ローンチ、コラボレーション、ストアニュース。',
+      jp: '大会、イベント、ローンチ、コラボレーション、ストア更新。',
     },
     empty: {
       ko: '아직 공개된 뉴스가 없습니다.',
       en: 'No news items are published here yet.',
-      jp: '公開されたニュースはまだありません。',
+      jp: 'まだ公開されたニュースはありません。',
     },
   },
   {
@@ -143,14 +143,14 @@ export const MAGAZINE_CATEGORIES = [
       jp: 'Stories',
     },
     dek: {
-      ko: '고객 라이더, 필드 노트, 커뮤니티가 남긴 장면들.',
+      ko: '고객 라이더, 필드 노트, 큐레이션된 커뮤니티 스토리.',
       en: 'Customer riders, styling, field notes, and curated community stories.',
-      jp: 'カスタマーライダー、フィールドノート、コミュニティのストーリー。',
+      jp: 'カスタマーライダー、フィールドノート、コミュニティの物語。',
     },
     empty: {
-      ko: '아직 공개된 스토리가 없습니다.',
+      ko: '아직 공개된 커뮤니티 스토리가 없습니다.',
       en: 'No community stories are published here yet.',
-      jp: '公開されたストーリーはまだありません。',
+      jp: 'まだ公開されたコミュニティストーリーはありません。',
     },
   },
 ] satisfies MagazineCategory[];

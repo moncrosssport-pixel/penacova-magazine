@@ -76,6 +76,8 @@ Completed:
   CORS. Only the `magazine` host record should change if a branded-domain
   launch is required; root, shop, Cafe24 hosting, and nameservers must stay
   untouched.
+- The locale homepage now opens with a HyperFrames-backed pinned-scroll film
+  hero served from `public/media/penacova_home_pinned_scroll.mp4`.
 
 ## Progress Snapshot
 
@@ -569,6 +571,26 @@ Acceptance:
 - The route reuses the same readiness summary logic as `pnpm check:launch`.
 - Metadata marks the page `noindex, nofollow`.
 - The page links to Studio and the launch story workbook.
+
+Status: complete locally.
+
+### Slice 27: Homepage Pinned Film Hero
+
+Add the Penacova HyperFrames promotional film as a homepage-first editorial
+surface with scroll-scrubbed video and pinned copy motion.
+
+Acceptance:
+
+- The homepage hero uses the rendered HyperFrames film from `public/media/`.
+- The hero is pinned during the first scroll and scrubs the video by scroll
+  progress.
+- The visible headline, dek, and metadata scatter left/right as the user scrolls
+  into the film.
+- Korean, English, and Japanese homepage hero copy is valid and no longer
+  mojibake.
+- `pnpm test` passes.
+- `pnpm build` passes.
+- `/ko` is checked in a browser.
 
 Status: complete locally.
 

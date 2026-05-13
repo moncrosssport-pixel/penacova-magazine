@@ -67,6 +67,8 @@ The repository currently contains the foundation:
   route, asset, approval, and Studio field guidance
 - Public noindex editor workbook route at `/[locale]/launch-workbook`
 - Public noindex launch readiness route at `/[locale]/launch-readiness`
+- HyperFrames-backed pinned-scroll homepage film hero using
+  `public/media/penacova_home_pinned_scroll.mp4`
 - Launch Desk seed payload for 12 story briefs, 5 rider profile briefs, and one
   glossary batch brief
 - 50 glossary starter terms seeded in Studio with Japanese review still needed

@@ -55,7 +55,7 @@ export function MagazineMasthead({
           />
         </Link>
         <p className="mt-3 font-display text-sm italic text-ink-mute">
-          승마, 그리고 그 주변의 풍경
+          말, 옷, 그리고 들판의 기록
         </p>
       </div>
 

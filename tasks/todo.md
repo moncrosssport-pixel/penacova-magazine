@@ -45,6 +45,8 @@
 - [x] Add launch story workbook for the first 12 Studio-authored articles.
 - [x] Add public noindex `/[locale]/launch-workbook` editor route.
 - [x] Add public noindex `/[locale]/launch-readiness` manager route.
+- [x] Add HyperFrames-backed pinned-scroll film hero to the locale homepage.
+- [x] Add homepage hero video and poster assets under `public/media/`.
 
 ## Progress Estimate
 

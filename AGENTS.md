@@ -109,6 +109,8 @@ Implemented:
   and article JSON-LD wiring
 - Path-preserving locale switcher links in the magazine masthead
 - No-code publishing harness for Sanity editors
+- Korean operator-facing Studio menu, start guide, Article preview link, and
+  pre-publish checklist
 - Typed Studio publishing manifest and tests for no-code category/template
   alignment
 - Provider-neutral analytics events and no-code newsletter/follow settings

@@ -47,6 +47,9 @@ Sanity defaults are built in for the public project settings; `.env.local` can o
 Site-level newsletter/follow settings are managed by the singleton Sanity
 document `site-settings`. Launch story/rider/glossary planning cards are
 managed as `launchBrief` documents in Studio's Launch Desk.
+Studio now includes Korean operator-facing navigation, a start guide, category
+specific article entry points, an Article preview link, and a pre-publish
+checklist.
 
 Seed the Phase 1 article and glossary after either Sanity CLI login as a
 project member or a project write token:

@@ -33,13 +33,33 @@ const articleStudioCopy: Partial<
     }
   >
 > = {
+  editorial: {
+    structureTitle: 'Editorial 글',
+    templateTitle: '새 Editorial 글 만들기',
+  },
   riders: {
-    structureTitle: 'Rider Interviews',
-    templateTitle: 'Article - Rider Interview',
+    structureTitle: 'Riders 인터뷰 글',
+    templateTitle: '새 Riders 인터뷰 글 만들기',
   },
   look: {
-    structureTitle: 'Look Book Stories',
-    templateTitle: 'Article - Look Book Story',
+    structureTitle: 'Look 글',
+    templateTitle: '새 Look 글 만들기',
+  },
+  heritage: {
+    structureTitle: 'Heritage 글',
+    templateTitle: '새 Heritage 글 만들기',
+  },
+  guide: {
+    structureTitle: 'Guide 글',
+    templateTitle: '새 Guide 글 만들기',
+  },
+  news: {
+    structureTitle: 'News 글',
+    templateTitle: '새 News 글 만들기',
+  },
+  stories: {
+    structureTitle: 'Stories 글',
+    templateTitle: '새 Stories 글 만들기',
   },
 };
 
@@ -52,7 +72,7 @@ export const articlePublishingCategories: ArticlePublishingCategory[] =
       category: category.id,
       structureTitle,
       templateId: `article-${category.id}` as ArticlePublishingCategory['templateId'],
-      templateTitle: copy.templateTitle || `Article - ${structureTitle}`,
+      templateTitle: copy.templateTitle || `새 ${structureTitle} 만들기`,
       moodVariant: category.id === 'editorial' ? 'editorial' : 'feature',
     };
   });
@@ -63,32 +83,32 @@ export const priorityAscending: StudioOrdering[] = [
 
 export const launchDeskSections: StudioDocumentListSection[] = [
   {
-    title: 'Story Briefs',
+    title: '런칭 글 카드',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && briefType == "story"',
     defaultOrdering: priorityAscending,
   },
   {
-    title: 'Rider Profile Briefs',
+    title: '라이더 프로필 카드',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && briefType == "rider-profile"',
     defaultOrdering: priorityAscending,
   },
   {
-    title: 'Glossary Batch',
+    title: '용어집 작업 카드',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && briefType == "glossary-batch"',
     defaultOrdering: priorityAscending,
   },
   {
-    title: 'Needs Assets / Approval',
+    title: '사진 / 승인 필요',
     schemaType: 'launchBrief',
     filter:
       '_type == "launchBrief" && (status == "assets-needed" || needsApproval == true)',
     defaultOrdering: priorityAscending,
   },
   {
-    title: 'Ready to Publish',
+    title: '게시 준비 완료',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && status == "ready-to-publish"',
     defaultOrdering: priorityAscending,
@@ -97,13 +117,13 @@ export const launchDeskSections: StudioDocumentListSection[] = [
 
 export const glossaryReviewSections: StudioDocumentListSection[] = [
   {
-    title: 'Glossary Needs JP Review',
+    title: '일본어 검수 필요 용어',
     schemaType: 'glossary',
     filter: '_type == "glossary" && reviewStatus == "jp-review-needed"',
     defaultOrdering: [{ field: 'koTerm', direction: 'asc' }],
   },
   {
-    title: 'Glossary Ready',
+    title: '게시 준비 완료 용어',
     schemaType: 'glossary',
     filter: '_type == "glossary" && reviewStatus == "ready"',
     defaultOrdering: [{ field: 'koTerm', direction: 'asc' }],

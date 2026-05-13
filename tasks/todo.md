@@ -51,6 +51,9 @@
 - [x] Start the homepage film autoplay on page entry.
 - [x] Compact the magazine masthead for the video-led homepage.
 - [x] Add homepage hero video and poster assets under `public/media/`.
+- [x] Make Sanity Studio more operator-friendly with Korean menu labels, a
+      start guide, category-specific article entry points, article preview
+      link, field descriptions, and a publish checklist.
 
 ## Progress Estimate
 
@@ -87,7 +90,8 @@
 ## Launch Backlog
 
 - [ ] Visually verify the no-code Studio publishing menu in a logged-in Sanity
-      member browser session.
+      member browser session, including the new Korean operator guide and
+      Article checklist/preview widgets.
 - [x] Add code-level guardrails for the no-code Studio publishing menu.
 - [x] Seed Launch Desk planning cards into production Sanity.
 - [ ] Optional: if the branded magazine URL is needed, point only the

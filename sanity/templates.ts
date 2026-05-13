@@ -27,7 +27,7 @@ function articleTemplate(
 export const schemaTemplates: Template[] = [
   {
     id: 'launch-brief-story',
-    title: 'Launch Brief - Story',
+    title: '런칭 카드 - 매거진 글',
     schemaType: 'launchBrief',
     value: {
       briefType: 'story',
@@ -37,7 +37,7 @@ export const schemaTemplates: Template[] = [
   },
   {
     id: 'launch-brief-rider-profile',
-    title: 'Launch Brief - Rider Profile',
+    title: '런칭 카드 - 라이더 프로필',
     schemaType: 'launchBrief',
     value: {
       briefType: 'rider-profile',
@@ -47,7 +47,7 @@ export const schemaTemplates: Template[] = [
   },
   {
     id: 'launch-brief-glossary-batch',
-    title: 'Launch Brief - Glossary Batch',
+    title: '런칭 카드 - 용어집 묶음',
     schemaType: 'launchBrief',
     value: {
       briefType: 'glossary-batch',
@@ -65,13 +65,13 @@ export const schemaTemplates: Template[] = [
   ),
   {
     id: 'rider-profile',
-    title: 'Rider Profile',
+    title: '새 라이더 프로필 만들기',
     schemaType: 'rider',
     value: {},
   },
   {
     id: 'collection-season',
-    title: 'Collection / Season',
+    title: '새 시즌 컬렉션 만들기',
     schemaType: 'collection',
     value: {
       season: 'SS26',
@@ -79,25 +79,25 @@ export const schemaTemplates: Template[] = [
   },
   {
     id: 'look-item',
-    title: 'Look',
+    title: '새 룩 만들기',
     schemaType: 'look',
     value: {},
   },
   {
     id: 'product-reference',
-    title: 'Product Reference',
+    title: '새 상품 참고자료 만들기',
     schemaType: 'product',
     value: {},
   },
   {
     id: 'person-author',
-    title: 'Author / Editor',
+    title: '새 작성자 만들기',
     schemaType: 'person',
     value: {},
   },
   {
     id: 'glossary-term',
-    title: 'Glossary Term',
+    title: '새 용어 만들기',
     schemaType: 'glossary',
     value: {
       reviewStatus: 'needs-review',

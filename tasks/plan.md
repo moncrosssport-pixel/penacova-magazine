@@ -71,6 +71,9 @@ Completed:
 - Optional magazine subdomain setup has a runbook with current DNS evidence and
   the correct Vercel account boundary.
 - Production launch readiness can be checked with `pnpm check:launch`.
+- Sanity Studio has Korean operator-facing navigation, a start guide,
+  category-specific article entry points, an Article preview link, and a
+  pre-publish checklist.
 - Vercel CLI is linked to `moncrosssport-pixels-projects/penacova-magazine`.
 - The optional magazine subdomain is added in Vercel and allowed in Sanity
   CORS. Only the `magazine` host record should change if a branded-domain
@@ -600,6 +603,27 @@ Acceptance:
 - `/ko` is checked in a browser.
 
 Status: complete locally.
+
+### Slice 28: Operator-Friendly Studio UX
+
+Make the Studio feel like a no-code publishing console for a non-developer
+operator.
+
+Acceptance:
+
+- The Studio root menu uses Korean/operator-facing labels.
+- A `처음 시작하기 / 작성 가이드` pane explains the writing flow, image upload
+  rules, and body copy rules inside Studio.
+- `새 게시글 만들기` gives category-specific Article entry points backed by the
+  existing Article templates.
+- Article fields explain title, slug, category, representative image, body,
+  publish date, translation status, SEO, and CTA in Korean.
+- Article documents show a preview/open-site link and a pre-publish checklist.
+- `pnpm test` passes.
+- `pnpm build` passes.
+
+Status: complete locally. Full visual verification of the authenticated Studio
+menu still requires a Sanity member browser session.
 
 ## Later Phases
 

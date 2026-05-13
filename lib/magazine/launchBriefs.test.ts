@@ -66,11 +66,11 @@ describe('launch brief seed payload', () => {
     );
 
     expect(sourceBriefField).toMatchObject({
-      title: 'Source launch brief',
+      title: '원본 런칭 카드',
       type: 'reference',
       to: [{ type: 'launchBrief' }],
     });
-    expect(sourceBriefField?.description).toContain('Launch Desk');
+    expect(sourceBriefField?.description).toContain('런칭 작업실');
   });
 
   it('documents a writing worksheet for every launch story brief', () => {

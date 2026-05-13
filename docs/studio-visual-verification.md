@@ -29,32 +29,51 @@ locale middleware.
 The actual no-code publishing menu requires an authenticated Sanity member
 session. After logging in, verify that the left navigation includes:
 
-- `Launch Desk`
-- `Articles by Category`
-- `Site Settings`
-- `Rider Profiles`
-- `Look Book Setup`
-- `Editorial Support`
+- `처음 시작하기 / 작성 가이드`
+- `새 게시글 만들기`
+- `런칭 작업실`
+- `카테고리별 게시글 관리`
+- `사이트 기본 설정`
+- `라이더 프로필`
+- `룩북 / 상품 준비`
+- `작성 지원 / 용어집`
 
-Inside `Launch Desk`, verify:
+Inside `새 게시글 만들기`, verify:
 
-- `All Launch Briefs`
-- `Story Briefs`
-- `Rider Profile Briefs`
-- `Glossary Batch`
-- `Needs Assets / Approval`
-- `Ready to Publish`
+- `새 Editorial 글 만들기`
+- `새 Riders 인터뷰 글 만들기`
+- `새 Look 글 만들기`
+- `새 Heritage 글 만들기`
+- `새 Guide 글 만들기`
+- `새 News 글 만들기`
+- `새 Stories 글 만들기`
 
-Inside `Articles by Category`, verify:
+Inside `런칭 작업실`, verify:
 
-- `All Articles`
-- `Editorial`
-- `Rider Interviews`
-- `Look Book Stories`
-- `Heritage`
-- `Guide`
-- `News`
-- `Stories`
+- `모든 런칭 카드`
+- `런칭 글 카드`
+- `라이더 프로필 카드`
+- `용어집 작업 카드`
+- `사진 / 승인 필요`
+- `게시 준비 완료`
+
+Inside `카테고리별 게시글 관리`, verify:
+
+- `모든 게시글`
+- `Editorial 글`
+- `Riders 인터뷰 글`
+- `Look 글`
+- `Heritage 글`
+- `Guide 글`
+- `News 글`
+- `Stories 글`
+
+Inside an Article document, verify:
+
+- `미리보기 버튼`
+- `게시 전 체크리스트`
+- Korean field descriptions for title, slug, category, hero image, body, and
+  publish date.
 
 The code-level guard for these sections lives in
 `lib/magazine/studioPublishing.test.ts`.

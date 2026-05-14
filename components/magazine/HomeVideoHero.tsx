@@ -45,10 +45,17 @@ export function HomeVideoHero() {
         return;
       }
 
-      void video.play().catch(() => {
-        video.pause();
-        publishFilmState('paused');
-      });
+      void video
+        .play()
+        .then(() => {
+          if (!video.ended) {
+            publishFilmState('playing');
+          }
+        })
+        .catch(() => {
+          video.pause();
+          publishFilmState('paused');
+        });
     };
 
     video.addEventListener('ended', handleEnded);
@@ -73,10 +80,17 @@ export function HomeVideoHero() {
     setIsEnded(false);
     video.currentTime = 0;
     publishFilmState('playing');
-    void video.play().catch(() => {
-      video.pause();
-      publishFilmState('paused');
-    });
+    void video
+      .play()
+      .then(() => {
+        if (!video.ended) {
+          publishFilmState('playing');
+        }
+      })
+      .catch(() => {
+        video.pause();
+        publishFilmState('paused');
+      });
   };
 
   const openFullscreen = () => {
@@ -104,7 +118,7 @@ export function HomeVideoHero() {
   return (
     <section
       data-masthead-hide-zone="true"
-      className="relative aspect-video overflow-hidden border-b border-hairline bg-black text-white xl:h-[calc(100svh-52px)] xl:min-h-[560px] xl:aspect-auto"
+      className="relative aspect-[9/16] overflow-hidden border-b border-hairline bg-black text-white md:aspect-video xl:h-[calc(100svh-52px)] xl:min-h-[560px] xl:aspect-auto"
       aria-label="Penacova hero film"
     >
       <div className="absolute inset-0 overflow-hidden bg-black">
@@ -114,22 +128,31 @@ export function HomeVideoHero() {
         >
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full object-contain object-top"
-            src="/media/penacova_home_pinned_scroll.mp4"
+            className="absolute inset-0 h-full w-full scale-[1.12] object-cover object-center md:scale-100 md:object-contain md:object-top"
             poster="/media/penacova_home_pinned_scroll_poster.jpg"
             muted
             playsInline
             autoPlay
             preload="auto"
             aria-hidden="true"
-          />
+          >
+            <source
+              src="/media/penacova_home_mobile_9x16.mp4"
+              type="video/mp4"
+              media="(max-width: 767px)"
+            />
+            <source
+              src="/media/penacova_home_pinned_scroll.mp4"
+              type="video/mp4"
+            />
+          </video>
 
           <Image
             src="/media/penacova_home_video_endcard.jpg"
             alt=""
             fill
             sizes="100vw"
-            className={`object-contain object-top transition-opacity duration-700 ${
+            className={`hidden object-contain object-top transition-opacity duration-700 md:block ${
               isEnded ? 'opacity-100' : 'pointer-events-none opacity-0'
             }`}
             aria-hidden="true"

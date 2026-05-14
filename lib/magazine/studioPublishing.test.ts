@@ -70,8 +70,16 @@ describe('Studio publishing harness', () => {
       '사진 / 승인 필요',
       '게시 준비 완료',
     ]);
+    expect(launchDeskSections.map((section) => section.id)).toEqual([
+      'launch-story-briefs',
+      'launch-rider-profile-briefs',
+      'launch-glossary-batch',
+      'launch-needs-assets-approval',
+      'launch-ready-to-publish',
+    ]);
 
     for (const section of launchDeskSections) {
+      expect(section.id).toMatch(/^[a-z0-9-]+$/);
       expect(section.schemaType).toBe('launchBrief');
       expect(section.defaultOrdering).toEqual([
         { field: 'priority', direction: 'asc' },

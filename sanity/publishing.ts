@@ -17,6 +17,7 @@ export type ArticlePublishingCategory = {
 };
 
 export type StudioDocumentListSection = {
+  id: string;
   title: string;
   schemaType: string;
   filter: string;
@@ -83,24 +84,28 @@ export const priorityAscending: StudioOrdering[] = [
 
 export const launchDeskSections: StudioDocumentListSection[] = [
   {
+    id: 'launch-story-briefs',
     title: '런칭 글 카드',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && briefType == "story"',
     defaultOrdering: priorityAscending,
   },
   {
+    id: 'launch-rider-profile-briefs',
     title: '라이더 프로필 카드',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && briefType == "rider-profile"',
     defaultOrdering: priorityAscending,
   },
   {
+    id: 'launch-glossary-batch',
     title: '용어집 작업 카드',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && briefType == "glossary-batch"',
     defaultOrdering: priorityAscending,
   },
   {
+    id: 'launch-needs-assets-approval',
     title: '사진 / 승인 필요',
     schemaType: 'launchBrief',
     filter:
@@ -108,6 +113,7 @@ export const launchDeskSections: StudioDocumentListSection[] = [
     defaultOrdering: priorityAscending,
   },
   {
+    id: 'launch-ready-to-publish',
     title: '게시 준비 완료',
     schemaType: 'launchBrief',
     filter: '_type == "launchBrief" && status == "ready-to-publish"',
@@ -117,12 +123,14 @@ export const launchDeskSections: StudioDocumentListSection[] = [
 
 export const glossaryReviewSections: StudioDocumentListSection[] = [
   {
+    id: 'glossary-needs-jp-review',
     title: '일본어 검수 필요 용어',
     schemaType: 'glossary',
     filter: '_type == "glossary" && reviewStatus == "jp-review-needed"',
     defaultOrdering: [{ field: 'koTerm', direction: 'asc' }],
   },
   {
+    id: 'glossary-ready',
     title: '게시 준비 완료 용어',
     schemaType: 'glossary',
     filter: '_type == "glossary" && reviewStatus == "ready"',

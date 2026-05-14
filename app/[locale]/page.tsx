@@ -232,6 +232,11 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
               id={rail.id}
               key={rail.id}
               href={`/${params.locale}/${rail.id}`}
+              data-analytics-event="category_nav"
+              data-analytics-label={rail.title}
+              data-analytics-locale={params.locale}
+              data-analytics-category={rail.id}
+              data-analytics-href={`/${params.locale}/${rail.id}`}
               className="grid gap-3 py-8 no-underline md:grid-cols-[220px_1fr_auto] md:items-center"
             >
               <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.24em] text-penacova">

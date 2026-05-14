@@ -8,6 +8,15 @@ type FullscreenVideoElement = HTMLVideoElement & {
   webkitRequestFullscreen?: () => Promise<void> | void;
 };
 
+function publishFilmState(state: 'playing' | 'ended' | 'paused') {
+  document.documentElement.dataset.homeFilmState = state;
+  window.dispatchEvent(
+    new CustomEvent('penacova:home-film-state', {
+      detail: { state },
+    }),
+  );
+}
+
 export function HomeVideoHero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isEnded, setIsEnded] = useState(false);
@@ -21,7 +30,14 @@ export function HomeVideoHero() {
 
     const handleEnded = () => {
       setIsEnded(true);
+      publishFilmState('ended');
       video.pause();
+    };
+
+    const handlePlaying = () => {
+      if (!video.ended) {
+        publishFilmState('playing');
+      }
     };
 
     const startPlayback = () => {
@@ -31,15 +47,18 @@ export function HomeVideoHero() {
 
       void video.play().catch(() => {
         video.pause();
+        publishFilmState('paused');
       });
     };
 
     video.addEventListener('ended', handleEnded);
+    video.addEventListener('playing', handlePlaying);
     video.addEventListener('canplay', startPlayback);
     startPlayback();
 
     return () => {
       video.removeEventListener('ended', handleEnded);
+      video.removeEventListener('playing', handlePlaying);
       video.removeEventListener('canplay', startPlayback);
     };
   }, [isEnded]);
@@ -53,8 +72,10 @@ export function HomeVideoHero() {
 
     setIsEnded(false);
     video.currentTime = 0;
+    publishFilmState('playing');
     void video.play().catch(() => {
       video.pause();
+      publishFilmState('paused');
     });
   };
 
@@ -83,7 +104,7 @@ export function HomeVideoHero() {
   return (
     <section
       data-masthead-hide-zone="true"
-      className="relative h-screen overflow-hidden border-b border-hairline bg-black text-white"
+      className="relative aspect-video overflow-hidden border-b border-hairline bg-black text-white xl:h-[calc(100svh-52px)] xl:min-h-[560px] xl:aspect-auto"
       aria-label="Penacova hero film"
     >
       <div className="absolute inset-0 overflow-hidden bg-black">
@@ -93,7 +114,7 @@ export function HomeVideoHero() {
         >
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-contain object-top"
             src="/media/penacova_home_pinned_scroll.mp4"
             poster="/media/penacova_home_pinned_scroll_poster.jpg"
             muted
@@ -108,7 +129,7 @@ export function HomeVideoHero() {
             alt=""
             fill
             sizes="100vw"
-            className={`object-cover transition-opacity duration-700 ${
+            className={`object-contain object-top transition-opacity duration-700 ${
               isEnded ? 'opacity-100' : 'pointer-events-none opacity-0'
             }`}
             aria-hidden="true"

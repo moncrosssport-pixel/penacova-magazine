@@ -7,6 +7,8 @@ import { LOCALES, type Locale } from '@/lib/i18n/locales';
 import { localePath } from '@/lib/i18n/routes';
 import { MAGAZINE_CATEGORIES } from '@/lib/magazine/categories';
 
+type HomeFilmState = 'idle' | 'playing' | 'ended' | 'paused';
+
 type MagazineMastheadProps = {
   locale: Locale;
   pathSegments?: string[];
@@ -19,6 +21,33 @@ export function MagazineMasthead({
   hideOnScroll = false,
 }: MagazineMastheadProps) {
   const [isHidden, setIsHidden] = useState(false);
+  const [filmState, setFilmState] = useState<HomeFilmState>('idle');
+
+  useEffect(() => {
+    if (!hideOnScroll) {
+      setFilmState('idle');
+      return;
+    }
+
+    const readState = (): HomeFilmState => {
+      const state = document.documentElement.dataset.homeFilmState;
+      return state === 'playing' || state === 'ended' || state === 'paused'
+        ? state
+        : 'idle';
+    };
+
+    const handleFilmState = (event: Event) => {
+      const customEvent = event as CustomEvent<{ state?: HomeFilmState }>;
+      setFilmState(customEvent.detail?.state ?? readState());
+    };
+
+    setFilmState(readState());
+    window.addEventListener('penacova:home-film-state', handleFilmState);
+
+    return () => {
+      window.removeEventListener('penacova:home-film-state', handleFilmState);
+    };
+  }, [hideOnScroll]);
 
   useEffect(() => {
     if (!hideOnScroll) {
@@ -40,10 +69,10 @@ export function MagazineMasthead({
       }
 
       const rect = hideZone.getBoundingClientRect();
-      const isInsideHideZone =
-        rect.top < window.innerHeight * 0.72 && rect.bottom > 72;
+      const isInsideHideZone = rect.top < window.innerHeight && rect.bottom > 72;
+      const isFilmPlayingInView = filmState === 'playing' && isInsideHideZone;
 
-      setIsHidden(window.scrollY > 24 && isInsideHideZone);
+      setIsHidden(isFilmPlayingInView);
     };
 
     const requestSync = () => {
@@ -66,11 +95,11 @@ export function MagazineMasthead({
         window.cancelAnimationFrame(frame);
       }
     };
-  }, [hideOnScroll]);
+  }, [filmState, hideOnScroll]);
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-ink bg-paper/96 shadow-[0_1px_0_rgba(16,14,12,0.04)] backdrop-blur transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] ${
+      className={`${hideOnScroll ? 'fixed left-0 right-0 top-0' : 'sticky top-0'} z-50 border-b border-ink bg-paper/96 shadow-[0_1px_0_rgba(16,14,12,0.04)] backdrop-blur transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] ${
         isHidden ? 'pointer-events-none -translate-y-full' : 'translate-y-0'
       }`}
     >
@@ -128,7 +157,7 @@ export function MagazineMasthead({
       </div>
 
       <div className="border-t border-hairline px-4 py-2 sm:px-8 xl:hidden">
-        <nav className="flex gap-5 overflow-x-auto whitespace-nowrap font-ui text-[10px] font-semibold uppercase tracking-[0.2em] sm:justify-center sm:gap-7">
+        <nav className="flex gap-5 overflow-x-auto whitespace-nowrap font-ui text-[10px] font-semibold uppercase tracking-[0.2em] [-ms-overflow-style:none] [scrollbar-width:none] sm:justify-center sm:gap-7 [&::-webkit-scrollbar]:hidden">
           {MAGAZINE_CATEGORIES.map((category) => (
             <Link
               key={category.id}

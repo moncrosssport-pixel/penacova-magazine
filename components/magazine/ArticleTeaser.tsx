@@ -24,38 +24,34 @@ export function ArticleTeaser({
   priority = false,
   lead = false,
 }: ArticleTeaserProps) {
+  const imageSrc = imageUrl ?? null;
+
   return (
     <article
       className={`group grid gap-5 ${
         lead ? 'border-b border-ink pb-10 lg:grid-cols-[1.35fr_1fr] lg:items-end' : ''
+      } ${
+        !lead && !imageSrc ? 'border-y border-hairline py-5' : ''
       }`}
     >
-      <Link href={href} className="block no-underline" aria-label={title}>
-        <div
-          className={`relative flex items-center justify-center overflow-hidden bg-tonal transition duration-200 group-hover:opacity-90 ${
-            lead ? 'aspect-[16/10]' : 'aspect-[4/5]'
-          }`}
-        >
-          {imageUrl ? (
+      {imageSrc ? (
+        <Link href={href} className="block no-underline" aria-label={title}>
+          <div
+            className={`relative overflow-hidden bg-tonal transition duration-200 group-hover:opacity-90 ${
+              lead ? 'aspect-[16/10]' : 'aspect-[4/5]'
+            }`}
+          >
             <Image
-              src={imageUrl}
+              src={imageSrc}
               alt=""
               fill
               className="object-cover"
               sizes={lead ? '(min-width: 1024px) 58vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
               priority={priority}
             />
-          ) : (
-            <Image
-              src="/brand/logo-mark.png"
-              alt=""
-              width={96}
-              height={96}
-              className="h-16 w-16 object-contain opacity-20"
-            />
-          )}
-        </div>
-      </Link>
+          </div>
+        </Link>
+      ) : null}
 
       <div className={lead ? 'pb-1' : ''}>
         <p className="kicker">{kicker}</p>

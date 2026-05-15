@@ -155,8 +155,8 @@ export function MagazineMasthead({
         </div>
       </div>
 
-      <div className="border-t border-hairline px-4 py-2 sm:px-8 xl:hidden">
-        <nav className="flex gap-5 overflow-x-auto whitespace-nowrap font-ui text-[10px] font-semibold uppercase tracking-[0.2em] [-ms-overflow-style:none] [scrollbar-width:none] sm:justify-center sm:gap-7 [&::-webkit-scrollbar]:hidden">
+      <div className="border-t border-hairline px-4 py-1 sm:px-8 xl:hidden">
+        <nav className="flex gap-4 overflow-x-auto whitespace-nowrap font-ui text-[10px] font-semibold uppercase tracking-[0.16em] [-ms-overflow-style:none] [scrollbar-width:none] sm:justify-center sm:gap-7 sm:tracking-[0.2em] [&::-webkit-scrollbar]:hidden">
           {navLinks.map((link) => (
             <MastheadNavLink
               key={link.id}
@@ -189,7 +189,7 @@ function MastheadNavLink({
       data-analytics-locale={locale}
       data-analytics-category={link.category}
       data-analytics-href={link.href}
-      className={`border-b pb-0.5 no-underline transition-colors ${
+      className={`inline-flex min-h-11 items-center border-b pb-0.5 no-underline transition-colors ${
         active
           ? 'border-penacova text-penacova'
           : 'border-transparent hover:border-ink hover:text-penacova'

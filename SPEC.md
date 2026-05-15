@@ -67,6 +67,8 @@ The repository currently contains the foundation:
   navigation
 - Riders and Look category indexes surface existing Rider and Collection
   documents when no Article documents are published in those sections yet
+- Mobile UX hardening for launch navigation, Korean line breaking, text-only
+  missing-image cards, subscribe input sizing, and compact footer spacing
 - Launch content inventory for first stories, rider profiles, and glossary terms
 - Launch story workbook for the first 12 stories, including exact source brief,
   route, asset, approval, and Studio field guidance
@@ -96,7 +98,7 @@ Later category-specific detail templates still need launch content.
 Approximate current progress:
 
 - Phase 1 technical foundation: 97% complete.
-- Final public launch: 64% complete.
+- Final public launch: 66% complete.
 
 ## Phase 1 Target
 

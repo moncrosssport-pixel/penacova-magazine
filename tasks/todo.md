@@ -58,11 +58,13 @@
       masthead/sitemap, surface Rider/Collection cards on Riders/Look indexes,
       production-hide internal launch pages, and remove Cafe24 platform wording
       from public CTAs.
+- [x] Add mobile UX checklist and harden mobile typography, touch targets,
+      placeholder handling, subscribe input sizing, and compact footer spacing.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 97% complete.
-- Final public launch: about 64% complete.
+- Final public launch: about 66% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, real newsletter provider connection, custom analytics
   provider setup, and final QA. The magazine subdomain is optional unless a

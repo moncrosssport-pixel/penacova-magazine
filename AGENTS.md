@@ -15,11 +15,12 @@ Before changing code, read these files in order:
 6. `docs/custom-domain-runbook.md`
 7. `docs/studio-visual-verification.md`
 8. `docs/launch-story-workbook.md`
-9. `Penacova Magazine Design System/README.md`
-10. `Penacova Magazine Design System/SKILL.md`
-11. `docs/agent-harness.md`
-12. `tasks/plan.md`
-13. `tasks/todo.md`
+9. `docs/mobile-ux-checklist.md`
+10. `Penacova Magazine Design System/README.md`
+11. `Penacova Magazine Design System/SKILL.md`
+12. `docs/agent-harness.md`
+13. `tasks/plan.md`
+14. `tasks/todo.md`
 
 Then run:
 
@@ -110,6 +111,8 @@ Implemented:
 - Path-preserving locale switcher links in the magazine masthead
 - Initial public masthead/sitemap navigation limited to Editorial, Riders,
   Look, and Subscribe until the remaining categories have launch content
+- Mobile launch UX checklist and verification notes in
+  `docs/mobile-ux-checklist.md`
 - No-code publishing harness for Sanity editors
 - Korean operator-facing Studio menu, start guide, Article preview link, and
   pre-publish checklist

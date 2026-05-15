@@ -41,6 +41,20 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html[lang='ko'] body {
+  word-break: keep-all;
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+dt,
+dd {
+  overflow-wrap: break-word;
+}
+
 a {
   color: inherit;
   text-decoration: underline;
@@ -96,21 +110,24 @@ a:hover {
     font-size: 1.25rem;
     font-style: italic;
     line-height: 1.5;
+    word-break: keep-all;
   }
 
   .article-prose p {
     color: var(--ink);
     font-family: var(--font-serif-editorial);
     font-size: 1.125rem;
+    letter-spacing: -0.01em;
     line-height: 1.85;
     margin-bottom: 1.5rem;
+    word-break: keep-all;
   }
 
   .article-prose p:first-of-type::first-letter {
     color: var(--penacova-red);
     float: left;
     font-family: var(--font-display);
-    font-size: 5.4em;
+    font-size: 5.2em;
     font-weight: 700;
     line-height: 0.9;
     margin: 0.05em 0.08em 0 -0.04em;
@@ -123,14 +140,44 @@ a:hover {
     font-family: var(--font-display);
     font-size: 2rem;
     font-style: italic;
-    line-height: 1.25;
+    line-height: 1.35;
     margin: 3rem 0;
     padding: 2rem 0;
+    word-break: keep-all;
   }
 
   .article-prose img {
     display: block;
     margin: 3rem 0;
     width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    .kicker {
+      font-size: 0.6875rem;
+      letter-spacing: 0.24em;
+    }
+
+    .dek {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+
+    .article-prose p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+    }
+
+    .article-prose p:first-of-type::first-letter {
+      font-size: 4.7em;
+      margin-right: 0.08em;
+    }
+
+    .article-prose blockquote {
+      font-size: clamp(1.6rem, 7vw, 2rem);
+      line-height: 1.35;
+      margin: 2.5rem 0;
+      padding: 1.5rem 0;
+    }
   }
 }

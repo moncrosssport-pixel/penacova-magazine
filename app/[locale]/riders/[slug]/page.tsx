@@ -158,9 +158,13 @@ export default async function RiderPage({ params }: RiderPageProps) {
 
       <article>
         <header className="border-b border-hairline">
-          <div className="mx-auto grid max-w-content gap-10 px-6 py-12 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:px-14 lg:py-16">
-            <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-tonal">
-              {portraitUrl ? (
+          <div
+            className={`mx-auto grid max-w-content gap-10 px-6 py-12 sm:px-10 lg:px-14 lg:py-16 ${
+              portraitUrl ? 'lg:grid-cols-[0.95fr_1.05fr]' : 'lg:grid-cols-1'
+            }`}
+          >
+            {portraitUrl ? (
+              <div className="relative aspect-[4/5] overflow-hidden bg-tonal">
                 <Image
                   src={portraitUrl}
                   alt=""
@@ -169,20 +173,12 @@ export default async function RiderPage({ params }: RiderPageProps) {
                   priority
                   sizes="(min-width: 1024px) 45vw, 100vw"
                 />
-              ) : (
-                <Image
-                  src="/brand/logo-mark.png"
-                  alt=""
-                  width={128}
-                  height={128}
-                  className="h-24 w-24 object-contain opacity-20"
-                />
-              )}
-            </div>
+              </div>
+            ) : null}
 
-            <div className="flex flex-col justify-end">
+            <div className="flex max-w-reading flex-col justify-end">
               <p className="kicker">Rider Profile</p>
-              <h1 className="mt-5 font-display text-6xl font-semibold leading-none text-balance sm:text-7xl lg:text-8xl">
+              <h1 className="mt-5 font-display text-[clamp(3.5rem,17vw,6rem)] font-semibold leading-none text-balance [word-break:keep-all] sm:text-7xl lg:text-8xl">
                 {name}
               </h1>
               {rider.romanizedName ? (
@@ -285,19 +281,11 @@ function ProductBlock({
 
   return (
     <article className="border-t border-hairline pt-5">
-      <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-tonal">
-        {imageUrl ? (
+      {imageUrl ? (
+        <div className="relative aspect-[4/5] overflow-hidden bg-tonal">
           <Image src={imageUrl} alt="" fill className="object-cover" sizes="(min-width: 768px) 33vw, 100vw" />
-        ) : (
-          <Image
-            src="/brand/logo-mark.png"
-            alt=""
-            width={80}
-            height={80}
-            className="h-14 w-14 object-contain opacity-20"
-          />
-        )}
-      </div>
+        </div>
+      ) : null}
       <h2 className="mt-4 font-display text-2xl font-semibold leading-tight">{name}</h2>
       {product.color ? (
         <p className="mt-2 font-ui text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">

@@ -187,7 +187,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           }`}
         >
           <p className="kicker">{meta.label}</p>
-          <h1 className="mt-6 font-display text-5xl font-semibold leading-none tracking-[-0.015em] text-balance sm:text-6xl lg:text-7xl">
+          <h1 className="mt-6 font-display text-[clamp(2.375rem,10.5vw,4.5rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-balance [word-break:keep-all] sm:text-6xl lg:text-7xl">
             {title}
           </h1>
           {excerpt ? <p className="dek mt-6">{excerpt}</p> : null}

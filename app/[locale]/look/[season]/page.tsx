@@ -131,9 +131,13 @@ export default async function LookBookPage({ params }: LookBookPageProps) {
         data-analytics-slug={collection.slug}
       >
         <header className="border-b border-hairline">
-          <div className="mx-auto grid max-w-content gap-10 px-6 py-12 sm:px-10 lg:grid-cols-[1.08fr_0.92fr] lg:px-14 lg:py-16">
-            <div className="relative flex aspect-[5/4] items-center justify-center overflow-hidden bg-tonal">
-              {heroImageUrl ? (
+          <div
+            className={`mx-auto grid max-w-content gap-10 px-6 py-12 sm:px-10 lg:px-14 lg:py-16 ${
+              heroImageUrl ? 'lg:grid-cols-[1.08fr_0.92fr]' : 'lg:grid-cols-1'
+            }`}
+          >
+            {heroImageUrl ? (
+              <div className="relative aspect-square overflow-hidden bg-tonal sm:aspect-[5/4]">
                 <Image
                   src={heroImageUrl}
                   alt=""
@@ -142,23 +146,15 @@ export default async function LookBookPage({ params }: LookBookPageProps) {
                   priority
                   sizes="(min-width: 1024px) 56vw, 100vw"
                 />
-              ) : (
-                <Image
-                  src="/brand/logo-mark.png"
-                  alt=""
-                  width={128}
-                  height={128}
-                  className="h-24 w-24 object-contain opacity-20"
-                />
-              )}
-            </div>
+              </div>
+            ) : null}
 
-            <div className="flex flex-col justify-end">
+            <div className="flex max-w-reading flex-col justify-end">
               <p className="kicker">Look Book</p>
               <p className="mt-6 font-ui text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                 {collection.season}
               </p>
-              <h1 className="mt-5 font-display text-6xl font-semibold leading-none text-balance sm:text-7xl lg:text-8xl">
+              <h1 className="mt-5 font-display text-[clamp(3.25rem,15vw,6rem)] font-semibold leading-none text-balance [word-break:keep-all] sm:text-7xl lg:text-8xl">
                 {title}
               </h1>
               <p className="dek mt-6 max-w-xl">
@@ -238,8 +234,8 @@ function LookBlock({
 
   return (
     <article className="border-t border-hairline pt-5">
-      <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-tonal">
-        {imageUrl ? (
+      {imageUrl ? (
+        <div className="relative aspect-[4/5] overflow-hidden bg-tonal">
           <Image
             src={imageUrl}
             alt=""
@@ -248,16 +244,8 @@ function LookBlock({
             priority={priority}
             sizes="(min-width: 768px) 50vw, 100vw"
           />
-        ) : (
-          <Image
-            src="/brand/logo-mark.png"
-            alt=""
-            width={96}
-            height={96}
-            className="h-16 w-16 object-contain opacity-20"
-          />
-        )}
-      </div>
+        </div>
+      ) : null}
       <div className="mt-5 grid gap-4 sm:grid-cols-[0.25fr_0.75fr]">
         <p className="font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
           {look.number}

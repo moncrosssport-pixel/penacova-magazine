@@ -61,6 +61,9 @@ Completed:
   when no Article documents are published in those sections yet.
 - Launch workbook and readiness pages are noindex internal tooling and return
   404 in production unless `PENACOVA_SHOW_INTERNAL_LAUNCH_PAGES=1` is set.
+- Mobile hardening now covers Korean keep-all line breaks, mobile touch targets,
+  text-only missing-image cards, subscribe input sizing, and compact footer
+  spacing. The checklist lives in `docs/mobile-ux-checklist.md`.
 - Launch content inventory covers 12 first stories, 5 rider profile slots, and
   50 glossary starter terms.
 - Launch story workbook maps the 12 story briefs to exact Article fields,
@@ -657,6 +660,29 @@ Acceptance:
 - `pnpm test` passes.
 - `pnpm build` passes.
 - Main affected routes are checked in a browser.
+
+Status: complete locally.
+
+### Slice 30: Mobile Launch UX Checklist
+
+Make the mobile version testable and reduce the strongest 390px launch issues
+from the latest UI review.
+
+Acceptance:
+
+- `docs/mobile-ux-checklist.md` records blocker, pre-launch, and content QA
+  items for mobile.
+- Mobile masthead links have touch-friendly height and avoid overflow at the
+  launch menu size.
+- Korean headings and body copy avoid mid-word splits where possible.
+- Cards and detail sections do not show large placeholder logo blocks when no
+  real image is available.
+- Subscribe input uses mobile-safe font sizing and keeps the provider-pending
+  state explicit.
+- Footer spacing is compacted on mobile while preserving desktop rhythm.
+- `pnpm test` passes.
+- `pnpm build` passes.
+- Mobile screenshots are saved for the main affected routes.
 
 Status: complete locally.
 

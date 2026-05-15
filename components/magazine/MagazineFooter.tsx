@@ -11,8 +11,8 @@ const magazineLinks = [
 
 export function MagazineFooter({ locale = 'ko' }: { locale?: Locale }) {
   return (
-    <footer className="bg-ink px-6 py-12 text-paper sm:px-10 lg:px-14 lg:py-16">
-      <div className="mx-auto grid max-w-content gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+    <footer className="bg-ink px-6 py-10 text-paper sm:px-10 md:py-12 lg:px-14 lg:py-16">
+      <div className="mx-auto grid max-w-content gap-8 border-b border-white/15 pb-8 md:grid-cols-[1.6fr_1fr_1fr_1fr] md:gap-10 md:pb-10">
         <div>
           <Image
             src="/brand/logo-horizontal-white.png"
@@ -49,7 +49,7 @@ export function MagazineFooter({ locale = 'ko' }: { locale?: Locale }) {
         />
       </div>
 
-      <div className="mx-auto flex max-w-content flex-col gap-3 pt-6 font-mono text-[11px] uppercase tracking-[0.08em] text-paper/50 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-content flex-col gap-2 pt-5 font-mono text-[10px] uppercase tracking-[0.08em] text-paper/50 sm:flex-row sm:items-center sm:justify-between sm:text-[11px]">
         <span>2026 Penacova</span>
         <span>magazine.penacova.co.kr</span>
         <span>KO · EN · JP</span>
@@ -67,10 +67,10 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h2 className="mb-4 font-ui text-[11px] font-semibold uppercase tracking-[0.22em] text-paper/50">
+      <h2 className="mb-3 font-ui text-[11px] font-semibold uppercase tracking-[0.22em] text-paper/50 md:mb-4">
         {title}
       </h2>
-      <div className="flex flex-col gap-2 font-ui text-sm">
+      <div className="flex flex-col gap-1.5 font-ui text-sm md:gap-2">
         {items.map((item) => (
           <FooterLink key={`${item.label}-${item.href}`} item={item} />
         ))}

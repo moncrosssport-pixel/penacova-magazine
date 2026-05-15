@@ -143,7 +143,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <header className="border-b border-hairline">
         <div className="mx-auto max-w-content px-6 py-14 sm:px-10 lg:px-14 lg:py-20">
           <p className="kicker">Penacova Magazine</p>
-          <h1 className="mt-5 font-display text-6xl font-semibold leading-none tracking-[-0.015em] text-balance sm:text-7xl lg:text-8xl">
+          <h1 className="mt-5 font-display text-[clamp(3.5rem,17vw,6rem)] font-semibold leading-none tracking-[-0.015em] text-balance [word-break:keep-all] sm:text-7xl lg:text-8xl">
             {pickLocalized(meta.title, locale) || meta.label}
           </h1>
           <p className="dek mt-6 max-w-3xl">{pickLocalized(meta.dek, locale)}</p>
@@ -275,7 +275,7 @@ function CategoryEmptyState({
   return (
     <div className="border-y border-hairline py-16 text-center lg:py-24">
       <p className="kicker">{label}</p>
-      <h2 className="mx-auto mt-4 max-w-2xl font-display text-4xl font-semibold leading-tight tracking-[-0.015em] text-balance">
+      <h2 className="mx-auto mt-4 max-w-2xl font-display text-[clamp(2rem,9vw,2.75rem)] font-semibold leading-tight tracking-[-0.02em] text-balance [word-break:keep-all] sm:text-4xl">
         {pickLocalized(copy.title, locale) || fallbackTitle}
       </h2>
       <p className="mx-auto mt-5 max-w-xl font-serif-editorial text-lg leading-relaxed text-ink-mute">

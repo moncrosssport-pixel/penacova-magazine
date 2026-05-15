@@ -61,12 +61,12 @@ export async function MagazineNewsletter({
             type="email"
             required
             placeholder="Email address"
-            className="min-w-0 bg-transparent font-ui text-sm text-ink outline-none placeholder:text-muted"
+            className="min-h-11 min-w-0 bg-transparent font-ui text-base text-ink outline-none placeholder:text-muted sm:text-sm"
           />
           <button
             type="submit"
             disabled={!hasForm}
-            className="font-ui text-[11px] font-semibold uppercase tracking-[0.2em] text-penacova disabled:text-muted"
+            className="inline-flex min-h-11 items-center justify-center font-ui text-[11px] font-semibold uppercase tracking-[0.2em] text-penacova disabled:text-muted"
           >
             Subscribe -&gt;
           </button>

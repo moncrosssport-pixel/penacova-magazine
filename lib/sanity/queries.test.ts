@@ -4,10 +4,12 @@ import {
   articleBySlugQuery,
   articlesByCategoryParams,
   articlesByCategoryQuery,
+  collectionsIndexQuery,
   collectionBySlugParams,
   collectionBySlugQuery,
   riderBySlugParams,
   riderBySlugQuery,
+  ridersIndexQuery,
   sitemapArticlesQuery,
   sitemapCollectionsQuery,
   sitemapRidersQuery,
@@ -134,6 +136,19 @@ describe('riderBySlugParams', () => {
   });
 });
 
+describe('ridersIndexQuery', () => {
+  it('selects rider profile cards for the riders landing page', () => {
+    const query = ridersIndexQuery();
+
+    expect(query).toContain('_type == "rider"');
+    expect(query).toContain('defined(slug.current)');
+    expect(query).toContain('"slug": slug.current');
+    expect(query).toContain('portrait');
+    expect(query).toContain('careerYears');
+    expect(query).toContain('!(_id in path("drafts.**"))');
+  });
+});
+
 describe('collectionBySlugQuery', () => {
   it('filters collection documents by slug', () => {
     const query = collectionBySlugQuery();
@@ -167,6 +182,20 @@ describe('collectionBySlugParams', () => {
     expect(collectionBySlugParams('ss26')).toEqual({
       slug: 'ss26',
     });
+  });
+});
+
+describe('collectionsIndexQuery', () => {
+  it('selects collection cards for the look landing page', () => {
+    const query = collectionsIndexQuery();
+
+    expect(query).toContain('_type == "collection"');
+    expect(query).toContain('defined(slug.current)');
+    expect(query).toContain('season');
+    expect(query).toContain('"slug": slug.current');
+    expect(query).toContain('heroImage');
+    expect(query).toContain('looks[]->');
+    expect(query).toContain('!(_id in path("drafts.**"))');
   });
 });
 

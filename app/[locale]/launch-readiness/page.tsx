@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { isLocale } from '@/lib/i18n/locales';
+import { canShowInternalLaunchPages } from '@/lib/magazine/internalRoutes';
 import {
   collectLaunchReadinessInput,
   getLaunchReadinessStatus,
@@ -22,7 +23,7 @@ type LaunchReadinessPageProps = {
 export function generateMetadata({
   params,
 }: LaunchReadinessPageProps): Metadata {
-  if (!isLocale(params.locale)) {
+  if (!isLocale(params.locale) || !canShowInternalLaunchPages()) {
     return {};
   }
 
@@ -44,7 +45,7 @@ export function generateMetadata({
 export default async function LaunchReadinessPage({
   params,
 }: LaunchReadinessPageProps) {
-  if (!isLocale(params.locale)) {
+  if (!isLocale(params.locale) || !canShowInternalLaunchPages()) {
     notFound();
   }
 

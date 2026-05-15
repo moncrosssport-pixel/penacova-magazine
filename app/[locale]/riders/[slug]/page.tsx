@@ -309,11 +309,21 @@ function ProductBlock({
           href={href}
           className="mt-4 inline-block font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-penacova"
         >
-          Shop at Cafe24 -&gt;
+          {productCtaLabel(locale)} -&gt;
         </a>
       ) : null}
     </article>
   );
+}
+
+function productCtaLabel(locale: Locale) {
+  return (
+    {
+      ko: '제품 자세히 보기',
+      en: 'View product details',
+      jp: 'View product details',
+    } satisfies Record<Locale, string>
+  )[locale];
 }
 
 function riderTitle(rider: RiderDoc, locale: Locale) {

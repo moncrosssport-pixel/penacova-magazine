@@ -15,8 +15,8 @@
 - Seed content: `docs/seed-content.md`
 - Launch content inventory: `docs/launch-content-inventory.md`
 - Launch story workbook: `docs/launch-story-workbook.md`
-- Public editor workbook route: `/ko/launch-workbook`
-- Public launch readiness route: `/ko/launch-readiness`
+- Internal editor workbook route: `/ko/launch-workbook`
+- Internal launch readiness route: `/ko/launch-readiness`
 
 ## Develop
 
@@ -31,6 +31,8 @@ the launch check with `$env:NODE_OPTIONS='--use-system-ca'`.
 
 Home is at `localhost:3000/ko`; `/` redirects there.
 Category indexes are available at routes such as `localhost:3000/ko/editorial`.
+The launch masthead and sitemap expose only Editorial, Riders, Look, and
+Subscribe until the remaining categories have real content.
 Article detail pages are available at routes such as
 `localhost:3000/ko/editorial/quiet-morning` after content is published.
 Rider interview article pages use
@@ -50,6 +52,9 @@ managed as `launchBrief` documents in Studio's Launch Desk.
 Studio now includes Korean operator-facing navigation, a start guide, category
 specific article entry points, an Article preview link, and a pre-publish
 checklist.
+Launch workbook and launch readiness pages are local/internal tooling. In
+production they return 404 unless `PENACOVA_SHOW_INTERNAL_LAUNCH_PAGES=1` is
+set for a deliberate internal review deployment.
 
 Seed the Phase 1 article and glossary after either Sanity CLI login as a
 project member or a project write token:

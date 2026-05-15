@@ -6,10 +6,7 @@ const magazineLinks = [
   ['Editorial', 'editorial'],
   ['Riders', 'riders'],
   ['Look', 'look'],
-  ['Heritage', 'heritage'],
-  ['Guide', 'guide'],
-  ['News', 'news'],
-  ['Stories', 'stories'],
+  ['Subscribe', 'subscribe'],
 ] as const;
 
 export function MagazineFooter({ locale = 'ko' }: { locale?: Locale }) {
@@ -40,15 +37,13 @@ export function MagazineFooter({ locale = 'ko' }: { locale?: Locale }) {
         <FooterColumn
           title="Shop"
           items={[
-            { label: 'penacova.co.kr ->', href: 'https://www.penacova.co.kr/' },
-            { label: 'penacova.jp ->', href: 'https://penacova.jp/' },
+            { label: 'PENACOVA Korea ->', href: 'https://www.penacova.co.kr/' },
+            { label: 'PENACOVA Japan ->', href: 'https://penacova.jp/' },
           ]}
         />
         <FooterColumn
           title="Brand"
           items={[
-            { label: 'Subscribe', href: `/${locale}/subscribe` },
-            { label: 'Press', href: `/${locale}/news` },
             { label: 'Contact', href: 'https://www.penacova.co.kr/' },
           ]}
         />

@@ -108,6 +108,8 @@ Implemented:
 - Basic SEO metadata, canonical/alternate links, sitemap, robots, Open Graph,
   and article JSON-LD wiring
 - Path-preserving locale switcher links in the magazine masthead
+- Initial public masthead/sitemap navigation limited to Editorial, Riders,
+  Look, and Subscribe until the remaining categories have launch content
 - No-code publishing harness for Sanity editors
 - Korean operator-facing Studio menu, start guide, Article preview link, and
   pre-publish checklist
@@ -118,9 +120,10 @@ Implemented:
   publishing batch
 - Launch story workbook that maps the first 12 story briefs to Studio Article
   fields, routes, assets, approvals, and writing angles
-- Public editor workbook route at `/[locale]/launch-workbook`, marked noindex
-- Public editor launch readiness route at `/[locale]/launch-readiness`, marked
-  noindex
+- Internal editor workbook route at `/[locale]/launch-workbook`, marked noindex
+  and production-hidden by default
+- Internal editor launch readiness route at `/[locale]/launch-readiness`,
+  marked noindex and production-hidden by default
 - 50 glossary starter terms seeded in Studio with Japanese review still needed
 - Direct editor writing guide for self-serve article drafting
 - Local `/studio` visual shell verification documented; authenticated Studio

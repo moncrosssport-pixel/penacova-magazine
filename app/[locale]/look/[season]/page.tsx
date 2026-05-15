@@ -176,7 +176,7 @@ export default async function LookBookPage({ params }: LookBookPageProps) {
                   data-analytics-href={collectionHref}
                   className="mt-8 inline-block font-ui text-xs font-semibold uppercase tracking-[0.18em] text-penacova"
                 >
-                  View collection at Cafe24 -&gt;
+                  {collectionCtaLabel(locale, collection.season)} -&gt;
                 </a>
               ) : null}
             </div>
@@ -344,6 +344,16 @@ function getCollectionHref(collection: CollectionDoc, locale: Locale) {
   }
 
   return collection.cafe24CollectionUrlKR ?? collection.cafe24CollectionUrlJP;
+}
+
+function collectionCtaLabel(locale: Locale, season: string) {
+  return (
+    {
+      ko: `${season} 컬렉션 보기`,
+      en: `View the ${season} collection`,
+      jp: `View the ${season} collection`,
+    } satisfies Record<Locale, string>
+  )[locale];
 }
 
 function createCollectionJsonLd(collection: CollectionDoc, locale: Locale) {

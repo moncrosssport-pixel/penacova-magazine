@@ -43,8 +43,8 @@
 - [x] Document the remaining authenticated Studio menu visual check.
 - [x] Add Launch Brief -> Article source reference for launch story tracking.
 - [x] Add launch story workbook for the first 12 Studio-authored articles.
-- [x] Add public noindex `/[locale]/launch-workbook` editor route.
-- [x] Add public noindex `/[locale]/launch-readiness` manager route.
+- [x] Add internal noindex `/[locale]/launch-workbook` editor route.
+- [x] Add internal noindex `/[locale]/launch-readiness` manager route.
 - [x] Add HyperFrames-backed autoplay film hero to the locale homepage.
 - [x] Remove pinned scroll and frame expansion from the homepage film.
 - [x] Add click-to-enter real fullscreen control for the homepage film.
@@ -54,11 +54,15 @@
 - [x] Make Sanity Studio more operator-friendly with Korean menu labels, a
       start guide, category-specific article entry points, article preview
       link, field descriptions, and a publish checklist.
+- [x] Harden public launch UX after design review: hide empty categories from
+      masthead/sitemap, surface Rider/Collection cards on Riders/Look indexes,
+      production-hide internal launch pages, and remove Cafe24 platform wording
+      from public CTAs.
 
 ## Progress Estimate
 
 - Phase 1 technical foundation: about 97% complete.
-- Final public launch: about 61% complete.
+- Final public launch: about 64% complete.
 - Main blockers: real hero image upload for the seed article, launch content,
   translation workflow, real newsletter provider connection, custom analytics
   provider setup, and final QA. The magazine subdomain is optional unless a

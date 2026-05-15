@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { MagazineFooter } from '@/components/magazine/MagazineFooter';
 import { MagazineMasthead } from '@/components/magazine/MagazineMasthead';
 import { isLocale } from '@/lib/i18n/locales';
+import { canShowInternalLaunchPages } from '@/lib/magazine/internalRoutes';
 import { launchStoryWorkbooks } from '@/lib/magazine/launchStories';
 
 type LaunchWorkbookPageProps = {
@@ -15,7 +16,7 @@ type LaunchWorkbookPageProps = {
 export function generateMetadata({
   params,
 }: LaunchWorkbookPageProps): Metadata {
-  if (!isLocale(params.locale)) {
+  if (!isLocale(params.locale) || !canShowInternalLaunchPages()) {
     return {};
   }
 
@@ -37,7 +38,7 @@ export function generateMetadata({
 export default function LaunchWorkbookPage({
   params,
 }: LaunchWorkbookPageProps) {
-  if (!isLocale(params.locale)) {
+  if (!isLocale(params.locale) || !canShowInternalLaunchPages()) {
     notFound();
   }
 

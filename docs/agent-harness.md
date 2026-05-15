@@ -56,6 +56,8 @@ Local routes:
 - `http://localhost:3000/ko/look/ss26` for collection look books after content
   seed
 - `http://localhost:3000/ko/subscribe`
+- `http://localhost:3000/ko/launch-workbook` for internal/local editor review
+- `http://localhost:3000/ko/launch-readiness` for internal/local launch review
 - `http://localhost:3000/sitemap.xml`
 - `http://localhost:3000/robots.txt`
 - `http://localhost:3000/studio`
@@ -76,6 +78,10 @@ Production routes:
 - `https://penacova-magazine.vercel.app/ko/subscribe`
 - `https://penacova-magazine.vercel.app/studio`
 
+Internal launch tooling routes return 404 in production unless
+`PENACOVA_SHOW_INTERNAL_LAUNCH_PAGES=1` is set for an explicitly internal
+review deployment.
+
 ## Known Good State
 
 Current known state:
@@ -87,6 +93,12 @@ Current known state:
 - Sanity schemas are registered for Article, Collection, Glossary, Launch Brief,
   Look, Person, Product, and Rider.
 - Category indexes render at `/[locale]/[category]`.
+- The public masthead and sitemap expose only Editorial, Riders, Look, and
+  Subscribe until the hidden categories have real launch content.
+- `/[locale]/riders` surfaces Rider profile documents when rider interview
+  Articles are not published yet.
+- `/[locale]/look` surfaces Collection documents when Look Articles are not
+  published yet.
 - Shared article detail pages render at `/[locale]/[category]/[slug]` after
   content exists.
 - Rider interview articles render at `/[locale]/riders/interviews/[slug]` to
@@ -123,13 +135,11 @@ Current known state:
   `docs/launch-content-inventory.md`.
 - Story-by-story Studio writing instructions for the first 12 stories live in
   `docs/launch-story-workbook.md`.
-- The public editor-facing workbook route is
-  `https://penacova-magazine.vercel.app/ko/launch-workbook` and is marked
-  noindex.
-- The public editor-facing launch readiness route is
-  `https://penacova-magazine.vercel.app/ko/launch-readiness` and is marked
-  noindex. It mirrors the blockers from `pnpm check:launch` for managers who
-  should not need CLI access.
+- The editor-facing workbook route is `/[locale]/launch-workbook`, marked
+  noindex, and production-hidden by default.
+- The editor-facing launch readiness route is `/[locale]/launch-readiness`,
+  marked noindex, production-hidden by default, and mirrors the blockers from
+  `pnpm check:launch` for managers who should not need CLI access.
 - Studio Launch Desk planning cards are seeded in production Sanity. CLI
   verification returned 18 `launchBrief` documents.
 - Glossary starter terms are seeded in production Sanity. CLI verification
@@ -198,6 +208,7 @@ For each task:
 | SEO metadata | `pnpm test`, `pnpm build`, check page head, `/robots.txt`, `/sitemap.xml` |
 | Analytics instrumentation | `pnpm test`, `pnpm build`, check rendered page data attributes |
 | Newsletter/follow surface | `pnpm test`, `pnpm build`, check `/[locale]/subscribe` and homepage `#newsletter` |
+| Internal launch tooling | `pnpm test`, `pnpm build`, confirm production routes 404 unless explicitly enabled |
 | Visual design | Design system review, `pnpm test`, `pnpm build`, browser check |
 | Vercel/deploy | Production or preview URL check |
 | Docs only | Link/file review, `git diff --check` |

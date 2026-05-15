@@ -5,7 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { LOCALES, type Locale } from '@/lib/i18n/locales';
 import { localePath } from '@/lib/i18n/routes';
-import { MAGAZINE_CATEGORIES } from '@/lib/magazine/categories';
+import {
+  getPublicMastheadLinks,
+  isPublicMastheadLinkActive,
+  type PublicMastheadLink,
+} from '@/lib/magazine/navigation';
 
 type HomeFilmState = 'idle' | 'playing' | 'ended' | 'paused';
 
@@ -22,6 +26,7 @@ export function MagazineMasthead({
 }: MagazineMastheadProps) {
   const [isHidden, setIsHidden] = useState(false);
   const [filmState, setFilmState] = useState<HomeFilmState>('idle');
+  const navLinks = getPublicMastheadLinks(locale);
 
   useEffect(() => {
     if (!hideOnScroll) {
@@ -116,19 +121,13 @@ export function MagazineMasthead({
         </Link>
 
         <nav className="hidden justify-center gap-6 whitespace-nowrap font-ui text-[10px] font-semibold uppercase tracking-[0.2em] xl:flex">
-          {MAGAZINE_CATEGORIES.map((category) => (
-            <Link
-              key={category.id}
-              href={`/${locale}/${category.id}`}
-              data-analytics-event="category_nav"
-              data-analytics-label={category.label}
-              data-analytics-locale={locale}
-              data-analytics-category={category.id}
-              data-analytics-href={`/${locale}/${category.id}`}
-              className="no-underline transition-colors hover:text-penacova"
-            >
-              {category.label}
-            </Link>
+          {navLinks.map((link) => (
+            <MastheadNavLink
+              key={link.id}
+              link={link}
+              locale={locale}
+              active={isPublicMastheadLinkActive(link, pathSegments)}
+            />
           ))}
         </nav>
 
@@ -158,22 +157,45 @@ export function MagazineMasthead({
 
       <div className="border-t border-hairline px-4 py-2 sm:px-8 xl:hidden">
         <nav className="flex gap-5 overflow-x-auto whitespace-nowrap font-ui text-[10px] font-semibold uppercase tracking-[0.2em] [-ms-overflow-style:none] [scrollbar-width:none] sm:justify-center sm:gap-7 [&::-webkit-scrollbar]:hidden">
-          {MAGAZINE_CATEGORIES.map((category) => (
-            <Link
-              key={category.id}
-              href={`/${locale}/${category.id}`}
-              data-analytics-event="category_nav"
-              data-analytics-label={category.label}
-              data-analytics-locale={locale}
-              data-analytics-category={category.id}
-              data-analytics-href={`/${locale}/${category.id}`}
-              className="no-underline transition-colors hover:text-penacova"
-            >
-              {category.label}
-            </Link>
+          {navLinks.map((link) => (
+            <MastheadNavLink
+              key={link.id}
+              link={link}
+              locale={locale}
+              active={isPublicMastheadLinkActive(link, pathSegments)}
+            />
           ))}
         </nav>
       </div>
     </header>
+  );
+}
+
+function MastheadNavLink({
+  link,
+  locale,
+  active,
+}: {
+  link: PublicMastheadLink;
+  locale: Locale;
+  active: boolean;
+}) {
+  return (
+    <Link
+      href={link.href}
+      aria-current={active ? 'page' : undefined}
+      data-analytics-event={link.analyticsEvent}
+      data-analytics-label={link.label}
+      data-analytics-locale={locale}
+      data-analytics-category={link.category}
+      data-analytics-href={link.href}
+      className={`border-b pb-0.5 no-underline transition-colors ${
+        active
+          ? 'border-penacova text-penacova'
+          : 'border-transparent hover:border-ink hover:text-penacova'
+      }`}
+    >
+      {link.label}
+    </Link>
   );
 }

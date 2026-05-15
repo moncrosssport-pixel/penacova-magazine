@@ -55,13 +55,20 @@ Completed:
   navigation, and outbound Cafe24 CTA clicks.
 - No-code newsletter/follow settings render the homepage newsletter section and
   `/[locale]/subscribe` route.
+- Public masthead and sitemap navigation now expose only Editorial, Riders,
+  Look, and Subscribe until empty launch categories have content.
+- Riders and Look index pages surface existing Rider and Collection documents
+  when no Article documents are published in those sections yet.
+- Launch workbook and readiness pages are noindex internal tooling and return
+  404 in production unless `PENACOVA_SHOW_INTERNAL_LAUNCH_PAGES=1` is set.
 - Launch content inventory covers 12 first stories, 5 rider profile slots, and
   50 glossary starter terms.
 - Launch story workbook maps the 12 story briefs to exact Article fields,
   source brief references, routes, required assets, approvals, and writing
   angles.
-- A public noindex editor workbook route at `/[locale]/launch-workbook` renders
-  the same launch story handoff as a shareable site link.
+- An internal noindex editor workbook route at `/[locale]/launch-workbook`
+  renders the same launch story handoff for local or explicitly enabled review
+  deployments.
 - Launch Desk planning cards can track those story, rider, and glossary launch
   tasks inside Studio before final public documents are published.
 - Glossary starter terms are seeded into Studio with Japanese review explicitly
@@ -548,24 +555,26 @@ Acceptance:
 
 Status: complete locally.
 
-### Slice 25: Public Editor Workbook Route
+### Slice 25: Internal Editor Workbook Route
 
-Expose the launch story workbook as a shareable noindex page so the project
-owner can open it from the deployed site.
+Expose the launch story workbook as an internal noindex page so the project
+owner can open it locally or in an explicitly enabled review deployment.
 
 Acceptance:
 
 - `/[locale]/launch-workbook` renders the 12 launch story workbook entries.
 - The route uses the same `launchStoryWorkbooks` data covered by unit tests.
 - Metadata marks the page `noindex, nofollow`.
+- Production returns 404 unless `PENACOVA_SHOW_INTERNAL_LAUNCH_PAGES=1` is set.
 - The page keeps the existing magazine masthead/footer shell.
 
 Status: complete locally.
 
-### Slice 26: Public Launch Readiness Route
+### Slice 26: Internal Launch Readiness Route
 
-Expose launch readiness blockers as a noindex manager page so non-technical
-owners can see what remains before launch.
+Expose launch readiness blockers as an internal noindex manager page so
+non-technical owners can see what remains before launch without making those
+blockers public.
 
 Acceptance:
 
@@ -573,6 +582,7 @@ Acceptance:
   and missing categories.
 - The route reuses the same readiness summary logic as `pnpm check:launch`.
 - Metadata marks the page `noindex, nofollow`.
+- Production returns 404 unless `PENACOVA_SHOW_INTERNAL_LAUNCH_PAGES=1` is set.
 - The page links to Studio and the launch story workbook.
 
 Status: complete locally.
@@ -624,6 +634,31 @@ Acceptance:
 
 Status: complete locally. Full visual verification of the authenticated Studio
 menu still requires a Sanity member browser session.
+
+### Slice 29: Public Launch UX Hardening
+
+Apply the latest UI/UX review so the public site looks less like an empty
+template before the launch content batch is complete.
+
+Acceptance:
+
+- The public masthead and sitemap expose only Editorial, Riders, Look, and
+  Subscribe during the initial launch window.
+- `/[locale]/riders` lists Rider profile documents when rider interview
+  Articles are not published yet.
+- `/[locale]/look` lists Collection documents when Look Articles are not
+  published yet.
+- Empty hidden-category pages use differentiated coming-soon copy.
+- Newsletter pages always show the email capture layout, while still making
+  the missing provider connection explicit.
+- Cafe24 is not exposed as platform wording in user-facing collection/product
+  CTAs.
+- Internal launch workbook/readiness pages are production-hidden by default.
+- `pnpm test` passes.
+- `pnpm build` passes.
+- Main affected routes are checked in a browser.
+
+Status: complete locally.
 
 ## Later Phases
 

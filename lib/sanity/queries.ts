@@ -139,6 +139,26 @@ export function riderBySlugParams(slug: string) {
   return { slug };
 }
 
+export function ridersIndexQuery(): string {
+  return `
+    *[
+      _type == "rider" &&
+      defined(slug.current) &&
+      !(_id in path("drafts.**"))
+    ] | order(_createdAt asc)[0...24]{
+      _id,
+      name,
+      romanizedName,
+      "slug": slug.current,
+      portrait,
+      discipline,
+      careerYears,
+      club,
+      titles
+    }
+  `;
+}
+
 export function collectionBySlugQuery(): string {
   return `
     *[
@@ -193,6 +213,26 @@ export function collectionBySlugQuery(): string {
 
 export function collectionBySlugParams(slug: string) {
   return { slug };
+}
+
+export function collectionsIndexQuery(): string {
+  return `
+    *[
+      _type == "collection" &&
+      defined(slug.current) &&
+      !(_id in path("drafts.**"))
+    ] | order(_createdAt desc)[0...24]{
+      _id,
+      season,
+      title,
+      "slug": slug.current,
+      heroImage,
+      "looks": looks[]->{
+        _id,
+        image
+      }
+    }
+  `;
 }
 
 export function sitemapArticlesQuery(): string {

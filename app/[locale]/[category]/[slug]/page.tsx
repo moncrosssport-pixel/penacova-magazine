@@ -179,11 +179,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               sizes="100vw"
             />
           </div>
-        ) : (
-          <div className="aspect-[21/10] w-full bg-tonal" />
-        )}
+        ) : null}
 
-        <header className="mx-auto max-w-[760px] px-6 py-14 sm:px-10 lg:py-16">
+        <header
+          className={`mx-auto max-w-[760px] px-6 py-14 sm:px-10 ${
+            heroImageUrl ? 'lg:py-16' : 'lg:py-20'
+          }`}
+        >
           <p className="kicker">{meta.label}</p>
           <h1 className="mt-6 font-display text-5xl font-semibold leading-none tracking-[-0.015em] text-balance sm:text-6xl lg:text-7xl">
             {title}

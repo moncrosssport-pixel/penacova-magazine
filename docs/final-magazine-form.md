@@ -117,7 +117,9 @@ Required sections:
 1. Masthead with locale switcher.
 2. Lead story with full-width or dominant photography.
 3. Editor's selection: 3 to 5 latest/highlighted stories.
-4. Category rails for Editorial, Riders, Look, Heritage, Guide, News, Stories.
+4. Initial launch rails for Editorial, Riders, Look, and Subscribe. Open
+   Heritage, Guide, News, and Stories only after those sections contain real
+   launch content.
 5. Quiet newsletter or follow CTA.
 6. Footer with brand links, Cafe24 shop links, and legal basics.
 

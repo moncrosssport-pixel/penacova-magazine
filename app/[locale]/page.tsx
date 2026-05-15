@@ -26,12 +26,14 @@ type HomeCopy = {
     kicker: string;
     title: string;
     byline: string;
+    href: string;
     ratio: 'portrait' | 'landscape' | 'square';
   }>;
   rails: Array<{
-    id: 'editorial' | 'riders' | 'look' | 'guide';
+    id: 'editorial' | 'riders' | 'look' | 'subscribe';
     title: string;
     dek: string;
+    action?: string;
   }>;
 };
 
@@ -53,21 +55,24 @@ const copy: Record<Locale, HomeCopy> = {
     editorTitle: "Editor's Selection",
     selections: [
       {
-        kicker: 'RIDER INTERVIEW',
-        title: '말의 리듬을 먼저 읽는 사람',
+        kicker: 'EDITORIAL',
+        title: '초원 위의 침묵, 지원의 아침',
         byline: 'BY EDITORIAL DESK',
+        href: '/editorial/quiet-morning',
         ratio: 'portrait',
       },
       {
         kicker: 'LOOK BOOK',
-        title: 'SS26, 움직임을 위한 재단',
+        title: 'SS26, 새벽의 실루엣',
         byline: 'STYLE NOTES',
+        href: '/look/ss26',
         ratio: 'portrait',
       },
       {
-        kicker: 'HERITAGE',
-        title: '자수 한 땀이 완성하는 시간',
-        byline: 'CRAFT JOURNAL',
+        kicker: 'RIDER PROFILE',
+        title: '김지원 라이더 프로필',
+        byline: 'PENACOVA RIDERS',
+        href: '/riders/jiwon-kim',
         ratio: 'portrait',
       },
     ],
@@ -88,9 +93,10 @@ const copy: Record<Locale, HomeCopy> = {
         dek: '시즌 컬렉션과 라이딩을 위한 스타일 노트',
       },
       {
-        id: 'guide',
-        title: 'Guide',
-        dek: '소재, 사이즈, 관리법을 차분하게 정리한 가이드',
+        id: 'subscribe',
+        title: 'Subscribe',
+        dek: '다음 이슈를 조용한 월간 노트로 받아보기',
+        action: 'Join',
       },
     ],
   },
@@ -103,21 +109,24 @@ const copy: Record<Locale, HomeCopy> = {
     editorTitle: "Editor's Selection",
     selections: [
       {
-        kicker: 'RIDER INTERVIEW',
-        title: 'The rider who reads the rhythm first',
+        kicker: 'EDITORIAL',
+        title: 'The quiet before the morning ride',
         byline: 'BY EDITORIAL DESK',
+        href: '/editorial/quiet-morning',
         ratio: 'portrait',
       },
       {
         kicker: 'LOOK BOOK',
         title: 'SS26, tailored for movement',
         byline: 'STYLE NOTES',
+        href: '/look/ss26',
         ratio: 'portrait',
       },
       {
-        kicker: 'HERITAGE',
-        title: 'The time held inside one stitch',
-        byline: 'CRAFT JOURNAL',
+        kicker: 'RIDER PROFILE',
+        title: 'Jiwon Kim rider profile',
+        byline: 'PENACOVA RIDERS',
+        href: '/riders/jiwon-kim',
         ratio: 'portrait',
       },
     ],
@@ -138,9 +147,10 @@ const copy: Record<Locale, HomeCopy> = {
         dek: 'Seasonal collections and notes for riding in motion',
       },
       {
-        id: 'guide',
-        title: 'Guide',
-        dek: 'Materials, sizing, and care for the riding wardrobe',
+        id: 'subscribe',
+        title: 'Subscribe',
+        dek: 'Receive the next issue as a quiet monthly note',
+        action: 'Join',
       },
     ],
   },
@@ -153,21 +163,24 @@ const copy: Record<Locale, HomeCopy> = {
     editorTitle: "Editor's Selection",
     selections: [
       {
-        kicker: 'RIDER INTERVIEW',
-        title: '馬のリズムを先に読む人',
+        kicker: 'EDITORIAL',
+        title: '朝の騎乗前にある静けさ',
         byline: 'BY EDITORIAL DESK',
+        href: '/editorial/quiet-morning',
         ratio: 'portrait',
       },
       {
         kicker: 'LOOK BOOK',
         title: 'SS26、動きのためのテーラリング',
         byline: 'STYLE NOTES',
+        href: '/look/ss26',
         ratio: 'portrait',
       },
       {
-        kicker: 'HERITAGE',
-        title: '一針が完成させる時間',
-        byline: 'CRAFT JOURNAL',
+        kicker: 'RIDER PROFILE',
+        title: 'Jiwon Kim rider profile',
+        byline: 'PENACOVA RIDERS',
+        href: '/riders/jiwon-kim',
         ratio: 'portrait',
       },
     ],
@@ -188,9 +201,10 @@ const copy: Record<Locale, HomeCopy> = {
         dek: 'シーズンコレクションとライディングのためのスタイルノート',
       },
       {
-        id: 'guide',
-        title: 'Guide',
-        dek: '素材、サイズ、ケアを静かに案内するガイド',
+        id: 'subscribe',
+        title: 'Subscribe',
+        dek: 'Receive the next issue as a quiet monthly note',
+        action: 'Join',
       },
     ],
   },
@@ -220,7 +234,11 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
         </div>
         <div className="grid gap-8 md:grid-cols-3">
           {content.selections.map((story) => (
-            <StoryCard key={story.title} {...story} />
+            <StoryCard
+              key={story.title}
+              {...story}
+              href={`/${params.locale}${story.href}`}
+            />
           ))}
         </div>
       </section>
@@ -232,10 +250,14 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
               id={rail.id}
               key={rail.id}
               href={`/${params.locale}/${rail.id}`}
-              data-analytics-event="category_nav"
+              data-analytics-event={
+                rail.id === 'subscribe' ? 'subscribe_nav' : 'category_nav'
+              }
               data-analytics-label={rail.title}
               data-analytics-locale={params.locale}
-              data-analytics-category={rail.id}
+              data-analytics-category={
+                rail.id === 'subscribe' ? undefined : rail.id
+              }
               data-analytics-href={`/${params.locale}/${rail.id}`}
               className="grid gap-3 py-8 no-underline md:grid-cols-[220px_1fr_auto] md:items-center"
             >
@@ -246,7 +268,7 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
                 {rail.dek}
               </span>
               <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
-                Read
+                {rail.action ?? 'Read'}
               </span>
             </Link>
           ))}

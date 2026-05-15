@@ -1,11 +1,11 @@
 import type { MetadataRoute } from 'next';
 import { LOCALES } from '@/lib/i18n/locales';
 import {
-  MAGAZINE_CATEGORIES,
   type ArticleCategory,
   getArticlePathSegments,
   isArticleCategory,
 } from '@/lib/magazine/categories';
+import { PUBLIC_MAGAZINE_CATEGORY_IDS } from '@/lib/magazine/navigation';
 import { sanityClient } from '@/lib/sanity/client';
 import {
   sitemapArticlesQuery,
@@ -44,8 +44,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = LOCALES.flatMap((locale) => [
     createEntry(localePath(locale), now, 'daily', 0.9),
     createEntry(localePath(locale, ['subscribe']), now, 'monthly', 0.5),
-    ...MAGAZINE_CATEGORIES.map((category) =>
-      createEntry(localePath(locale, [category.id]), now, 'daily', 0.7),
+    ...PUBLIC_MAGAZINE_CATEGORY_IDS.map((categoryId) =>
+      createEntry(localePath(locale, [categoryId]), now, 'daily', 0.7),
     ),
   ]);
 

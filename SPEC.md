@@ -62,11 +62,18 @@ The repository currently contains the foundation:
 - Provider-neutral analytics event foundation for reading depth, locale/category
   navigation, and outbound Cafe24 CTA clicks
 - No-code newsletter/follow settings and `/[locale]/subscribe` capture surface
+- Initial public masthead/sitemap navigation limited to Editorial, Riders,
+  Look, and Subscribe while empty launch categories remain hidden from primary
+  navigation
+- Riders and Look category indexes surface existing Rider and Collection
+  documents when no Article documents are published in those sections yet
 - Launch content inventory for first stories, rider profiles, and glossary terms
 - Launch story workbook for the first 12 stories, including exact source brief,
   route, asset, approval, and Studio field guidance
-- Public noindex editor workbook route at `/[locale]/launch-workbook`
-- Public noindex launch readiness route at `/[locale]/launch-readiness`
+- Internal noindex editor workbook route at `/[locale]/launch-workbook`,
+  production-hidden by default
+- Internal noindex launch readiness route at `/[locale]/launch-readiness`,
+  production-hidden by default
 - HyperFrames-backed autoplay homepage film hero using
   `public/media/penacova_home_pinned_scroll.mp4`
 - Launch Desk seed payload for 12 story briefs, 5 rider profile briefs, and one
@@ -89,7 +96,7 @@ Later category-specific detail templates still need launch content.
 Approximate current progress:
 
 - Phase 1 technical foundation: 97% complete.
-- Final public launch: 61% complete.
+- Final public launch: 64% complete.
 
 ## Phase 1 Target
 
